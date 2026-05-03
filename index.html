@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Velocity Capital Group — Build Progress Report</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      padding: 32px 24px;
+      min-height: 100vh;
+    }
+
+    /* ─── Header ─── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #1e2433;
+    }
+    .header-left h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f1f5f9;
+      letter-spacing: -0.3px;
+    }
+    .header-left .subtitle {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .header-right {
+      text-align: right;
+    }
+    .date-badge {
+      background: #1e2433;
+      border: 1px solid #2d3748;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .week-badge {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #475569;
+    }
+
+    /* ─── Overall Progress ─── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: #161b27;
+      border: 1px solid #1e2433;
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .stat-card .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #475569;
+      margin-bottom: 8px;
+    }
+    .stat-card .value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+    .stat-card .sub {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+    .stat-card.green .value { color: #34d399; }
+    .stat-card.blue .value  { color: #60a5fa; }
+    .stat-card.yellow .value { color: #fbbf24; }
+    .stat-card.red .value   { color: #f87171; }
+
+    /* ─── Progress Bar ─── */
+    .progress-section {
+      background: #161b27;
+      border: 1px solid #1e2433;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .progress-header span {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .progress-header strong {
+      font-size: 13px;
+      color: #34d399;
+    }
+    .bar-track {
+      background: #1e2433;
+      border-radius: 999px;
+      height: 8px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #10b981, #34d399);
+      transition: width 0.8s ease;
+    }
+    .phase-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .phase-labels span {
+      font-size: 10px;
+      color: #334155;
+    }
+    .phase-labels span.active {
+      color: #34d399;
+    }
+
+    /* ─── Section ─── */
+    .section {
+      margin-bottom: 28px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .entity-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+    .tag-vc { background: #1e3a5f; color: #60a5fa; }
+    .tag-ar { background: #1a3a2a; color: #34d399; }
+    .tag-av { background: #3a2a1a; color: #fbbf24; }
+    .tag-ac { background: #3a1a1a; color: #f87171; }
+
+    .section-header h2 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+    .section-header .count {
+      font-size: 12px;
+      color: #475569;
+      margin-left: auto;
+    }
+
+    /* ─── Workflow Grid ─── */
+    .wf-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .wf-card {
+      background: #161b27;
+      border: 1px solid #1e2433;
+      border-radius: 8px;
+      padding: 14px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .wf-card.done   { border-left: 3px solid #34d399; }
+    .wf-card.next   { border-left: 3px solid #60a5fa; }
+    .wf-card.pending{ border-left: 3px solid #334155; }
+    .wf-card.blocked{ border-left: 3px solid #f59e0b; }
+
+    .wf-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+    .wf-id {
+      font-size: 10px;
+      font-weight: 700;
+      color: #475569;
+      letter-spacing: 0.5px;
+    }
+    .status-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .badge-done    { background: #064e3b; color: #34d399; }
+    .badge-next    { background: #1e3a5f; color: #60a5fa; }
+    .badge-pending { background: #1a1f2e; color: #475569; }
+    .badge-blocked { background: #451a03; color: #f59e0b; }
+
+    .wf-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .wf-trigger {
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.4;
+    }
+    .wf-trigger span {
+      color: #334155;
+    }
+
+    /* ─── Blockers ─── */
+    .blockers-section {
+      background: #1a1208;
+      border: 1px solid #78350f;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+    .blockers-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fbbf24;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .blocker-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #2d1f08;
+    }
+    .blocker-item:last-child { border-bottom: none; }
+    .blocker-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: #451a03;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .blocker-content .title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fcd34d;
+      margin-bottom: 2px;
+    }
+    .blocker-content .desc {
+      font-size: 12px;
+      color: #92400e;
+    }
+
+    /* ─── Tech Discoveries ─── */
+    .discoveries {
+      background: #0d1f0d;
+      border: 1px solid #14532d;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+    .discoveries h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #34d399;
+      margin-bottom: 14px;
+    }
+    .discovery-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 7px 0;
+      border-bottom: 1px solid #14532d22;
+      font-size: 12px;
+      color: #86efac;
+      line-height: 1.5;
+    }
+    .discovery-item:last-child { border-bottom: none; }
+    .disc-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #34d399;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid #1e2433;
+    }
+    .footer-left {
+      font-size: 11px;
+      color: #334155;
+    }
+    .footer-left strong { color: #475569; }
+    .footer-right {
+      display: flex;
+      gap: 8px;
+    }
+    .cred-tag {
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: #1e2433;
+      color: #475569;
+      border: 1px solid #2d3748;
+    }
+    .cred-tag.active {
+      background: #064e3b;
+      color: #34d399;
+      border-color: #065f46;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Velocity Capital Group — Automation Build Report</h1>
+      <div class="subtitle">n8n + GHL + Claude AI · Week 1 Progress · Prepared by Vladimir</div>
+    </div>
+    <div class="header-right">
+      <div class="date-badge" id="report-date">May 3, 2026</div>
+      <div class="week-badge">Week 1 of 6 · <span id="last-updated"></span></div>
+    </div>
+  </div>
+
+  <!-- Summary Stats -->
+  <div class="summary-grid">
+    <div class="stat-card green">
+      <div class="label">Workflows Complete</div>
+      <div class="value">3</div>
+      <div class="sub">of 18 total</div>
+    </div>
+    <div class="stat-card blue">
+      <div class="label">In Progress</div>
+      <div class="value">1</div>
+      <div class="sub">WF-VC-04 next</div>
+    </div>
+    <div class="stat-card yellow">
+      <div class="label">Pending (Drew)</div>
+      <div class="value">2</div>
+      <div class="sub">Slack token · Calendly</div>
+    </div>
+    <div class="stat-card red">
+      <div class="label">Blockers</div>
+      <div class="value">0</div>
+      <div class="sub">All clear to build</div>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-section">
+    <div class="progress-header">
+      <span>Overall Build Progress</span>
+      <strong>17% complete — 3 of 18 workflows live</strong>
+    </div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width: 17%;"></div>
+    </div>
+    <div class="phase-labels">
+      <span class="active">▶ Week 1 — VC Core</span>
+      <span>Week 2 — VC Advanced</span>
+      <span>Week 3 — AR Start</span>
+      <span>Week 4 — AV</span>
+      <span>Week 5 — AC</span>
+      <span>Week 6 — Reports</span>
+    </div>
+  </div>
+
+  <!-- VC Workflows -->
+  <div class="section">
+    <div class="section-header">
+      <span class="entity-tag tag-vc">VC</span>
+      <h2>Velocity Capital — Insurance &amp; IBC Workflows</h2>
+      <span class="count">3 done · 3 remaining</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">WF-VC-01</span>
+          <span class="status-badge badge-done">✅ Live</span>
+        </div>
+        <div class="wf-name">Lead Capture</div>
+        <div class="wf-trigger"><span>Trigger:</span> GHL Form → Webhook<br>Claude qualifies lead → GHL contact + opportunity created</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">WF-VC-02</span>
+          <span class="status-badge badge-done">✅ Live</span>
+        </div>
+        <div class="wf-name">AI Education Drip</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Nurturing<br>Claude writes personalized Day 1 email (PAS framework, 200 words)</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">WF-VC-03</span>
+          <span class="status-badge badge-done">✅ Live</span>
+        </div>
+        <div class="wf-name">Strategy Call Booking → Prep</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Call Scheduled<br>Claude generates call prep · saves to notes · sends confirmation email</div>
+      </div>
+      <div class="wf-card next">
+        <div class="wf-top">
+          <span class="wf-id">WF-VC-04</span>
+          <span class="status-badge badge-next">🔨 Next</span>
+        </div>
+        <div class="wf-name">Post-Call Follow-Up</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Proposal Sent<br>Claude writes proposal email → 48hr reminder → 5-day SMS nudge</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-VC-05</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Policy Funded → Investor Transition</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Policy Active + cash value &gt;$50K<br>Cross-entity handoff: VC → AV deal creation</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-VC-06</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Monthly Client Report</div>
+        <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Claude writes personalized monthly update → GHL email</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AR Workflows -->
+  <div class="section">
+    <div class="section-header">
+      <span class="entity-tag tag-ar">AR</span>
+      <h2>Anza Rentals — Acquisitions &amp; STR Workflows</h2>
+      <span class="count">0 done · 5 remaining</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AR-01</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">New Property Lead Intake</div>
+        <div class="wf-trigger"><span>Trigger:</span> Webhook (Carrot / MLS)<br>Claude scores deal 1–10 → Slack #ar-hot-deals if &gt;7</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AR-02</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Deal Under Contract → AC Handoff</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Under Contract<br>Creates AC deal + Slack #ac-new-projects</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AR-03</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">STR Dynamic Pricing Sync</div>
+        <div class="wf-trigger"><span>Trigger:</span> Cron — daily 6 AM<br>PriceLabs + Hospitable sync → Airtable log</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AR-04</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">AI Guest Communication Agent</div>
+        <div class="wf-trigger"><span>Trigger:</span> Hospitable webhook (new message)<br>Claude auto-replies or escalates to Slack</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AR-05</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Rental Performance Monthly Report</div>
+        <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Hospitable + Stessa → Claude narrative → owners + AV portal</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AV Workflows -->
+  <div class="section">
+    <div class="section-header">
+      <span class="entity-tag tag-av">AV</span>
+      <h2>Anza Ventures — Investor Workflows</h2>
+      <span class="count">0 done · 4 remaining</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AV-01</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Investor Onboarding</div>
+        <div class="wf-trigger"><span>Trigger:</span> New AV deal created<br>DocuSign subscription → Accredited stage → ActiveCampaign drip</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AV-02</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Deal Matching → Investor Notification</div>
+        <div class="wf-trigger"><span>Trigger:</span> New investment opportunity<br>Claude matches investors → personalized email per investor</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AV-03</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Capital Call Processing</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Capital Call<br>Pro-rata calc → DocuSign ACH → track receipt</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AV-04</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Quarterly Distribution Reports</div>
+        <div class="wf-trigger"><span>Trigger:</span> Cron — quarterly<br>Claude K-1 summary + narrative → investors via email</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AC Workflows -->
+  <div class="section">
+    <div class="section-header">
+      <span class="entity-tag tag-ac">AC</span>
+      <h2>Anza Construction — Project Workflows</h2>
+      <span class="count">0 done · 3 remaining</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AC-01</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Project Kickoff</div>
+        <div class="wf-trigger"><span>Trigger:</span> New AC deal (from WF-AR-02)<br>Google Drive folder → Claude budget estimate → contractor emails</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AC-02</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Milestone Tracking + Investor Updates</div>
+        <div class="wf-trigger"><span>Trigger:</span> Activity completed in pipeline<br>% complete → AV deal update → Claude progress email</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">WF-AC-03</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Build Complete → AV Handoff</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Certificate of Occupancy<br>Cost seg study → AV + AR deals created → Claude completion report</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blockers -->
+  <div class="blockers-section">
+    <h3>⚠ Waiting on Drew — Action Required</h3>
+    <div class="blocker-item">
+      <div class="blocker-icon">💬</div>
+      <div class="blocker-content">
+        <div class="title">Slack Bot Token (xoxb-...)</div>
+        <div class="desc">Needed to add Slack notifications to all workflows (#vc-leads, #vc-calls, #ar-hot-deals, #ac-new-projects). Workspace confirmed: Anza Ventures.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">📅</div>
+      <div class="blocker-content">
+        <div class="title">Calendly Personal Access Token</div>
+        <div class="desc">WF-VC-03 currently uses a mock webhook trigger. Live Calendly integration requires your personal access token from calendly.com/integrations/api_webhooks.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">📧</div>
+      <div class="blocker-content">
+        <div class="title">Confirm "From" Email Address</div>
+        <div class="desc">Currently using your GHL-connected email as the sender. Confirm if this is correct or if a dedicated address (e.g. no-reply@velocitycapitalgroup.com) should be used.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech Discoveries -->
+  <div class="discoveries">
+    <h3>✅ Technical Discoveries This Week</h3>
+    <div class="discovery-item"><div class="disc-dot"></div>Native n8n Anthropic node has a credential bug — switched to HTTP Request node for all Claude calls (working perfectly)</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL V1 API was deprecated Dec 31 2025 — all calls now use V2 (services.leadconnectorhq.com) with PIT token authentication</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL requires locationId in every V2 API body or returns 403 — added to all nodes</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL Conversations API requires "html" field for email body (not "body" or "message") — fixed in WF-VC-02</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL auto-enables DND on contacts with repeated email bounces — must manually disable per contact in GHL settings</div>
+    <div class="discovery-item"><div class="disc-dot"></div>n8n "Using Fields Below" mode prevents Claude's special characters from breaking JSON — applied to all Claude output nodes</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL V2 /contacts/ search by email returns 422 — redesigned WF-VC-03 to pass contactId directly in webhook payload (more reliable)</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      Built by <strong>Vladimir</strong> · n8n instance: <strong>n8n.srv1305072.hstgr.cloud</strong> · GHL: <strong>app.ghlpinas.ph</strong>
+    </div>
+    <div class="footer-right">
+      <span class="cred-tag active">GHL V2 API ✓</span>
+      <span class="cred-tag active">Claude Haiku ✓</span>
+      <span class="cred-tag active">Claude Sonnet ✓</span>
+      <span class="cred-tag">Slack ⏳</span>
+      <span class="cred-tag">Calendly ⏳</span>
+    </div>
+  </div>
+
+  <script>
+    const el = document.getElementById('last-updated');
+    if (el) el.textContent = 'Last updated: May 3, 2026';
+  </script>
+</body>
+</html>
