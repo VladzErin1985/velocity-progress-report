@@ -53,6 +53,58 @@
     }
 
     /* ─── Overall Progress ─── */
+    /* ─── Velocity Banner ─── */
+    .velocity-banner {
+      background: linear-gradient(135deg, #0a1628 0%, #0d2137 100%);
+      border: 1px solid #1e3a5f;
+      border-left: 4px solid #60a5fa;
+      border-radius: 10px;
+      padding: 16px 24px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .velocity-banner .label {
+      font-size: 12px;
+      color: #60a5fa;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .velocity-banner .message {
+      font-size: 14px;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+    .velocity-banner .message strong { color: #34d399; }
+    .velocity-banner .timeline {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tl-item {
+      background: #0f2744;
+      border: 1px solid #1e3a5f;
+      border-radius: 6px;
+      padding: 6px 12px;
+      text-align: center;
+    }
+    .tl-item .tl-date {
+      font-size: 10px;
+      color: #475569;
+      margin-bottom: 2px;
+    }
+    .tl-item .tl-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #60a5fa;
+    }
+    .tl-item.done .tl-label { color: #34d399; }
+
     .summary-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -350,6 +402,36 @@
     <div class="header-right">
       <div class="date-badge" id="report-date">May 3, 2026</div>
       <div class="week-badge">Week 1 of 6 · <span id="last-updated"></span></div>
+    </div>
+  </div>
+
+  <!-- Velocity Banner -->
+  <div class="velocity-banner">
+    <div>
+      <div class="label">Build Velocity</div>
+      <div class="message"><strong>3 workflows built and live-tested within 48 hours of hire.</strong> All end-to-end tested with real GHL data — not mock runs.</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">May 1</div>
+        <div class="tl-label">Hired</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">May 1–2</div>
+        <div class="tl-label">WF-VC-01 ✅</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">May 2</div>
+        <div class="tl-label">WF-VC-02 ✅</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">May 2–3</div>
+        <div class="tl-label">WF-VC-03 ✅</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">May 4</div>
+        <div class="tl-label">WF-VC-04 🔨</div>
+      </div>
     </div>
   </div>
 
