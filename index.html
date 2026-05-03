@@ -207,6 +207,8 @@
     .tag-ar { background: #1a3a2a; color: #34d399; }
     .tag-av { background: #3a2a1a; color: #fbbf24; }
     .tag-ac { background: #3a1a1a; color: #f87171; }
+    .tag-lg { background: #2e1065; color: #a78bfa; }
+    .tag-pc { background: #0c1a2e; color: #38bdf8; }
 
     .section-header h2 {
       font-size: 14px;
@@ -277,6 +279,71 @@
     .wf-trigger span {
       color: #334155;
     }
+
+    /* ─── LangGraph + Pinecone ─── */
+    .lg-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .lg-card {
+      background: #161b27;
+      border: 1px solid #1e2433;
+      border-left: 3px solid #7c3aed;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .lg-card.pending { border-left-color: #334155; }
+    .lg-card .lg-id {
+      font-size: 10px;
+      font-weight: 700;
+      color: #7c3aed;
+      margin-bottom: 4px;
+    }
+    .lg-card.pending .lg-id { color: #475569; }
+    .lg-card .lg-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .lg-card .lg-desc {
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.4;
+    }
+    .pinecone-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .pc-card {
+      background: #161b27;
+      border: 1px solid #1e2433;
+      border-left: 3px solid #334155;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .pc-card .pc-index {
+      font-size: 10px;
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 4px;
+    }
+    .pc-card .pc-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+    }
+    .pc-card .pc-desc {
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.4;
+    }
+    .tag-lg { background: #2e1065; color: #a78bfa; }
+    .tag-pc { background: #0c1a2e; color: #38bdf8; }
 
     /* ─── Blockers ─── */
     .blockers-section {
@@ -397,7 +464,7 @@
   <div class="header">
     <div class="header-left">
       <h1>Velocity Capital Group — Automation Build Report</h1>
-      <div class="subtitle">n8n + GHL + Claude AI · Week 1 Progress · Prepared by Vladimir</div>
+      <div class="subtitle">n8n + LangGraph + Pinecone + Claude AI · Week 1 Progress · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
       <div class="date-badge" id="report-date">May 3, 2026</div>
@@ -438,19 +505,19 @@
   <!-- Summary Stats -->
   <div class="summary-grid">
     <div class="stat-card green">
-      <div class="label">Workflows Complete</div>
+      <div class="label">n8n Workflows Live</div>
       <div class="value">3</div>
       <div class="sub">of 18 total</div>
     </div>
     <div class="stat-card blue">
-      <div class="label">In Progress</div>
-      <div class="value">1</div>
-      <div class="sub">WF-VC-04 next</div>
+      <div class="label">LangGraph Agents</div>
+      <div class="value">0</div>
+      <div class="sub">of 8 — Phase 2</div>
     </div>
     <div class="stat-card yellow">
-      <div class="label">Pending (Drew)</div>
-      <div class="value">2</div>
-      <div class="sub">Slack token · Calendly</div>
+      <div class="label">Pinecone Indexes</div>
+      <div class="value">0</div>
+      <div class="sub">of 6 — Phase 2</div>
     </div>
     <div class="stat-card red">
       <div class="label">Blockers</div>
@@ -662,6 +729,98 @@
         </div>
         <div class="wf-name">Build Complete → AV Handoff</div>
         <div class="wf-trigger"><span>Trigger:</span> Stage → Certificate of Occupancy<br>Cost seg study → AV + AR deals created → Claude completion report</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LangGraph Agents -->
+  <div class="section">
+    <div class="section-header">
+      <span class="entity-tag tag-lg">LG</span>
+      <h2>LangGraph — AI Agent Layer (Phase 2)</h2>
+      <span class="count">0 done · 8 agents to build</span>
+    </div>
+    <div class="lg-grid">
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-01</div>
+        <div class="lg-name">Orchestrator Agent</div>
+        <div class="lg-desc">Routes leads through the full system — supervisor of all other agents</div>
+      </div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-02</div>
+        <div class="lg-name">Lead Gen Agent</div>
+        <div class="lg-desc">LinkedIn + Google + SEO — autonomous lead sourcing</div>
+      </div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-03</div>
+        <div class="lg-name">Education Agent</div>
+        <div class="lg-desc">Delivers content sequences — replaces WF-VC-02 Claude calls with full agent logic</div>
+      </div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-04</div>
+        <div class="lg-name">Appointment Setter</div>
+        <div class="lg-desc">Qualifies + books calls — connects to Calendly via LangGraph tools</div>
+      </div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-05</div>
+        <div class="lg-name">Onboarding Agent</div>
+        <div class="lg-desc">Trust + policy + entity setup — guides new VC clients through onboarding</div>
+      </div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-06</div>
+        <div class="lg-name">Deal Matching Agent</div>
+        <div class="lg-desc">Matches investors to deals — queries Pinecone av-knowledge/investors</div>
+      </div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-07</div>
+        <div class="lg-name">Investor Follow-Up Agent</div>
+        <div class="lg-desc">Retention + upsell — re-engages inactive investors automatically</div>
+      </div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-08</div>
+        <div class="lg-name">Property Management Agent</div>
+        <div class="lg-desc">STR + rental optimization — Hospitable + PriceLabs + guest responses</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinecone Vector Memory -->
+  <div class="section">
+    <div class="section-header">
+      <span class="entity-tag tag-pc">PC</span>
+      <h2>Pinecone — AI Memory Layer (Phase 2)</h2>
+      <span class="count">0 done · 6 indexes to configure</span>
+    </div>
+    <div class="pinecone-grid">
+      <div class="pc-card">
+        <div class="pc-index">vc-knowledge / education</div>
+        <div class="pc-name">IBC Education KB</div>
+        <div class="pc-desc">Rockefeller Method, FAQ, case studies, objection handling — feeds Education Agent</div>
+      </div>
+      <div class="pc-card">
+        <div class="pc-index">vc-knowledge / policies</div>
+        <div class="pc-name">Policy Knowledge</div>
+        <div class="pc-desc">Policy illustrations, carrier info, premium structures — feeds Call Prep + Onboarding Agent</div>
+      </div>
+      <div class="pc-card">
+        <div class="pc-index">ar-knowledge / properties</div>
+        <div class="pc-name">Property Guides</div>
+        <div class="pc-desc">House rules, local recs per listing — feeds Property Management Agent</div>
+      </div>
+      <div class="pc-card">
+        <div class="pc-index">ar-knowledge / deals</div>
+        <div class="pc-name">Deal Scoring KB</div>
+        <div class="pc-desc">Investment criteria, market comps, scoring rubrics — feeds Deal Scorer Agent</div>
+      </div>
+      <div class="pc-card">
+        <div class="pc-index">av-knowledge / investors</div>
+        <div class="pc-name">Investor Profiles</div>
+        <div class="pc-desc">Investor preferences, accreditation, history — feeds Deal Matching Agent</div>
+      </div>
+      <div class="pc-card">
+        <div class="pc-index">av-knowledge / deals</div>
+        <div class="pc-name">Deal Structures</div>
+        <div class="pc-desc">PPMs, distribution formulas, syndication structures — feeds Investor Match + Reports</div>
       </div>
     </div>
   </div>
