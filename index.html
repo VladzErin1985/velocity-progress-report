@@ -186,6 +186,95 @@
       color: #34d399;
     }
 
+    /* ─── Billing Report ─── */
+    .billing-section {
+      background: #161b27;
+      border: 1px solid #1e2433;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .billing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .billing-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+    .billing-sub {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .billing-total-box {
+      background: #0f2744;
+      border: 1px solid #1e3a5f;
+      border-radius: 8px;
+      padding: 12px 20px;
+      text-align: right;
+    }
+    .billing-total-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #475569;
+      margin-bottom: 4px;
+    }
+    .billing-total-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #34d399;
+    }
+    .billing-total-sub {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+    .billing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .billing-table th {
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #475569;
+      border-bottom: 1px solid #1e2433;
+    }
+    .billing-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #1a2030;
+      color: #94a3b8;
+      vertical-align: top;
+    }
+    .billing-table .done-row td { color: #cbd5e1; }
+    .billing-table .pending-row td { color: #475569; }
+    .billing-table tfoot td {
+      border-top: 1px solid #2d3748;
+      border-bottom: none;
+      color: #e2e8f0;
+      padding-top: 14px;
+    }
+    .billing-table .earn { color: #34d399; font-weight: 600; white-space: nowrap; }
+    .billing-table .pending-earn { color: #475569; }
+    .pending-tag {
+      background: #1e2433;
+      border: 1px solid #2d3748;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11px;
+      color: #64748b;
+    }
+
     /* ─── Section ─── */
     .section {
       margin-bottom: 28px;
@@ -853,6 +942,69 @@
         <div class="desc">Currently using your GHL-connected email as the sender. Confirm if this is correct or if a dedicated address (e.g. no-reply@velocitycapitalgroup.com) should be used.</div>
       </div>
     </div>
+  </div>
+
+  <!-- Weekly Billing Report -->
+  <div class="billing-section">
+    <div class="billing-header">
+      <div>
+        <div class="billing-title">Week 1 — Billing Report</div>
+        <div class="billing-sub">May 1–7, 2026 · Rate: $8/hr · Payment via Wise every Friday</div>
+      </div>
+      <div class="billing-total-box">
+        <div class="billing-total-label">Week Total</div>
+        <div class="billing-total-value">$192</div>
+        <div class="billing-total-sub">24 hrs logged · $320 projected</div>
+      </div>
+    </div>
+    <table class="billing-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Day</th>
+          <th>Login (PHT)</th>
+          <th>Logout (PHT)</th>
+          <th>Hours</th>
+          <th>Tasks Completed</th>
+          <th>Earnings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="done-row">
+          <td>May 1</td><td>Friday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>WF-VC-01 Lead Capture — GHL pipeline + custom fields setup</td>
+          <td class="earn">$64</td>
+        </tr>
+        <tr class="done-row">
+          <td>May 4</td><td>Monday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>WF-VC-02 AI Drip fixes + WF-VC-03 Strategy Call Booking + Vercel progress report deployed</td>
+          <td class="earn">$64</td>
+        </tr>
+        <tr class="done-row">
+          <td>May 5</td><td>Tuesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>WF-VC-04 Post-Call Follow-Up — task creation + internal notification + stage update</td>
+          <td class="earn">$64</td>
+        </tr>
+        <tr class="pending-row">
+          <td>May 6</td><td>Wednesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td><span class="pending-tag">In Progress</span></td>
+          <td class="earn pending-earn">$64</td>
+        </tr>
+        <tr class="pending-row">
+          <td>May 7</td><td>Thursday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td><span class="pending-tag">Upcoming</span></td>
+          <td class="earn pending-earn">$64</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4"><strong>Week 1 Total</strong></td>
+          <td><strong>40 hrs</strong></td>
+          <td><strong>Payment due: Friday May 8</strong></td>
+          <td class="earn"><strong>$320</strong></td>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 
   <!-- Tech Discoveries -->
