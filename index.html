@@ -588,9 +588,9 @@
         <div class="tl-date">May 4 — Day 2</div>
         <div class="tl-label">Demo Tested ✅</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item done">
         <div class="tl-date">May 5 — Day 3</div>
-        <div class="tl-label">WF-VC-04 🔨</div>
+        <div class="tl-label">WF-VC-04 ✅</div>
       </div>
     </div>
   </div>
@@ -599,7 +599,7 @@
   <div class="summary-grid">
     <div class="stat-card green">
       <div class="label">n8n Workflows Live</div>
-      <div class="value">3</div>
+      <div class="value">4</div>
       <div class="sub">of 18 total</div>
     </div>
     <div class="stat-card blue">
@@ -623,10 +623,10 @@
   <div class="progress-section">
     <div class="progress-header">
       <span>Overall Build Progress</span>
-      <strong>17% complete — 3 of 18 workflows live</strong>
+      <strong>22% complete — 4 of 18 workflows live</strong>
     </div>
     <div class="bar-track">
-      <div class="bar-fill" style="width: 17%;"></div>
+      <div class="bar-fill" style="width: 22%;"></div>
     </div>
     <div class="phase-labels">
       <span class="active">▶ Week 1 — VC Core</span>
@@ -643,7 +643,7 @@
     <div class="section-header">
       <span class="entity-tag tag-vc">VC</span>
       <h2>Velocity Capital — Insurance &amp; IBC Workflows</h2>
-      <span class="count">3 done · 3 remaining</span>
+      <span class="count">4 done · 2 remaining</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done">
@@ -670,13 +670,13 @@
         <div class="wf-name">Strategy Call Booking → Prep</div>
         <div class="wf-trigger"><span>Trigger:</span> Stage → Call Scheduled<br>Claude generates call prep · saves to notes · sends confirmation email</div>
       </div>
-      <div class="wf-card next">
+      <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-04</span>
-          <span class="status-badge badge-next">🔨 Next</span>
+          <span class="status-badge badge-done">✅ Live</span>
         </div>
         <div class="wf-name">Post-Call Follow-Up</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage → Proposal Sent<br>Claude writes proposal email → 48hr reminder → 5-day SMS nudge</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Call Complete<br>Claude writes proposal email · creates follow-up task · internal notification · moves stage to Proposal Sent</div>
       </div>
       <div class="wf-card pending">
         <div class="wf-top">
@@ -1035,7 +1035,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 4, 2026';
+    if (el) el.textContent = 'Last updated: May 5, 2026';
   </script>
 </body>
 </html>
