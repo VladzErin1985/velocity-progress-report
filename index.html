@@ -556,7 +556,7 @@
       <div class="subtitle">n8n + LangGraph + Pinecone + Claude AI · Week 1 Progress · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge" id="report-date">May 4, 2026</div>
+      <div class="date-badge" id="report-date">May 7, 2026</div>
       <div class="week-badge">Week 1 of 6 · <span id="last-updated"></span></div>
     </div>
   </div>
@@ -565,7 +565,7 @@
   <div class="velocity-banner">
     <div>
       <div class="label">Build Velocity</div>
-      <div class="message"><strong>3 workflows built and live-tested on Day 1 (May 1).</strong> All end-to-end tested with real GHL data — not mock runs.</div>
+      <div class="message"><strong>5 workflows built and live-tested — full VC pipeline complete.</strong> WF-VC-05 cross-entity handoff (VC → AV) confirmed working end-to-end on May 6.</div>
     </div>
     <div class="timeline">
       <div class="tl-item">
@@ -585,12 +585,12 @@
         <div class="tl-label">WF-VC-03 ✅</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 4 — Day 2</div>
-        <div class="tl-label">Demo Tested ✅</div>
+        <div class="tl-date">May 4 — Day 4</div>
+        <div class="tl-label">WF-VC-04 ✅</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 5 — Day 3</div>
-        <div class="tl-label">WF-VC-04 ✅</div>
+        <div class="tl-date">May 6 — Day 6</div>
+        <div class="tl-label">WF-VC-05 ✅</div>
       </div>
     </div>
   </div>
@@ -599,7 +599,7 @@
   <div class="summary-grid">
     <div class="stat-card green">
       <div class="label">n8n Workflows Live</div>
-      <div class="value">4</div>
+      <div class="value">5</div>
       <div class="sub">of 18 total</div>
     </div>
     <div class="stat-card blue">
@@ -623,10 +623,10 @@
   <div class="progress-section">
     <div class="progress-header">
       <span>Overall Build Progress</span>
-      <strong>22% complete — 4 of 18 workflows live</strong>
+      <strong>28% complete — 5 of 18 workflows live</strong>
     </div>
     <div class="bar-track">
-      <div class="bar-fill" style="width: 22%;"></div>
+      <div class="bar-fill" style="width: 28%;"></div>
     </div>
     <div class="phase-labels">
       <span class="active">▶ Week 1 — VC Core</span>
@@ -643,7 +643,7 @@
     <div class="section-header">
       <span class="entity-tag tag-vc">VC</span>
       <h2>Velocity Capital — Insurance &amp; IBC Workflows</h2>
-      <span class="count">4 done · 2 remaining</span>
+      <span class="count">5 done · 1 remaining</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done">
@@ -678,21 +678,21 @@
         <div class="wf-name">Post-Call Follow-Up</div>
         <div class="wf-trigger"><span>Trigger:</span> Stage → Call Complete<br>Claude writes proposal email · creates follow-up task · internal notification · moves stage to Proposal Sent</div>
       </div>
-      <div class="wf-card pending">
+      <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-05</span>
-          <span class="status-badge badge-pending">⏳ Queued</span>
+          <span class="status-badge badge-done">✅ Live</span>
         </div>
-        <div class="wf-name">Policy Funded → Investor Transition</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage → Policy Active + cash value &gt;$50K<br>Cross-entity handoff: VC → AV deal creation</div>
+        <div class="wf-name">Policy Active → Investor Transition</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Policy Active + cash value &gt;$50K<br>12-node cross-entity handoff: stage update → tags → Claude email → note. FALSE branch logs below-threshold note.</div>
       </div>
-      <div class="wf-card pending">
+      <div class="wf-card next">
         <div class="wf-top">
           <span class="wf-id">WF-VC-06</span>
-          <span class="status-badge badge-pending">⏳ Queued</span>
+          <span class="status-badge badge-next">▶ Next</span>
         </div>
         <div class="wf-name">Monthly Client Report</div>
-        <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Claude writes personalized monthly update → GHL email</div>
+        <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Claude writes personalized monthly update → email</div>
       </div>
     </div>
   </div>
@@ -938,8 +938,8 @@
     <div class="blocker-item">
       <div class="blocker-icon">📧</div>
       <div class="blocker-content">
-        <div class="title">Confirm "From" Email Address</div>
-        <div class="desc">Currently using your GHL-connected email as the sender. Confirm if this is correct or if a dedicated address (e.g. no-reply@velocitycapitalgroup.com) should be used.</div>
+        <div class="title">Outlook Tokens — Entity Email Senders</div>
+        <div class="desc">Entity emails received (info@velocitycapital.ai, info@anza-ventures.com, info@anzarealtor.com, info@anzaconstruction.com, service@anzasolar.com). Outlook tokens needed to send FROM each entity address. Pending Drew.</div>
       </div>
     </div>
   </div>
@@ -953,8 +953,8 @@
       </div>
       <div class="billing-total-box">
         <div class="billing-total-label">Week Total</div>
-        <div class="billing-total-value">$192</div>
-        <div class="billing-total-sub">24 hrs logged · $384 projected</div>
+        <div class="billing-total-value">$320</div>
+        <div class="billing-total-sub">40 hrs logged · $384 projected</div>
       </div>
     </div>
     <table class="billing-table">
@@ -985,15 +985,15 @@
           <td>WF-VC-04 troubleshooting + adjustments — task creation, internal notification, stage update all working</td>
           <td class="earn">$64</td>
         </tr>
-        <tr class="pending-row">
+        <tr class="done-row">
           <td>May 6</td><td>Wednesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td><span class="pending-tag">In Progress</span></td>
-          <td class="earn pending-earn">$64</td>
+          <td>WF-VC-05 Policy Active → Investor Transition — full 12-node build, GHL automation trigger, end-to-end test confirmed. Pipedrive KB research. Entity emails received from Drew.</td>
+          <td class="earn">$64</td>
         </tr>
-        <tr class="pending-row">
+        <tr class="done-row">
           <td>May 7</td><td>Thursday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td><span class="pending-tag">Upcoming</span></td>
-          <td class="earn pending-earn">$64</td>
+          <td>Progress report updated · WF-VC-06 build start</td>
+          <td class="earn">$64</td>
         </tr>
         <tr class="pending-row">
           <td>May 8</td><td>Friday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
@@ -1022,6 +1022,10 @@
     <div class="discovery-item"><div class="disc-dot"></div>GHL auto-enables DND on contacts with repeated email bounces — must manually disable per contact in GHL settings</div>
     <div class="discovery-item"><div class="disc-dot"></div>n8n "Using Fields Below" mode prevents Claude's special characters from breaking JSON — applied to all Claude output nodes</div>
     <div class="discovery-item"><div class="disc-dot"></div>GHL V2 /contacts/ search by email returns 422 — redesigned WF-VC-03 to pass contactId directly in webhook payload (more reliable)</div>
+    <div class="discovery-item"><div class="disc-dot"></div>WF-VC-05: IF node requires conditions.options.version = 2 — missing this caused silent validation failure</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL blocks duplicate emails across contacts — always use unique test emails per contact when testing workflows</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Cash value from GHL custom field may include currency formatting — strip non-numeric chars with Number(String(value).replace(/[^0-9.]/g, '')) before comparison</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Cross-entity handoff confirmed working: VC Policy Active → AV Investor Transition stage update + tags + Claude email + note all in one 10.7s execution</div>
   </div>
 
   <!-- Footer -->
@@ -1040,7 +1044,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 5, 2026';
+    if (el) el.textContent = 'Last updated: May 7, 2026';
   </script>
 </body>
 </html>
