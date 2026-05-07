@@ -556,7 +556,7 @@
       <div class="subtitle">n8n + LangGraph + Pinecone + Claude AI · Week 1 Progress · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge" id="report-date">May 7, 2026</div>
+      <div class="date-badge" id="report-date">May 8, 2026</div>
       <div class="week-badge">Week 1 of 6 · <span id="last-updated"></span></div>
     </div>
   </div>
@@ -565,7 +565,7 @@
   <div class="velocity-banner">
     <div>
       <div class="label">Build Velocity</div>
-      <div class="message"><strong>5 workflows built and live-tested — full VC pipeline complete.</strong> WF-VC-05 cross-entity handoff (VC → AV) confirmed working end-to-end on May 6.</div>
+      <div class="message"><strong>6 workflows built and live-tested — full VC pipeline complete.</strong> WF-VC-06 Monthly Client Report confirmed end-to-end on May 8: Claude writes personalized email → GHL delivers via Conversations API → note logged to contact.</div>
     </div>
     <div class="timeline">
       <div class="tl-item">
@@ -592,6 +592,10 @@
         <div class="tl-date">May 6 — Day 6</div>
         <div class="tl-label">WF-VC-05 ✅</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">May 8 — Day 8</div>
+        <div class="tl-label">WF-VC-06 ✅</div>
+      </div>
     </div>
   </div>
 
@@ -599,7 +603,7 @@
   <div class="summary-grid">
     <div class="stat-card green">
       <div class="label">n8n Workflows Live</div>
-      <div class="value">5</div>
+      <div class="value">6</div>
       <div class="sub">of 18 total</div>
     </div>
     <div class="stat-card blue">
@@ -623,10 +627,10 @@
   <div class="progress-section">
     <div class="progress-header">
       <span>Overall Build Progress</span>
-      <strong>28% complete — 5 of 18 workflows live</strong>
+      <strong>33% complete — 6 of 18 workflows live</strong>
     </div>
     <div class="bar-track">
-      <div class="bar-fill" style="width: 28%;"></div>
+      <div class="bar-fill" style="width: 33%;"></div>
     </div>
     <div class="phase-labels">
       <span class="active">▶ Week 1 — VC Core</span>
@@ -643,7 +647,7 @@
     <div class="section-header">
       <span class="entity-tag tag-vc">VC</span>
       <h2>Velocity Capital — Insurance &amp; IBC Workflows</h2>
-      <span class="count">5 done · 1 remaining</span>
+      <span class="count">6 done · 0 remaining ✅</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done">
@@ -686,13 +690,13 @@
         <div class="wf-name">Policy Active → Investor Transition</div>
         <div class="wf-trigger"><span>Trigger:</span> Stage → Policy Active + cash value &gt;$50K<br>12-node cross-entity handoff: stage update → tags → Claude email → note. FALSE branch logs below-threshold note.</div>
       </div>
-      <div class="wf-card next">
+      <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-06</span>
-          <span class="status-badge badge-next">▶ Next</span>
+          <span class="status-badge badge-done">✅ Live</span>
         </div>
         <div class="wf-name">Monthly Client Report</div>
-        <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Claude writes personalized monthly update → email</div>
+        <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Fetches active clients → Claude writes 400–500 word personalized report (PAS) → GHL Conversations API delivers email → note logged to contact</div>
       </div>
     </div>
   </div>
@@ -992,13 +996,13 @@
         </tr>
         <tr class="done-row">
           <td>May 7</td><td>Thursday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Progress report updated · WF-VC-06 build start</td>
+          <td>WF-VC-06 build started — GHL Opportunities pull + filter, Claude API integration, email parsing nodes complete. Discovered and resolved MCP header expression bug (x-api-key), anthropic-version header requirement.</td>
           <td class="earn">$64</td>
         </tr>
-        <tr class="pending-row">
+        <tr class="done-row">
           <td>May 8</td><td>Friday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td><span class="pending-tag">Upcoming</span></td>
-          <td class="earn pending-earn">$64</td>
+          <td>WF-VC-06 complete — GHL Conversations API search + send, HTML email formatting, GHL Add Note confirmed. Email delivered to Gmail and rendered correctly. Full end-to-end tested.</td>
+          <td class="earn">$64</td>
         </tr>
       </tbody>
       <tfoot>
@@ -1026,6 +1030,13 @@
     <div class="discovery-item"><div class="disc-dot"></div>GHL blocks duplicate emails across contacts — always use unique test emails per contact when testing workflows</div>
     <div class="discovery-item"><div class="disc-dot"></div>Cash value from GHL custom field may include currency formatting — strip non-numeric chars with Number(String(value).replace(/[^0-9.]/g, '')) before comparison</div>
     <div class="discovery-item"><div class="disc-dot"></div>Cross-entity handoff confirmed working: VC Policy Active → AV Investor Transition stage update + tags + Claude email + note all in one 10.7s execution</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL Opportunities API (/opportunities/search) does NOT accept pipelineId or pipelineStageId as query params — returns 422. Must pull all by location_id then filter in Code node.</div>
+    <div class="discovery-item"><div class="disc-dot"></div>MCP tool sets header values with = prefix, causing n8n to treat API keys as JavaScript expressions — always set x-api-key and API tokens manually in UI using Fixed Value mode</div>
+    <div class="discovery-item"><div class="disc-dot"></div>MCP partial workflow update appends headers, never replaces — after any MCP header change, manually delete stale duplicate header rows in n8n UI</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Anthropic /v1/messages requires both x-api-key AND anthropic-version: 2023-06-01 as Fixed Value headers — missing either returns 400/401</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Claude API response text is at content[0].text — never $json.text (returns undefined). Always access via $input.item.json.content[0].text</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL Send Email via Conversations API requires html field (not body/message) + conversationId in body — POST to /conversations/messages, not /conversations/{id}/messages</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Plain text email with \n chars renders as wall of text in Gmail — convert to HTML with paragraph wrapping: split on \n\n, wrap each in &lt;p&gt;, replace inner \n with &lt;br&gt;</div>
   </div>
 
   <!-- Footer -->
@@ -1044,7 +1055,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 7, 2026';
+    if (el) el.textContent = 'Last updated: May 8, 2026';
   </script>
 </body>
 </html>
