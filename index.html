@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group — Build Progress Report</title>
+  <title>Velocity Capital Group + Konsier — Build Progress Report</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -433,6 +433,7 @@
     }
     .tag-lg { background: #2e1065; color: #a78bfa; }
     .tag-pc { background: #0c1a2e; color: #38bdf8; }
+    .tag-ks { background: #1a0a2e; color: #c084fc; }
 
     /* ─── Blockers ─── */
     .blockers-section {
@@ -552,12 +553,12 @@
   <!-- Header -->
   <div class="header">
     <div class="header-left">
-      <h1>Velocity Capital Group — Automation Build Report</h1>
-      <div class="subtitle">n8n + LangGraph + Pinecone + Claude AI · Week 1 Progress · Prepared by Vladimir</div>
+      <h1>Velocity Capital Group + Konsier — Automation Build Report</h1>
+      <div class="subtitle">n8n + LangGraph + Pinecone + Claude AI · Week 2 Progress · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge" id="report-date">May 8, 2026</div>
-      <div class="week-badge">Week 1 of 6 · <span id="last-updated"></span></div>
+      <div class="date-badge" id="report-date">May 11, 2026</div>
+      <div class="week-badge">Week 2 of 6 · <span id="last-updated"></span></div>
     </div>
   </div>
 
@@ -565,7 +566,7 @@
   <div class="velocity-banner">
     <div>
       <div class="label">Build Velocity</div>
-      <div class="message"><strong>6 workflows built and live-tested — full VC pipeline complete.</strong> WF-VC-06 Monthly Client Report confirmed end-to-end on May 8: Claude writes personalized email → GHL delivers via Conversations API → note logged to contact.</div>
+      <div class="message"><strong>Week 2 started — Konsier project launched.</strong> Received 31-page SOP "The Next Build" from Drew. Completed Konsier Phase 2 setup in Pipedrive: 3 pipelines, 13 custom fields, 4 permission sets. VC workflows all live and running on Drew's n8n. Two active projects now in parallel.</div>
     </div>
     <div class="timeline">
       <div class="tl-item">
@@ -596,49 +597,52 @@
         <div class="tl-date">May 8 — Day 8</div>
         <div class="tl-label">WF-VC-06 ✅</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">May 11 — Day 11</div>
+        <div class="tl-label">Konsier P2 ✅</div>
+      </div>
     </div>
   </div>
 
   <!-- Summary Stats -->
   <div class="summary-grid">
     <div class="stat-card green">
-      <div class="label">n8n Workflows Live</div>
+      <div class="label">VC Workflows Live</div>
       <div class="value">6</div>
-      <div class="sub">of 18 total</div>
+      <div class="sub">of 18 total — all VC done</div>
     </div>
     <div class="stat-card blue">
-      <div class="label">LangGraph Agents</div>
-      <div class="value">0</div>
-      <div class="sub">of 8 — Phase 2</div>
+      <div class="label">Konsier Phase 2</div>
+      <div class="value">3</div>
+      <div class="sub">Steps done — pipelines, fields, perms</div>
     </div>
     <div class="stat-card yellow">
-      <div class="label">Pinecone Indexes</div>
-      <div class="value">0</div>
-      <div class="sub">of 6 — Phase 2</div>
+      <div class="label">Active Projects</div>
+      <div class="value">2</div>
+      <div class="sub">Velocity Capital + Konsier</div>
     </div>
     <div class="stat-card red">
       <div class="label">Blockers</div>
-      <div class="value">0</div>
-      <div class="sub">All clear to build</div>
+      <div class="value">4</div>
+      <div class="sub">Email, domain, card, SHARED-INFRA</div>
     </div>
   </div>
 
   <!-- Progress Bar -->
   <div class="progress-section">
     <div class="progress-header">
-      <span>Overall Build Progress</span>
-      <strong>33% complete — 6 of 18 workflows live</strong>
+      <span>Overall Build Progress — Two Active Projects</span>
+      <strong>VC: 6/18 workflows live · Konsier: Phase 2 of 7 in progress</strong>
     </div>
     <div class="bar-track">
-      <div class="bar-fill" style="width: 33%;"></div>
+      <div class="bar-fill" style="width: 38%;"></div>
     </div>
     <div class="phase-labels">
-      <span class="active">▶ Week 1 — VC Core</span>
-      <span>Week 2 — VC Advanced</span>
-      <span>Week 3 — AR Start</span>
-      <span>Week 4 — AV</span>
-      <span>Week 5 — AC</span>
-      <span>Week 6 — Reports</span>
+      <span class="active">▶ Week 2 — Konsier P2 + VC Pipedrive</span>
+      <span>Week 3 — n8n Rebuild</span>
+      <span>Week 4 — Konsier Workflows</span>
+      <span>Week 5 — Claude Agents</span>
+      <span>Week 6 — Testing</span>
     </div>
   </div>
 
@@ -697,6 +701,65 @@
         </div>
         <div class="wf-name">Monthly Client Report</div>
         <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Fetches active clients → Claude writes 400–500 word personalized report (PAS) → GHL Conversations API delivers email → note logged to contact</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Konsier Section -->
+  <div class="section">
+    <div class="section-header">
+      <span class="entity-tag tag-ks">KS</span>
+      <h2>Konsier — B2B Outbound Sales System (New Project)</h2>
+      <span class="count">Phase 2 of 7 · Steps 7–9 done · Step 10 next</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-STEP-07</span>
+          <span class="status-badge badge-done">✅ Done</span>
+        </div>
+        <div class="wf-name">3 Pipelines Created</div>
+        <div class="wf-trigger">OUTBOUND (7 stages) · SELF-SERVE (5 stages) · CLOSER TRACK (6 stages) — all built in Pipedrive May 11</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-STEP-08</span>
+          <span class="status-badge badge-done">✅ Done</span>
+        </div>
+        <div class="wf-name">13 Custom Fields Created</div>
+        <div class="wf-trigger">4 Person fields (niche, years_in_business, employee_count, churn_risk_score) · 9 Deal fields (AI transcript, tier match, urgency, MRR, demo tracking, closer brief, Notion URL)</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-STEP-09</span>
+          <span class="status-badge badge-done">✅ Done</span>
+        </div>
+        <div class="wf-name">4 Permission Sets Created</div>
+        <div class="wf-trigger">VA-Outbound · VA-Fulfillment · Closer · Admin — role-based access configured. Visibility groups deferred until VAs hired.</div>
+      </div>
+      <div class="wf-card next">
+        <div class="wf-top">
+          <span class="wf-id">KS-STEP-10</span>
+          <span class="status-badge badge-next">▶ Next</span>
+        </div>
+        <div class="wf-name">6 Pipedrive Native Automations</div>
+        <div class="wf-trigger">A1 Auto-stage · A2 Tier routing · A3 Closer round-robin · A4 Stalled deal alert · A5 Hot lead tagging · A6 Closed-Won → n8n webhook</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">KS-STEP-11</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Pipedrive AI Sales Assistant</div>
+        <div class="wf-trigger">Enable win probability prediction + email summarization. Connect Drew's email accounts. Needs ~24h to index.</div>
+      </div>
+      <div class="wf-card blocked">
+        <div class="wf-top">
+          <span class="wf-id">KS-STEP-05</span>
+          <span class="status-badge badge-blocked">⚠ Unblocked</span>
+        </div>
+        <div class="wf-name">GitHub Repository Setup</div>
+        <div class="wf-trigger">Private repo with /n8n-workflows/, /claude-agents/, /crm-schema/, /runbooks/ structure. Can start now — not blocked by Drew.</div>
       </div>
     </div>
   </div>
@@ -926,24 +989,45 @@
   <div class="blockers-section">
     <h3>⚠ Waiting on Drew — Action Required</h3>
     <div class="blocker-item">
-      <div class="blocker-icon">💬</div>
+      <div class="blocker-icon">📧</div>
       <div class="blocker-content">
-        <div class="title">Slack Bot Token (xoxb-...)</div>
-        <div class="desc">Needed to add Slack notifications to all workflows (#vc-leads, #vc-calls, #ar-hot-deals, #ac-new-projects). Workspace confirmed: Anza Ventures.</div>
+        <div class="title">Konsier Business Email + Card Details</div>
+        <div class="desc">Needed to create all service accounts (Anthropic, Cloudflare, GitHub, Apollo, Clay, Instantly, Retell, Wistia, Stripe). Steps 2–4 fully blocked until received.</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">📅</div>
+      <div class="blocker-icon">🔐</div>
       <div class="blocker-content">
-        <div class="title">Calendly Personal Access Token</div>
-        <div class="desc">WF-VC-03 currently uses a mock webhook trigger. Live Calendly integration requires your personal access token from calendly.com/integrations/api_webhooks.</div>
+        <div class="title">1Password SHARED-INFRA Vault Access</div>
+        <div class="desc">Account created and active. Only Employee vault visible — SHARED-INFRA not accessible yet. All credential saving blocked until Drew grants access.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">📮</div>
+      <div class="blocker-content">
+        <div class="title">8 Instantly Mailboxes — Email Warmup URGENT</div>
+        <div class="desc">Warmup must run 14 days before production sends. Drew promised these today (May 12). Every day delayed = 1 day later before cold email can go live.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">🌐</div>
+      <div class="blocker-content">
+        <div class="title">Konsier Domain</div>
+        <div class="desc">Needed for Cloudflare DNS setup + all n8n webhook URLs (n8n.domain/webhook/*). Step 4 and Phase 3 server deployment blocked until received.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">💬</div>
+      <div class="blocker-content">
+        <div class="title">VC — Slack Bot Token (xoxb-...)</div>
+        <div class="desc">Needed to add Slack notifications to all VC workflows. Workspace: Anza Ventures. Bot created — token pending from Drew.</div>
       </div>
     </div>
     <div class="blocker-item">
       <div class="blocker-icon">📧</div>
       <div class="blocker-content">
-        <div class="title">Outlook Tokens — Entity Email Senders</div>
-        <div class="desc">Entity emails received (info@velocitycapital.ai, info@anza-ventures.com, info@anzarealtor.com, info@anzaconstruction.com, service@anzasolar.com). Outlook tokens needed to send FROM each entity address. Pending Drew.</div>
+        <div class="title">VC — Outlook Tokens (Entity Email Senders)</div>
+        <div class="desc">Needed to send FROM info@anza-ventures.com and other entity emails in n8n workflows. Pending Drew.</div>
       </div>
     </div>
   </div>
@@ -952,13 +1036,13 @@
   <div class="billing-section">
     <div class="billing-header">
       <div>
-        <div class="billing-title">Week 1 — Billing Report</div>
-        <div class="billing-sub">May 1–8, 2026 · Rate: $8/hr · Payment via Wise every Friday</div>
+        <div class="billing-title">Week 2 — Billing Report</div>
+        <div class="billing-sub">May 11–16, 2026 · Rate: $500/week flat · Payment via Wise every Friday · @freelance1293</div>
       </div>
       <div class="billing-total-box">
-        <div class="billing-total-label">Week Total</div>
-        <div class="billing-total-value">$320</div>
-        <div class="billing-total-sub">40 hrs logged · $384 projected</div>
+        <div class="billing-total-label">Week 2 Rate</div>
+        <div class="billing-total-value">$500</div>
+        <div class="billing-total-sub">Flat weekly · confirmed by Drew May 11</div>
       </div>
     </div>
     <table class="billing-table">
@@ -999,18 +1083,60 @@
           <td>WF-VC-06 Monthly Client Report — full build + end-to-end test complete. GHL Opportunities pull, Claude AI email generation (PAS 400–500 words), GHL Conversations API send, HTML email formatting, GHL Add Note. Email confirmed in Gmail, rendered correctly.</td>
           <td class="earn">$64</td>
         </tr>
-        <tr class="pending-row">
+        <tr class="done-row">
           <td>May 8</td><td>Friday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td><span class="pending-tag">Upcoming</span></td>
-          <td class="earn pending-earn">$64</td>
+          <td>Pipedrive full audit — 4 pipelines verified, 18 Person fields + 20+ Deal fields verified, 7 deal labels created (Military, Pilot, First Responder, High-W2, Business Owner, VIP/Referral, VA Loan Eligible). PD-WF-01 + PD-WF-02 built inactive.</td>
+          <td class="earn">$64</td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
           <td colspan="4"><strong>Week 1 Total</strong></td>
           <td><strong>48 hrs</strong></td>
-          <td><strong>Payment due: Friday May 8</strong></td>
+          <td><strong>PAID — May 8 via Wise ✅</strong></td>
           <td class="earn"><strong>$384</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- Week 2 Billing -->
+  <div class="billing-section">
+    <div class="billing-header">
+      <div>
+        <div class="billing-title">Week 2 — Billing Report</div>
+        <div class="billing-sub">May 11–16, 2026 · $500/week flat · Wise @freelance1293</div>
+      </div>
+      <div class="billing-total-box">
+        <div class="billing-total-label">Week 2 Target</div>
+        <div class="billing-total-value">$500</div>
+        <div class="billing-total-sub">Due Friday May 16</div>
+      </div>
+    </div>
+    <table class="billing-table">
+      <thead>
+        <tr>
+          <th>Date</th><th>Day</th><th>Login (PHT)</th><th>Logout (PHT)</th><th>Hours</th><th>Tasks Completed</th><th>Earnings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="done-row">
+          <td>May 11</td><td>Sunday</td><td>8:36 PM</td><td>11:00 PM</td><td>~2.5 hrs</td>
+          <td>Konsier project launched — read 31-page SOP. Created 3 Pipedrive pipelines (OUTBOUND, SELF-SERVE, CLOSER TRACK). Created 13 custom fields (4 Person + 9 Deal). Created 4 permission sets. Full SOP gap analysis + knowledge base documentation.</td>
+          <td class="earn">—</td>
+        </tr>
+        <tr class="pending-row">
+          <td>May 12</td><td>Monday</td><td colspan="3"><span class="pending-tag">Next shift</span></td>
+          <td>Step 10 — 6 Pipedrive automations · Step 11 — AI Sales Assistant</td>
+          <td class="pending-earn">—</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4"><strong>Week 2 Total</strong></td>
+          <td><strong>In progress</strong></td>
+          <td><strong>Payment due: Friday May 16</strong></td>
+          <td class="earn"><strong>$500</strong></td>
         </tr>
       </tfoot>
     </table>
@@ -1037,6 +1163,13 @@
     <div class="discovery-item"><div class="disc-dot"></div>Claude API response text is at content[0].text — never $json.text (returns undefined). Always access via $input.item.json.content[0].text</div>
     <div class="discovery-item"><div class="disc-dot"></div>GHL Send Email via Conversations API requires html field (not body/message) + conversationId in body — POST to /conversations/messages, not /conversations/{id}/messages</div>
     <div class="discovery-item"><div class="disc-dot"></div>Plain text email with \n chars renders as wall of text in Gmail — convert to HTML with paragraph wrapping: split on \n\n, wrap each in &lt;p&gt;, replace inner \n with &lt;br&gt;</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Pipedrive "Checkbox" field type does not exist for Deal fields — use Single Option with Yes/No values instead. Works identically for n8n reads via API.</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Pipedrive "URL" field type does not exist for Deal fields — use Text type. URLs stored and retrieved correctly as plain strings.</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Pipedrive custom field count: 58/300 before Konsier fields, 70/300 after adding 13 Konsier fields. Plenty of headroom remaining.</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Pipedrive Permission sets control WHAT actions users can take — pipeline visibility restrictions (VA sees only OUTBOUND) are set via Visibility Groups tab, not Permission Sets.</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Konsier SOP Step 16 confirms Drew knows about n8n-MCP (open source, MIT licensed). He wrote it into his own SOP — no longer a topic to avoid in messages.</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Konsier SOP gap analysis: PandaDoc (contracts in WF#4) and Notion (client workspaces + agent dashboard) are required tools not in original scope — need Drew's accounts/templates before Phase 4.</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Retell AI sends 3 webhook events per call (call_started, call_ended, call_analyzed) — must filter for call_analyzed only in n8n to avoid 3 executions per call. Pass pipedrive_deal_id in metadata.</div>
   </div>
 
   <!-- Footer -->
@@ -1055,7 +1188,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 8, 2026';
+    if (el) el.textContent = 'Last updated: May 11, 2026';
   </script>
 </body>
 </html>
