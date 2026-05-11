@@ -52,7 +52,6 @@
       color: #475569;
     }
 
-    /* ─── Overall Progress ─── */
     /* ─── Velocity Banner ─── */
     .velocity-banner {
       background: linear-gradient(135deg, #0a1628 0%, #0d2137 100%);
@@ -81,6 +80,7 @@
       line-height: 1.5;
     }
     .velocity-banner .message strong { color: #34d399; }
+    .velocity-banner .message .warn { color: #fb923c; }
     .velocity-banner .timeline {
       display: flex;
       gap: 6px;
@@ -104,6 +104,21 @@
       color: #60a5fa;
     }
     .tl-item.done .tl-label { color: #34d399; }
+    .tl-item.orange .tl-label { color: #fb923c; }
+
+    /* ─── Transition Alert Banner ─── */
+    .transition-banner {
+      background: linear-gradient(135deg, #1a0f00 0%, #2a1500 100%);
+      border: 1px solid #92400e;
+      border-left: 4px solid #fb923c;
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #fcd34d;
+      line-height: 1.6;
+    }
+    .transition-banner strong { color: #fb923c; }
 
     .summary-grid {
       display: grid;
@@ -137,6 +152,7 @@
     .stat-card.green .value { color: #34d399; }
     .stat-card.blue .value  { color: #60a5fa; }
     .stat-card.yellow .value { color: #fbbf24; }
+    .stat-card.orange .value { color: #fb923c; }
     .stat-card.red .value   { color: #f87171; }
 
     /* ─── Progress Bar ─── */
@@ -172,6 +188,14 @@
       border-radius: 999px;
       background: linear-gradient(90deg, #10b981, #34d399);
       transition: width 0.8s ease;
+    }
+    .bar-fill.orange-fill {
+      background: linear-gradient(90deg, #c2410c, #fb923c);
+    }
+    .progress-label {
+      font-size: 12px;
+      color: #475569;
+      margin-top: 6px;
     }
     .phase-labels {
       display: flex;
@@ -257,7 +281,16 @@
       vertical-align: top;
     }
     .billing-table .done-row td { color: #cbd5e1; }
-    .billing-table .pending-row td { color: #475569; }
+    .billing-table .week-divider td {
+      background: #0d1220;
+      color: #475569;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-bottom: 1px solid #1e2433;
+    }
     .billing-table tfoot td {
       border-top: 1px solid #2d3748;
       border-bottom: none;
@@ -265,6 +298,7 @@
       padding-top: 14px;
     }
     .billing-table .earn { color: #34d399; font-weight: 600; white-space: nowrap; }
+    .billing-table .pending-row td { color: #475569; }
     .billing-table .pending-earn { color: #475569; }
     .pending-tag {
       background: #1e2433;
@@ -298,6 +332,8 @@
     .tag-ac { background: #3a1a1a; color: #f87171; }
     .tag-lg { background: #2e1065; color: #a78bfa; }
     .tag-pc { background: #0c1a2e; color: #38bdf8; }
+    .tag-pd { background: #2a1500; color: #fb923c; }
+    .tag-ks { background: #1a0a2e; color: #c084fc; }
 
     .section-header h2 {
       font-size: 14px;
@@ -308,6 +344,39 @@
       font-size: 12px;
       color: #475569;
       margin-left: auto;
+    }
+
+    /* ─── Pipedrive Setup Grid ─── */
+    .pd-setup-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .pd-setup-card {
+      background: #161b27;
+      border: 1px solid #1e2433;
+      border-left: 3px solid #fb923c;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .pd-setup-card .pd-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #fb923c;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .pd-setup-card .pd-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #34d399;
+      margin-bottom: 2px;
+    }
+    .pd-setup-card .pd-desc {
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.4;
     }
 
     /* ─── Workflow Grid ─── */
@@ -325,6 +394,7 @@
       overflow: hidden;
     }
     .wf-card.done   { border-left: 3px solid #34d399; }
+    .wf-card.inactive { border-left: 3px solid #fb923c; }
     .wf-card.next   { border-left: 3px solid #60a5fa; }
     .wf-card.pending{ border-left: 3px solid #334155; }
     .wf-card.blocked{ border-left: 3px solid #f59e0b; }
@@ -349,6 +419,7 @@
       white-space: nowrap;
     }
     .badge-done    { background: #064e3b; color: #34d399; }
+    .badge-inactive { background: #2a1500; color: #fb923c; }
     .badge-next    { background: #1e3a5f; color: #60a5fa; }
     .badge-pending { background: #1a1f2e; color: #475569; }
     .badge-blocked { background: #451a03; color: #f59e0b; }
@@ -431,9 +502,6 @@
       color: #475569;
       line-height: 1.4;
     }
-    .tag-lg { background: #2e1065; color: #a78bfa; }
-    .tag-pc { background: #0c1a2e; color: #38bdf8; }
-    .tag-ks { background: #1a0a2e; color: #c084fc; }
 
     /* ─── Blockers ─── */
     .blockers-section {
@@ -515,6 +583,10 @@
       margin-top: 5px;
       flex-shrink: 0;
     }
+    .disc-dot.orange {
+      background: #fb923c;
+    }
+    .discovery-item.new { color: #fcd34d; }
 
     /* ─── Footer ─── */
     .footer {
@@ -546,6 +618,11 @@
       color: #34d399;
       border-color: #065f46;
     }
+    .cred-tag.orange {
+      background: #2a1500;
+      color: #fb923c;
+      border-color: #78350f;
+    }
   </style>
 </head>
 <body>
@@ -554,52 +631,45 @@
   <div class="header">
     <div class="header-left">
       <h1>Velocity Capital Group + Konsier — Automation Build Report</h1>
-      <div class="subtitle">n8n + LangGraph + Pinecone + Claude AI · Week 2 Progress · Prepared by Vladimir</div>
+      <div class="subtitle">n8n + Pipedrive + Slack + SendGrid + Claude AI · Week 2 Started · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge" id="report-date">May 11, 2026</div>
+      <div class="date-badge">May 11, 2026</div>
       <div class="week-badge">Week 2 of 6 · <span id="last-updated"></span></div>
     </div>
+  </div>
+
+  <!-- Transition Alert -->
+  <div class="transition-banner">
+    <strong>WEEK 2 — DUAL PROJECT:</strong> Konsier (B2B SaaS outbound sales system) launched in parallel with VC Pipedrive rebuild. Konsier Phase 2 (Steps 7–9) complete in one session. Two active projects now running simultaneously.
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
       <div class="label">Build Velocity</div>
-      <div class="message"><strong>Week 2 started — Konsier project launched.</strong> Received 31-page SOP "The Next Build" from Drew. Completed Konsier Phase 2 setup in Pipedrive: 3 pipelines, 13 custom fields, 4 permission sets. VC workflows all live and running on Drew's n8n. Two active projects now in parallel.</div>
+      <div class="message"><strong>Week 2 started — Konsier B2B system launched.</strong> Received 31-page SOP from Drew. Completed Konsier Phase 2 in one session: 3 pipelines, 13 custom fields, 4 permission sets. VC + Konsier now running in parallel.</div>
     </div>
     <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-date">May 1 — Day 1</div>
-        <div class="tl-label">Hired</div>
-      </div>
       <div class="tl-item done">
         <div class="tl-date">May 1 — Day 1</div>
-        <div class="tl-label">WF-VC-01 ✅</div>
+        <div class="tl-label">WF-VC-01/02/03 ✅</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 1 — Day 1</div>
-        <div class="tl-label">WF-VC-02 ✅</div>
+        <div class="tl-date">May 4-8 — Day 4-8</div>
+        <div class="tl-label">WF-VC-04/05/06 ✅</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 1 — Day 1</div>
-        <div class="tl-label">WF-VC-03 ✅</div>
+        <div class="tl-date">May 8</div>
+        <div class="tl-label">Pipedrive Audit ✅</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 4 — Day 4</div>
-        <div class="tl-label">WF-VC-04 ✅</div>
-      </div>
-      <div class="tl-item done">
-        <div class="tl-date">May 6 — Day 6</div>
-        <div class="tl-label">WF-VC-05 ✅</div>
-      </div>
-      <div class="tl-item done">
-        <div class="tl-date">May 8 — Day 8</div>
-        <div class="tl-label">WF-VC-06 ✅</div>
-      </div>
-      <div class="tl-item done">
-        <div class="tl-date">May 11 — Day 11</div>
+        <div class="tl-date">May 11</div>
         <div class="tl-label">Konsier P2 ✅</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">May 12</div>
+        <div class="tl-label">Step 10 ▶</div>
       </div>
     </div>
   </div>
@@ -609,12 +679,12 @@
     <div class="stat-card green">
       <div class="label">VC Workflows Live</div>
       <div class="value">6</div>
-      <div class="sub">of 18 total — all VC done</div>
+      <div class="sub">of 18 total (transferred to Drew's n8n)</div>
     </div>
     <div class="stat-card blue">
       <div class="label">Konsier Phase 2</div>
       <div class="value">3</div>
-      <div class="sub">Steps done — pipelines, fields, perms</div>
+      <div class="sub">steps done (Steps 7–9 of 38)</div>
     </div>
     <div class="stat-card yellow">
       <div class="label">Active Projects</div>
@@ -623,41 +693,173 @@
     </div>
     <div class="stat-card red">
       <div class="label">Blockers</div>
-      <div class="value">4</div>
-      <div class="sub">Email, domain, card, SHARED-INFRA</div>
+      <div class="value">6</div>
+      <div class="sub">Waiting on Drew</div>
     </div>
   </div>
 
-  <!-- Progress Bar -->
+  <!-- Progress Bars -->
   <div class="progress-section">
     <div class="progress-header">
-      <span>Overall Build Progress — Two Active Projects</span>
-      <strong>VC: 6/18 workflows live · Konsier: Phase 2 of 7 in progress</strong>
+      <span>Overall Build Progress (VC + Konsier)</span>
+      <strong>38% — VC 6/18 workflows + Konsier Phase 2 complete</strong>
     </div>
     <div class="bar-track">
       <div class="bar-fill" style="width: 38%;"></div>
     </div>
     <div class="phase-labels">
-      <span class="active">▶ Week 2 — Konsier P2 + VC Pipedrive</span>
-      <span>Week 3 — n8n Rebuild</span>
+      <span>Week 1 — VC Core ✅</span>
+      <span class="active">▶ Week 2 — Konsier P2 + VC PD</span>
+      <span>Week 3 — Konsier P3 + AR</span>
       <span>Week 4 — Konsier Workflows</span>
       <span>Week 5 — Claude Agents</span>
-      <span>Week 6 — Testing</span>
+      <span>Week 6 — Frontend</span>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <div class="progress-header">
+        <span>Pipedrive Native Automations</span>
+        <strong style="color: #fb923c;">20% — 2 of 10 built</strong>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill orange-fill" style="width: 20%;"></div>
+      </div>
+      <div class="progress-label">WF-01 New Lead Assignment ✅ · WF-02 Strategy Call Follow-Up ✅ · WF-03 through WF-10 queued</div>
     </div>
   </div>
 
-  <!-- VC Workflows -->
+  <!-- Pipedrive CRM Setup -->
+  <div class="section">
+    <div class="section-header">
+      <span class="entity-tag tag-pd">PD</span>
+      <h2>Pipedrive CRM — Audit &amp; Verification (May 8)</h2>
+      <span class="count">All verified ✅ — built by previous admin</span>
+    </div>
+    <div class="pd-setup-grid">
+      <div class="pd-setup-card">
+        <div class="pd-label">Pipelines — Verified</div>
+        <div class="pd-value">4 ✅</div>
+        <div class="pd-desc">VC Education &amp; Policy · AV Investment &amp; Capital · AR Property Acquisition · AC Construction &amp; Development — all stages, probabilities &amp; rotting confirmed correct against Part 3 guide. Built by previous admin, no changes needed.</div>
+      </div>
+      <div class="pd-setup-card">
+        <div class="pd-label">Person Fields — Verified</div>
+        <div class="pd-value">18 ✅</div>
+        <div class="pd-desc">Client Type · Branch of Service · Annual Income · VA Disability Rating · Ecosystem Stage · Active in VC/AV/AR/AC — all 18 confirmed correct. Built by previous admin, no changes needed.</div>
+      </div>
+      <div class="pd-setup-card">
+        <div class="pd-label">Deal Fields — Verified</div>
+        <div class="pd-value">20+ ✅</div>
+        <div class="pd-desc">Entity · Cross-Reference Deal ID · Urgency · VC: Policy fields · AV: Investment fields · AR: Property fields · AC: Project &amp; SDVOSB fields — all confirmed correct. Built by previous admin, no changes needed.</div>
+      </div>
+      <div class="pd-setup-card">
+        <div class="pd-label">Labels — Created NEW · Lost Reasons — Verified</div>
+        <div class="pd-value">7 ✅</div>
+        <div class="pd-desc">NEW — created by Vladimir: Military · Pilot · First Responder · High-W2 · Business Owner · VIP / Referral · VA Loan Eligible. Lost reasons already complete for all 4 pipelines — verified only.</div>
+      </div>
+    </div>
+
+    <!-- Pipedrive Automations -->
+    <div class="section-header" style="margin-top: 4px;">
+      <span class="entity-tag tag-pd">PD AUTO</span>
+      <h2>Pipedrive Native Automations — 10 Total</h2>
+      <span class="count">2 built (inactive) · 8 remaining</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card inactive">
+        <div class="wf-top">
+          <span class="wf-id">PD-WF-01</span>
+          <span class="status-badge badge-inactive">Built — Inactive</span>
+        </div>
+        <div class="wf-name">New Lead Assignment &amp; Notification</div>
+        <div class="wf-trigger"><span>Trigger:</span> Deal Added → VC pipeline<br>Create call activity + POST to n8n webhook (WF-VC-01)</div>
+      </div>
+      <div class="wf-card inactive">
+        <div class="wf-top">
+          <span class="wf-id">PD-WF-02</span>
+          <span class="status-badge badge-inactive">Built — Inactive</span>
+        </div>
+        <div class="wf-name">Strategy Call Follow-Up</div>
+        <div class="wf-trigger"><span>Trigger:</span> Deal Updated → Stage = Strategy Call Completed<br>Create proposal task (+1 day) + send follow-up email + add note</div>
+      </div>
+      <div class="wf-card next">
+        <div class="wf-top">
+          <span class="wf-id">PD-WF-03</span>
+          <span class="status-badge badge-next">Next Up ⚡</span>
+        </div>
+        <div class="wf-name">VC → AV Pipeline Handoff</div>
+        <div class="wf-trigger"><span>CRITICAL:</span> Deal → Policy Delivered/Won<br>Update Person ecosystem stage + Create AV deal + Add note + Webhook to n8n</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">PD-WF-04</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">AV → AR Deal Sourcing Trigger</div>
+        <div class="wf-trigger"><span>Trigger:</span> Deal → Commitment Received (AV)<br>Create AR Acquisition deal + tag Person Active in AR</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">PD-WF-05</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">AR → AC Construction Trigger</div>
+        <div class="wf-trigger"><span>Trigger:</span> Deal → Closed/Won + Needs Rehab=Yes<br>Create AC Project deal + tag Person Active in AC</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">PD-WF-06</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">AC → AV Completion Loop</div>
+        <div class="wf-trigger"><span>Trigger:</span> Deal → Project Complete/Won<br>Update Person to Full Ecosystem + trigger cost seg + investor notify</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">PD-WF-07</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Stale Lead Re-engagement</div>
+        <div class="wf-trigger"><span>Trigger:</span> Deal rotting = Yes (any pipeline)<br>Create re-engage call + send check-in email + webhook to n8n</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">PD-WF-08</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Education Progress Tracking</div>
+        <div class="wf-trigger"><span>Built in n8n:</span> Webhook from education platform → PATCH Pipedrive deal Education Modules Completed field</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">PD-WF-09</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">Monthly Investor Update</div>
+        <div class="wf-trigger"><span>Trigger:</span> Date — 1st of every month<br>AV Active Investment deals → webhook to n8n (WF-AV monthly report)</div>
+      </div>
+      <div class="wf-card pending">
+        <div class="wf-top">
+          <span class="wf-id">PD-WF-10</span>
+          <span class="status-badge badge-pending">⏳ Queued</span>
+        </div>
+        <div class="wf-name">No-Show Follow-Up</div>
+        <div class="wf-trigger"><span>Trigger:</span> Activity Updated → Status = Not Done<br>Create re-book call (+1 day) + send "we missed you" email + add note</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VC Workflows (GHL-based, to be rebuilt) -->
   <div class="section">
     <div class="section-header">
       <span class="entity-tag tag-vc">VC</span>
-      <h2>Velocity Capital — Insurance &amp; IBC Workflows</h2>
-      <span class="count">6 done · 0 remaining ✅</span>
+      <h2>Velocity Capital — n8n Workflows (GHL-based · Being Rebuilt for Pipedrive)</h2>
+      <span class="count">6 live on GHL · Pipedrive rebuild queued</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-01</span>
-          <span class="status-badge badge-done">✅ Live</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">Lead Capture</div>
         <div class="wf-trigger"><span>Trigger:</span> GHL Form → Webhook<br>Claude qualifies lead → GHL contact + opportunity created</div>
@@ -665,7 +867,7 @@
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-02</span>
-          <span class="status-badge badge-done">✅ Live</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">AI Education Drip</div>
         <div class="wf-trigger"><span>Trigger:</span> Stage → Nurturing<br>Claude writes personalized Day 1 email (PAS framework, 200 words)</div>
@@ -673,7 +875,7 @@
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-03</span>
-          <span class="status-badge badge-done">✅ Live</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">Strategy Call Booking → Prep</div>
         <div class="wf-trigger"><span>Trigger:</span> Stage → Call Scheduled<br>Claude generates call prep · saves to notes · sends confirmation email</div>
@@ -681,26 +883,26 @@
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-04</span>
-          <span class="status-badge badge-done">✅ Live</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">Post-Call Follow-Up</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage → Call Complete<br>Claude writes proposal email · creates follow-up task · internal notification · moves stage to Proposal Sent</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Call Complete<br>Claude writes proposal email · creates follow-up task · moves stage to Proposal Sent</div>
       </div>
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-05</span>
-          <span class="status-badge badge-done">✅ Live</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">Policy Active → Investor Transition</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage → Policy Active + cash value &gt;$50K<br>12-node cross-entity handoff: stage update → tags → Claude email → note. FALSE branch logs below-threshold note.</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Policy Active + cash value &gt;$50K<br>12-node cross-entity handoff: stage update → tags → Claude email → note.</div>
       </div>
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-06</span>
-          <span class="status-badge badge-done">✅ Live</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">Monthly Client Report</div>
-        <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Fetches active clients → Claude writes 400–500 word personalized report (PAS) → GHL Conversations API delivers email → note logged to contact</div>
+        <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Fetches active clients → Claude writes 400–500 word report → GHL Conversations API delivers → note logged</div>
       </div>
     </div>
   </div>
@@ -778,7 +980,7 @@
           <span class="status-badge badge-pending">⏳ Queued</span>
         </div>
         <div class="wf-name">New Property Lead Intake</div>
-        <div class="wf-trigger"><span>Trigger:</span> Webhook (Carrot / MLS)<br>Claude scores deal 1–10 → Slack #ar-hot-deals if &gt;7</div>
+        <div class="wf-trigger"><span>Trigger:</span> Webhook (Carrot / MLS)<br>Claude scores deal 1–10 → Slack #ar-acquisitions if &gt;7</div>
       </div>
       <div class="wf-card pending">
         <div class="wf-top">
@@ -786,7 +988,7 @@
           <span class="status-badge badge-pending">⏳ Queued</span>
         </div>
         <div class="wf-name">Deal Under Contract → AC Handoff</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage → Under Contract<br>Creates AC deal + Slack #ac-new-projects</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage → Under Contract<br>Creates AC deal + Slack #ac-projects</div>
       </div>
       <div class="wf-card pending">
         <div class="wf-top">
@@ -829,7 +1031,7 @@
           <span class="status-badge badge-pending">⏳ Queued</span>
         </div>
         <div class="wf-name">Investor Onboarding</div>
-        <div class="wf-trigger"><span>Trigger:</span> New AV deal created<br>DocuSign subscription → Accredited stage → ActiveCampaign drip</div>
+        <div class="wf-trigger"><span>Trigger:</span> New AV deal created (Pipedrive)<br>DocuSign → Accredited stage → drip sequence</div>
       </div>
       <div class="wf-card pending">
         <div class="wf-top">
@@ -853,7 +1055,7 @@
           <span class="status-badge badge-pending">⏳ Queued</span>
         </div>
         <div class="wf-name">Quarterly Distribution Reports</div>
-        <div class="wf-trigger"><span>Trigger:</span> Cron — quarterly<br>Claude K-1 summary + narrative → investors via email</div>
+        <div class="wf-trigger"><span>Trigger:</span> Cron — quarterly<br>Claude K-1 summary + narrative → investors via SendGrid</div>
       </div>
     </div>
   </div>
@@ -1006,7 +1208,7 @@
       <div class="blocker-icon">📮</div>
       <div class="blocker-content">
         <div class="title">8 Instantly Mailboxes — Email Warmup URGENT</div>
-        <div class="desc">Warmup must run 14 days before production sends. Drew promised these today (May 12). Every day delayed = 1 day later before cold email can go live.</div>
+        <div class="desc">Warmup must run 14 days before production sends. Drew promised these May 12. Every day delayed = 1 day later before cold email can go live.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -1036,13 +1238,13 @@
   <div class="billing-section">
     <div class="billing-header">
       <div>
-        <div class="billing-title">Week 2 — Billing Report</div>
-        <div class="billing-sub">May 11–16, 2026 · Rate: $500/week flat · Payment via Wise every Friday · @freelance1293</div>
+        <div class="billing-title">Week 1 — Billing Report</div>
+        <div class="billing-sub">May 1–8, 2026 · Rate: $8/hr · Payment via Wise every Friday</div>
       </div>
       <div class="billing-total-box">
-        <div class="billing-total-label">Week 2 Rate</div>
-        <div class="billing-total-value">$500</div>
-        <div class="billing-total-sub">Flat weekly · confirmed by Drew May 11</div>
+        <div class="billing-total-label">Week 1 Total</div>
+        <div class="billing-total-value">$384</div>
+        <div class="billing-total-sub">48 hrs logged · Payment due Friday May 8</div>
       </div>
     </div>
     <table class="billing-table">
@@ -1075,17 +1277,17 @@
         </tr>
         <tr class="done-row">
           <td>May 6</td><td>Wednesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>WF-VC-05 Policy Active → Investor Transition — full 12-node build, GHL automation trigger, end-to-end test confirmed. Pipedrive KB research. Entity emails received from Drew.</td>
+          <td>WF-VC-05 Policy Active → Investor Transition — full 12-node build, end-to-end test confirmed. Pipedrive CRM expert research. Entity emails received from Drew.</td>
           <td class="earn">$64</td>
         </tr>
         <tr class="done-row">
           <td>May 7</td><td>Thursday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>WF-VC-06 Monthly Client Report — full build + end-to-end test complete. GHL Opportunities pull, Claude AI email generation (PAS 400–500 words), GHL Conversations API send, HTML email formatting, GHL Add Note. Email confirmed in Gmail, rendered correctly.</td>
+          <td>WF-VC-06 Monthly Client Report — full build. GHL Opportunities pull, Claude AI email generation (PAS 400–500 words), GHL Conversations API send, HTML formatting, Add Note.</td>
           <td class="earn">$64</td>
         </tr>
         <tr class="done-row">
           <td>May 8</td><td>Friday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Pipedrive full audit — 4 pipelines verified, 18 Person fields + 20+ Deal fields verified, 7 deal labels created (Military, Pilot, First Responder, High-W2, Business Owner, VIP/Referral, VA Loan Eligible). PD-WF-01 + PD-WF-02 built inactive.</td>
+          <td>WF-VC-06 end-to-end confirmed in Gmail. n8n workflows (WF-VC-01 to WF-VC-06) transferred 1 by 1 to Drew's n8n account. Slack bot created (Velocity Capital Bot, xoxb- token) — added to #all-velocity-capital only; remaining channels pending setup. SendGrid expert research saved to knowledge base. Pipedrive CRM audit: verified 4 pipelines (stages, probabilities, rotting — already built correctly by previous admin ✅), verified 18 Person fields ✅, verified 20+ Deal fields ✅, verified lost reasons ✅ — all confirmed matching Part 3 guide, no changes needed. NEW: created 7 Deal Labels from scratch (Military, Pilot, First Responder, High-W2, Business Owner, VIP/Referral, VA Loan Eligible). NEW: built Pipedrive Automation WF-01 (New Lead Assignment) + WF-02 (Strategy Call Follow-Up) — saved inactive pending n8n rebuild.</td>
           <td class="earn">$64</td>
         </tr>
       </tbody>
@@ -1144,45 +1346,50 @@
 
   <!-- Tech Discoveries -->
   <div class="discoveries">
-    <h3>✅ Technical Discoveries This Week</h3>
+    <h3>✅ Technical Discoveries (All Sessions)</h3>
+
     <div class="discovery-item"><div class="disc-dot"></div>Native n8n Anthropic node has a credential bug — switched to HTTP Request node for all Claude calls (working perfectly)</div>
     <div class="discovery-item"><div class="disc-dot"></div>GHL V1 API was deprecated Dec 31 2025 — all calls now use V2 (services.leadconnectorhq.com) with PIT token authentication</div>
     <div class="discovery-item"><div class="disc-dot"></div>GHL requires locationId in every V2 API body or returns 403 — added to all nodes</div>
     <div class="discovery-item"><div class="disc-dot"></div>GHL Conversations API requires "html" field for email body (not "body" or "message") — fixed in WF-VC-02</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL auto-enables DND on contacts with repeated email bounces — must manually disable per contact in GHL settings</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL auto-enables DND on contacts with repeated email bounces — must manually disable per contact</div>
     <div class="discovery-item"><div class="disc-dot"></div>n8n "Using Fields Below" mode prevents Claude's special characters from breaking JSON — applied to all Claude output nodes</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL V2 /contacts/ search by email returns 422 — redesigned WF-VC-03 to pass contactId directly in webhook payload (more reliable)</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL V2 /contacts/ search by email returns 422 — redesigned WF-VC-03 to pass contactId directly in webhook payload</div>
     <div class="discovery-item"><div class="disc-dot"></div>WF-VC-05: IF node requires conditions.options.version = 2 — missing this caused silent validation failure</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL blocks duplicate emails across contacts — always use unique test emails per contact when testing workflows</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Cash value from GHL custom field may include currency formatting — strip non-numeric chars with Number(String(value).replace(/[^0-9.]/g, '')) before comparison</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Cross-entity handoff confirmed working: VC Policy Active → AV Investor Transition stage update + tags + Claude email + note all in one 10.7s execution</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL Opportunities API (/opportunities/search) does NOT accept pipelineId or pipelineStageId as query params — returns 422. Must pull all by location_id then filter in Code node.</div>
-    <div class="discovery-item"><div class="disc-dot"></div>MCP tool sets header values with = prefix, causing n8n to treat API keys as JavaScript expressions — always set x-api-key and API tokens manually in UI using Fixed Value mode</div>
-    <div class="discovery-item"><div class="disc-dot"></div>MCP partial workflow update appends headers, never replaces — after any MCP header change, manually delete stale duplicate header rows in n8n UI</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Anthropic /v1/messages requires both x-api-key AND anthropic-version: 2023-06-01 as Fixed Value headers — missing either returns 400/401</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Claude API response text is at content[0].text — never $json.text (returns undefined). Always access via $input.item.json.content[0].text</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL Send Email via Conversations API requires html field (not body/message) + conversationId in body — POST to /conversations/messages, not /conversations/{id}/messages</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Plain text email with \n chars renders as wall of text in Gmail — convert to HTML with paragraph wrapping: split on \n\n, wrap each in &lt;p&gt;, replace inner \n with &lt;br&gt;</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Pipedrive "Checkbox" field type does not exist for Deal fields — use Single Option with Yes/No values instead. Works identically for n8n reads via API.</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Pipedrive "URL" field type does not exist for Deal fields — use Text type. URLs stored and retrieved correctly as plain strings.</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Pipedrive custom field count: 58/300 before Konsier fields, 70/300 after adding 13 Konsier fields. Plenty of headroom remaining.</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Pipedrive Permission sets control WHAT actions users can take — pipeline visibility restrictions (VA sees only OUTBOUND) are set via Visibility Groups tab, not Permission Sets.</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Konsier SOP Step 16 confirms Drew knows about n8n-MCP (open source, MIT licensed). He wrote it into his own SOP — no longer a topic to avoid in messages.</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Konsier SOP gap analysis: PandaDoc (contracts in WF#4) and Notion (client workspaces + agent dashboard) are required tools not in original scope — need Drew's accounts/templates before Phase 4.</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Retell AI sends 3 webhook events per call (call_started, call_ended, call_analyzed) — must filter for call_analyzed only in n8n to avoid 3 executions per call. Pass pipedrive_deal_id in metadata.</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL Opportunities API (/opportunities/search) does NOT accept pipelineId as query param — must pull all then filter in Code node</div>
+    <div class="discovery-item"><div class="disc-dot"></div>MCP tool appends headers, never replaces — after any MCP header change, manually delete stale duplicate rows in n8n UI</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Claude API response text is at content[0].text — never $json.text. Always access via $input.item.json.content[0].text</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Plain text email with \n chars renders as wall of text in Gmail — convert to HTML: split on \n\n, wrap in &lt;p&gt;, replace inner \n with &lt;br&gt;</div>
+
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8 — Pipedrive/Slack]</strong> Pipedrive Webhook action requires Growth plan or higher — webhook option not clickable on current plan. n8n will poll Pipedrive API for triggers instead.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive Deal Labels are NOT created in Settings → Labels. Must create from within an actual Deal record → Add labels → + Add label button.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive merge field name is "Deal title" not "Deal name" — use "Deal title" in automation action subject lines.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive "Today" due date = "The same day" · "1 day after" = "In one day" — these are the correct Pipedrive UI labels.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> All new Pipedrive automations default to Asia/Taipei timezone — must manually change to America/Los_Angeles (Pacific) for Drew's account.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Importing data does NOT trigger Pipedrive automations — manual stage changes required after bulk import.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Old pre-Part 3 Pipedrive pipelines (4 extra: Velocity Policy Created, Annual Follow Up, Investor Capital, New Products) cannot be deleted — active client records exist (Pazdierski Family, Ah Nee). Leave completely untouched.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Slack private channels: Admin can create channels and /invite @bot via UI. Admin conversations.invite API scope is Enterprise Grid only — standard workspaces use UI invitation only.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Slack bot added to Velocity Capital Bot app. n8n Slack credential type = "Slack API" (Access Token). Required scopes: chat:write, channels:read, channels:join, users:read.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Pipedrive "Checkbox" field type does not exist for Deal fields — use Single Option with Yes/No values instead. Works identically for n8n reads via API.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Pipedrive "URL" field type does not exist for Deal fields — use Text type. URLs stored and retrieved correctly as plain strings.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Pipedrive custom field count: 58/300 before Konsier fields, 70/300 after adding 13 Konsier fields. Plenty of headroom remaining.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Pipedrive Permission Sets control WHAT actions users can take — pipeline visibility restrictions (VA sees only OUTBOUND) are set via Visibility Groups, not Permission Sets.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Konsier SOP Step 16 confirms Drew knows about n8n-MCP (open source, MIT licensed) — no longer a topic to avoid in messages to Drew.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> SOP gap: PandaDoc (contracts in WF#4) and Notion (client workspaces + agent dashboard) are required tools not in original scope — need Drew's accounts/templates before Phase 4.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Retell AI sends 3 webhook events per call (call_started, call_ended, call_analyzed) — filter for call_analyzed only in n8n to avoid triple execution. Pass pipedrive_deal_id in metadata.</div>
   </div>
 
   <!-- Footer -->
   <div class="footer">
     <div class="footer-left">
-      Built by <strong>Vladimir</strong> · n8n instance: <strong>n8n.srv1305072.hstgr.cloud</strong> · GHL: <strong>app.ghlpinas.ph</strong>
+      Built by <strong>Vladimir</strong> · n8n: <strong>n8n.srv1647733.hstgr.cloud</strong> · CRM: <strong>Pipedrive</strong> · Projects: <strong>Velocity Capital + Konsier</strong>
     </div>
     <div class="footer-right">
-      <span class="cred-tag active">GHL V2 API ✓</span>
-      <span class="cred-tag active">Claude Haiku ✓</span>
       <span class="cred-tag active">Claude Sonnet ✓</span>
-      <span class="cred-tag">Slack ⏳</span>
-      <span class="cred-tag">Calendly ⏳</span>
+      <span class="cred-tag orange">Pipedrive ↻ Rebuilding</span>
+      <span class="cred-tag active">Slack Bot ✓</span>
+      <span class="cred-tag active">SendGrid ✓</span>
+      <span class="cred-tag">Konsier ▶ P2</span>
     </div>
   </div>
 
