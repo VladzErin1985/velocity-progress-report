@@ -634,21 +634,21 @@
       <div class="subtitle">n8n + Pipedrive + Slack + SendGrid + Claude AI · Week 2 Started · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">May 11, 2026</div>
+      <div class="date-badge">May 12, 2026</div>
       <div class="week-badge">Week 2 of 6 · <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>WEEK 2 — DUAL PROJECT:</strong> Konsier (B2B SaaS outbound sales system) launched in parallel with VC Pipedrive rebuild. Konsier Phase 2 (Steps 7–9) complete in one session. Two active projects now running simultaneously.
+    <strong>WEEK 2 — DAY 2 (May 12):</strong> Webhook infrastructure deployed. PD-EVENTS (VC Pipedrive listener) + KS-PD-EVENTS (Konsier Pipedrive listener) — both published in n8n. Critical fix: Pipedrive v2.0 webhook payload structure corrected. Two completely separate event routing systems now live.
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
       <div class="label">Build Velocity</div>
-      <div class="message"><strong>Week 2 started — Konsier B2B system launched.</strong> Received 31-page SOP from Drew. Completed Konsier Phase 2 in one session: 3 pipelines, 13 custom fields, 4 permission sets. VC + Konsier now running in parallel.</div>
+      <div class="message"><strong>May 12 — Webhook infrastructure live.</strong> PD-EVENTS (VC) + KS-PD-EVENTS (Konsier) both published. Fixed critical Pipedrive v2.0 payload bug. Separate event routing confirmed working. Step 10 Konsier automations in progress.</div>
     </div>
     <div class="timeline">
       <div class="tl-item done">
@@ -667,9 +667,9 @@
         <div class="tl-date">May 11</div>
         <div class="tl-label">Konsier P2 ✅</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item done">
         <div class="tl-date">May 12</div>
-        <div class="tl-label">Step 10 ▶</div>
+        <div class="tl-label">PD/KS Events ✅</div>
       </div>
     </div>
   </div>
@@ -904,6 +904,14 @@
         <div class="wf-name">Monthly Client Report</div>
         <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Fetches active clients → Claude writes 400–500 word report → GHL Conversations API delivers → note logged</div>
       </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">PD-EVENTS</span>
+          <span class="status-badge badge-done">✅ Published</span>
+        </div>
+        <div class="wf-name">Pipedrive Webhook Receiver (VC)</div>
+        <div class="wf-trigger"><span>May 12:</span> Listens to all VC Pipedrive events · Routes stage changes, deal adds, person adds · Fixed v2.0 payload (meta.entity, previous.stage_id detection)</div>
+      </div>
     </div>
   </div>
 
@@ -938,6 +946,14 @@
         </div>
         <div class="wf-name">4 Permission Sets Created</div>
         <div class="wf-trigger">VA-Outbound · VA-Fulfillment · Closer · Admin — role-based access configured. Visibility groups deferred until VAs hired.</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-PD-EVENTS</span>
+          <span class="status-badge badge-done">✅ Published</span>
+        </div>
+        <div class="wf-name">Konsier Pipedrive Webhook Receiver</div>
+        <div class="wf-trigger"><span>May 12:</span> Completely separate from VC · Path: konsier-pipedrive-events · Routes: Stage Changed · Deal Added · Person Added · Isolated per Drew's requirement</div>
       </div>
       <div class="wf-card next">
         <div class="wf-top">
@@ -1313,10 +1329,10 @@
           <td>Konsier project launched — read 31-page SOP. Created 3 Pipedrive pipelines (OUTBOUND, SELF-SERVE, CLOSER TRACK). Created 13 custom fields (4 Person + 9 Deal). Created 4 permission sets. Full SOP gap analysis + knowledge base documentation.</td>
           <td class="earn">$100</td>
         </tr>
-        <tr class="pending-row">
-          <td>May 12</td><td>Monday</td><td colspan="3"><span class="pending-tag">Next shift</span></td>
-          <td>Step 10 — 6 Pipedrive automations · Step 11 — AI Sales Assistant</td>
-          <td class="pending-earn">—</td>
+        <tr class="done-row">
+          <td>May 12</td><td>Tuesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>Built PD-EVENTS (VC Pipedrive webhook receiver) + KS-PD-EVENTS (Konsier webhook receiver) — both published in n8n. Fixed critical Pipedrive v2.0 payload bug (meta.entity, empty current object, stage detection via previous.stage_id). Konsier Pipedrive webhook registered and tested. Progress report updated and pushed to Vercel.</td>
+          <td class="earn">$100</td>
         </tr>
       </tbody>
       <tfoot>
@@ -1350,6 +1366,9 @@
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Konsier SOP Step 16 confirms Drew knows about n8n-MCP (open source, MIT licensed) — no longer a topic to avoid in messages to Drew.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> SOP gap: PandaDoc (contracts in WF#4) and Notion (client workspaces + agent dashboard) are required tools not in original scope — need Drew's accounts/templates before Phase 4.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Retell AI sends 3 webhook events per call (call_started, call_ended, call_analyzed) — filter for call_analyzed only in n8n to avoid triple execution. Pass pipedrive_deal_id in metadata.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 12 — Critical Fix]</strong> Pipedrive sends v2.0 webhook payload: <code>meta.entity</code> (not <code>meta.object</code>), <code>current</code> object is EMPTY on change events. Stage changes detected from <code>previous.stage_id</code> being present. Original code always returned stageChanged:false — fixed in both PD-EVENTS and KS-PD-EVENTS.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 12 — Pipedrive Limitation]</strong> Pipedrive native automation "Update deal fields" → "Pipeline stage" only shows dynamic variable references — cannot set a hardcoded static stage name. Use n8n Pipedrive API call (PATCH /deals/{id} with stage_id) to move deals to specific stages programmatically.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 12 — Architecture]</strong> VC and Konsier require completely separate Pipedrive webhooks + n8n workflows per Drew. KS-PD-EVENTS path: konsier-pipedrive-events. PD-EVENTS path: pipedrive-events. No shared logic between projects.</div>
   </div>
 
   <!-- Footer -->
@@ -1368,7 +1387,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 11, 2026';
+    if (el) el.textContent = 'Last updated: May 12, 2026';
   </script>
 </body>
 </html>
