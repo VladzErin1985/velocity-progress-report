@@ -687,8 +687,8 @@
     </div>
     <div class="stat-card blue">
       <div class="label">Konsier Automations</div>
-      <div class="value">7</div>
-      <div class="sub">Steps 7–9 done · KS-A1/A4/A5 built · WF6 POC live</div>
+      <div class="value">6</div>
+      <div class="sub">Steps 7–9 done · KS-A1/A4 built · WF6 POC live · A5 blocked (no Wistia)</div>
     </div>
     <div class="stat-card yellow">
       <div class="label">Active Projects</div>
@@ -975,13 +975,13 @@
         <div class="wf-name">Stalled Deal Slack Alert</div>
         <div class="wf-trigger"><span>May 13:</span> Pipedrive native automation. Daily check — deals with no activity for 3+ days in OUTBOUND → Slack #konsier alert with deal name + last activity date.</div>
       </div>
-      <div class="wf-card done">
+      <div class="wf-card blocked">
         <div class="wf-top">
           <span class="wf-id">KS-A5</span>
-          <span class="status-badge badge-done">✅ Done</span>
+          <span class="status-badge badge-blocked">⚠ Blocked</span>
         </div>
         <div class="wf-name">Hot Lead Tagging (Wistia)</div>
-        <div class="wf-trigger"><span>May 13:</span> Pipedrive native automation. Trigger: Wistia video watched milestone → label "Hot Lead" applied + activity created for same-day outreach. Pure workflow, no AI needed.</div>
+        <div class="wf-trigger">Trigger: Wistia video watched milestone → label "Hot Lead" applied + activity created for same-day outreach. Pure workflow, no AI needed. <strong>Blocked — no Wistia account yet.</strong> Needs Drew's Wistia account + webhook setup.</div>
       </div>
       <div class="wf-card done">
         <div class="wf-top">
@@ -1396,7 +1396,7 @@
         </tr>
         <tr class="done-row">
           <td>May 13</td><td>Wednesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Konsier Step 10 — built KS-A1 (auto-stage 91 on transcript_filled), KS-A4 (stalled deal Slack alert, 3+ days no activity), KS-A5 (Wistia hot lead tagging) as Pipedrive native automations. Designed + uploaded Konsier Bot Slack icon (SVG, purple gradient). Built KS-WF6 Phase 1 POC in n8n: Manual Trigger → ICP Score Code node → IF ≥70 → Batch 50 → Claude Outbound Operator (BASHO framework, Sonnet 4.6) → Parse Output → Slack #konsier summary (1 message, all 5 openers). Researched Apollo + Clay integration architecture: API patterns, webhook flows, ZeroBounce pre-verification, Instantly campaign delivery, full cost breakdown ($156–$245/mo).</td>
+          <td>Konsier Step 10 — built KS-A1 (auto-stage 91 on transcript_filled), KS-A4 (stalled deal Slack alert, 3+ days no activity) as Pipedrive native automations. KS-A5 (Wistia hot lead tagging) designed but blocked — no Wistia account yet. Designed + uploaded Konsier Bot Slack icon (SVG, purple gradient). Built KS-WF6 Phase 1 POC in n8n: Manual Trigger → ICP Score Code node → IF ≥70 → Batch 50 → Claude Outbound Operator (BASHO framework, Sonnet 4.6) → Parse Output → Slack #konsier summary (1 message, all 5 openers). Researched Apollo + Clay integration architecture: API patterns, webhook flows, ZeroBounce pre-verification, Instantly campaign delivery, full cost breakdown ($156–$245/mo).</td>
           <td class="earn">$100</td>
         </tr>
       </tbody>
