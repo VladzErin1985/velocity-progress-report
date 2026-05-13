@@ -634,21 +634,21 @@
       <div class="subtitle">n8n + Pipedrive + Slack + SendGrid + Claude AI · Week 2 Started · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">May 12, 2026</div>
+      <div class="date-badge">May 13, 2026</div>
       <div class="week-badge">Week 2 of 6 · <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>WEEK 2 — DAY 2 (May 12):</strong> Webhook infrastructure deployed. PD-EVENTS (VC Pipedrive listener) + KS-PD-EVENTS (Konsier Pipedrive listener) — both published in n8n. Critical fix: Pipedrive v2.0 webhook payload structure corrected. Two completely separate event routing systems now live.
+    <strong>WEEK 2 — DAY 3 (May 13):</strong> Konsier Step 10 partially complete — KS-A1 (auto-stage 91), KS-A4 (stalled deal alert), KS-A5 (hot lead tagging) built in Pipedrive native automations. KS-WF6 Phase 1 POC live in n8n: Manual Trigger → ICP Score → Claude Outbound Operator → Slack #konsier. Konsier Bot Slack icon deployed. Expert KB updated with real Apollo + Clay research from Nate Herk + n8n templates.
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
       <div class="label">Build Velocity</div>
-      <div class="message"><strong>May 12 — Webhook infrastructure live.</strong> PD-EVENTS (VC) + KS-PD-EVENTS (Konsier) both published. Fixed critical Pipedrive v2.0 payload bug. Separate event routing confirmed working. Step 10 Konsier automations in progress.</div>
+      <div class="message"><strong>May 13 — Konsier Step 10 + WF6 POC.</strong> KS-A1/A4/A5 built in Pipedrive. KS-WF6 Phase 1 POC: 5 test contacts → ICP scored 100/100 → Claude wrote BASHO openers → Slack #konsier. Konsier Bot icon live. Expert KB: Apollo+Clay verified from real research.</div>
     </div>
     <div class="timeline">
       <div class="tl-item done">
@@ -671,6 +671,10 @@
         <div class="tl-date">May 12</div>
         <div class="tl-label">PD/KS Events ✅</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">May 13</div>
+        <div class="tl-label">KS-A1/A4/A5 + WF6 ✅</div>
+      </div>
     </div>
   </div>
 
@@ -682,9 +686,9 @@
       <div class="sub">of 18 total · live on Drew's n8n · rebuilding for Pipedrive</div>
     </div>
     <div class="stat-card blue">
-      <div class="label">Konsier Phase 2</div>
-      <div class="value">3</div>
-      <div class="sub">steps done (Steps 7–9 of 38)</div>
+      <div class="label">Konsier Automations</div>
+      <div class="value">7</div>
+      <div class="sub">Steps 7–9 done · KS-A1/A4/A5 built · WF6 POC live</div>
     </div>
     <div class="stat-card yellow">
       <div class="label">Active Projects</div>
@@ -702,10 +706,10 @@
   <div class="progress-section">
     <div class="progress-header">
       <span>Overall Build Progress (VC + Konsier)</span>
-      <strong>Week 2 started — VC 6/18 workflows live · Konsier Phase 2 done</strong>
+      <strong>Week 2 Day 3 — VC 6/18 workflows live · Konsier 7 automations done · WF6 POC live</strong>
     </div>
     <div class="bar-track">
-      <div class="bar-fill" style="width: 17%;"></div>
+      <div class="bar-fill" style="width: 20%;"></div>
     </div>
     <div class="phase-labels">
       <span>Week 1 — VC Core ✅</span>
@@ -920,7 +924,7 @@
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
       <h2>Konsier — B2B Outbound Sales System (New Project)</h2>
-      <span class="count">Phase 2 of 7 · Steps 7–9 done · Step 10 next</span>
+      <span class="count">Phase 2 of 7 · Steps 7–9 done · Step 10 in progress (3/6)</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done">
@@ -955,13 +959,69 @@
         <div class="wf-name">Konsier Pipedrive Webhook Receiver</div>
         <div class="wf-trigger"><span>May 12:</span> Completely separate from VC · Path: konsier-pipedrive-events · Routes: Stage Changed · Deal Added · Person Added · Isolated per Drew's requirement</div>
       </div>
-      <div class="wf-card next">
+      <div class="wf-card done">
         <div class="wf-top">
-          <span class="wf-id">KS-STEP-10</span>
-          <span class="status-badge badge-next">▶ Next</span>
+          <span class="wf-id">KS-A1</span>
+          <span class="status-badge badge-done">✅ Done</span>
         </div>
-        <div class="wf-name">6 Pipedrive Native Automations</div>
-        <div class="wf-trigger">A1 Auto-stage · A2 Tier routing · A3 Closer round-robin · A4 Stalled deal alert · A5 Hot lead tagging · A6 Closed-Won → n8n webhook</div>
+        <div class="wf-name">AI Qualification — Auto Stage 91</div>
+        <div class="wf-trigger"><span>May 13:</span> Pipedrive native automation. Trigger: transcript_filled field set → Stage = AI Qualified (stage 91, OUTBOUND pipeline). Foundation for Claude lead scoring agent.</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-A4</span>
+          <span class="status-badge badge-done">✅ Done</span>
+        </div>
+        <div class="wf-name">Stalled Deal Slack Alert</div>
+        <div class="wf-trigger"><span>May 13:</span> Pipedrive native automation. Daily check — deals with no activity for 3+ days in OUTBOUND → Slack #konsier alert with deal name + last activity date.</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-A5</span>
+          <span class="status-badge badge-done">✅ Done</span>
+        </div>
+        <div class="wf-name">Hot Lead Tagging (Wistia)</div>
+        <div class="wf-trigger"><span>May 13:</span> Pipedrive native automation. Trigger: Wistia video watched milestone → label "Hot Lead" applied + activity created for same-day outreach. Pure workflow, no AI needed.</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-WF6 POC</span>
+          <span class="status-badge badge-done">✅ POC Live</span>
+        </div>
+        <div class="wf-name">Daily Outbound Lead Pipeline — Phase 1</div>
+        <div class="wf-trigger"><span>May 13:</span> Manual Trigger → 5 hardcoded ICP contacts → ICP Score (all 100/100) → IF ≥70 → Batch 50 → Claude Outbound Operator (BASHO framework) → Parse JSON → Slack #konsier summary. Phase 2 blocked: needs Drew's Apollo/Clay/Instantly API keys.</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-BOT</span>
+          <span class="status-badge badge-done">✅ Done</span>
+        </div>
+        <div class="wf-name">Konsier Bot — Slack Icon</div>
+        <div class="wf-trigger"><span>May 13:</span> Custom SVG icon designed for Konsier Bot (dark background, purple gradient K monogram). Uploaded to Slack app — bot now shows Konsier branding in all #konsier notifications.</div>
+      </div>
+      <div class="wf-card blocked">
+        <div class="wf-top">
+          <span class="wf-id">KS-A2</span>
+          <span class="status-badge badge-blocked">⚠ Blocked</span>
+        </div>
+        <div class="wf-name">Tier Routing Rules</div>
+        <div class="wf-trigger">Needs Drew's routing rules: which deal fields determine tier assignment + which stage each tier maps to. Cannot build without this logic.</div>
+      </div>
+      <div class="wf-card blocked">
+        <div class="wf-top">
+          <span class="wf-id">KS-A3</span>
+          <span class="status-badge badge-blocked">⚠ Blocked</span>
+        </div>
+        <div class="wf-name">Closer Round-Robin Assignment</div>
+        <div class="wf-trigger">Needs Drew's closer list (names + Pipedrive user IDs) + round-robin logic. Cannot build without knowing the closers.</div>
+      </div>
+      <div class="wf-card blocked">
+        <div class="wf-top">
+          <span class="wf-id">KS-A6</span>
+          <span class="status-badge badge-blocked">⚠ Blocked</span>
+        </div>
+        <div class="wf-name">Closed-Won → Onboarding Trigger</div>
+        <div class="wf-trigger">Needs: Notion onboarding template, DocuSign contract template, Gmail welcome email HTML, service platform API. All blocked until Drew provides.</div>
       </div>
       <div class="wf-card pending">
         <div class="wf-top">
@@ -1334,6 +1394,11 @@
           <td>Built PD-EVENTS (VC Pipedrive webhook receiver) + KS-PD-EVENTS (Konsier webhook receiver) — both published in n8n. Fixed critical Pipedrive v2.0 payload bug (meta.entity, empty current object, stage detection via previous.stage_id). Konsier Pipedrive webhook registered and tested. Progress report updated and pushed to Vercel.</td>
           <td class="earn">$100</td>
         </tr>
+        <tr class="done-row">
+          <td>May 13</td><td>Wednesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>Konsier Step 10 — built KS-A1 (auto-stage 91 on transcript_filled), KS-A4 (stalled deal Slack alert, 3+ days no activity), KS-A5 (Wistia hot lead tagging) as Pipedrive native automations. Designed + uploaded Konsier Bot Slack icon (SVG, purple gradient). Built KS-WF6 Phase 1 POC in n8n: Manual Trigger → ICP Score Code node → IF ≥70 → Batch 50 → Claude Outbound Operator (BASHO framework, Sonnet 4.6) → Parse Output → Slack #konsier summary (1 message, all 5 openers). Researched Apollo + Clay + n8n expert patterns from Nate Herk YouTube + Six Figure Consulting — rewrote APOLLO_CLAY_OUTBOUND.md with verified sources. Built KONSIER_BUILD_PATTERNS.md expert guide.</td>
+          <td class="earn">$100</td>
+        </tr>
       </tbody>
       <tfoot>
         <tr>
@@ -1369,6 +1434,13 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 12 — Critical Fix]</strong> Pipedrive sends v2.0 webhook payload: <code>meta.entity</code> (not <code>meta.object</code>), <code>current</code> object is EMPTY on change events. Stage changes detected from <code>previous.stage_id</code> being present. Original code always returned stageChanged:false — fixed in both PD-EVENTS and KS-PD-EVENTS.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 12 — Pipedrive Limitation]</strong> Pipedrive native automation "Update deal fields" → "Pipeline stage" only shows dynamic variable references — cannot set a hardcoded static stage name. Use n8n Pipedrive API call (PATCH /deals/{id} with stage_id) to move deals to specific stages programmatically.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 12 — Architecture]</strong> VC and Konsier require completely separate Pipedrive webhooks + n8n workflows per Drew. KS-PD-EVENTS path: konsier-pipedrive-events. PD-EVENTS path: pipedrive-events. No shared logic between projects.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 13 — Clay Critical]</strong> Clay has NO traditional REST API on standard plans. Clay enrichment flows IN via table-specific webhook URLs (Settings → Webhooks) and OUT via n8n-nodes-clay community node (Settings → Community Nodes → Install). The endpoint api.clay.com/v1/tables/{id}/rows only exists on Enterprise plan — do not use for standard accounts.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 13 — Cost Pattern]</strong> Filter-before-AI: run ICP scoring BEFORE email verification. Apollo(500) → ICP Score(~150 pass ≥70) → ZeroBounce (only 150 emails = $1.50 not $5) → Clay → Claude. 30% email verification cost reduction. Source: Six Figure Consulting 2026.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 13 — Claude Cost]</strong> Batch 50 contacts per Claude call = 10x cost reduction vs 1 per call. 500 leads ÷ 50 = 10 Claude calls/day instead of 500. Apply to all bulk AI generation tasks.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — BASHO Framework]</strong> Cold email opener formula: hyper-specific observation (something real you noticed about the company) → bridge to value (one sentence connecting observation to problem you solve) → ask (short CTA). Founder-to-founder tone. Under 2 sentences total. Outperforms generic openers.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — n8n Claude Output]</strong> Claude often wraps JSON output in markdown code blocks (```json ... ```). Always strip with: <code>.replace(/^```json\n?/, '').replace(/^```\n?/, '').replace(/\n?```$/, '')</code> before JSON.parse in Code node. Access response as: <code>$input.item.json.content[0].text</code> — not <code>$json.text</code>.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — n8n Slack]</strong> If Code node returns N items (one per contact), Slack node sends N separate messages. To send one summary message: return a single item from Code node with all data aggregated (joined openerList, etc.). Never loop contacts into individual Slack sends.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — Claude Model Selection]</strong> Use Claude Haiku (claude-haiku-4-5-20251001) for classification/scoring tasks — cheap + fast. Use Claude Sonnet (claude-sonnet-4-6) for email/opener generation — quality matters. Don't use Sonnet for bulk scoring of 500 contacts.</div>
   </div>
 
   <!-- Footer -->
@@ -1387,7 +1459,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 12, 2026';
+    if (el) el.textContent = 'Last updated: May 13, 2026';
   </script>
 </body>
 </html>
