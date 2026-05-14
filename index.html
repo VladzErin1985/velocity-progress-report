@@ -634,14 +634,14 @@
       <div class="subtitle">n8n + Pipedrive + Slack + SendGrid + Claude AI · Week 2 Started · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">May 13, 2026</div>
+      <div class="date-badge">May 14, 2026</div>
       <div class="week-badge">Week 2 of 6 · <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>WEEK 2 — DAY 3 (May 13):</strong> Konsier Step 10 partially complete — KS-A1 (auto-stage 91), KS-A4 (stalled deal alert), KS-A5 (hot lead tagging) built in Pipedrive native automations. KS-WF6 Phase 1 POC live in n8n: Manual Trigger → ICP Score → Claude Outbound Operator → Slack #konsier. Konsier Bot Slack icon deployed. Apollo + Clay integration architecture fully researched and documented.
+    <strong>WEEK 2 — DAY 4 (May 14):</strong> Revised SOP received from Drew — 8 agents (was 5), 39 steps, HeyReach + QBO added, Clay deferred, pipeline renames (INBOUND + CUSTOMER LIFECYCLE), Hetzner n8n server. 1Password vault populated by Drew — all tool credentials incoming. Apollo registered (konsier.build@gmail.com). KS-A4 stalled threshold needs update 3→7 days.
   </div>
 
   <!-- Velocity Banner -->
@@ -923,8 +923,8 @@
   <div class="section">
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
-      <h2>Konsier — B2B Outbound Sales System (New Project)</h2>
-      <span class="count">Phase 2 of 7 · Steps 7–9 done · Step 10 in progress (3/6)</span>
+      <h2>Konsier — AI Receptionist Agency (Revised SOP May 14)</h2>
+      <span class="count">Phase 2 of 7 · Steps 7–9 done · Step 10 in progress (3/6) · 39 steps · 8 agents</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done">
@@ -933,7 +933,7 @@
           <span class="status-badge badge-done">✅ Done</span>
         </div>
         <div class="wf-name">3 Pipelines Created</div>
-        <div class="wf-trigger">OUTBOUND (7 stages) · SELF-SERVE (5 stages) · CLOSER TRACK (6 stages) — all built in Pipedrive May 11</div>
+        <div class="wf-trigger">OUTBOUND (7 stages) · INBOUND (5 stages) · CUSTOMER LIFECYCLE (6 stages) — built May 11. Renamed May 14 per revised SOP (SELF-SERVE → INBOUND, CLOSER TRACK → CUSTOMER LIFECYCLE)</div>
       </div>
       <div class="wf-card done">
         <div class="wf-top">
@@ -973,7 +973,7 @@
           <span class="status-badge badge-done">✅ Done</span>
         </div>
         <div class="wf-name">Stalled Deal Slack Alert</div>
-        <div class="wf-trigger"><span>May 13:</span> Pipedrive native automation. Daily check — deals with no activity for 3+ days in OUTBOUND → Slack #konsier alert with deal name + last activity date.</div>
+        <div class="wf-trigger"><span>May 13:</span> Pipedrive native automation. Built with 3-day threshold — <strong>needs update to 7 days</strong> per revised SOP. Slack channel updated to #escalations.</div>
       </div>
       <div class="wf-card blocked">
         <div class="wf-top">
@@ -1171,53 +1171,53 @@
     </div>
   </div>
 
-  <!-- LangGraph Agents -->
+  <!-- Konsier Claude Agents -->
   <div class="section">
     <div class="section-header">
-      <span class="entity-tag tag-lg">LG</span>
-      <h2>LangGraph — AI Agent Layer (Phase 2)</h2>
-      <span class="count">0 done · 8 agents to build</span>
+      <span class="entity-tag tag-ks">KS</span>
+      <h2>Konsier — 8 Claude Agents (Phase 5)</h2>
+      <span class="count">0 done · 8 agents to build · Days 12–16</span>
     </div>
     <div class="lg-grid">
       <div class="lg-card pending">
-        <div class="lg-id">AGENT-01</div>
-        <div class="lg-name">Orchestrator Agent</div>
-        <div class="lg-desc">Routes leads through the full system — supervisor of all other agents</div>
+        <div class="lg-id">AGENT-01 · Sales</div>
+        <div class="lg-name">Outbound Operator</div>
+        <div class="lg-desc">Personalized cold email openers + ICP filtering. Batch 50/call. Feeds Instantly campaign.</div>
       </div>
       <div class="lg-card pending">
-        <div class="lg-id">AGENT-02</div>
-        <div class="lg-name">Lead Gen Agent</div>
-        <div class="lg-desc">LinkedIn + Google + SEO — autonomous lead sourcing</div>
+        <div class="lg-id">AGENT-02 · Sales</div>
+        <div class="lg-name">Reply Triage</div>
+        <div class="lg-desc">Classify email replies (Interested / Unsubscribe / Bounce / Ambiguous) + route + draft response for VA #1 approval.</div>
       </div>
       <div class="lg-card pending">
-        <div class="lg-id">AGENT-03</div>
-        <div class="lg-name">Education Agent</div>
-        <div class="lg-desc">Delivers content sequences — replaces WF-VC-02 Claude calls with full agent logic</div>
+        <div class="lg-id">AGENT-03 · Sales</div>
+        <div class="lg-name">Qualification Analyzer</div>
+        <div class="lg-desc">Voice transcript → structured Pipedrive fields (tier_match, pain_point_summary, urgency_score).</div>
       </div>
       <div class="lg-card pending">
-        <div class="lg-id">AGENT-04</div>
-        <div class="lg-name">Appointment Setter</div>
-        <div class="lg-desc">Qualifies + books calls — connects to Calendly via LangGraph tools</div>
+        <div class="lg-id">AGENT-04 · Sales</div>
+        <div class="lg-name">Closer Copilot</div>
+        <div class="lg-desc">3 modes: pre-call brief (30 min before), post-call summary, nightly objection mining from Closed-Lost deals.</div>
       </div>
       <div class="lg-card pending">
-        <div class="lg-id">AGENT-05</div>
-        <div class="lg-name">Onboarding Agent</div>
-        <div class="lg-desc">Trust + policy + entity setup — guides new VC clients through onboarding</div>
+        <div class="lg-id">AGENT-05 · Fulfillment</div>
+        <div class="lg-name">Customer Call QA</div>
+        <div class="lg-desc">Audits every customer AI receptionist call. quality_score 1–10. 3 strikes in 7 days → bump churn_risk_score + Slack #escalations.</div>
       </div>
       <div class="lg-card pending">
-        <div class="lg-id">AGENT-06</div>
-        <div class="lg-name">Deal Matching Agent</div>
-        <div class="lg-desc">Matches investors to deals — queries Pinecone av-knowledge/investors</div>
+        <div class="lg-id">AGENT-06 · Fulfillment</div>
+        <div class="lg-name">Onboarding Drafter</div>
+        <div class="lg-desc">Intake form → Retell agent script + FAQ + booking rules. Writes Notion draft → VA reviews before provisioning.</div>
       </div>
       <div class="lg-card pending">
-        <div class="lg-id">AGENT-07</div>
-        <div class="lg-name">Investor Follow-Up Agent</div>
-        <div class="lg-desc">Retention + upsell — re-engages inactive investors automatically</div>
+        <div class="lg-id">AGENT-07 · Back Office</div>
+        <div class="lg-name">Bookkeeping Reconciler</div>
+        <div class="lg-desc">Monthly: Stripe ↔ bank ↔ QBO reconciliation. Flags mismatches. Writes P&L narrative to Notion.</div>
       </div>
       <div class="lg-card pending">
-        <div class="lg-id">AGENT-08</div>
-        <div class="lg-name">Property Management Agent</div>
-        <div class="lg-desc">STR + rental optimization — Hospitable + PriceLabs + guest responses</div>
+        <div class="lg-id">AGENT-08 · Back Office</div>
+        <div class="lg-name">Founder Brief Writer</div>
+        <div class="lg-desc">Monday 06:00 UTC: pulls Pipedrive + Stripe + Slack + Notion → one-page brief emailed to Drew. MRR delta, fires, wins, watch items.</div>
       </div>
     </div>
   </div>
@@ -1441,6 +1441,10 @@
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — n8n Claude Output]</strong> Claude often wraps JSON output in markdown code blocks (```json ... ```). Always strip with: <code>.replace(/^```json\n?/, '').replace(/^```\n?/, '').replace(/\n?```$/, '')</code> before JSON.parse in Code node. Access response as: <code>$input.item.json.content[0].text</code> — not <code>$json.text</code>.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — n8n Slack]</strong> If Code node returns N items (one per contact), Slack node sends N separate messages. To send one summary message: return a single item from Code node with all data aggregated (joined openerList, etc.). Never loop contacts into individual Slack sends.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — Claude Model Selection]</strong> Use Claude Haiku (claude-haiku-4-5-20251001) for classification/scoring tasks — cheap + fast. Use Claude Sonnet (claude-sonnet-4-6) for email/opener generation — quality matters. Don't use Sonnet for bulk scoring of 500 contacts.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 14 — SOP Revised]</strong> Drew sent updated 43-page SOP. Key changes: 8 Claude agents (was 5), 39 steps, SELF-SERVE renamed INBOUND, CLOSER TRACK renamed CUSTOMER LIFECYCLE, Clay deferred (Apollo native enrichment only), HeyReach added for LinkedIn, QuickBooks Online added, n8n moving to Hetzner Cloud, stalled deal = 7 days (not 3), Apollo API key name = "n8n-enrichment".</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 14 — 1Password 9 Vaults]</strong> Full vault structure confirmed: 00 Owner Only (hidden from Vladimir — correct), 01 Konsier Core, 02 Marketing & Web, 03 Outbound Engine, 04 CRM & Sales, 05 AI & Infrastructure, 06 Fulfillment Ops, 07 IT Runbook, 99 Vendor Temp. Drew populating with all tool credentials.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 14 — Clay Deferred]</strong> Per revised SOP V3: Clay enrichment deferred to Phase 2 of the business (post-launch). Apollo's native enrichment sufficient for initial outbound motion. KS-WF6 Phase 2 will NOT include Clay nodes — Apollo → Instantly direct flow instead.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 14 — HeyReach]</strong> HeyReach is a LinkedIn outreach tool — runs parallel to Instantly email sequences for multi-channel outbound. Already registered by Drew (drew@konsier.ai). API key name: n8n-linkedin. Used in WF6 Part A alongside Instantly.</div>
   </div>
 
   <!-- Footer -->
@@ -1459,7 +1463,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 13, 2026';
+    if (el) el.textContent = 'Last updated: May 14, 2026';
   </script>
 </body>
 </html>
