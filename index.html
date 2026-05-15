@@ -528,6 +528,9 @@
       border-bottom: 1px solid #2d1f08;
     }
     .blocker-item:last-child { border-bottom: none; }
+    .blocker-item.resolved { opacity: 0.6; }
+    .blocker-item.resolved .blocker-icon { background: #052e16; color: #10b981; }
+    .blocker-item.resolved .title { color: #10b981; }
     .blocker-icon {
       width: 28px;
       height: 28px;
@@ -634,7 +637,7 @@
       <div class="subtitle">n8n + Pipedrive + Slack + SendGrid + Claude AI · Week 2 Started · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">May 14, 2026</div>
+      <div class="date-badge">May 15, 2026</div>
       <div class="week-badge">Week 2 of 6 · <span id="last-updated"></span></div>
     </div>
   </div>
@@ -1273,33 +1276,61 @@
 
   <!-- Blockers -->
   <div class="blockers-section">
-    <h3>⚠ Waiting on Drew — No Response Yet (as of May 14)</h3>
+    <h3>⚠ Currently Pending from Drew (as of May 15)</h3>
     <div class="blocker-item">
-      <div class="blocker-icon">📧</div>
+      <div class="blocker-icon">🔑</div>
       <div class="blocker-content">
-        <div class="title">Konsier Business Email + Card Details — No Reply</div>
-        <div class="desc">Needed to create all service accounts (Anthropic, Cloudflare, GitHub, Apollo, Clay, Instantly, Retell, Wistia, Stripe). Steps 2–4 fully blocked. Requested — no response yet.</div>
+        <div class="title">Apollo + Instantly API Keys</div>
+        <div class="desc">Both accounts registered + in 1Password ✅. Need API keys pulled from each dashboard (Apollo Settings → API Keys → "n8n-enrichment"; Instantly Settings → API Keys → "n8n-reply-handler"). Also need Instantly campaign ID and Apollo geography targets (states/metros). Once provided → KS-WF6 goes live immediately.</div>
       </div>
     </div>
     <div class="blocker-item">
       <div class="blocker-icon">🔐</div>
       <div class="blocker-content">
-        <div class="title">1Password SHARED-INFRA Vault — Access Granted ✅ · Empty</div>
-        <div class="desc">SHARED-INFRA vault now accessible. Vault is empty — credentials will be added as each service account is created (Apollo, Clay, Instantly, Retell, Wistia, Stripe, Anthropic, GitHub).</div>
+        <div class="title">Instantly Login — Invalid Credentials</div>
+        <div class="desc">Vault shows info@anza-ventures.com but login returns "invalid credentials." Need correct password or updated credentials in 1Password.</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">📮</div>
+      <div class="blocker-icon">📞</div>
       <div class="blocker-content">
-        <div class="title">8 Instantly Mailboxes — Warmup URGENT · No Reply</div>
-        <div class="desc">Warmup must run 14 days before production sends. Drew promised these May 12 — still no update. Currently Day 3 of delay. Every day without warmup = 1 day later before cold email can go live. Target was May 26, now slipping.</div>
+        <div class="title">Retell AI Account Setup</div>
+        <div class="desc">Not yet created. Needed for: (1) outbound qualification calls when leads reply, (2) Konsier's own inbound receptionist on konsier.ai, (3) the actual product sold to customers. Blocks the entire qualification chain (KS-WF2/WF3).</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">🌐</div>
+      <div class="blocker-icon">📂</div>
       <div class="blocker-content">
-        <div class="title">Konsier Domain — No Reply</div>
-        <div class="desc">Needed for Cloudflare DNS setup + all n8n webhook URLs (n8n.domain/webhook/*). Step 4 and Phase 3 server deployment blocked. Requested — no response yet.</div>
+        <div class="title">GitHub Repo Decision</div>
+        <div class="desc">Should the konsier-automation repo live under your GitHub account/org, or should I create it and add you as collaborator?</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">🖥️</div>
+      <div class="blocker-content">
+        <div class="title">Server Decision — Hetzner or Hostinger</div>
+        <div class="desc">Revised SOP mentions Hetzner Cloud for Konsier n8n. Previous call said stay on Hostinger. Need confirmation either way — doesn't block build, only affects future migration.</div>
+      </div>
+    </div>
+    <div class="blocker-item resolved">
+      <div class="blocker-icon">✅</div>
+      <div class="blocker-content">
+        <div class="title">RESOLVED — 1Password Vault Populated</div>
+        <div class="desc">Stripe, HeyReach, Apollo, Microsoft 365, DocuSign, Calendly, Instantly, Konsier, Hostinger, Pipedrive — all logins now in vault.</div>
+      </div>
+    </div>
+    <div class="blocker-item resolved">
+      <div class="blocker-icon">✅</div>
+      <div class="blocker-content">
+        <div class="title">RESOLVED — Konsier Domain Live</div>
+        <div class="desc">konsier.ai built and live. WordPress site complete with pricing tiers ($497 / $797 / $1497).</div>
+      </div>
+    </div>
+    <div class="blocker-item resolved">
+      <div class="blocker-icon">✅</div>
+      <div class="blocker-content">
+        <div class="title">RESOLVED — 8 Instantly Mailboxes Warming</div>
+        <div class="desc">Confirmed warming in Instantly. Target ready: ~May 28.</div>
       </div>
     </div>
   </div>
@@ -1478,7 +1509,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 14, 2026';
+    if (el) el.textContent = 'Last updated: May 15, 2026';
   </script>
 </body>
 </html>
