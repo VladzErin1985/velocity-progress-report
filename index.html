@@ -423,6 +423,8 @@
     .badge-next    { background: #1e3a5f; color: #60a5fa; }
     .badge-pending { background: #1a1f2e; color: #475569; }
     .badge-blocked { background: #451a03; color: #f59e0b; }
+    .badge-progress { background: #1e1b4b; color: #a78bfa; }
+    .wf-card.progress { border-left: 3px solid #6366f1; }
 
     .wf-name {
       font-size: 13px;
@@ -644,7 +646,7 @@
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>WEEK 2 — DAY 4 (May 14):</strong> Pipelines renamed live (INBOUND + CUSTOMER LIFECYCLE). KS-A4 fixed (3→7 days). KS-ERR Error Handler built + wired to all Konsier workflows. KS-WF6 real workflow structure built — Schedule → Apollo → ICP Score → Instantly → Slack. Awaiting API keys from Drew (Apollo + Instantly) to go live.
+    <strong>WEEK 2 — DAY 5 (May 15):</strong> Apollo API key created + tested (free plan blocks search — needs $49/mo upgrade). Instantly API key created. KS-WF4 (Stripe → Onboarding) built in sandbox mode. KS-WF1 (Email Reply Handler) in progress — Reply Triage Agent #2 + JSON parser built, Switch routing pending next session. Credentials updates: Calendly + Instantly passwords invalid in 1Password (flagged to Drew).
   </div>
 
   <!-- Velocity Banner -->
@@ -984,7 +986,23 @@
           <span class="status-badge badge-done">✅ Live</span>
         </div>
         <div class="wf-name">Error Handler — All Konsier Workflows</div>
-        <div class="wf-trigger"><span>May 14:</span> Error Trigger → Extract workflow name + node + error message → Slack #konsier alert. Wired to KS-A4, KS-PD-EVENTS, KS-WF6. Every future workflow gets this set as error workflow before activation.</div>
+        <div class="wf-trigger"><span>May 14:</span> Error Trigger → Extract workflow name + node + error message → Slack #konsier alert. Wired to KS-A4, KS-PD-EVENTS, KS-WF6, KS-WF4. Every future workflow gets this set as error workflow before activation.</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-WF4</span>
+          <span class="status-badge badge-done">✅ Built (Sandbox)</span>
+        </div>
+        <div class="wf-name">Stripe Payment → Onboarding Chain</div>
+        <div class="wf-trigger"><span>May 15:</span> Stripe Trigger (checkout.session.completed) → Set 6 fields (customerEmail, customerName, amountTotal, pipedriveDealId, plan, stripeSessionId) → PATCH Pipedrive to stage 98 (Paid) → Slack #konsier "New Paid Customer" alert. Sandbox mode. Parallel onboarding branches (DocuSign/Notion/M365) pending Drew's templates.</div>
+      </div>
+      <div class="wf-card progress">
+        <div class="wf-top">
+          <span class="wf-id">KS-WF1</span>
+          <span class="status-badge badge-progress">🔄 In Progress</span>
+        </div>
+        <div class="wf-name">Email Reply Handler — Reply Triage Agent #2</div>
+        <div class="wf-trigger"><span>May 15:</span> Webhook (Instantly reply) → Respond 200 OK → Set 5 fields → Claude Haiku classifier (positive/objection/question/unsubscribe/out_of_office/needs_review) → Code parser with markdown stripping + confidence threshold (0.7) + routeAction field. Resume next session: Switch routing + 6 branches.</div>
       </div>
       <div class="wf-card blocked">
         <div class="wf-top">
@@ -1278,6 +1296,20 @@
   <div class="blockers-section">
     <h3>⚠ Currently Pending from Drew (as of May 15)</h3>
     <div class="blocker-item">
+      <div class="blocker-icon">💳</div>
+      <div class="blocker-content">
+        <div class="title">Apollo Professional Upgrade ($49/mo)</div>
+        <div class="desc">Free plan blocks the `mixed_people/search` endpoint that KS-WF6 uses to pull leads. Confirmed via 403 error in testing May 15. Sent Slack message — awaiting upgrade. Once upgraded, KS-WF6 works immediately with zero code changes.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">🔐</div>
+      <div class="blocker-content">
+        <div class="title">Password Updates in 1Password</div>
+        <div class="desc">Both Calendly entries + Instantly login show "invalid credentials" when used. Drew committed to fixing in the morning of May 16.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
       <div class="blocker-icon">🌎</div>
       <div class="blocker-content">
         <div class="title">Apollo Geography Targets</div>
@@ -1443,6 +1475,11 @@
           <td>Reviewed revised 43-page SOP (39 steps, 8 agents). Renamed Pipedrive pipelines via API (SELF-SERVE → INBOUND, CLOSER TRACK → CUSTOMER LIFECYCLE). Fixed KS-A4 stalled threshold (3 → 7 days). Built KS-ERR Error Handler — wired to all Konsier workflows. Built KS-WF6 real workflow structure: Schedule → Apollo ICP search → ICP Score &amp; Filter → Instantly campaign → Slack daily summary. Awaiting API keys from Drew to activate.</td>
           <td class="earn">$100</td>
         </tr>
+        <tr class="done-row">
+          <td>May 15</td><td>Friday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>Generated Apollo API key (`n8n-enrichment`, master scope). Tested KS-WF6 end-to-end — Apollo free plan blocks search endpoint, escalated to Drew for $49/mo upgrade. Generated Instantly API key (`n8n-reply-handler`, all:all scope). Built KS-WF4 (Stripe Payment → Onboarding Chain) in sandbox mode — Stripe Trigger → Set 6 fields → PATCH Pipedrive stage 98 → Slack alert. Started KS-WF1 (Email Reply Handler) — Webhook + Set + Claude Haiku Reply Triage Agent #2 + Code parser with markdown stripping, confidence threshold (0.7), and routeAction field. Switch routing pending next session. Flagged Calendly + Instantly password issues in 1Password to Drew.</td>
+          <td class="earn">$100</td>
+        </tr>
       </tbody>
       <tfoot>
         <tr>
@@ -1491,6 +1528,13 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 14 — n8n Error Trigger]</strong> n8n Error Trigger workflow MUST be Published/Active before it can be selected as error workflow in other workflows' Settings panel. If it shows a warning triangle icon in the dropdown, activate it first then come back.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 14 — Pipedrive Rotting]</strong> Pipedrive "rotting" (no activity for X days) CANNOT trigger native automations — confirmed limitation. Stalled deal alerts must be built entirely in n8n as a scheduled workflow: Schedule Trigger → GET all open deals → Code node filter by last_activity_date → IF stalled → Slack alert.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 14 — Apollo Login]</strong> Apollo flags new accounts from new Gmail + Philippines IP as suspicious on first login — auto-logout occurs. Sends verification email to registered address (drew@konsier.ai). Resolves after 24h or email verification. Not caused by 1Password extensions.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 15 — Apollo Free Tier Limit]</strong> Apollo free plan blocks `api/v1/mixed_people/search` endpoint with 403 error: "not accessible with this api_key on a free plan." Requires Apollo Professional ($49/mo) to unlock. The workflow itself works correctly — authentication, request format, and response handling all validated. Plan upgrade is the only blocker.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 15 — Stripe Sandbox]</strong> Modern Stripe dashboard renamed "Test Mode" to "Sandbox." Switch via account dropdown → Switch to sandbox → Konsier LLC sandbox. URL changes to /test/dashboard. Test API keys start with `sk_test_...` and `pk_test_...`. Live keys start with `sk_live_...` — never use live keys until full test pass.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 15 — n8n Stripe Trigger]</strong> n8n Stripe Trigger node auto-registers webhook in Stripe when workflow activates. Signing secret (`whsec_...`) is generated then — leave Signature Secret blank in credential during initial setup, fill in later after activation by going to Stripe Dashboard → Developers → Webhooks → reveal signing secret.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 15 — Reply Triage Architecture]</strong> Single-condition Switch is cleaner than multi-condition AND/OR. Move complex routing logic to upstream Code node — set single `routeAction` field combining classification + confidence + auto-reply flags. Then Switch routes on one field. Easier to maintain, easier to debug, supports more route types later.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 15 — Claude Output Validation]</strong> Reply Triage Code node implements 3-layer validation: (1) Strip markdown code blocks from Claude output, (2) try/catch JSON.parse with fallback to human review, (3) confidence threshold check (&lt;0.7 routes to needs_review). Auto-replies (out_of_office) get special downgrade path to prevent triggering Retell calls on vacation responders.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 15 — 1Password Credential Hygiene]</strong> Multiple tools in 1Password have invalid passwords: Instantly login + both Calendly entries fail authentication. 1Password vault is populated but credentials are outdated. Drew to refresh on May 16.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 15 — Instantly Setup Reality]</strong> Only 1 mailbox (endyroo@yahoo.com) at 0% health — the "8 mailboxes warming" was aspirational, not actual. Zero campaigns exist. Drew committed to setting up Konsier-domain mailboxes May 16. Yahoo addresses unsuitable for B2B cold outbound (enterprise spam filters reject).</div>
   </div>
 
   <!-- Footer -->
