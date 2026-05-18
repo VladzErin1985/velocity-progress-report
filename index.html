@@ -636,24 +636,24 @@
   <div class="header">
     <div class="header-left">
       <h1>Velocity Capital Group + Konsier — Automation Build Report</h1>
-      <div class="subtitle">n8n + Pipedrive + Slack + SendGrid + Claude AI · Week 2 Started · Prepared by Vladimir</div>
+      <div class="subtitle">n8n + Pipedrive + Slack + SendGrid + Claude AI · Week 3 In Progress · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">May 15, 2026</div>
-      <div class="week-badge">Week 2 of 6 · <span id="last-updated"></span></div>
+      <div class="date-badge">May 18, 2026</div>
+      <div class="week-badge">Week 3 of 6 · <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>WEEK 2 — DAY 5 (May 15):</strong> Apollo API key created + tested (free plan blocks search — needs $49/mo upgrade). Instantly API key created. KS-WF4 (Stripe → Onboarding) built in sandbox mode. KS-WF1 (Email Reply Handler) in progress — Reply Triage Agent #2 + JSON parser built, Switch routing pending next session. Credentials updates: Calendly + Instantly passwords invalid in 1Password (flagged to Drew).
+    <strong>WEEK 3 — May 18:</strong> Tool access fully unblocked — Apollo upgraded, Retell credentials added, Calendly + Notion logins fixed. Built KS-WF1 (Email Reply Handler): Switch routing + all 6 outcome branches — Slack alerts (hot lead / objection / question / QA review), auto-reply defer, and unsubscribe → Instantly blocklist. Set up 2 Konsier Slack channels (#konsier-leads, #konsier-review). KS-WF1 now in final routing test.
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
       <div class="label">Build Velocity</div>
-      <div class="message"><strong>May 13 — Konsier Step 10 + WF6 POC.</strong> KS-A1/A4/A5 built in Pipedrive. KS-WF6 Phase 1 POC: 5 test contacts → ICP scored 100/100 → Claude wrote BASHO openers → Slack #konsier. Konsier Bot icon live. Apollo + Clay integration architecture fully mapped.</div>
+      <div class="message"><strong>May 18 — KS-WF1 Reply Handler built.</strong> Switch routing on 6 reply types, each wired to its action: Slack alerts to #konsier-leads / #konsier-review, auto-reply defer, unsubscribe → Instantly blocklist. All tool access (Apollo, Retell, Calendly, Notion) cleared the same day.</div>
     </div>
     <div class="timeline">
       <div class="tl-item done">
@@ -680,6 +680,10 @@
         <div class="tl-date">May 13</div>
         <div class="tl-label">KS-A1/A4/A5 + WF6 ✅</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">May 18</div>
+        <div class="tl-label">KS-WF1 Built ✅</div>
+      </div>
     </div>
   </div>
 
@@ -703,7 +707,7 @@
     <div class="stat-card red">
       <div class="label">Blockers</div>
       <div class="value">3</div>
-      <div class="sub">Waiting on Drew · 1Password access resolved ✅</div>
+      <div class="sub">Waiting on Drew · Apollo/Calendly/Retell/Notion cleared May 18 ✅</div>
     </div>
   </div>
 
@@ -711,7 +715,7 @@
   <div class="progress-section">
     <div class="progress-header">
       <span>Overall Build Progress (VC + Konsier)</span>
-      <strong>Week 2 Day 3 — VC 6/18 workflows live · Konsier 7 automations done · WF6 POC live</strong>
+      <strong>Week 3 — VC 6/18 workflows live · Konsier: KS-WF1 reply handler built (6 branches) · WF6 ready · KS-WF4 sandbox</strong>
     </div>
     <div class="bar-track">
       <div class="bar-fill" style="width: 20%;"></div>
@@ -1002,7 +1006,7 @@
           <span class="status-badge badge-progress">🔄 In Progress</span>
         </div>
         <div class="wf-name">Email Reply Handler — Reply Triage Agent #2</div>
-        <div class="wf-trigger"><span>May 15:</span> Webhook (Instantly reply) → Respond 200 OK → Set 5 fields → Claude Haiku classifier (positive/objection/question/unsubscribe/out_of_office/needs_review) → Code parser with markdown stripping + confidence threshold (0.7) + routeAction field. Resume next session: Switch routing + 6 branches.</div>
+        <div class="wf-trigger"><span>May 15:</span> Webhook (Instantly reply) → Respond 200 OK → Set 5 fields → Claude Haiku classifier (positive/objection/question/unsubscribe/out_of_office/needs_review) → Code parser with markdown stripping + confidence threshold (0.7) + routeAction field.<br><span>May 18:</span> Switch routing built (6 routes) + all 6 branches — Slack alerts (#konsier-leads / #konsier-review), auto-reply No-Op, unsubscribe → Instantly blocklist API. In final routing test.</div>
       </div>
       <div class="wf-card blocked">
         <div class="wf-top">
@@ -1294,47 +1298,54 @@
 
   <!-- Blockers -->
   <div class="blockers-section">
-    <h3>⚠ Currently Pending from Drew (as of May 15)</h3>
-    <div class="blocker-item">
-      <div class="blocker-icon">💳</div>
-      <div class="blocker-content">
-        <div class="title">Apollo Professional Upgrade ($49/mo)</div>
-        <div class="desc">Free plan blocks the `mixed_people/search` endpoint that KS-WF6 uses to pull leads. Confirmed via 403 error in testing May 15. Sent Slack message — awaiting upgrade. Once upgraded, KS-WF6 works immediately with zero code changes.</div>
-      </div>
-    </div>
-    <div class="blocker-item">
-      <div class="blocker-icon">🔐</div>
-      <div class="blocker-content">
-        <div class="title">Calendly Password Updates in 1Password</div>
-        <div class="desc">Both Calendly entries in 1Password show "invalid password" when used. Drew committed to fixing in the morning of May 16. (Instantly login was resolved — API key already obtained.)</div>
-      </div>
-    </div>
+    <h3>⚠ Currently Pending from Drew (as of May 18)</h3>
     <div class="blocker-item">
       <div class="blocker-icon">📨</div>
       <div class="blocker-content">
         <div class="title">Instantly Mailbox Setup</div>
-        <div class="desc">Only 1 mailbox (endyroo@yahoo.com) at 0% health currently. Drew committed to adding 7 Konsier-domain mailboxes + starting warmup on May 16. Yahoo address unsuitable for B2B cold outbound — needs custom domain mailboxes for deliverability.</div>
+        <div class="desc">Email Accounts page is still empty — no Konsier sending mailboxes added yet. Drew committed (May 18) to loading the 8 mailboxes on May 19; warmup then runs ~14 days (ready ~early June). KS-WF6 can be built and tested in the meantime, but cannot send until the mailboxes are warm.</div>
       </div>
     </div>
     <div class="blocker-item">
       <div class="blocker-icon">🌎</div>
       <div class="blocker-content">
         <div class="title">Apollo Geography Targets</div>
-        <div class="desc">Need states/metros to target for the ICP search (HVAC, plumbing, electrical, roofing, 1-25 employees). Without this, KS-WF6 pulls leads nationwide instead of focused.</div>
+        <div class="desc">Need states/metros for the ICP search (HVAC, plumbing, electrical, roofing, 1–25 employees). Not blocking the build — KS-WF6 tests with a placeholder; the real targets just need to be set before go-live (~early June).</div>
       </div>
     </div>
     <div class="blocker-item">
       <div class="blocker-icon">📨</div>
       <div class="blocker-content">
         <div class="title">Instantly Campaign Confirmation</div>
-        <div class="desc">Need to confirm which existing campaign to use (with the 3-email sequence + 8 warmed mailboxes assigned), or if a new campaign needs to be created. Vladimir pulling API keys directly.</div>
+        <div class="desc">Once the mailboxes are added, confirm which Instantly campaign KS-WF6 should feed leads into (3-email sequence, mailboxes assigned), or whether to create a new one.</div>
       </div>
     </div>
-    <div class="blocker-item">
-      <div class="blocker-icon">📞</div>
+    <div class="blocker-item resolved">
+      <div class="blocker-icon">✅</div>
       <div class="blocker-content">
-        <div class="title">Retell AI Account Setup</div>
-        <div class="desc">Not yet created. Needed for: (1) outbound qualification calls when leads reply, (2) Konsier's own inbound receptionist on konsier.ai, (3) the actual product sold to customers. Blocks the entire qualification chain (KS-WF2/WF3).</div>
+        <div class="title">RESOLVED — Apollo Professional Upgrade</div>
+        <div class="desc">Apollo Professional plan purchased (May 18). The `mixed_people/search` endpoint now works — KS-WF6 lead sourcing is unblocked.</div>
+      </div>
+    </div>
+    <div class="blocker-item resolved">
+      <div class="blocker-icon">✅</div>
+      <div class="blocker-content">
+        <div class="title">RESOLVED — Calendly Login</div>
+        <div class="desc">Drew reset the Calendly password in 1Password (May 18) — login confirmed working.</div>
+      </div>
+    </div>
+    <div class="blocker-item resolved">
+      <div class="blocker-icon">✅</div>
+      <div class="blocker-content">
+        <div class="title">RESOLVED — Retell AI Credentials</div>
+        <div class="desc">Retell AI credentials added to 1Password (May 18) — login, API key, agent ID, phone number, webhook destination. Unblocks the voice qualification chain (KS-WF2).</div>
+      </div>
+    </div>
+    <div class="blocker-item resolved">
+      <div class="blocker-icon">✅</div>
+      <div class="blocker-content">
+        <div class="title">RESOLVED — Notion Credentials</div>
+        <div class="desc">Notion login added to 1Password by Drew (May 18). Unblocks workflow logging + the customer onboarding wiki.</div>
       </div>
     </div>
     <div class="blocker-item resolved">
@@ -1348,7 +1359,7 @@
       <div class="blocker-icon">✅</div>
       <div class="blocker-content">
         <div class="title">RESOLVED — 1Password Vault Fully Populated</div>
-        <div class="desc">Stripe, HeyReach, Apollo, Microsoft 365, DocuSign, Calendly, Instantly, GitHub, Konsier, Hostinger, Pipedrive, Velocity Capital, Anza (all 4 entities) — every login is now in the vault.</div>
+        <div class="desc">Stripe, HeyReach, Apollo, Microsoft 365, DocuSign, Calendly, Instantly, Notion, GitHub, Konsier, Hostinger, Pipedrive, Velocity Capital, Anza — every login is now in the vault.</div>
       </div>
     </div>
     <div class="blocker-item resolved">
@@ -1363,13 +1374,6 @@
       <div class="blocker-content">
         <div class="title">RESOLVED — Konsier Domain Live</div>
         <div class="desc">konsier.ai built and live. WordPress site complete with pricing tiers ($497 / $797 / $1497).</div>
-      </div>
-    </div>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
-      <div class="blocker-content">
-        <div class="title">RESOLVED — 8 Instantly Mailboxes Warming</div>
-        <div class="desc">Confirmed warming in Instantly. Target ready: ~May 28.</div>
       </div>
     </div>
   </div>
@@ -1560,7 +1564,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 15, 2026';
+    if (el) el.textContent = 'Last updated: May 18, 2026';
   </script>
 </body>
 </html>
