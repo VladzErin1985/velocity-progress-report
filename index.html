@@ -646,14 +646,14 @@
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>WEEK 3 — May 19 · Day 6 of 20 (Ahead of Schedule):</strong> KS-WF1 routing complete ✅ + KS-WF2 (Retell voice qualification) built and tested ✅ — 7 workflows built total. Retell "Sarah" agent created, webhook registered, end-to-end tested: call transcript → Claude summary → Pipedrive note + stage move confirmed. Next queue: KS-WF3 (Wistia), KS-A1 (Lead Scorer), KS-WF5 (Closed-Won handoff). Retell phone number: Drew to purchase (~$2/mo in Retell → Deploy → Phone Numbers).
+    <strong>WEEK 3 — May 19 · Day 6 of 20 (Ahead of Schedule):</strong> KS-WF1 ✅ + KS-WF2 ✅ complete. KS-WF2 now handles BOTH outbound (existing deals) AND inbound (new web leads — auto-creates Pipedrive Person + Deal + Note + Slack alert). Konsier Website Receptionist agent "Alex" built, Voice Orb enabled, web embed code ready for WordPress developer. Sarah outbound agent prompt corrected to accurate product pitch (AI receptionist, not scheduling software). Next: KS-WF3 (Wistia), KS-A1 (Lead Scorer). Pending from Drew: Retell phone number (~$2/mo) + Instantly IMAP setup.
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
       <div class="label">Build Velocity</div>
-      <div class="message"><strong>May 19 — Day 6 of 20, ahead of schedule — 7 Konsier workflows built.</strong> KS-WF1 (Reply Triage) complete ✅. KS-WF2 (Retell voice qualification) built and end-to-end tested ✅ — Retell agent "Sarah" live, webhook registered, transcript → Claude summary → Pipedrive note + stage move to "Qualified by Retell" confirmed. Next: KS-WF3 (Wistia), KS-A1 (Lead Scorer). <span class="warn">Instantly mailboxes still at zero — 14-day warmup has not started. Retell phone number: Drew to purchase (~$2/mo).</span></div>
+      <div class="message"><strong>May 19 — Day 6 of 20, ahead of schedule — 7 Konsier workflows built.</strong> KS-WF2 upgraded: now handles outbound (existing deals) AND inbound web calls (auto-creates Person + Deal + Note + Slack). Konsier Website Receptionist "Alex" built — Voice Orb enabled, web embed code ready for konsier.ai WordPress developer. Sarah outbound agent corrected to accurate Konsier product pitch. <span class="warn">Retell phone number: Drew to purchase (~$2/mo, Deploy → Phone Numbers). Instantly: 8 M365 mailboxes created ✅ — IMAP setup in Instantly pending (Drew resolving May 20). Warmup clock starts when IMAP connects — earliest outbound go-live ~June 3.</span></div>
     </div>
     <div class="timeline">
       <div class="tl-item done">
@@ -719,7 +719,7 @@
   <div class="progress-section">
     <div class="progress-header">
       <span>Overall Build Progress (VC + Konsier)</span>
-      <strong>Day 6 of 20 — VC 6/18 live · Konsier: 7 workflows built ahead of schedule · KS-WF2 complete today · KS-WF3 + agents next</strong>
+      <strong>Day 6 of 20 — VC 6/18 live · Konsier: 7 workflows built ahead of schedule · Website Receptionist live · Web embed ready · KS-WF3 + agents next</strong>
     </div>
     <div class="bar-track">
       <div class="bar-fill" style="width: 25%;"></div>
@@ -1017,8 +1017,16 @@
           <span class="wf-id">KS-WF2</span>
           <span class="status-badge badge-done">✅ Done</span>
         </div>
-        <div class="wf-name">Retell Voice Qualification Webhook</div>
-        <div class="wf-trigger"><span>May 19:</span> Retell webhook (call_analyzed only — Code filter) → Set 5 fields (callId, transcript, callSummary, pipedriveDealId, pipedrivePersonId) → Claude Haiku summarizer (summary_bullets, qualification_status, pain_points, next_steps) → Code parser → POST Pipedrive Note → PATCH Pipedrive Deal to stage 97 "Qualified by Retell" (v2 API). End-to-end tested — note posted + deal stage moved ✅. Retell "Sarah" agent created + webhook registered at workspace level. Phone number: Drew to purchase (~$2/mo).</div>
+        <div class="wf-name">Retell Voice Qualification Webhook — Dual Branch (Outbound + Inbound)</div>
+        <div class="wf-trigger"><span>May 19 v1:</span> Retell webhook → Code filter (call_analyzed only) → Set 5 fields → Claude Haiku summarizer → Code parser → POST Pipedrive Note → PATCH deal to stage 97 "Qualified by Retell" (v2 API). Outbound only. End-to-end tested ✅.<br><span>May 19 v2 (updated):</span> Added dual-branch IF node — checks if <code>pipedriveDealId</code> is present. <strong>TRUE (outbound)</strong>: existing deal → original Claude → Note → PATCH stage 97 flow. <strong>FALSE (inbound — web lead)</strong>: no deal exists yet → Set extract custom_analysis_data fields (caller_name, caller_email, business_type, pain_point) → POST Pipedrive Person → POST Pipedrive Deal (INBOUND pipeline 14, stage 96 "Inbound Call") → POST Pipedrive Note → Slack #konsier-leads alert. Both branches live in one workflow.</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-AGENT</span>
+          <span class="status-badge badge-done">✅ Done</span>
+        </div>
+        <div class="wf-name">Konsier — Website Receptionist (Retell AI Agent "Alex")</div>
+        <div class="wf-trigger"><span>May 19:</span> Created Retell AI inbound agent "Alex" (Single Prompt, natural female voice). Persona: AI receptionist for Konsier — answers visitors who click the konsier.ai widget. Conversation flow: greet → qualify vertical (HVAC/plumbing/roofing/dental/medical) → surface missed-call pain → quantify lost revenue → pitch AI receptionist → collect name + email for free trial. Post-Call Data Extraction configured: caller_name, caller_email, business_type, pain_point (4 custom Text fields). Voice Orb enabled — web embed iframe generated, ready for konsier.ai WordPress developer. KS-WF2 inbound branch processes all web calls automatically. Published as V1.</div>
       </div>
       <div class="wf-card blocked">
         <div class="wf-top">
@@ -1315,14 +1323,14 @@
       <div class="blocker-icon">📞</div>
       <div class="blocker-content">
         <div class="title">Retell Phone Number Purchase</div>
-        <div class="desc">KS-WF2 is fully built and tested — the Retell agent "Sarah" is live and ready. Only blocker: a phone number needs to be purchased in Retell (Deploy → Phone Numbers → Buy, ~$2/mo on Pay As You Go). Once purchased, assign the Konsier Outbound Qualifier agent to it and KS-WF6 → KS-WF2 loop is operational.</div>
+        <div class="desc">Two Retell agents are built and ready: "Sarah" (outbound qualifier — needs a phone number assigned) and "Alex" (website receptionist — web embed, no phone number needed). Only blocker for outbound loop: purchase a number in Retell (Deploy → Phone Numbers → Buy, ~$2/mo Pay As You Go) → assign Konsier Outbound Qualifier. Once done, KS-WF6 → KS-WF2 outbound branch is fully operational. Alex/inbound is live independently via the konsier.ai iframe.</div>
       </div>
     </div>
     <div class="blocker-item">
       <div class="blocker-icon">📨</div>
       <div class="blocker-content">
-        <div class="title">Instantly Mailbox Setup</div>
-        <div class="desc">Email Accounts page still empty as of May 19 — 0 of 8 mailboxes created. 14-day warmup clock starts at creation. Every day this is delayed pushes the outbound go-live date by one day. KS-WF6 is fully built and ready to fire the moment mailboxes are warm.</div>
+        <div class="title">Instantly Mailbox IMAP Connection</div>
+        <div class="desc">8 Microsoft 365 mailboxes created ✅ (May 19). Next step: connect all 8 to Instantly via IMAP (Email Accounts → Add Account) — targeting May 20. 14-day warmup clock starts from IMAP connection date. Earliest outbound go-live: ~June 3. KS-WF6 is fully built and ready to fire the moment mailboxes are warm.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -1549,7 +1557,7 @@
         </tr>
         <tr class="done-row">
           <td>May 19</td><td>Tuesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Completed KS-WF1 routing test ✅. Built KS-WF2 (Retell Qualification Webhook) end-to-end: Webhook → Code filter (call_analyzed only) → Set 5 fields → Claude Haiku summarizer (bullets, qualification, pain points, next steps) → Code parser → POST Pipedrive Note → PATCH Pipedrive Deal stage to 97 "Qualified by Retell" (v2 API). Resolved: n8n production webhook wraps payload under body key ($json.body.call...), IF node bug replaced with Code filter, Pipedrive v1 PATCH broken → v2 API with x-api-token header. Created Retell "Sarah" agent (Konsier Outbound Qualifier — Single Prompt, dynamic vars: lead_name/company_name/vertical). Registered Retell workspace webhook. End-to-end test passed — note posted + deal stage moved ✅.</td>
+          <td>Completed KS-WF1 routing test ✅. Built KS-WF2 v1 (Retell Qualification Webhook) end-to-end: Webhook → Code filter → Claude Haiku summarizer → Code parser → POST Pipedrive Note → PATCH deal stage 97 "Qualified by Retell" (v2 API). Resolved: payload wraps under body key, Pipedrive v1 PATCH broken → v2 API. Created Retell "Sarah" outbound agent (Konsier Outbound Qualifier — Single Prompt, dynamic vars: lead_name/company_name/vertical). Registered workspace webhook. Test passed ✅. Then updated KS-WF2 to v2 dual-branch architecture: IF pipedriveDealId present → outbound branch (existing flow) / IF absent → inbound branch (POST Person → POST Deal in INBOUND pipeline stage 96 → POST Note → Slack). Built Retell "Alex" agent (Website Receptionist — inbound, Single Prompt): qualifies HVAC/roofing/dental/medical visitors, collects caller_name/caller_email/business_type/pain_point via Post-Call Data Extraction. Voice Orb enabled. Corrected Sarah outbound agent prompt (was "scheduling software" → corrected to "AI receptionist that answers calls 24/7" + corrected hook/pitch). Web embed iframe code generated + ready for konsier.ai WordPress developer.</td>
           <td class="earn">$100</td>
         </tr>
       </tbody>
@@ -1613,6 +1621,10 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — n8n Raw JSON Body + Newlines]</strong> Claude output containing real newline characters (\\n) breaks raw JSON body in HTTP Request nodes — "Bad control character in string" error. Fix: switch body type from "Using JSON" to "Using Fields Below" — n8n handles character encoding automatically. Use key-value pairs; n8n builds valid JSON internally.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — Retell Webhook Scope]</strong> Retell webhook is registered at the workspace level (Settings → Webhooks), not per-agent. One webhook URL receives events for ALL agents in the workspace. Filter by agent_id or event type in n8n if needed. Retell sends 3 events per call: call_started, call_ended, call_analyzed — use call_analyzed only (has transcript + analysis + metadata).</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — Retell Metadata Pattern]</strong> Pass <code>pipedrive_deal_id</code> and <code>pipedrive_person_id</code> in the <code>metadata</code> object when creating a call via Retell API. Retell stores this on the call object and returns it verbatim in the call_analyzed webhook payload at <code>$json.body.call.metadata.pipedrive_deal_id</code>. This is the correct way to link a voice call back to a CRM record — no lookup needed.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — Retell Post-Call Data Extraction]</strong> Retell supports structured data extraction from call transcripts — configure "Post-Call Data Extraction" fields (Text, Number, Boolean types) in the agent settings. Field values appear in the <code>call_analyzed</code> webhook at <code>call.call_analysis.custom_analysis_data.{field_name}</code>. Use Text type for all string values (no separate string type — Text IS the string type). Konsier Alex agent extracts: caller_name, caller_email, business_type, pain_point.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — Retell Voice Orb Web Embed]</strong> Retell agents can be embedded on any webpage via iframe — no phone number required. Enable Voice Orb in agent settings → Share → toggle Voice Orb ON → copy shareable URL. Embed as: <code>&lt;iframe src="{url}" allow="microphone" ...&gt;</code>. The <code>allow="microphone"</code> attribute is required — without it the browser blocks mic access and the widget silently fails. Works via WebRTC (browser-to-Retell directly). Widget URL format: <code>https://agent.retellai.com/orb/{agent_id}?token={token}</code>.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — KS-WF2 Inbound Branch: Empty Metadata = Web Lead]</strong> Outbound calls from KS-WF6 always pass <code>pipedrive_deal_id</code> in Retell metadata. Website calls (Voice Orb) have no metadata — the field arrives as an empty string. Using this as a branch condition in n8n (IF <code>pipedriveDealId</code> is not empty → outbound, else → inbound) correctly separates the two flows without any additional routing logic. Pattern is reusable for any dual-source Retell webhook.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — M365 Mailboxes for Instantly Warmup]</strong> Microsoft 365 (not Gmail) is the recommended mailbox provider for cold outbound warmup. 8 M365 mailboxes created May 19 under Konsier domain. IMAP connection to Instantly is required before warmup clock starts — warmup is not triggered by mailbox creation. Plan: connect via IMAP May 20 → 14-day warmup → ~June 3 earliest outbound go-live.</div>
   </div>
 
   <!-- Footer -->
