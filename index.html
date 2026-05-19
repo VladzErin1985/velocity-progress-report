@@ -646,14 +646,14 @@
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>WEEK 3 — May 19 · Day 6 of 20 (On Schedule, Slightly Ahead):</strong> KS-WF1 final routing test underway. All credentials confirmed: Apollo, Retell, Notion, Calendly, Instantly, Stripe, Slack. Build queue for this week: KS-WF2 (Retell voice qualification), KS-A1 (Outbound Operator), KS-A2 (Reply Triage), KS-A3 (Qualification Analyzer), KS-WF4 remaining branches. Critical path: Instantly mailboxes still pending — 14-day warmup clock has not started.
+    <strong>WEEK 3 — May 19 · Day 6 of 20 (Ahead of Schedule):</strong> KS-WF1 routing complete ✅ + KS-WF2 (Retell voice qualification) built and tested ✅ — 7 workflows built total. Retell "Sarah" agent created, webhook registered, end-to-end tested: call transcript → Claude summary → Pipedrive note + stage move confirmed. Next queue: KS-WF3 (Wistia), KS-A1 (Lead Scorer), KS-WF5 (Closed-Won handoff). Retell phone number: Drew to purchase (~$2/mo in Retell → Deploy → Phone Numbers).
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
       <div class="label">Build Velocity</div>
-      <div class="message"><strong>May 19 — Day 6 of 20, on schedule and ahead on workflows.</strong> 6 Konsier workflows built (Phase 4 work done ahead of Days 8–11 schedule). KS-WF1 final routing test in progress. This week's queue: KS-WF2 (Retell), KS-A1 through KS-A3 (Claude agents), KS-WF4 remaining branches — all credentials confirmed, no blockers on our side. <span class="warn">Instantly mailboxes still at zero — 14-day warmup clock has not started.</span></div>
+      <div class="message"><strong>May 19 — Day 6 of 20, ahead of schedule — 7 Konsier workflows built.</strong> KS-WF1 (Reply Triage) complete ✅. KS-WF2 (Retell voice qualification) built and end-to-end tested ✅ — Retell agent "Sarah" live, webhook registered, transcript → Claude summary → Pipedrive note + stage move to "Qualified by Retell" confirmed. Next: KS-WF3 (Wistia), KS-A1 (Lead Scorer). <span class="warn">Instantly mailboxes still at zero — 14-day warmup has not started. Retell phone number: Drew to purchase (~$2/mo).</span></div>
     </div>
     <div class="timeline">
       <div class="tl-item done">
@@ -684,9 +684,9 @@
         <div class="tl-date">May 18</div>
         <div class="tl-label">KS-WF1 Built ✅</div>
       </div>
-      <div class="tl-item orange">
+      <div class="tl-item done">
         <div class="tl-date">May 19 — Day 6</div>
-        <div class="tl-label">▶ WF1 Test + WF2 Queue</div>
+        <div class="tl-label">WF1 Done + WF2 Done ✅</div>
       </div>
     </div>
   </div>
@@ -700,8 +700,8 @@
     </div>
     <div class="stat-card blue">
       <div class="label">Konsier Automations</div>
-      <div class="value">6</div>
-      <div class="sub">ERR · A4 · PD-EVENTS · WF1 · WF4 · WF6 built · Phase 4 ahead of schedule</div>
+      <div class="value">7</div>
+      <div class="sub">ERR · A4 · PD-EVENTS · WF1 · WF2 · WF4 · WF6 — all built ✅</div>
     </div>
     <div class="stat-card yellow">
       <div class="label">Active Projects</div>
@@ -719,7 +719,7 @@
   <div class="progress-section">
     <div class="progress-header">
       <span>Overall Build Progress (VC + Konsier)</span>
-      <strong>Day 6 of 20 — VC 6/18 live · Konsier: 6 workflows built ahead of schedule · WF2 + 3 agents queued this week</strong>
+      <strong>Day 6 of 20 — VC 6/18 live · Konsier: 7 workflows built ahead of schedule · KS-WF2 complete today · KS-WF3 + agents next</strong>
     </div>
     <div class="bar-track">
       <div class="bar-fill" style="width: 25%;"></div>
@@ -1004,13 +1004,21 @@
         <div class="wf-name">Stripe Payment → Onboarding Chain</div>
         <div class="wf-trigger"><span>May 15:</span> Stripe Trigger (checkout.session.completed) → Set 6 fields (customerEmail, customerName, amountTotal, pipedriveDealId, plan, stripeSessionId) → PATCH Pipedrive to stage 98 (Paid) → Slack #konsier "New Paid Customer" alert. Sandbox mode. Parallel onboarding branches (DocuSign/Notion/M365) pending Drew's templates.</div>
       </div>
-      <div class="wf-card progress">
+      <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">KS-WF1</span>
-          <span class="status-badge badge-progress">🔄 In Progress</span>
+          <span class="status-badge badge-done">✅ Done</span>
         </div>
         <div class="wf-name">Email Reply Handler — Reply Triage Agent #2</div>
-        <div class="wf-trigger"><span>May 15:</span> Webhook (Instantly reply) → Respond 200 OK → Set 5 fields → Claude Haiku classifier (positive/objection/question/unsubscribe/out_of_office/needs_review) → Code parser with markdown stripping + confidence threshold (0.7) + routeAction field.<br><span>May 18:</span> Switch routing built (6 routes) + all 6 branches — Slack alerts (#konsier-leads / #konsier-review), auto-reply No-Op, unsubscribe → Instantly blocklist API. In final routing test.</div>
+        <div class="wf-trigger"><span>May 15:</span> Webhook (Instantly reply) → Respond 200 OK → Set 5 fields → Claude Haiku classifier (positive/objection/question/unsubscribe/out_of_office/needs_review) → Code parser with markdown stripping + confidence threshold (0.7) + routeAction field.<br><span>May 18:</span> Switch routing built (6 routes) + all 6 branches — Slack alerts (#konsier-leads / #konsier-review), auto-reply No-Op, unsubscribe → Instantly blocklist API. Routing test passed. KS-ERR wired.</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-WF2</span>
+          <span class="status-badge badge-done">✅ Done</span>
+        </div>
+        <div class="wf-name">Retell Voice Qualification Webhook</div>
+        <div class="wf-trigger"><span>May 19:</span> Retell webhook (call_analyzed only — Code filter) → Set 5 fields (callId, transcript, callSummary, pipedriveDealId, pipedrivePersonId) → Claude Haiku summarizer (summary_bullets, qualification_status, pain_points, next_steps) → Code parser → POST Pipedrive Note → PATCH Pipedrive Deal to stage 97 "Qualified by Retell" (v2 API). End-to-end tested — note posted + deal stage moved ✅. Retell "Sarah" agent created + webhook registered at workspace level. Phone number: Drew to purchase (~$2/mo).</div>
       </div>
       <div class="wf-card blocked">
         <div class="wf-top">
@@ -1304,6 +1312,13 @@
   <div class="blockers-section">
     <h3>⚠ Currently Pending from Drew (as of May 19)</h3>
     <div class="blocker-item">
+      <div class="blocker-icon">📞</div>
+      <div class="blocker-content">
+        <div class="title">Retell Phone Number Purchase</div>
+        <div class="desc">KS-WF2 is fully built and tested — the Retell agent "Sarah" is live and ready. Only blocker: a phone number needs to be purchased in Retell (Deploy → Phone Numbers → Buy, ~$2/mo on Pay As You Go). Once purchased, assign the Konsier Outbound Qualifier agent to it and KS-WF6 → KS-WF2 loop is operational.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
       <div class="blocker-icon">📨</div>
       <div class="blocker-content">
         <div class="title">Instantly Mailbox Setup</div>
@@ -1341,8 +1356,8 @@
     <div class="blocker-item resolved">
       <div class="blocker-icon">✅</div>
       <div class="blocker-content">
-        <div class="title">RESOLVED — Retell AI Credentials</div>
-        <div class="desc">Retell AI credentials added to 1Password (May 18) — login, API key, agent ID, phone number, webhook destination. Unblocks the voice qualification chain (KS-WF2).</div>
+        <div class="title">RESOLVED — Retell AI Credentials + KS-WF2 Built</div>
+        <div class="desc">Retell AI credentials added to 1Password (May 18). KS-WF2 built and end-to-end tested May 19 — "Sarah" agent live, webhook registered, call transcript → Claude summary → Pipedrive note + stage move to "Qualified by Retell" confirmed ✅. Pending: Drew to purchase phone number (~$2/mo, Retell → Deploy → Phone Numbers).</div>
       </div>
     </div>
     <div class="blocker-item resolved">
@@ -1532,6 +1547,11 @@
           <td>Continued KS-WF1 (Email Reply Handler) — completed Switch node + all 6 classified branches: (1) Hot Lead → Slack #konsier-leads alert, (2) Objection → Slack #konsier-leads + flag, (3) Question → Slack #konsier-leads, (4) Needs Review → Slack #konsier-review, (5) Auto-Reply / OOO → No-Op defer, (6) Unsubscribe → Instantly API blocklist call. Created Slack channels #konsier-leads and #konsier-review (private, Konsier Bot + Drew invited). Drew cleared 4 credential blockers same day: Apollo Professional $49/mo upgrade (search API now live), Retell AI full credentials in 1Password (login + API key + agent ID + phone number + webhook destination), Notion login added, Calendly password reset. KS-WF1 in routing test.</td>
           <td class="earn">$100</td>
         </tr>
+        <tr class="done-row">
+          <td>May 19</td><td>Tuesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>Completed KS-WF1 routing test ✅. Built KS-WF2 (Retell Qualification Webhook) end-to-end: Webhook → Code filter (call_analyzed only) → Set 5 fields → Claude Haiku summarizer (bullets, qualification, pain points, next steps) → Code parser → POST Pipedrive Note → PATCH Pipedrive Deal stage to 97 "Qualified by Retell" (v2 API). Resolved: n8n production webhook wraps payload under body key ($json.body.call...), IF node bug replaced with Code filter, Pipedrive v1 PATCH broken → v2 API with x-api-token header. Created Retell "Sarah" agent (Konsier Outbound Qualifier — Single Prompt, dynamic vars: lead_name/company_name/vertical). Registered Retell workspace webhook. End-to-end test passed — note posted + deal stage moved ✅.</td>
+          <td class="earn">$100</td>
+        </tr>
       </tbody>
       <tfoot>
         <tr>
@@ -1546,7 +1566,7 @@
 
   <!-- Tech Discoveries -->
   <div class="discoveries">
-    <h3>✅ Week 2 — Technical Discoveries</h3>
+    <h3>✅ Week 2–3 — Technical Discoveries</h3>
 
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8 → Corrected May 12]</strong> Pipedrive webhooks ARE available on Drew's plan. "Send webhook request" action in automation builder is fully clickable (labeled "Webhooks NEW"). Confirmed by Drew's screenshots. Normal webhook (Tools &amp; Apps → Webhooks) is the correct approach — one listener sends all Pipedrive events to n8n for routing, avoiding duplicate logic in both systems.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive Deal Labels are NOT created in Settings → Labels. Must create from within an actual Deal record → Add labels → + Add label button.</div>
@@ -1587,6 +1607,12 @@
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 15 — Claude Output Validation]</strong> Reply Triage Code node implements 3-layer validation: (1) Strip markdown code blocks from Claude output, (2) try/catch JSON.parse with fallback to human review, (3) confidence threshold check (&lt;0.7 routes to needs_review). Auto-replies (out_of_office) get special downgrade path to prevent triggering Retell calls on vacation responders.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 15 — 1Password Credential Hygiene]</strong> Both Calendly entries in 1Password have invalid passwords — neither account login works. 1Password vault is populated but Calendly credentials are outdated. Drew to refresh on May 16.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 15 — Instantly Setup Reality]</strong> Only 1 mailbox (endyroo@yahoo.com) at 0% health — the "8 mailboxes warming" was aspirational, not actual. Zero campaigns exist. Drew committed to setting up Konsier-domain mailboxes May 16. Yahoo addresses unsuitable for B2B cold outbound (enterprise spam filters reject).</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — n8n Production Webhook Wraps Payload]</strong> In production (Published) mode, n8n wraps incoming webhook body under a <code>body</code> key: access as <code>$json.body.event</code>, not <code>$json.event</code>. Test mode sends raw payload directly. Always use <code>$json.body.*</code> prefix in production workflows triggered by external webhooks (Retell, Instantly, Pipedrive, etc.).</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — n8n IF Node Bug with Webhook Payloads]</strong> n8n IF node expression <code>{{ $json.body.event === "call_analyzed" }}</code> evaluates to False even when the value is correct — known issue with string comparison on nested webhook objects. Workaround: replace IF node with a Code node that uses JavaScript <code>items.filter(...)</code> — 100% reliable. Pattern: <code>return items.filter(item =&gt; (item.json?.body?.event || item.json?.event) === 'call_analyzed');</code></div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — Pipedrive v1 PATCH Broken]</strong> Pipedrive v1 PATCH /deals/{id} returns "Unknown method" error — the v1 endpoint does not support PATCH for deals. Use v2 API: <code>PATCH https://api.pipedrive.com/api/v2/deals/{id}</code> with header <code>x-api-token: {api_token}</code> (no api_token query param). Body remains the same JSON structure.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — n8n Raw JSON Body + Newlines]</strong> Claude output containing real newline characters (\\n) breaks raw JSON body in HTTP Request nodes — "Bad control character in string" error. Fix: switch body type from "Using JSON" to "Using Fields Below" — n8n handles character encoding automatically. Use key-value pairs; n8n builds valid JSON internally.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — Retell Webhook Scope]</strong> Retell webhook is registered at the workspace level (Settings → Webhooks), not per-agent. One webhook URL receives events for ALL agents in the workspace. Filter by agent_id or event type in n8n if needed. Retell sends 3 events per call: call_started, call_ended, call_analyzed — use call_analyzed only (has transcript + analysis + metadata).</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — Retell Metadata Pattern]</strong> Pass <code>pipedrive_deal_id</code> and <code>pipedrive_person_id</code> in the <code>metadata</code> object when creating a call via Retell API. Retell stores this on the call object and returns it verbatim in the call_analyzed webhook payload at <code>$json.body.call.metadata.pipedrive_deal_id</code>. This is the correct way to link a voice call back to a CRM record — no lookup needed.</div>
   </div>
 
   <!-- Footer -->
