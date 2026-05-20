@@ -1325,8 +1325,8 @@
     <div class="blocker-item resolved">
       <div class="blocker-icon">✅</div>
       <div class="blocker-content">
-        <div class="title">RESOLVED — Retell Phone Number Assigned (May 20)</div>
-        <div class="desc">Drew purchased Retell number <strong>+1 (906) 498-9850</strong>. Assigned to Alex (Website Receptionist — agent_d6bc4dc26c535c556dcfa765d7) via API — confirmed live. Anyone calling the number now reaches Alex. Same number used as from_number for Sarah outbound calls in KS-WF6. Michael to update tel: link on konsier.ai to +1 (906) 498-9850.</div>
+        <div class="title">RESOLVED — Retell Phone Number Provisioned (May 20)</div>
+        <div class="desc">New 415 area code number <strong>+1 (415) 683-0326</strong> provisioned via Retell API and assigned to Alex (Website Receptionist — agent_d6bc4dc26c535c556dcfa765d7) — confirmed live. Inbound calls to this number connect directly to Alex. Same number used as from_number for Sarah outbound calls in KS-WF6. Michael to update tel: link on konsier.ai to +1 (415) 683-0326. Previous 906 number also remains assigned as backup.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -1368,7 +1368,7 @@
       <div class="blocker-icon">✅</div>
       <div class="blocker-content">
         <div class="title">RESOLVED — Retell AI Credentials + KS-WF2 Built</div>
-        <div class="desc">Retell AI credentials added to 1Password (May 18). KS-WF2 built and end-to-end tested May 19 — "Sarah" agent live, webhook registered, call transcript → Claude summary → Pipedrive note + stage move to "Qualified by Retell" confirmed ✅. Pending: Drew to purchase phone number (~$2/mo, Retell → Deploy → Phone Numbers).</div>
+        <div class="desc">Retell AI credentials added to 1Password (May 18). KS-WF2 built and end-to-end tested May 19 — "Sarah" agent live, webhook registered, call transcript → Claude summary → Pipedrive note + stage move to "Qualified by Retell" confirmed ✅. Phone number <strong>+1 (415) 683-0326</strong> provisioned via Retell API (May 20) — assigned to Alex (inbound) and used as from_number for Sarah (outbound). Michael to update tel: link on konsier.ai.</div>
       </div>
     </div>
     <div class="blocker-item resolved">
@@ -1560,7 +1560,7 @@
         </tr>
         <tr class="done-row">
           <td>May 19</td><td>Tuesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Completed KS-WF1 routing test ✅. Built KS-WF2 v1 (Retell Qualification Webhook) end-to-end: Webhook → Code filter → Claude Haiku summarizer → Code parser → POST Pipedrive Note → PATCH deal stage 97 "Qualified by Retell" (v2 API). Resolved: payload wraps under body key, Pipedrive v1 PATCH broken → v2 API. Created Retell "Sarah" outbound agent (Konsier Outbound Qualifier — Single Prompt, dynamic vars: lead_name/company_name/vertical). Registered workspace webhook. Test passed ✅. Then updated KS-WF2 to v2 dual-branch architecture: IF pipedriveDealId present → outbound branch (existing flow) / IF absent → inbound branch (POST Person → POST Deal in INBOUND pipeline stage 96 → POST Note → Slack). Built Retell "Alex" agent (Website Receptionist — inbound, Single Prompt): qualifies HVAC/roofing/dental/medical visitors, collects caller_name/caller_email/business_type/pain_point via Post-Call Data Extraction. Voice Orb enabled. Corrected Sarah outbound agent prompt (was "scheduling software" → corrected to "AI receptionist that answers calls 24/7" + corrected hook/pitch). Web embed iframe code generated + ready for konsier.ai WordPress developer. Reviewed V5 SOP + Vertical Action Items doc — updated all 3 Pipedrive pipelines to V5 stage names (Drew confirmed: "Stick with V5 going forward"): Outbound old stages (Emailed/AI Qualified/Async Demo Sent) → New Lead/Email Sent/Replied/Demo Booked/Demo Completed/Qualified/Lost-Disqualified · Inbound old stages (Demo Engaged/Checkout Started/Paid) → Inbound Call/Qualified by Retell/Demo Scheduled/Demo Completed/Qualified/Lost · Customer Lifecycle old stages (Booked/Demo Held/Proposal Sent/Negotiating) → Won-Onboarding/Live/Healthy/At Risk/Churned. Apollo geography targets confirmed from Vertical Action Items — Phase 1: Roofing (Storm Belt: Dallas-FW, OKC, Denver, Tulsa), Dental (Suburban: Plano, Frisco, Scottsdale, Naperville), Medical (Sun Belt: Phoenix, Tampa, Orlando, Naples FL). HVAC moved to Phase 2 (PE consolidation risk).</td>
+          <td>Completed KS-WF1 routing test ✅. Built KS-WF2 v1 (Retell Qualification Webhook) end-to-end: Webhook → Code filter → Claude Haiku summarizer → Code parser → POST Pipedrive Note → PATCH deal stage 97 "Qualified by Retell" (v2 API). Resolved: payload wraps under body key, Pipedrive v1 PATCH broken → v2 API. Created Retell "Sarah" outbound agent (Konsier Outbound Qualifier — Single Prompt, dynamic vars: lead_name/company_name/vertical). Registered workspace webhook. Test passed ✅. Then updated KS-WF2 to v2 dual-branch architecture: IF pipedriveDealId present → outbound branch (existing flow) / IF absent → inbound branch (POST Person → POST Deal in INBOUND pipeline stage 96 → POST Note → Slack). Built Retell "Alex" agent (Website Receptionist — inbound, Single Prompt): qualifies HVAC/roofing/dental/medical visitors, collects caller_name/caller_email/business_type/pain_point via Post-Call Data Extraction. Voice Orb enabled. Corrected Sarah outbound agent prompt (was "scheduling software" → corrected to "AI receptionist that answers calls 24/7" + corrected hook/pitch). Web embed iframe code generated + ready for konsier.ai WordPress developer. Reviewed V5 SOP + Vertical Action Items doc — updated all 3 Pipedrive pipelines to V5 stage names (Drew confirmed: "Stick with V5 going forward"): Outbound old stages (Emailed/AI Qualified/Async Demo Sent) → New Lead/Email Sent/Replied/Demo Booked/Demo Completed/Qualified/Lost-Disqualified · Inbound old stages (Demo Engaged/Checkout Started/Paid) → Inbound Call/Qualified by Retell/Demo Scheduled/Demo Completed/Qualified/Lost · Customer Lifecycle old stages (Booked/Demo Held/Proposal Sent/Negotiating) → Won-Onboarding/Live/Healthy/At Risk/Churned. Apollo geography targets confirmed from Vertical Action Items — Phase 1: Roofing (Storm Belt: Dallas-FW, OKC, Denver, Tulsa), Dental (Suburban: Plano, Frisco, Scottsdale, Naperville), Medical (Sun Belt: Phoenix, Tampa, Orlando, Naples FL). HVAC moved to Phase 2 (PE consolidation risk). Provisioned new 415 area code Retell number +1 (415) 683-0326 via API — assigned to Alex as inbound agent. Assigned same from_number to Sarah for outbound calls. Michael to update tel: link on konsier.ai to +1 (415) 683-0326.</td>
           <td class="earn">$100</td>
         </tr>
       </tbody>
@@ -1646,7 +1646,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 19, 2026';
+    if (el) el.textContent = 'Last updated: May 20, 2026';
   </script>
 </body>
 </html>
