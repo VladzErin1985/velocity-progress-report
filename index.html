@@ -646,14 +646,14 @@
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>WEEK 3 — May 21 · Day 8 of 20 (Ahead of Schedule):</strong> All 3 Apollo Phase 1 saved searches complete ✅ — Roofing Storm Belt (796 leads), Dental Suburban (602 leads), Medical Sun Belt. KS-WF6 outbound pipeline ready end-to-end. Blocker: Instantly IMAP still pending (Day 2 waiting). Next: KS-WF3 (Wistia) + KS-WF4 stage fix + KS-WF5.
+    <strong>WEEK 3 — May 21 · Day 8 of 20 (Ahead of Schedule):</strong> AGENT-03 (Qualification Analyzer) fully wired into KS-WF2 ✅ — upgraded outbound branch from 4-field Haiku summarizer to 10-field Sonnet 4.6 engine. 6 Pipedrive custom fields now auto-populate on every Sarah outbound call. Blocker: Instantly IMAP still pending (Day 3 waiting). Next: KS-A2 (Tier Routing) + KS-WF3 (Wistia) + KS-WF4 stage fix.
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
       <div class="label">Build Velocity</div>
-      <div class="message"><strong>May 21 — Day 8 of 20, ahead of schedule — All 3 Apollo Phase 1 saved searches complete.</strong> Roofing Storm Belt Phase 1 (796 verified leads) rebuilt with correct Storm Belt cities after data correction. Dental Suburban Phase 1 (602 verified leads) and Medical Sun Belt Phase 1 complete. KS-WF6 outbound pipeline is fully built and ready to fire the moment Instantly mailboxes are warm. <span class="warn">Instantly IMAP: still not connected as of May 21 — warmup clock has not started. Every day this is delayed pushes the June 3 go-live target.</span></div>
+      <div class="message"><strong>May 21 — Day 8 of 20, ahead of schedule — AGENT-03 (Qualification Analyzer) live inside KS-WF2.</strong> I upgraded the outbound branch from a basic 4-field Haiku summarizer to a 10-field Sonnet 4.6 qualification engine. Every Sarah outbound call now triggers a full transcript analysis — 10 structured fields extracted, 6 Pipedrive custom fields auto-populated (Tier Match, Pain Point Summary, Urgency Score, Closer Brief, Qualification Result, AI Transcript), deal moved to stage 97 Qualified by Retell. <span class="warn">Instantly IMAP: still not connected as of May 21 — warmup clock has not started. Every day this is delayed pushes the June 3 go-live target.</span></div>
     </div>
     <div class="timeline">
       <div class="tl-item done">
@@ -1240,15 +1240,15 @@
         <div class="lg-name">Outbound Operator</div>
         <div class="lg-desc">Personalized cold email openers + ICP filtering. Batch 50/call. Feeds Instantly campaign.</div>
       </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-02 · Sales</div>
+      <div class="lg-card">
+        <div class="lg-id">AGENT-02 · Sales ✅ LIVE</div>
         <div class="lg-name">Reply Triage</div>
         <div class="lg-desc">Classify email replies (Interested / Unsubscribe / Bounce / Ambiguous) + route + draft response for VA #1 approval.</div>
       </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-03 · Sales</div>
+      <div class="lg-card">
+        <div class="lg-id">AGENT-03 · Sales ✅ LIVE</div>
         <div class="lg-name">Qualification Analyzer</div>
-        <div class="lg-desc">Voice transcript → structured Pipedrive fields (tier_match, pain_point_summary, urgency_score).</div>
+        <div class="lg-desc">Voice transcript → 10 structured Pipedrive fields (tier_match, business_size, call_volume, current_solution, pain_point_summary, urgency_score, qualification_result, closer_brief, red_flags, AI transcript). Wired into KS-WF2 outbound branch May 21.</div>
       </div>
       <div class="lg-card pending">
         <div class="lg-id">AGENT-04 · Sales</div>
@@ -1573,6 +1573,11 @@
           <td><strong>KS-WF2 inbound null-field bug fix + full end-to-end verification + Apollo Roofing search.</strong> Root cause of null fields identified: an upstream node ("Set - Extract Call Data") in the outbound branch was overwriting the entire $json object before the inbound branch ran — so all 9 inbound field expressions were reading from an already-replaced payload. Fix: changed all 9 expressions to reference the original webhook data directly using $('Webhook').first().json.body.call.call_analysis.* instead of $json.*. Secondary bug: deal title showing "undefined — undefined" — cause was Deal POST node using $json.callerName after $json had been replaced by the Pipedrive Person API response. Fix: changed to $('Set - Extract Inbound Fields').first().json.callerName. Full end-to-end test confirmed ✅ — called +1 (415) 799-4325, completed Alex's 4-question qualification flow as test lead "Mike Torres / HVAC / mike@torroshvac.com" — KS-WF2 received the Retell call_analyzed webhook, extracted all 8 fields, created Pipedrive Person + Deal "Mike Torres — HVAC (Inbound Web Call)" in INBOUND pipeline stage 96 (Inbound Call) with all fields correctly populated including Qualification Result, posted a Note with call summary, and fired Slack #konsier-leads alert — all in 806ms (Execution #68). Built Apollo saved search "Konsier Roofing Storm Belt Phase 1" — 796 verified leads across Storm Belt cities.</td>
           <td class="earn">$62.50</td>
         </tr>
+        <tr class="done-row">
+          <td>May 21</td><td>Thursday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td><strong>AGENT-03 (Qualification Analyzer) wired into KS-WF2 — outbound branch fully production-ready.</strong> I upgraded KS-WF2's outbound branch from a basic 4-field Claude Haiku summarizer to a full 10-field Sonnet 4.6 qualification engine. Expanded Set - Extract Call Data with 5 new fields: agentType (static "sarah_outbound"), callerName, callerEmail, businessType, callDurationSeconds. Replaced the Claude node with the full AGENT-03 system prompt — 9 extraction rules covering tier_match (Starter/Professional/Enterprise based on call volume), business_size, call_volume, current_solution, pain_point_summary (max 25 words), urgency_score 1–10, qualification_result with enum ID (178=Qualified / 179=Not Qualified), closer_brief (3-sentence brief for Professional/Enterprise tier only), and red_flags array. Upgraded model claude-haiku-4-5 → claude-sonnet-4-6, max_tokens 1024 → 2048. Rewrote Code parser to extract all 10 fields with typed safe fallbacks. Updated Pipedrive Note to AGENT-03 enriched format (tier, urgency, result, call volume, pain point, current solution, closer brief, red flags). Updated Pipedrive PATCH to v2 API with custom_fields wrapper: 6 deal field codes (Tier Match, Pain Point Summary, Urgency Score, Closer Brief, Qualification Result enum, AI Qualification Transcript). Every Sarah outbound call now auto-populates 6 Pipedrive deal fields, moves deal to stage 97, and posts an AGENT-03 enriched note. Also reviewed and confirmed KS — Client Health Notion database structure with Drew's screenshots. Reviewed Drew's 8 Claude Agent Prompts v1.0 document — all 6 agent system prompts (AGENT-01 through AGENT-06) saved to knowledge base.</td>
+          <td class="earn">$100</td>
+        </tr>
       </tbody>
       <tfoot>
         <tr>
@@ -1640,6 +1645,9 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 20 — n8n Upstream Set Node Clobbers $json]</strong> If a Set node runs before an IF node in the same workflow, downstream branches that use <code>$json</code> will get the Set node's output — NOT the original webhook payload. Fix: reference the original data using <code>$('Webhook').first().json</code> instead of <code>$json</code> in any downstream node. This is the correct pattern whenever you need webhook data after any transformation node has run.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 20 — Apollo Saved Searches are UI-Only]</strong> Apollo does not expose a "create saved search" endpoint in their REST API. Saved searches must be built manually in the UI. For n8n workflow use, saved search IDs are not needed — call the Apollo <code>mixed_people/search</code> endpoint directly with filter parameters instead. The UI saved searches serve as documentation/reference only.</div>
     <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — M365 Mailboxes for Instantly Warmup]</strong> Microsoft 365 (not Gmail) is the recommended mailbox provider for cold outbound warmup. 8 M365 mailboxes created May 19 under Konsier domain. IMAP connection to Instantly is required before warmup clock starts — warmup is not triggered by mailbox creation. Plan: connect via IMAP May 20 → 14-day warmup → ~June 3 earliest outbound go-live.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 21 — Pipedrive v2 API: custom_fields Wrapper for Deal Custom Fields]</strong> Pipedrive v2 API (<code>PATCH /api/v2/deals/{id}</code>) requires custom field updates to be nested inside a <code>custom_fields</code> object — not passed as top-level body keys. Format: <code>{"stage_id": 97, "custom_fields": {"field_code": value}}</code>. Enum fields (e.g. Qualification Result) accept the option ID as an integer (178 or 179). Text/Number fields accept string or number directly. Auth via header <code>x-api-token</code>, not query param.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 21 — n8n Expression: Pure JS Object vs Template with {{ }}]</strong> Two patterns for dynamic HTTP body in n8n: (1) Template style — <code>="{ \"key\": \"{{ $json.field }}\" }"</code> — n8n interpolates <code>{{ }}</code> first, then parses as JSON. (2) Pure JS expression — <code>={ key: $json.field }</code> — n8n evaluates as JavaScript, serializes result to JSON. Use pattern (2) when referencing upstream nodes (<code>$('NodeName').first().json.field</code>) or when field values may contain special characters — JS serialization handles escaping automatically. Pattern (1) risks broken JSON if values contain quotes or newlines.</div>
+    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 21 — Retell AI vs AGENT-03: Separate Roles]</strong> Retell AI (Sarah outbound / Alex inbound) is the real-time voice agent on the phone. AGENT-03 (Claude Sonnet 4.6 in n8n) is the post-call transcript analyst — it reads the finished transcript after the call ends and extracts structured CRM data. The two are completely independent: Retell handles the conversation, AGENT-03 handles the data extraction. Split by Retell's <code>call_analyzed</code> webhook — the handoff point between voice AI and analytical AI.</div>
   </div>
 
   <!-- Footer -->
@@ -1658,7 +1666,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 20, 2026';
+    if (el) el.textContent = 'Last updated: May 21, 2026';
   </script>
 </body>
 </html>
