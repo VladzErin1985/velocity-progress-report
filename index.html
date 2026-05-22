@@ -937,7 +937,7 @@
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
       <h2>Konsier — AI Receptionist Agency (Revised SOP May 14)</h2>
-      <span class="count">Phase 4 of 7 (ahead of schedule) · Phase 3 done (Hostinger) · 6 workflows built · 39 steps · 8 agents</span>
+      <span class="count">Phase 4 of 7 (ahead of schedule) · Phase 3 done (Hostinger) · 9 workflows built · 39 steps · 8 agents · 4 live · 5 inactive (pending activation)</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done">
@@ -1041,11 +1041,11 @@
       </div>
       <div class="wf-card done">
         <div class="wf-top">
-          <span class="wf-id">KS-WF6 POC</span>
-          <span class="status-badge badge-done">✅ POC Live</span>
+          <span class="wf-id">KS-WF6</span>
+          <span class="status-badge badge-done">✅ Built · Inactive</span>
         </div>
-        <div class="wf-name">Daily Outbound Lead Pipeline — Phase 1</div>
-        <div class="wf-trigger"><span>May 14:</span> Real workflow built — Schedule (9AM LA) → Apollo search 500 ICP contacts → ICP Score &amp; Filter (≥70) → Instantly campaign → Slack daily summary. KS-ERR wired. <strong>Awaiting API keys from Drew: Apollo (n8n-enrichment) + Instantly (n8n-reply-handler) + campaign ID + geography targets.</strong></div>
+        <div class="wf-name">Daily Outbound Lead Pipeline — Production</div>
+        <div class="wf-trigger"><span>May 22 — Production merge complete (16 nodes).</span> Schedule (9AM LA) → Apollo search 500 ICP contacts → Code ICP Score &amp; Filter (≥70 threshold — roofing +40, dental +35, medical +35, HVAC +15, size 3-25 +25, title +20, ServiceTitan/HCP/Jobber exclusion −20) → HTTP Notion Dedup Check → IF New Contact → Code Batch-50 → Claude AGENT-01 (BASHO openers) → Code Parse Output → Instantly Add Lead → Notion Lead Log (native node) → Code Aggregate → Slack #konsier-leads summary. Apollo saved searches confirmed live: Roofing Storm Belt (796 leads), Dental Suburban, Medical Sun Belt. KS-ERR wired. <strong>Blocked: Instantly campaign IDs (3 needed) + GoDaddy IMAP fix from Drew (URGENT — blocks warmup clock).</strong></div>
       </div>
       <div class="wf-card done">
         <div class="wf-top">
@@ -1055,13 +1055,21 @@
         <div class="wf-name">Konsier Bot — Slack Icon</div>
         <div class="wf-trigger"><span>May 13:</span> Custom SVG icon designed for Konsier Bot (dark background, purple gradient K monogram). Uploaded to Slack app — bot now shows Konsier branding in all #konsier notifications.</div>
       </div>
-      <div class="wf-card next">
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-WF3</span>
+          <span class="status-badge badge-done">✅ Built · Inactive</span>
+        </div>
+        <div class="wf-name">Website Contact Form → Pipedrive</div>
+        <div class="wf-trigger"><span>May 22 — Built (6 nodes).</span> Webhook (path: konsier-contact) → Code HMAC Verify (SHA-256 signature on X-Konsier-Signature header) → Set Extract Fields (name, email, company, message, phone) → Respond 200 OK → HTTP POST Pipedrive Person → HTTP POST Pipedrive Deal (INBOUND pipeline, stage 96 Inbound Call) → Slack #konsier-leads alert. HMAC secret generated: <code>f490f82...d43fe7</code>. <strong>Waiting on Michael: add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET to wp-config.php · embed Calendly https://calendly.com/drew-konsier/30min on site.</strong> Action needed: set "Slack — Velocity Capital" credential on Slack node in n8n UI.</div>
+      </div>
+      <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">KS-A2</span>
-          <span class="status-badge badge-next">Next Up ⚡</span>
+          <span class="status-badge badge-done">✅ Built · Inactive</span>
         </div>
-        <div class="wf-name">Tier Routing Rules</div>
-        <div class="wf-trigger">Unblocked — Drew provided routing rules via Konsier_KS-A2_Routing_Rules_Vlad.docx (May 20). Tier logic: Starter &lt;100 calls/mo ($497) · Professional 100–400/mo ($797) · Enterprise 400+/mo ($1,497). Based on daily_call_volume × 22 business days. Ready to build.</div>
+        <div class="wf-name">Tier Routing — Webhook + Deal Updater</div>
+        <div class="wf-trigger"><span>May 22 — Built (11 nodes).</span> Webhook receiver → Code Tier Logic (daily_call_volume × 22 → Starter &lt;100/mo · Professional 100–400/mo · Enterprise 400+/mo · Not Qualified) → IF Manual Override (skips if tier_match already set) → HTTP PATCH Pipedrive deal stage + tier_match field (v2 API, custom_fields wrapper) → HTTP POST Pipedrive note → Switch → 4 Slack branches (#konsier-leads for Starter/Pro/Enterprise · #konsier-review for Not Qualified). Edge cases: null volume defaults to Professional, volume 0-1 flags for review, volume &gt;100/day escalates to Enterprise + large-operation Slack alert. <strong>Action needed: set "Slack — Velocity Capital" credential on all 4 Slack nodes in n8n UI.</strong></div>
       </div>
       <div class="wf-card blocked">
         <div class="wf-top">
@@ -1232,13 +1240,13 @@
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
       <h2>Konsier — 8 Claude Agents (Phase 5)</h2>
-      <span class="count">0 done · 8 agents to build · Days 12–16</span>
+      <span class="count">4 built (AGENT-01 wired in WF6 · AGENT-02 live · AGENT-03 live · AGENT-PQA live) · 4 remaining · AGENT-PQA is Vladimir's addition (not in Drew's SOP)</span>
     </div>
     <div class="lg-grid">
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-01 · Sales</div>
+      <div class="lg-card">
+        <div class="lg-id">AGENT-01 · Sales ✅ Built (inside KS-WF6)</div>
         <div class="lg-name">Outbound Operator</div>
-        <div class="lg-desc">Personalized cold email openers + ICP filtering. Batch 50/call. Feeds Instantly campaign.</div>
+        <div class="lg-desc">Personalized BASHO cold email openers + ICP scoring. Batch 50 contacts per Claude call (10x cost reduction). Built and wired into KS-WF6 production workflow. Pending KS-WF6 activation (waiting Instantly campaign IDs + GoDaddy IMAP fix from Drew).</div>
       </div>
       <div class="lg-card">
         <div class="lg-id">AGENT-02 · Sales ✅ LIVE</div>
@@ -1249,6 +1257,11 @@
         <div class="lg-id">AGENT-03 · Sales ✅ LIVE</div>
         <div class="lg-name">Qualification Analyzer</div>
         <div class="lg-desc">Voice transcript → 10 structured Pipedrive fields (tier_match, business_size, call_volume, current_solution, pain_point_summary, urgency_score, qualification_result, closer_brief, red_flags, AI transcript). Wired into KS-WF2 outbound branch May 21.</div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-id">AGENT-PQA · QA ✅ LIVE (Vladimir's addition)</div>
+        <div class="lg-name">Prompt Quality Agent</div>
+        <div class="lg-desc">Self-improving Retell prompt quality loop — not in Drew's original SOP. Fires inline in KS-WF2 when AGENT-03 outputs red_flags. Claude Haiku writes ONE specific Retell prompt fix in structured JSON (fix_type, prompt_section, current_text, suggested_text, rationale, severity) → logged to Notion KS — Call QA Queue. VA reviews → I update the Retell agent prompt directly. Live May 22. Slack alert for new Notion entries: pending.</div>
       </div>
       <div class="lg-card pending">
         <div class="lg-id">AGENT-04 · Sales</div>
