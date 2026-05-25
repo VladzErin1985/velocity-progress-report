@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group â€” Build Progress Report</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -15,7 +15,7 @@
       min-height: 100vh;
     }
 
-    /* â”€â”€â”€ Header â”€â”€â”€ */
+    /* Header */
     .header {
       display: flex;
       justify-content: space-between;
@@ -24,35 +24,13 @@
       padding-bottom: 24px;
       border-bottom: 1px solid #1e2433;
     }
-    .header-left h1 {
-      font-size: 22px;
-      font-weight: 700;
-      color: #f1f5f9;
-      letter-spacing: -0.3px;
-    }
-    .header-left .subtitle {
-      font-size: 13px;
-      color: #64748b;
-      margin-top: 4px;
-    }
-    .header-right {
-      text-align: right;
-    }
-    .date-badge {
-      background: #1e2433;
-      border: 1px solid #2d3748;
-      border-radius: 6px;
-      padding: 6px 14px;
-      font-size: 12px;
-      color: #94a3b8;
-    }
-    .week-badge {
-      margin-top: 6px;
-      font-size: 11px;
-      color: #475569;
-    }
+    .header-left h1 { font-size: 22px; font-weight: 700; color: #f1f5f9; letter-spacing: -0.3px; }
+    .header-left .subtitle { font-size: 13px; color: #64748b; margin-top: 4px; }
+    .header-right { text-align: right; }
+    .date-badge { background: #1e2433; border: 1px solid #2d3748; border-radius: 6px; padding: 6px 14px; font-size: 12px; color: #94a3b8; }
+    .week-badge { margin-top: 6px; font-size: 11px; color: #475569; }
 
-    /* â”€â”€â”€ Velocity Banner â”€â”€â”€ */
+    /* Velocity Banner */
     .velocity-banner {
       background: linear-gradient(135deg, #0a1628 0%, #0d2137 100%);
       border: 1px solid #1e3a5f;
@@ -66,47 +44,18 @@
       flex-wrap: wrap;
       gap: 12px;
     }
-    .velocity-banner .label {
-      font-size: 12px;
-      color: #60a5fa;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .velocity-banner .message {
-      font-size: 14px;
-      color: #e2e8f0;
-      line-height: 1.5;
-    }
+    .velocity-banner .label { font-size: 12px; color: #60a5fa; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 4px; }
+    .velocity-banner .message { font-size: 14px; color: #e2e8f0; line-height: 1.5; }
     .velocity-banner .message strong { color: #34d399; }
     .velocity-banner .message .warn { color: #fb923c; }
-    .velocity-banner .timeline {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .tl-item {
-      background: #0f2744;
-      border: 1px solid #1e3a5f;
-      border-radius: 6px;
-      padding: 6px 12px;
-      text-align: center;
-    }
-    .tl-item .tl-date {
-      font-size: 10px;
-      color: #475569;
-      margin-bottom: 2px;
-    }
-    .tl-item .tl-label {
-      font-size: 11px;
-      font-weight: 700;
-      color: #60a5fa;
-    }
+    .velocity-banner .timeline { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tl-item { background: #0f2744; border: 1px solid #1e3a5f; border-radius: 6px; padding: 6px 12px; text-align: center; }
+    .tl-item .tl-date { font-size: 10px; color: #475569; margin-bottom: 2px; }
+    .tl-item .tl-label { font-size: 11px; font-weight: 700; color: #60a5fa; }
     .tl-item.done .tl-label { color: #34d399; }
     .tl-item.orange .tl-label { color: #fb923c; }
 
-    /* â”€â”€â”€ Transition Alert Banner â”€â”€â”€ */
+    /* Transition Banner */
     .transition-banner {
       background: linear-gradient(135deg, #1a0f00 0%, #2a1500 100%);
       border: 1px solid #92400e;
@@ -120,207 +69,53 @@
     }
     .transition-banner strong { color: #fb923c; }
 
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-    .stat-card {
-      background: #161b27;
-      border: 1px solid #1e2433;
-      border-radius: 10px;
-      padding: 18px 20px;
-    }
-    .stat-card .label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: #475569;
-      margin-bottom: 8px;
-    }
-    .stat-card .value {
-      font-size: 28px;
-      font-weight: 700;
-      color: #f1f5f9;
-    }
-    .stat-card .sub {
-      font-size: 12px;
-      color: #64748b;
-      margin-top: 2px;
-    }
+    /* Summary Stats */
+    .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 28px; }
+    .stat-card { background: #161b27; border: 1px solid #1e2433; border-radius: 10px; padding: 18px 20px; }
+    .stat-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #475569; margin-bottom: 8px; }
+    .stat-card .value { font-size: 28px; font-weight: 700; color: #f1f5f9; }
+    .stat-card .sub { font-size: 12px; color: #64748b; margin-top: 2px; }
     .stat-card.green .value { color: #34d399; }
     .stat-card.blue .value  { color: #60a5fa; }
-    .stat-card.yellow .value { color: #fbbf24; }
     .stat-card.orange .value { color: #fb923c; }
-    .stat-card.red .value   { color: #f87171; }
     .stat-card.purple .value { color: #818cf8; }
 
-    /* â”€â”€â”€ Progress Bar â”€â”€â”€ */
-    .progress-section {
-      background: #161b27;
-      border: 1px solid #1e2433;
-      border-radius: 10px;
-      padding: 20px 24px;
-      margin-bottom: 28px;
-    }
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-    .progress-header span {
-      font-size: 13px;
-      color: #94a3b8;
-    }
-    .progress-header strong {
-      font-size: 13px;
-      color: #34d399;
-    }
-    .bar-track {
-      background: #1e2433;
-      border-radius: 999px;
-      height: 8px;
-      overflow: hidden;
-    }
-    .bar-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #10b981, #34d399);
-      transition: width 0.8s ease;
-    }
-    .bar-fill.orange-fill {
-      background: linear-gradient(90deg, #c2410c, #fb923c);
-    }
-    .bar-fill.purple-fill {
-      background: linear-gradient(90deg, #6d28d9, #818cf8);
-    }
-    .progress-label {
-      font-size: 12px;
-      color: #475569;
-      margin-top: 6px;
-    }
-    .phase-labels {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-    .phase-labels span {
-      font-size: 10px;
-      color: #334155;
-    }
-    .phase-labels span.active {
-      color: #34d399;
-    }
+    /* Progress Bar */
+    .progress-section { background: #161b27; border: 1px solid #1e2433; border-radius: 10px; padding: 20px 24px; margin-bottom: 28px; }
+    .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .progress-header span { font-size: 13px; color: #94a3b8; }
+    .progress-header strong { font-size: 13px; color: #34d399; }
+    .bar-track { background: #1e2433; border-radius: 999px; height: 8px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #10b981, #34d399); }
+    .bar-fill.orange-fill { background: linear-gradient(90deg, #c2410c, #fb923c); }
+    .bar-fill.purple-fill { background: linear-gradient(90deg, #6d28d9, #818cf8); }
+    .progress-label { font-size: 12px; color: #475569; margin-top: 6px; }
+    .phase-labels { display: flex; justify-content: space-between; margin-top: 10px; }
+    .phase-labels span { font-size: 10px; color: #334155; }
+    .phase-labels span.active { color: #34d399; }
 
-    /* â”€â”€â”€ Billing Report â”€â”€â”€ */
-    .billing-section {
-      background: #161b27;
-      border: 1px solid #1e2433;
-      border-radius: 10px;
-      padding: 24px;
-      margin-bottom: 28px;
-    }
-    .billing-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .billing-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #f1f5f9;
-    }
-    .billing-sub {
-      font-size: 12px;
-      color: #64748b;
-      margin-top: 4px;
-    }
-    .billing-total-box {
-      background: #0f2744;
-      border: 1px solid #1e3a5f;
-      border-radius: 8px;
-      padding: 12px 20px;
-      text-align: right;
-    }
-    .billing-total-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: #475569;
-      margin-bottom: 4px;
-    }
-    .billing-total-value {
-      font-size: 28px;
-      font-weight: 700;
-      color: #34d399;
-    }
-    .billing-total-sub {
-      font-size: 11px;
-      color: #64748b;
-      margin-top: 2px;
-    }
-    .billing-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
-    .billing-table th {
-      text-align: left;
-      padding: 8px 12px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      color: #475569;
-      border-bottom: 1px solid #1e2433;
-    }
-    .billing-table td {
-      padding: 10px 12px;
-      border-bottom: 1px solid #1a2030;
-      color: #94a3b8;
-      vertical-align: top;
-    }
+    /* Billing */
+    .billing-section { background: #161b27; border: 1px solid #1e2433; border-radius: 10px; padding: 24px; margin-bottom: 28px; }
+    .billing-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 16px; }
+    .billing-title { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+    .billing-sub { font-size: 12px; color: #64748b; margin-top: 4px; }
+    .billing-total-box { background: #0f2744; border: 1px solid #1e3a5f; border-radius: 8px; padding: 12px 20px; text-align: right; }
+    .billing-total-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: #475569; margin-bottom: 4px; }
+    .billing-total-value { font-size: 28px; font-weight: 700; color: #34d399; }
+    .billing-total-sub { font-size: 11px; color: #64748b; margin-top: 2px; }
+    .billing-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .billing-table th { text-align: left; padding: 8px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: #475569; border-bottom: 1px solid #1e2433; }
+    .billing-table td { padding: 10px 12px; border-bottom: 1px solid #1a2030; color: #94a3b8; vertical-align: top; }
     .billing-table .done-row td { color: #cbd5e1; }
-    .billing-table .week-divider td {
-      background: #0d1220;
-      color: #475569;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      padding: 6px 12px;
-      border-bottom: 1px solid #1e2433;
-    }
-    .billing-table tfoot td {
-      border-top: 1px solid #2d3748;
-      border-bottom: none;
-      color: #e2e8f0;
-      padding-top: 14px;
-    }
+    .billing-table .week-divider td { background: #0d1220; color: #475569; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 6px 12px; border-bottom: 1px solid #1e2433; }
+    .billing-table tfoot td { border-top: 1px solid #2d3748; border-bottom: none; color: #e2e8f0; padding-top: 14px; }
     .billing-table .earn { color: #34d399; font-weight: 600; white-space: nowrap; }
     .billing-table .earn-orange { color: #fb923c; font-weight: 600; white-space: nowrap; }
 
-    /* â”€â”€â”€ Section â”€â”€â”€ */
-    .section {
-      margin-bottom: 28px;
-    }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-    .entity-tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      padding: 3px 10px;
-      border-radius: 4px;
-    }
+    /* Section */
+    .section { margin-bottom: 28px; }
+    .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .entity-tag { font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 4px; }
     .tag-vc { background: #1e3a5f; color: #60a5fa; }
     .tag-ar { background: #1a3a2a; color: #34d399; }
     .tag-av { background: #3a2a1a; color: #fbbf24; }
@@ -329,301 +124,77 @@
     .tag-pc { background: #0c1a2e; color: #38bdf8; }
     .tag-pd { background: #2a1500; color: #fb923c; }
     .tag-ks { background: #1a1a3a; color: #818cf8; }
+    .section-header h2 { font-size: 14px; font-weight: 600; color: #cbd5e1; }
+    .section-header .count { font-size: 12px; color: #475569; margin-left: auto; }
 
-    .section-header h2 {
-      font-size: 14px;
-      font-weight: 600;
-      color: #cbd5e1;
-    }
-    .section-header .count {
-      font-size: 12px;
-      color: #475569;
-      margin-left: auto;
-    }
+    /* Pipedrive Grid */
+    .pd-setup-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+    .pd-setup-card { background: #161b27; border: 1px solid #1e2433; border-left: 3px solid #fb923c; border-radius: 8px; padding: 14px 16px; }
+    .pd-setup-card .pd-label { font-size: 10px; font-weight: 700; color: #fb923c; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .pd-setup-card .pd-value { font-size: 20px; font-weight: 700; color: #34d399; margin-bottom: 2px; }
+    .pd-setup-card .pd-desc { font-size: 11px; color: #475569; line-height: 1.4; }
 
-    /* â”€â”€â”€ Pipedrive Setup Grid â”€â”€â”€ */
-    .pd-setup-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .pd-setup-card {
-      background: #161b27;
-      border: 1px solid #1e2433;
-      border-left: 3px solid #fb923c;
-      border-radius: 8px;
-      padding: 14px 16px;
-    }
-    .pd-setup-card .pd-label {
-      font-size: 10px;
-      font-weight: 700;
-      color: #fb923c;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
-    .pd-setup-card .pd-value {
-      font-size: 20px;
-      font-weight: 700;
-      color: #34d399;
-      margin-bottom: 2px;
-    }
-    .pd-setup-card .pd-desc {
-      font-size: 11px;
-      color: #475569;
-      line-height: 1.4;
-    }
-
-    /* â”€â”€â”€ Workflow Grid â”€â”€â”€ */
-    .wf-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .wf-card {
-      background: #161b27;
-      border: 1px solid #1e2433;
-      border-radius: 8px;
-      padding: 14px 16px;
-      position: relative;
-      overflow: hidden;
-    }
-    .wf-card.done   { border-left: 3px solid #34d399; }
+    /* Workflow Grid */
+    .wf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .wf-card { background: #161b27; border: 1px solid #1e2433; border-radius: 8px; padding: 14px 16px; }
+    .wf-card.done     { border-left: 3px solid #34d399; }
     .wf-card.inactive { border-left: 3px solid #fb923c; }
-    .wf-card.next   { border-left: 3px solid #60a5fa; }
-    .wf-card.pending{ border-left: 3px solid #334155; }
-    .wf-card.blocked{ border-left: 3px solid #f59e0b; }
-
-    .wf-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 6px;
-    }
-    .wf-id {
-      font-size: 10px;
-      font-weight: 700;
-      color: #475569;
-      letter-spacing: 0.5px;
-    }
-    .status-badge {
-      font-size: 10px;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-    .badge-done    { background: #064e3b; color: #34d399; }
+    .wf-card.next     { border-left: 3px solid #60a5fa; }
+    .wf-card.pending  { border-left: 3px solid #334155; }
+    .wf-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+    .wf-id { font-size: 10px; font-weight: 700; color: #475569; letter-spacing: 0.5px; }
+    .status-badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+    .badge-done     { background: #064e3b; color: #34d399; }
     .badge-inactive { background: #2a1500; color: #fb923c; }
-    .badge-next    { background: #1e3a5f; color: #60a5fa; }
-    .badge-pending { background: #1a1f2e; color: #475569; }
-    .badge-blocked { background: #451a03; color: #f59e0b; }
+    .badge-next     { background: #1e3a5f; color: #60a5fa; }
+    .badge-pending  { background: #1a1f2e; color: #475569; }
+    .wf-name { font-size: 13px; font-weight: 600; color: #e2e8f0; margin-bottom: 4px; line-height: 1.3; }
+    .wf-trigger { font-size: 11px; color: #475569; line-height: 1.4; }
+    .wf-trigger span { color: #334155; }
 
-    .wf-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: #e2e8f0;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-    .wf-trigger {
-      font-size: 11px;
-      color: #475569;
-      line-height: 1.4;
-    }
-    .wf-trigger span {
-      color: #334155;
-    }
-
-    /* â”€â”€â”€ LangGraph + Pinecone â”€â”€â”€ */
-    .lg-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-    .lg-card {
-      background: #161b27;
-      border: 1px solid #1e2433;
-      border-left: 3px solid #7c3aed;
-      border-radius: 8px;
-      padding: 14px 16px;
-    }
+    /* LangGraph */
+    .lg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .lg-card { background: #161b27; border: 1px solid #1e2433; border-left: 3px solid #7c3aed; border-radius: 8px; padding: 14px 16px; }
     .lg-card.pending { border-left-color: #334155; }
-    .lg-card .lg-id {
-      font-size: 10px;
-      font-weight: 700;
-      color: #7c3aed;
-      margin-bottom: 4px;
-    }
+    .lg-card .lg-id { font-size: 10px; font-weight: 700; color: #7c3aed; margin-bottom: 4px; }
     .lg-card.pending .lg-id { color: #475569; }
-    .lg-card .lg-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: #e2e8f0;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-    .lg-card .lg-desc {
-      font-size: 11px;
-      color: #475569;
-      line-height: 1.4;
-    }
-    .pinecone-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .pc-card {
-      background: #161b27;
-      border: 1px solid #1e2433;
-      border-left: 3px solid #334155;
-      border-radius: 8px;
-      padding: 14px 16px;
-    }
-    .pc-card .pc-index {
-      font-size: 10px;
-      font-weight: 700;
-      color: #475569;
-      margin-bottom: 4px;
-    }
-    .pc-card .pc-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: #e2e8f0;
-      margin-bottom: 4px;
-    }
-    .pc-card .pc-desc {
-      font-size: 11px;
-      color: #475569;
-      line-height: 1.4;
-    }
+    .lg-card .lg-name { font-size: 13px; font-weight: 600; color: #e2e8f0; margin-bottom: 4px; line-height: 1.3; }
+    .lg-card .lg-desc { font-size: 11px; color: #475569; line-height: 1.4; }
 
-    /* â”€â”€â”€ Blockers â”€â”€â”€ */
-    .blockers-section {
-      background: #1a1208;
-      border: 1px solid #78350f;
-      border-radius: 10px;
-      padding: 20px 24px;
-      margin-bottom: 28px;
-    }
-    .blockers-section h3 {
-      font-size: 13px;
-      font-weight: 700;
-      color: #fbbf24;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .blocker-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid #2d1f08;
-    }
+    /* Pinecone */
+    .pinecone-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .pc-card { background: #161b27; border: 1px solid #1e2433; border-left: 3px solid #334155; border-radius: 8px; padding: 14px 16px; }
+    .pc-card .pc-index { font-size: 10px; font-weight: 700; color: #475569; margin-bottom: 4px; }
+    .pc-card .pc-name { font-size: 13px; font-weight: 600; color: #e2e8f0; margin-bottom: 4px; }
+    .pc-card .pc-desc { font-size: 11px; color: #475569; line-height: 1.4; }
+
+    /* Blockers */
+    .blockers-section { background: #1a1208; border: 1px solid #78350f; border-radius: 10px; padding: 20px 24px; margin-bottom: 28px; }
+    .blockers-section h3 { font-size: 13px; font-weight: 700; color: #fbbf24; margin-bottom: 14px; }
+    .blocker-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #2d1f08; }
     .blocker-item:last-child { border-bottom: none; }
-    .blocker-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      background: #451a03;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-    .blocker-content .title {
-      font-size: 13px;
-      font-weight: 600;
-      color: #fcd34d;
-      margin-bottom: 2px;
-    }
-    .blocker-content .desc {
-      font-size: 12px;
-      color: #92400e;
-    }
+    .blocker-icon { width: 28px; height: 28px; border-radius: 6px; background: #451a03; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+    .blocker-content .title { font-size: 13px; font-weight: 600; color: #fcd34d; margin-bottom: 2px; }
+    .blocker-content .desc { font-size: 12px; color: #92400e; }
 
-    /* â”€â”€â”€ Tech Discoveries â”€â”€â”€ */
-    .discoveries {
-      background: #0d1f0d;
-      border: 1px solid #14532d;
-      border-radius: 10px;
-      padding: 20px 24px;
-      margin-bottom: 28px;
-    }
-    .discoveries h3 {
-      font-size: 13px;
-      font-weight: 700;
-      color: #34d399;
-      margin-bottom: 14px;
-    }
-    .discovery-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 7px 0;
-      border-bottom: 1px solid #14532d22;
-      font-size: 12px;
-      color: #86efac;
-      line-height: 1.5;
-    }
+    /* Discoveries */
+    .discoveries { background: #0d1f0d; border: 1px solid #14532d; border-radius: 10px; padding: 20px 24px; margin-bottom: 28px; }
+    .discoveries h3 { font-size: 13px; font-weight: 700; color: #34d399; margin-bottom: 14px; }
+    .discovery-item { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; border-bottom: 1px solid #14532d22; font-size: 12px; color: #86efac; line-height: 1.5; }
     .discovery-item:last-child { border-bottom: none; }
-    .disc-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #34d399;
-      margin-top: 5px;
-      flex-shrink: 0;
-    }
-    .disc-dot.orange {
-      background: #fb923c;
-    }
+    .disc-dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; margin-top: 5px; flex-shrink: 0; }
+    .disc-dot.orange { background: #fb923c; }
     .discovery-item.new { color: #fcd34d; }
 
-    /* â”€â”€â”€ Footer â”€â”€â”€ */
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 20px;
-      border-top: 1px solid #1e2433;
-    }
-    .footer-left {
-      font-size: 11px;
-      color: #334155;
-    }
+    /* Footer */
+    .footer { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid #1e2433; }
+    .footer-left { font-size: 11px; color: #334155; }
     .footer-left strong { color: #475569; }
-    .footer-right {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .cred-tag {
-      font-size: 10px;
-      padding: 3px 10px;
-      border-radius: 4px;
-      background: #1e2433;
-      color: #475569;
-      border: 1px solid #2d3748;
-    }
-    .cred-tag.active {
-      background: #064e3b;
-      color: #34d399;
-      border-color: #065f46;
-    }
-    .cred-tag.orange {
-      background: #2a1500;
-      color: #fb923c;
-      border-color: #78350f;
-    }
-    .cred-tag.purple {
-      background: #1a1a3a;
-      color: #818cf8;
-      border-color: #3730a3;
-    }
+    .footer-right { display: flex; gap: 8px; flex-wrap: wrap; }
+    .cred-tag { font-size: 10px; padding: 3px 10px; border-radius: 4px; background: #1e2433; color: #475569; border: 1px solid #2d3748; }
+    .cred-tag.active { background: #064e3b; color: #34d399; border-color: #065f46; }
+    .cred-tag.orange { background: #2a1500; color: #fb923c; border-color: #78350f; }
+    .cred-tag.purple { background: #1a1a3a; color: #818cf8; border-color: #3730a3; }
   </style>
 </head>
 <body>
@@ -631,46 +202,45 @@
   <!-- Header -->
   <div class="header">
     <div class="header-left">
-      <h1>Velocity Capital Group â€” Automation Build Report</h1>
-      <div class="subtitle">n8n + Pipedrive + Retell AI + Slack + Claude AI Â· Dual Project Build Â· Week 4 Complete Â· Prepared by Vladimir</div>
+      <h1>Velocity Capital Group &mdash; Automation Build Report</h1>
+      <div class="subtitle">n8n &middot; Pipedrive &middot; Retell AI &middot; Slack &middot; Claude AI &middot; Dual Project Build &middot; Week 4 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
       <div class="date-badge">May 25, 2026</div>
-      <div class="week-badge">Week 4 of 6 Â· Day 17 of 20 Â· <span id="last-updated"></span></div>
+      <div class="week-badge">Week 4 of 6 &middot; Day 17 of 20 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>DUAL PROJECT BUILD â€” ACTIVE:</strong> Konsier AI Receptionist system: 11 workflows built (6 live, 5 inactive pending credentials). Retell Alex PUBLISHED V6. Velocity Capital: GHLâ†’Pipedrive migration progressing â€” 6 GHL workflows live, PD-WF-03 cross-entity handoff is next. <strong>Blockers:</strong> Drew â€” HeyReach trial URGENT (expires ~May 27) + Instantly IDs + SOP pages 26â€“33. Michael â€” Voice Orb iframe + wp-config.php webhook credentials.
+    <strong>DUAL PROJECT BUILD &mdash; ACTIVE:</strong> Konsier AI Receptionist: 11 workflows built (6 live, 5 inactive pending credentials). Retell Alex PUBLISHED V6 &mdash; Voice Orb live on konsier.ai. Velocity Capital: 6 GHL workflows live, PD-WF-03 cross-entity handoff is next critical step. <strong>Blockers:</strong> Drew &mdash; HeyReach trial URGENT (expires ~May 27). Michael &mdash; Voice Orb iframe + wp-config.php webhook credentials.
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity â€” May 25</div>
-      <div class="message"><strong>Konsier: Alex V6 PUBLISHED â€” Voice Orb live. Stripe onboarding chain active. 6 Claude agent prompts complete. Call QA + Onboarding Drafter built.</strong> <span class="warn">HeyReach trial expires May 27 â€” Drew must upgrade. VC: PD-WF-03 cross-entity handoff queued as next critical build.</span></div>
+      <div class="label">Build Velocity &mdash; Week 4 &middot; May 25</div>
+      <div class="message">
+        <strong>May 25: KS-WF7 Customer Call QA + KS-A6 Onboarding Drafter built. Alex V6 PUBLISHED. Sarah V4 upgraded. 3 workflow fixes shipped.</strong>
+        <span class="warn"> HeyReach trial expires May 27 &mdash; Drew must upgrade now. Michael pending: Voice Orb + wp-config.php.</span>
+      </div>
     </div>
     <div class="timeline">
       <div class="tl-item done">
-        <div class="tl-date">May 1â€“8 â€” Week 1</div>
-        <div class="tl-label">WF-VC-01â†’06 âœ…</div>
+        <div class="tl-date">May 1&ndash;8</div>
+        <div class="tl-label">WF-VC-01&rarr;06 &#10003;</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 8</div>
-        <div class="tl-label">Pipedrive Setup âœ…</div>
+        <div class="tl-date">May 11&ndash;16</div>
+        <div class="tl-label">Konsier Phase 1 &#10003;</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 11â€“16 â€” Week 2</div>
-        <div class="tl-label">Konsier Phase 1 âœ…</div>
+        <div class="tl-date">May 18&ndash;22</div>
+        <div class="tl-label">Konsier Phase 2 &#10003;</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 18â€“22 â€” Week 3</div>
-        <div class="tl-label">Konsier Phase 2 âœ…</div>
-      </div>
-      <div class="tl-item done">
-        <div class="tl-date">May 25 â€” Week 4</div>
-        <div class="tl-label">Alex PUBLISHED âœ…</div>
+        <div class="tl-date">May 25</div>
+        <div class="tl-label">Alex PUBLISHED &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -684,7 +254,7 @@
     <div class="stat-card green">
       <div class="label">n8n Workflows Built</div>
       <div class="value">17</div>
-      <div class="sub">6 VC live (GHL) Â· 11 Konsier built</div>
+      <div class="sub">6 VC live (GHL) &middot; 11 Konsier built</div>
     </div>
     <div class="stat-card blue">
       <div class="label">Live &amp; Active</div>
@@ -694,12 +264,12 @@
     <div class="stat-card purple">
       <div class="label">AI Agents Built</div>
       <div class="value">8</div>
-      <div class="sub">2 Retell (Alex âœ… Sarah ready) Â· 6 Claude</div>
+      <div class="sub">2 Retell (Alex live &middot; Sarah ready) &middot; 6 Claude</div>
     </div>
     <div class="stat-card orange">
       <div class="label">Pending Actions</div>
       <div class="value">8</div>
-      <div class="sub">Drew: 6 items Â· Michael: 2 items</div>
+      <div class="sub">Drew: 6 items &middot; Michael: 2 items</div>
     </div>
   </div>
 
@@ -707,747 +277,371 @@
   <div class="progress-section">
     <div class="progress-header">
       <span>Konsier Build Progress</span>
-      <strong>73% â€” 11 of 15 workflows built</strong>
+      <strong>73% &mdash; 11 of 15 workflows built</strong>
     </div>
-    <div class="bar-track">
-      <div class="bar-fill purple-fill" style="width: 73%;"></div>
-    </div>
-    <div class="progress-label">Live: KS-ERR Â· KS-PD-EVENTS Â· KS-A4 Â· KS-WF1 Â· KS-WF2 Â· KS-WF4 Â· Inactive (blocked): KS-WF3 Â· KS-WF6 Â· KS-A2 Â· KS-WF7 Â· KS-A6</div>
+    <div class="bar-track"><div class="bar-fill purple-fill" style="width: 73%;"></div></div>
+    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A4 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF4 &nbsp;|&nbsp; Inactive (blocked): KS-WF3 &middot; KS-WF6 &middot; KS-A2 &middot; KS-WF7 &middot; KS-A6</div>
     <div class="phase-labels">
-      <span class="active">â–¶ Phase 1 â€” Infra + Webhook Core âœ…</span>
-      <span class="active">â–¶ Phase 2 â€” Outbound + QA âœ…</span>
-      <span class="active">â–¶ Phase 3 â€” Retell Published âœ…</span>
-      <span>Phase 4 â€” Outbound Live</span>
-      <span>Phase 5 â€” Agents 07/08</span>
+      <span class="active">Phase 1 &mdash; Core &#10003;</span>
+      <span class="active">Phase 2 &mdash; QA &#10003;</span>
+      <span class="active">Phase 3 &mdash; Retell &#10003;</span>
+      <span>Phase 4 &mdash; Outbound</span>
+      <span>Phase 5 &mdash; Agents 07/08</span>
     </div>
-
     <div style="margin-top: 20px;">
       <div class="progress-header">
         <span>VC Pipedrive Native Automations</span>
-        <strong style="color: #fb923c;">20% â€” 2 of 10 built</strong>
+        <strong style="color: #fb923c;">20% &mdash; 2 of 10 built</strong>
       </div>
-      <div class="bar-track">
-        <div class="bar-fill orange-fill" style="width: 20%;"></div>
-      </div>
-      <div class="progress-label">PD-WF-01 New Lead Assignment âœ… Â· PD-WF-02 Strategy Call Follow-Up âœ… Â· PD-WF-03 VCâ†’AV Handoff (CRITICAL) next Â· PD-WF-04 through PD-WF-10 queued</div>
+      <div class="bar-track"><div class="bar-fill orange-fill" style="width: 20%;"></div></div>
+      <div class="progress-label">PD-WF-01 &#10003; &middot; PD-WF-02 &#10003; &middot; PD-WF-03 VC&rarr;AV Handoff (CRITICAL) next &middot; PD-WF-04 through PD-WF-10 queued</div>
     </div>
   </div>
 
-  <!-- Pipedrive CRM Setup -->
+  <!-- Pipedrive CRM -->
   <div class="section">
     <div class="section-header">
       <span class="entity-tag tag-pd">PD</span>
-      <h2>Pipedrive CRM â€” Audit &amp; Verification (May 8)</h2>
-      <span class="count">All verified âœ… â€” built by previous admin</span>
+      <h2>Pipedrive CRM &mdash; Audit &amp; Verification (May 8)</h2>
+      <span class="count">All verified &#10003;</span>
     </div>
     <div class="pd-setup-grid">
       <div class="pd-setup-card">
-        <div class="pd-label">Pipelines â€” Verified</div>
-        <div class="pd-value">4 âœ…</div>
-        <div class="pd-desc">VC Education &amp; Policy Â· AV Investment &amp; Capital Â· AR Property Acquisition Â· AC Construction &amp; Development â€” all stages, probabilities &amp; rotting confirmed correct against Part 3 guide. Built by previous admin, no changes needed.</div>
+        <div class="pd-label">Pipelines &mdash; Verified</div>
+        <div class="pd-value">4 &#10003;</div>
+        <div class="pd-desc">VC Education &amp; Policy &middot; AV Investment &amp; Capital &middot; AR Property Acquisition &middot; AC Construction &amp; Development &mdash; all stages, probabilities &amp; rotting confirmed. Built by previous admin.</div>
       </div>
       <div class="pd-setup-card">
-        <div class="pd-label">Person Fields â€” Verified</div>
-        <div class="pd-value">18 âœ…</div>
-        <div class="pd-desc">Client Type Â· Branch of Service Â· Annual Income Â· VA Disability Rating Â· Ecosystem Stage Â· Active in VC/AV/AR/AC â€” all 18 confirmed correct. Built by previous admin, no changes needed.</div>
+        <div class="pd-label">Person Fields &mdash; Verified</div>
+        <div class="pd-value">18 &#10003;</div>
+        <div class="pd-desc">Client Type &middot; Branch of Service &middot; Annual Income &middot; VA Disability Rating &middot; Ecosystem Stage &middot; Active in VC/AV/AR/AC &mdash; all 18 confirmed correct.</div>
       </div>
       <div class="pd-setup-card">
-        <div class="pd-label">Deal Fields â€” Verified</div>
-        <div class="pd-value">20+ âœ…</div>
-        <div class="pd-desc">Entity Â· Cross-Reference Deal ID Â· Urgency Â· VC: Policy fields Â· AV: Investment fields Â· AR: Property fields Â· AC: Project &amp; SDVOSB fields â€” all confirmed correct. Built by previous admin, no changes needed.</div>
+        <div class="pd-label">Deal Fields &mdash; Verified</div>
+        <div class="pd-value">20+ &#10003;</div>
+        <div class="pd-desc">Entity &middot; Cross-Reference Deal ID &middot; Urgency &middot; VC/AV/AR/AC specific fields &mdash; all confirmed correct against Part 3 guide.</div>
       </div>
       <div class="pd-setup-card">
-        <div class="pd-label">Labels â€” Created NEW Â· Lost Reasons â€” Verified</div>
-        <div class="pd-value">7 âœ…</div>
-        <div class="pd-desc">NEW â€” created by Vladimir: Military Â· Pilot Â· First Responder Â· High-W2 Â· Business Owner Â· VIP / Referral Â· VA Loan Eligible. Lost reasons already complete for all 4 pipelines â€” verified only.</div>
+        <div class="pd-label">Labels &mdash; Created NEW</div>
+        <div class="pd-value">7 &#10003;</div>
+        <div class="pd-desc">Created by Vladimir: Military &middot; Pilot &middot; First Responder &middot; High-W2 &middot; Business Owner &middot; VIP / Referral &middot; VA Loan Eligible. Lost reasons verified for all 4 pipelines.</div>
       </div>
     </div>
 
-    <!-- Pipedrive Automations -->
     <div class="section-header" style="margin-top: 4px;">
       <span class="entity-tag tag-pd">PD AUTO</span>
-      <h2>Pipedrive Native Automations â€” 10 Total</h2>
-      <span class="count">2 built (inactive) Â· 8 remaining</span>
+      <h2>Pipedrive Native Automations &mdash; 10 Total</h2>
+      <span class="count">2 built (inactive) &middot; 8 remaining</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card inactive">
-        <div class="wf-top">
-          <span class="wf-id">PD-WF-01</span>
-          <span class="status-badge badge-inactive">Built â€” Inactive</span>
-        </div>
+        <div class="wf-top"><span class="wf-id">PD-WF-01</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div>
         <div class="wf-name">New Lead Assignment &amp; Notification</div>
-        <div class="wf-trigger"><span>Trigger:</span> Deal Added â†’ VC pipeline<br>Create call activity + POST to n8n webhook (WF-VC-01)</div>
+        <div class="wf-trigger"><span>Trigger:</span> Deal Added &rarr; VC pipeline. Create call activity + POST to n8n webhook</div>
       </div>
       <div class="wf-card inactive">
-        <div class="wf-top">
-          <span class="wf-id">PD-WF-02</span>
-          <span class="status-badge badge-inactive">Built â€” Inactive</span>
-        </div>
+        <div class="wf-top"><span class="wf-id">PD-WF-02</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div>
         <div class="wf-name">Strategy Call Follow-Up</div>
-        <div class="wf-trigger"><span>Trigger:</span> Deal Updated â†’ Stage = Strategy Call Completed<br>Create proposal task (+1 day) + send follow-up email + add note</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stage &rarr; Strategy Call Completed. Create task (+1 day) + follow-up email + note</div>
       </div>
       <div class="wf-card next">
-        <div class="wf-top">
-          <span class="wf-id">PD-WF-03</span>
-          <span class="status-badge badge-next">Next Up âš¡</span>
-        </div>
-        <div class="wf-name">VC â†’ AV Pipeline Handoff</div>
-        <div class="wf-trigger"><span>CRITICAL:</span> Deal â†’ Policy Delivered/Won<br>Update Person ecosystem stage + Create AV deal + Add note + Webhook to n8n</div>
+        <div class="wf-top"><span class="wf-id">PD-WF-03</span><span class="status-badge badge-next">Next Up &#9889;</span></div>
+        <div class="wf-name">VC &rarr; AV Pipeline Handoff</div>
+        <div class="wf-trigger"><span>CRITICAL:</span> Deal &rarr; Policy Delivered/Won. Update Person ecosystem + Create AV deal + Webhook to n8n</div>
       </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">PD-WF-04</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">AV â†’ AR Deal Sourcing Trigger</div>
-        <div class="wf-trigger"><span>Trigger:</span> Deal â†’ Commitment Received (AV)<br>Create AR Acquisition deal + tag Person Active in AR</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">PD-WF-05</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">AR â†’ AC Construction Trigger</div>
-        <div class="wf-trigger"><span>Trigger:</span> Deal â†’ Closed/Won + Needs Rehab=Yes<br>Create AC Project deal + tag Person Active in AC</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">PD-WF-06</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">AC â†’ AV Completion Loop</div>
-        <div class="wf-trigger"><span>Trigger:</span> Deal â†’ Project Complete/Won<br>Update Person to Full Ecosystem + trigger cost seg + investor notify</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">PD-WF-07</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Stale Lead Re-engagement</div>
-        <div class="wf-trigger"><span>Trigger:</span> Deal rotting = Yes (any pipeline)<br>Create re-engage call + send check-in email + webhook to n8n</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">PD-WF-08</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Education Progress Tracking</div>
-        <div class="wf-trigger"><span>Built in n8n:</span> Webhook from education platform â†’ PATCH Pipedrive deal Education Modules Completed field</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">PD-WF-09</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Monthly Investor Update</div>
-        <div class="wf-trigger"><span>Trigger:</span> Date â€” 1st of every month<br>AV Active Investment deals â†’ webhook to n8n (WF-AV monthly report)</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">PD-WF-10</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">No-Show Follow-Up</div>
-        <div class="wf-trigger"><span>Trigger:</span> Activity Updated â†’ Status = Not Done<br>Create re-book call (+1 day) + send "we missed you" email + add note</div>
-      </div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-04</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">AV &rarr; AR Deal Sourcing Trigger</div><div class="wf-trigger"><span>Trigger:</span> Commitment Received (AV). Create AR deal + tag Person Active in AR</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-05</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">AR &rarr; AC Construction Trigger</div><div class="wf-trigger"><span>Trigger:</span> Closed/Won + Needs Rehab=Yes. Create AC Project deal</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-06</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">AC &rarr; AV Completion Loop</div><div class="wf-trigger"><span>Trigger:</span> Project Complete/Won. Update Person ecosystem + trigger cost seg</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-07</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Stale Lead Re-engagement</div><div class="wf-trigger"><span>Trigger:</span> Deal rotting = Yes. Create re-engage call + check-in email + webhook</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-08</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Education Progress Tracking</div><div class="wf-trigger"><span>n8n:</span> Education platform webhook &rarr; PATCH Pipedrive deal Education Modules field</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-09</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Monthly Investor Update</div><div class="wf-trigger"><span>Trigger:</span> Cron &mdash; 1st of month. AV Active Investment deals &rarr; n8n monthly report</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-10</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">No-Show Follow-Up</div><div class="wf-trigger"><span>Trigger:</span> Activity &rarr; Not Done. Re-book call + "we missed you" email + note</div></div>
     </div>
   </div>
 
-  <!-- VC Workflows (GHL-based) -->
+  <!-- VC Workflows -->
   <div class="section">
     <div class="section-header">
       <span class="entity-tag tag-vc">VC</span>
-      <h2>Velocity Capital â€” n8n Workflows (GHL-based Â· Live)</h2>
-      <span class="count">6 live on GHL Â· Pipedrive rebuild queued</span>
+      <h2>Velocity Capital &mdash; n8n Workflows (GHL-based &middot; Live)</h2>
+      <span class="count">6 live on GHL &middot; Pipedrive rebuild queued</span>
     </div>
     <div class="wf-grid">
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">WF-VC-01</span>
-          <span class="status-badge badge-done">âœ… Live (GHL)</span>
-        </div>
-        <div class="wf-name">Lead Capture</div>
-        <div class="wf-trigger"><span>Trigger:</span> GHL Form â†’ Webhook<br>Claude qualifies lead â†’ GHL contact + opportunity created</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">WF-VC-02</span>
-          <span class="status-badge badge-done">âœ… Live (GHL)</span>
-        </div>
-        <div class="wf-name">AI Education Drip</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage â†’ Nurturing<br>Claude writes personalized Day 1 email (PAS framework, 200 words)</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">WF-VC-03</span>
-          <span class="status-badge badge-done">âœ… Live (GHL)</span>
-        </div>
-        <div class="wf-name">Strategy Call Booking â†’ Prep</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage â†’ Call Scheduled<br>Claude generates call prep Â· saves to notes Â· sends confirmation email</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">WF-VC-04</span>
-          <span class="status-badge badge-done">âœ… Live (GHL)</span>
-        </div>
-        <div class="wf-name">Post-Call Follow-Up</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage â†’ Call Complete<br>Claude writes proposal email Â· creates follow-up task Â· moves stage to Proposal Sent</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">WF-VC-05</span>
-          <span class="status-badge badge-done">âœ… Live (GHL)</span>
-        </div>
-        <div class="wf-name">Policy Active â†’ Investor Transition</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage â†’ Policy Active + cash value &gt;$50K<br>12-node cross-entity handoff: stage update â†’ tags â†’ Claude email â†’ note.</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">WF-VC-06</span>
-          <span class="status-badge badge-done">âœ… Live (GHL)</span>
-        </div>
-        <div class="wf-name">Monthly Client Report</div>
-        <div class="wf-trigger"><span>Trigger:</span> Cron â€” 1st of month<br>Fetches active clients â†’ Claude writes 400â€“500 word report â†’ GHL Conversations API delivers â†’ note logged</div>
-      </div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-01</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Lead Capture</div><div class="wf-trigger"><span>Trigger:</span> GHL Form &rarr; Webhook. Claude qualifies lead &rarr; GHL contact + opportunity created</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-02</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">AI Education Drip</div><div class="wf-trigger"><span>Trigger:</span> Stage &rarr; Nurturing. Claude writes personalized Day 1 email (PAS framework, 200 words max)</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-03</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Strategy Call Booking &rarr; Prep</div><div class="wf-trigger"><span>Trigger:</span> Stage &rarr; Call Scheduled. Claude generates call prep &middot; saves to notes &middot; sends confirmation</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-04</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Post-Call Follow-Up</div><div class="wf-trigger"><span>Trigger:</span> Stage &rarr; Call Complete. Claude writes proposal email &middot; creates follow-up task &middot; moves stage</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-05</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Policy Active &rarr; Investor Transition</div><div class="wf-trigger"><span>Trigger:</span> Policy Active + cash value &gt;$50K. 12-node cross-entity handoff: stage &rarr; tags &rarr; Claude email &rarr; note</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-06</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Monthly Client Report</div><div class="wf-trigger"><span>Trigger:</span> Cron &mdash; 1st of month. Claude writes 400&ndash;500 word report &rarr; GHL Conversations API &rarr; note logged</div></div>
     </div>
   </div>
 
-  <!-- Konsier AI Receptionist System -->
+  <!-- Konsier -->
   <div class="section">
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
-      <h2>Konsier â€” AI Receptionist System (Drew Williams)</h2>
-      <span class="count">11 built Â· 6 live Â· 5 inactive (pending credentials / Michael)</span>
+      <h2>Konsier &mdash; AI Receptionist System (Drew Williams)</h2>
+      <span class="count">11 built &middot; 6 live &middot; 5 inactive (pending credentials / Michael)</span>
     </div>
     <div class="wf-grid">
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-ERR</span>
-          <span class="status-badge badge-done">âœ… Live</span>
-        </div>
-        <div class="wf-name">Error Handler</div>
-        <div class="wf-trigger"><span>Always-on:</span> Catches all n8n execution errors â†’ Slack #konsier-errors alert with workflow name + error message</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-PD-EVENTS</span>
-          <span class="status-badge badge-done">âœ… Live</span>
-        </div>
-        <div class="wf-name">Pipedrive Webhook Receiver</div>
-        <div class="wf-trigger"><span>Trigger:</span> Pipedrive deal events â†’ routes to relevant downstream Konsier workflows</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-A4</span>
-          <span class="status-badge badge-done">âœ… Live</span>
-        </div>
-        <div class="wf-name">Stalled Deal Alert</div>
-        <div class="wf-trigger"><span>Trigger:</span> Daily cron â€” deals stalled &gt;7 days in any Konsier stage â†’ Slack #konsier-leads alert with deal details + link</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-WF1</span>
-          <span class="status-badge badge-done">âœ… Live</span>
-        </div>
-        <div class="wf-name">Email Reply Handler</div>
-        <div class="wf-trigger"><span>Trigger:</span> Instantly reply webhook â†’ AGENT-02 Reply Triage â†’ Retell Sarah dial if warm. Dynamic vertical field fixed May 25.</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-WF2</span>
-          <span class="status-badge badge-done">âœ… Live</span>
-        </div>
-        <div class="wf-name">Retell Qualification Webhook</div>
-        <div class="wf-trigger"><span>Trigger:</span> call_analyzed â†’ AGENT-PQA â†’ Pipedrive deal create/update â†’ Slack alert. May 25: null fallbacks + deal ID expression fixed.</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-WF4</span>
-          <span class="status-badge badge-done">âœ… Live (partial)</span>
-        </div>
-        <div class="wf-name">Stripe â†’ Onboarding Chain</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stripe payment success â†’ Pipedrive stage update (101) â†’ AGENT-06 Onboarding Drafter. Stage ID fixed May 25.</div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-ERR</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Error Handler</div><div class="wf-trigger"><span>Always-on:</span> Catches all n8n execution errors &rarr; Slack #konsier-errors with workflow name + error details</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-PD-EVENTS</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Pipedrive Webhook Receiver</div><div class="wf-trigger"><span>Trigger:</span> Pipedrive deal events &rarr; routes to relevant downstream Konsier workflows</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-A4</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Stalled Deal Alert</div><div class="wf-trigger"><span>Trigger:</span> Daily cron &mdash; deals stalled &gt;7 days &rarr; Slack #konsier-leads with deal link + details</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF1</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Email Reply Handler</div><div class="wf-trigger"><span>Trigger:</span> Instantly reply webhook &rarr; AGENT-02 Reply Triage &rarr; Retell Sarah dial if warm. Vertical field dynamic (May 25 fix).</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF2</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Retell Qualification Webhook</div><div class="wf-trigger"><span>Trigger:</span> call_analyzed &rarr; AGENT-PQA &rarr; Pipedrive deal create/update &rarr; Slack. May 25: stage_id dynamic + null fallbacks + deal ID fixed.</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF4</span><span class="status-badge badge-done">&#10003; Live (partial)</span></div><div class="wf-name">Stripe &rarr; Onboarding Chain</div><div class="wf-trigger"><span>Trigger:</span> Stripe payment success &rarr; Pipedrive stage 101 &rarr; AGENT-06 Onboarding Drafter. Stage_id fixed 98&rarr;101 (May 25).</div></div>
+      <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">KS-WF3</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div><div class="wf-name">Website Contact Form &rarr; Pipedrive</div><div class="wf-trigger"><span>Blocked &mdash; Michael:</span> Add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET to wp-config.php</div></div>
+      <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">KS-WF6</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div><div class="wf-name">Daily Outbound Lead Pipeline</div><div class="wf-trigger"><span>Blocked &mdash; Drew:</span> Instantly campaign IDs (Roofing / Dental / Medical) + GoDaddy IMAP fix for warmup</div></div>
+      <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">KS-A2</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div><div class="wf-name">Tier Routing</div><div class="wf-trigger"><span>Logic:</span> Call volume &rarr; tier assignment &rarr; Pipedrive stage update &rarr; Slack. Slack credentials need setting in n8n UI.</div></div>
+      <div class="wf-card inactive">
+        <div class="wf-top"><span class="wf-id">KS-WF7 / AGENT-05</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div>
+        <div class="wf-name">Customer Call QA &mdash; BUILT MAY 25</div>
+        <div class="wf-trigger"><span>8 nodes:</span> retell-customer-qa &rarr; Respond 200 &rarr; IF customer_id &rarr; Extract 8 fields &rarr; Claude Haiku 4.5 &rarr; Parse &rarr; IF alert_required &rarr; Slack #konsier-escalations</div>
       </div>
       <div class="wf-card inactive">
-        <div class="wf-top">
-          <span class="wf-id">KS-WF3</span>
-          <span class="status-badge badge-inactive">Built â€” Inactive</span>
-        </div>
-        <div class="wf-name">Website Contact Form â†’ Pipedrive</div>
-        <div class="wf-trigger"><span>Blocked â€” Michael:</span> Add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET to wp-config.php â†’ activates contact form â†’ deal creation</div>
-      </div>
-      <div class="wf-card inactive">
-        <div class="wf-top">
-          <span class="wf-id">KS-WF6</span>
-          <span class="status-badge badge-inactive">Built â€” Inactive</span>
-        </div>
-        <div class="wf-name">Daily Outbound Lead Pipeline</div>
-        <div class="wf-trigger"><span>Blocked â€” Drew:</span> Instantly campaign IDs (Roofing/Dental/Medical) + GoDaddy IMAP fix for email warmup activation</div>
-      </div>
-      <div class="wf-card inactive">
-        <div class="wf-top">
-          <span class="wf-id">KS-A2</span>
-          <span class="status-badge badge-inactive">Built â€” Inactive</span>
-        </div>
-        <div class="wf-name">Tier Routing</div>
-        <div class="wf-trigger"><span>Logic:</span> Call volume â†’ tier assignment â†’ Pipedrive stage update â†’ Slack alert. Slack credentials need setting in n8n UI.</div>
-      </div>
-      <div class="wf-card inactive">
-        <div class="wf-top">
-          <span class="wf-id">KS-WF7 / AGENT-05</span>
-          <span class="status-badge badge-inactive">Built â€” Inactive</span>
-        </div>
-        <div class="wf-name">Customer Call QA</div>
-        <div class="wf-trigger"><span>Trigger:</span> retell-customer-qa webhook â†’ Claude Haiku QA analysis â†’ IF alert_required â†’ Slack #konsier-escalations. 8 nodes.</div>
-      </div>
-      <div class="wf-card inactive">
-        <div class="wf-top">
-          <span class="wf-id">KS-A6 / AGENT-06</span>
-          <span class="status-badge badge-inactive">Built â€” Inactive</span>
-        </div>
-        <div class="wf-name">Onboarding Drafter</div>
-        <div class="wf-trigger"><span>Trigger:</span> konsier-onboarding-intake webhook â†’ Claude Sonnet 4.6 â†’ Notion Client Onboarding page create â†’ Slack #konsier-review. 7 nodes.</div>
+        <div class="wf-top"><span class="wf-id">KS-A6 / AGENT-06</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div>
+        <div class="wf-name">Onboarding Drafter &mdash; BUILT MAY 25</div>
+        <div class="wf-trigger"><span>7 nodes:</span> konsier-onboarding-intake &rarr; Respond 200 &rarr; Extract 12 fields &rarr; Claude Sonnet 4.6 &rarr; Parse &rarr; Notion KS &mdash; Client Onboarding DB &rarr; Slack #konsier-review</div>
       </div>
     </div>
 
-    <!-- Retell AI Agents -->
+    <!-- Retell AI -->
     <div class="section-header" style="margin-top: 20px;">
       <span class="entity-tag tag-ks">RETELL</span>
       <h2>Retell AI Voice Agents</h2>
-      <span class="count">Alex PUBLISHED V6 Â· Sarah built V4 Â· awaiting outbound go-ahead</span>
+      <span class="count">Alex PUBLISHED V6 &middot; Sarah V4 built &middot; awaiting outbound go-ahead</span>
     </div>
     <div class="wf-grid" style="grid-template-columns: repeat(2, 1fr);">
       <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">ALEX â€” Inbound Receptionist</span>
-          <span class="status-badge badge-done">âœ… PUBLISHED V6</span>
-        </div>
-        <div class="wf-name">Website Receptionist Â· Voice Orb Live</div>
-        <div class="wf-trigger">5-section expert prompt Â· 4 objection handlers (pricing $497/mo, just browsing, answering service, callback) Â· free trial CTA Â· end_call triggers Â· post_call_analysis (11 fields). Voice Orb embedded on konsier.ai â€” Michael updating iframe to V3 URL.</div>
+        <div class="wf-top"><span class="wf-id">ALEX &mdash; Inbound Receptionist</span><span class="status-badge badge-done">&#10003; PUBLISHED V6</span></div>
+        <div class="wf-name">Website Receptionist &middot; Voice Orb Live on konsier.ai</div>
+        <div class="wf-trigger">5-section expert prompt (May 25) &middot; 4 objection handlers: pricing $497/mo / just browsing / answering service / callback &middot; free trial CTA &middot; end_call triggers &middot; "speak to human" rule &middot; qualification_result choices fixed &middot; post_call_analysis 11 fields &middot; Voice Orb V3 embed URL ready for Michael.</div>
       </div>
       <div class="wf-card inactive">
-        <div class="wf-top">
-          <span class="wf-id">SARAH â€” Outbound Qualifier</span>
-          <span class="status-badge badge-inactive">Built V4 â€” Unpublished</span>
-        </div>
+        <div class="wf-top"><span class="wf-id">SARAH &mdash; Outbound Qualifier</span><span class="status-badge badge-inactive">V4 &mdash; Unpublished</span></div>
         <div class="wf-name">Outbound Voice Qualifier</div>
-        <div class="wf-trigger">5-section expert prompt Â· 5 objection handlers Â· $12.8k/mo stat hook Â· Thu/Fri time slots Â· end_call triggers. Waiting on Drew go-ahead to activate outbound campaign.</div>
+        <div class="wf-trigger">5-section expert prompt &middot; 5 objection handlers &middot; $12.8k/mo stat hook &middot; Thu/Fri time slots &middot; end_call triggers &middot; post-call extraction 4 fields (with choices) &middot; Awaiting Drew go-ahead to activate outbound.</div>
       </div>
     </div>
 
     <!-- Claude Agents -->
     <div class="section-header" style="margin-top: 20px;">
       <span class="entity-tag tag-ks">AGENTS</span>
-      <h2>Konsier â€” Claude AI Agents (8 Total)</h2>
-      <span class="count">6 prompts complete Â· 2 pending SOP pages 26â€“33</span>
+      <h2>Konsier &mdash; Claude AI Agents (8 Total)</h2>
+      <span class="count">6 prompts complete &middot; 2 pending SOP pages 26&ndash;33</span>
     </div>
     <div class="lg-grid">
-      <div class="lg-card">
-        <div class="lg-id" style="color: #818cf8;">AGENT-01</div>
-        <div class="lg-name">Outbound Operator</div>
-        <div class="lg-desc">Reviews lead data â†’ writes personalized cold outreach copy for Instantly campaigns</div>
-      </div>
-      <div class="lg-card">
-        <div class="lg-id" style="color: #818cf8;">AGENT-02 âœ… Live</div>
-        <div class="lg-name">Reply Triage</div>
-        <div class="lg-desc">Reads Instantly reply â†’ classifies intent â†’ routes to Retell Sarah dial or marks not interested in Pipedrive</div>
-      </div>
-      <div class="lg-card">
-        <div class="lg-id" style="color: #818cf8;">AGENT-03 (PQA)</div>
-        <div class="lg-name">Qualification Analyzer</div>
-        <div class="lg-desc">Reads Retell call transcript â†’ BANT score â†’ updates Pipedrive stage + Notion Call QA Queue</div>
-      </div>
-      <div class="lg-card">
-        <div class="lg-id" style="color: #818cf8;">AGENT-04</div>
-        <div class="lg-name">Closer Copilot</div>
-        <div class="lg-desc">Pre-call briefing agent for Drew â€” pending SOP pages 26â€“33 from Drew</div>
-      </div>
-      <div class="lg-card">
-        <div class="lg-id" style="color: #818cf8;">AGENT-05 âœ… Built</div>
-        <div class="lg-name">Customer Call QA</div>
-        <div class="lg-desc">Post-call quality analysis â†’ detects red flags â†’ Slack #konsier-escalations if alert_required</div>
-      </div>
-      <div class="lg-card">
-        <div class="lg-id" style="color: #818cf8;">AGENT-06 âœ… Built</div>
-        <div class="lg-name">Onboarding Drafter</div>
-        <div class="lg-desc">12-field intake â†’ Claude Sonnet draft â†’ Notion Client Onboarding page â†’ Slack #konsier-review</div>
-      </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-07</div>
-        <div class="lg-name">Bookkeeping Reconciler</div>
-        <div class="lg-desc">Pending: Drew QBO setup + SOP pages 26â€“33</div>
-      </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-08</div>
-        <div class="lg-name">Founder Brief Writer</div>
-        <div class="lg-desc">Pending: SOP pages 26â€“33 from Drew</div>
-      </div>
+      <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-01</div><div class="lg-name">Outbound Operator</div><div class="lg-desc">Reviews lead data &rarr; writes personalized cold outreach copy for Instantly campaigns</div></div>
+      <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-02 &#10003; Live</div><div class="lg-name">Reply Triage</div><div class="lg-desc">Reads Instantly reply &rarr; classifies intent &rarr; routes to Retell Sarah dial or closes in Pipedrive</div></div>
+      <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-03 (PQA)</div><div class="lg-name">Qualification Analyzer</div><div class="lg-desc">Reads Retell call transcript &rarr; BANT score &rarr; updates Pipedrive stage + Notion Call QA Queue</div></div>
+      <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-04</div><div class="lg-name">Closer Copilot</div><div class="lg-desc">Pre-call briefing for Drew &mdash; pending SOP pages 26&ndash;33 from Drew</div></div>
+      <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-05 &#10003; Built</div><div class="lg-name">Customer Call QA</div><div class="lg-desc">Post-call quality analysis &rarr; detects red flags &rarr; Slack #konsier-escalations if alert_required</div></div>
+      <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-06 &#10003; Built</div><div class="lg-name">Onboarding Drafter</div><div class="lg-desc">12-field intake &rarr; Claude Sonnet 4.6 &rarr; Notion KS Client Onboarding page &rarr; Slack #konsier-review</div></div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-07</div><div class="lg-name">Bookkeeping Reconciler</div><div class="lg-desc">Pending: Drew QBO setup + SOP pages 26&ndash;33</div></div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-08</div><div class="lg-name">Founder Brief Writer</div><div class="lg-desc">Pending: SOP pages 26&ndash;33 from Drew</div></div>
     </div>
   </div>
 
   <!-- AR Workflows -->
   <div class="section">
-    <div class="section-header">
-      <span class="entity-tag tag-ar">AR</span>
-      <h2>Anza Rentals â€” Acquisitions &amp; STR Workflows</h2>
-      <span class="count">0 done Â· 5 remaining</span>
-    </div>
+    <div class="section-header"><span class="entity-tag tag-ar">AR</span><h2>Anza Rentals &mdash; Acquisitions &amp; STR Workflows</h2><span class="count">0 done &middot; 5 remaining</span></div>
     <div class="wf-grid">
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AR-01</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">New Property Lead Intake</div>
-        <div class="wf-trigger"><span>Trigger:</span> Webhook (Carrot / MLS)<br>Claude scores deal 1â€“10 â†’ Slack #ar-acquisitions if &gt;7</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AR-02</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Deal Under Contract â†’ AC Handoff</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage â†’ Under Contract<br>Creates AC deal + Slack #ac-projects</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AR-03</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">STR Dynamic Pricing Sync</div>
-        <div class="wf-trigger"><span>Trigger:</span> Cron â€” daily 6 AM<br>PriceLabs + Hospitable sync â†’ Airtable log</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AR-04</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">AI Guest Communication Agent</div>
-        <div class="wf-trigger"><span>Trigger:</span> Hospitable webhook (new message)<br>Claude auto-replies or escalates to Slack</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AR-05</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Rental Performance Monthly Report</div>
-        <div class="wf-trigger"><span>Trigger:</span> Cron â€” 1st of month<br>Hospitable + Stessa â†’ Claude narrative â†’ owners + AV portal</div>
-      </div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AR-01</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">New Property Lead Intake</div><div class="wf-trigger"><span>Trigger:</span> Webhook (Carrot / MLS). Claude scores deal 1&ndash;10 &rarr; Slack #ar-acquisitions if &gt;7</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AR-02</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Deal Under Contract &rarr; AC Handoff</div><div class="wf-trigger"><span>Trigger:</span> Stage &rarr; Under Contract. Creates AC deal + Slack #ac-projects</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AR-03</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">STR Dynamic Pricing Sync</div><div class="wf-trigger"><span>Trigger:</span> Cron &mdash; daily 6 AM. PriceLabs + Hospitable sync &rarr; Airtable log</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AR-04</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">AI Guest Communication Agent</div><div class="wf-trigger"><span>Trigger:</span> Hospitable webhook. Claude auto-replies or escalates to Slack</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AR-05</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Rental Performance Monthly Report</div><div class="wf-trigger"><span>Trigger:</span> Cron &mdash; 1st of month. Hospitable + Stessa &rarr; Claude narrative &rarr; owners</div></div>
     </div>
   </div>
 
   <!-- AV Workflows -->
   <div class="section">
-    <div class="section-header">
-      <span class="entity-tag tag-av">AV</span>
-      <h2>Anza Ventures â€” Investor Workflows</h2>
-      <span class="count">0 done Â· 4 remaining</span>
-    </div>
+    <div class="section-header"><span class="entity-tag tag-av">AV</span><h2>Anza Ventures &mdash; Investor Workflows</h2><span class="count">0 done &middot; 4 remaining</span></div>
     <div class="wf-grid">
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AV-01</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Investor Onboarding</div>
-        <div class="wf-trigger"><span>Trigger:</span> New AV deal created (Pipedrive)<br>DocuSign â†’ Accredited stage â†’ drip sequence</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AV-02</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Deal Matching â†’ Investor Notification</div>
-        <div class="wf-trigger"><span>Trigger:</span> New investment opportunity<br>Claude matches investors â†’ personalized email per investor</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AV-03</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Capital Call Processing</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage â†’ Capital Call<br>Pro-rata calc â†’ DocuSign ACH â†’ track receipt</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AV-04</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Quarterly Distribution Reports</div>
-        <div class="wf-trigger"><span>Trigger:</span> Cron â€” quarterly<br>Claude K-1 summary + narrative â†’ investors via SendGrid</div>
-      </div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AV-01</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Investor Onboarding</div><div class="wf-trigger"><span>Trigger:</span> New AV deal. DocuSign &rarr; Accredited stage &rarr; drip sequence</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AV-02</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Deal Matching &rarr; Investor Notification</div><div class="wf-trigger"><span>Trigger:</span> New investment opportunity. Claude matches investors &rarr; personalized email</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AV-03</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Capital Call Processing</div><div class="wf-trigger"><span>Trigger:</span> Stage &rarr; Capital Call. Pro-rata calc &rarr; DocuSign ACH &rarr; track receipt</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AV-04</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Quarterly Distribution Reports</div><div class="wf-trigger"><span>Trigger:</span> Cron &mdash; quarterly. Claude K-1 summary &rarr; investors via SendGrid</div></div>
     </div>
   </div>
 
   <!-- AC Workflows -->
   <div class="section">
-    <div class="section-header">
-      <span class="entity-tag tag-ac">AC</span>
-      <h2>Anza Construction â€” Project Workflows</h2>
-      <span class="count">0 done Â· 3 remaining</span>
-    </div>
+    <div class="section-header"><span class="entity-tag tag-ac">AC</span><h2>Anza Construction &mdash; Project Workflows</h2><span class="count">0 done &middot; 3 remaining</span></div>
     <div class="wf-grid">
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AC-01</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Project Kickoff</div>
-        <div class="wf-trigger"><span>Trigger:</span> New AC deal (from WF-AR-02)<br>Google Drive folder â†’ Claude budget estimate â†’ contractor emails</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AC-02</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Milestone Tracking + Investor Updates</div>
-        <div class="wf-trigger"><span>Trigger:</span> Activity completed in pipeline<br>% complete â†’ AV deal update â†’ Claude progress email</div>
-      </div>
-      <div class="wf-card pending">
-        <div class="wf-top">
-          <span class="wf-id">WF-AC-03</span>
-          <span class="status-badge badge-pending">â³ Queued</span>
-        </div>
-        <div class="wf-name">Build Complete â†’ AV Handoff</div>
-        <div class="wf-trigger"><span>Trigger:</span> Stage â†’ Certificate of Occupancy<br>Cost seg study â†’ AV + AR deals created â†’ Claude completion report</div>
-      </div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AC-01</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Project Kickoff</div><div class="wf-trigger"><span>Trigger:</span> New AC deal. Google Drive folder &rarr; Claude budget estimate &rarr; contractor emails</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AC-02</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Milestone Tracking + Investor Updates</div><div class="wf-trigger"><span>Trigger:</span> Activity completed. % complete &rarr; AV deal update &rarr; Claude progress email</div></div>
+      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">WF-AC-03</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Build Complete &rarr; AV Handoff</div><div class="wf-trigger"><span>Trigger:</span> Certificate of Occupancy. Cost seg &rarr; AV + AR deals &rarr; Claude completion report</div></div>
     </div>
   </div>
 
-  <!-- LangGraph Agents (VC Phase 2) -->
+  <!-- LangGraph (VC Phase 2) -->
   <div class="section">
-    <div class="section-header">
-      <span class="entity-tag tag-lg">LG</span>
-      <h2>LangGraph â€” VC AI Agent Layer (Phase 2)</h2>
-      <span class="count">0 done Â· 8 agents to build Â· after Pipedrive rebuild complete</span>
-    </div>
+    <div class="section-header"><span class="entity-tag tag-lg">LG</span><h2>LangGraph &mdash; VC AI Agent Layer (Phase 2)</h2><span class="count">0 done &middot; 8 agents &middot; after Pipedrive rebuild</span></div>
     <div class="lg-grid">
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-01</div>
-        <div class="lg-name">Orchestrator Agent</div>
-        <div class="lg-desc">Routes leads through the full VC system â€” supervisor of all other agents</div>
-      </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-02</div>
-        <div class="lg-name">Lead Gen Agent</div>
-        <div class="lg-desc">LinkedIn + Google + SEO â€” autonomous lead sourcing</div>
-      </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-03</div>
-        <div class="lg-name">Education Agent</div>
-        <div class="lg-desc">Delivers content sequences â€” replaces WF-VC-02 Claude calls with full agent logic</div>
-      </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-04</div>
-        <div class="lg-name">Appointment Setter</div>
-        <div class="lg-desc">Qualifies + books calls â€” connects to Calendly via LangGraph tools</div>
-      </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-05</div>
-        <div class="lg-name">Onboarding Agent</div>
-        <div class="lg-desc">Trust + policy + entity setup â€” guides new VC clients through onboarding</div>
-      </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-06</div>
-        <div class="lg-name">Deal Matching Agent</div>
-        <div class="lg-desc">Matches investors to deals â€” queries Pinecone av-knowledge/investors</div>
-      </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-07</div>
-        <div class="lg-name">Investor Follow-Up Agent</div>
-        <div class="lg-desc">Retention + upsell â€” re-engages inactive investors automatically</div>
-      </div>
-      <div class="lg-card pending">
-        <div class="lg-id">AGENT-08</div>
-        <div class="lg-name">Property Management Agent</div>
-        <div class="lg-desc">STR + rental optimization â€” Hospitable + PriceLabs + guest responses</div>
-      </div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-01</div><div class="lg-name">Orchestrator Agent</div><div class="lg-desc">Routes leads through the full VC system &mdash; supervisor of all agents</div></div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-02</div><div class="lg-name">Lead Gen Agent</div><div class="lg-desc">LinkedIn + Google + SEO &mdash; autonomous lead sourcing</div></div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-03</div><div class="lg-name">Education Agent</div><div class="lg-desc">Delivers content sequences &mdash; replaces WF-VC-02 Claude calls</div></div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-04</div><div class="lg-name">Appointment Setter</div><div class="lg-desc">Qualifies + books calls via Calendly LangGraph tools</div></div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-05</div><div class="lg-name">Onboarding Agent</div><div class="lg-desc">Trust + policy + entity setup for new VC clients</div></div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-06</div><div class="lg-name">Deal Matching Agent</div><div class="lg-desc">Matches investors to deals &mdash; queries Pinecone av-knowledge</div></div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-07</div><div class="lg-name">Investor Follow-Up Agent</div><div class="lg-desc">Retention + upsell &mdash; re-engages inactive investors</div></div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-08</div><div class="lg-name">Property Management Agent</div><div class="lg-desc">STR optimization &mdash; Hospitable + PriceLabs + guest responses</div></div>
     </div>
   </div>
 
-  <!-- Pinecone Vector Memory -->
+  <!-- Pinecone -->
   <div class="section">
-    <div class="section-header">
-      <span class="entity-tag tag-pc">PC</span>
-      <h2>Pinecone â€” AI Memory Layer (Phase 2)</h2>
-      <span class="count">0 done Â· 6 indexes to configure</span>
-    </div>
+    <div class="section-header"><span class="entity-tag tag-pc">PC</span><h2>Pinecone &mdash; AI Memory Layer (Phase 2)</h2><span class="count">0 done &middot; 6 indexes to configure</span></div>
     <div class="pinecone-grid">
-      <div class="pc-card">
-        <div class="pc-index">vc-knowledge / education</div>
-        <div class="pc-name">IBC Education KB</div>
-        <div class="pc-desc">Rockefeller Method, FAQ, case studies, objection handling â€” feeds Education Agent</div>
-      </div>
-      <div class="pc-card">
-        <div class="pc-index">vc-knowledge / policies</div>
-        <div class="pc-name">Policy Knowledge</div>
-        <div class="pc-desc">Policy illustrations, carrier info, premium structures â€” feeds Call Prep + Onboarding Agent</div>
-      </div>
-      <div class="pc-card">
-        <div class="pc-index">ar-knowledge / properties</div>
-        <div class="pc-name">Property Guides</div>
-        <div class="pc-desc">House rules, local recs per listing â€” feeds Property Management Agent</div>
-      </div>
-      <div class="pc-card">
-        <div class="pc-index">ar-knowledge / deals</div>
-        <div class="pc-name">Deal Scoring KB</div>
-        <div class="pc-desc">Investment criteria, market comps, scoring rubrics â€” feeds Deal Scorer Agent</div>
-      </div>
-      <div class="pc-card">
-        <div class="pc-index">av-knowledge / investors</div>
-        <div class="pc-name">Investor Profiles</div>
-        <div class="pc-desc">Investor preferences, accreditation, history â€” feeds Deal Matching Agent</div>
-      </div>
-      <div class="pc-card">
-        <div class="pc-index">av-knowledge / deals</div>
-        <div class="pc-name">Deal Structures</div>
-        <div class="pc-desc">PPMs, distribution formulas, syndication structures â€” feeds Investor Match + Reports</div>
-      </div>
+      <div class="pc-card"><div class="pc-index">vc-knowledge / education</div><div class="pc-name">IBC Education KB</div><div class="pc-desc">Rockefeller Method, FAQ, case studies, objection handling &mdash; feeds Education Agent</div></div>
+      <div class="pc-card"><div class="pc-index">vc-knowledge / policies</div><div class="pc-name">Policy Knowledge</div><div class="pc-desc">Policy illustrations, carrier info, premium structures &mdash; feeds Call Prep + Onboarding Agent</div></div>
+      <div class="pc-card"><div class="pc-index">ar-knowledge / properties</div><div class="pc-name">Property Guides</div><div class="pc-desc">House rules, local recs per listing &mdash; feeds Property Management Agent</div></div>
+      <div class="pc-card"><div class="pc-index">ar-knowledge / deals</div><div class="pc-name">Deal Scoring KB</div><div class="pc-desc">Investment criteria, market comps, scoring rubrics &mdash; feeds Deal Scorer Agent</div></div>
+      <div class="pc-card"><div class="pc-index">av-knowledge / investors</div><div class="pc-name">Investor Profiles</div><div class="pc-desc">Investor preferences, accreditation, history &mdash; feeds Deal Matching Agent</div></div>
+      <div class="pc-card"><div class="pc-index">av-knowledge / deals</div><div class="pc-name">Deal Structures</div><div class="pc-desc">PPMs, distribution formulas, syndication structures &mdash; feeds Investor Match + Reports</div></div>
     </div>
   </div>
 
   <!-- Blockers -->
   <div class="blockers-section">
-    <h3>âš  Action Required â€” Pending from Drew &amp; Michael</h3>
-
+    <h3>&#9888; Action Required &mdash; Pending from Drew &amp; Michael</h3>
     <div class="blocker-item">
-      <div class="blocker-icon">âš¡</div>
+      <div class="blocker-icon">&#9889;</div>
       <div class="blocker-content">
-        <div class="title">URGENT â€” Drew: HeyReach Trial Expires ~May 27</div>
-        <div class="desc">Upgrade trial + connect LinkedIn account â†’ unblocks KS-WF5 LinkedIn Outreach pipeline</div>
+        <div class="title">URGENT &mdash; Drew: HeyReach Trial Expires ~May 27</div>
+        <div class="desc">Upgrade trial + connect LinkedIn account &rarr; unblocks KS-WF5 LinkedIn Outreach pipeline</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">ðŸ“§</div>
+      <div class="blocker-icon">&#128231;</div>
       <div class="blocker-content">
         <div class="title">Drew: Instantly Campaign IDs + GoDaddy IMAP Fix</div>
-        <div class="desc">Roofing-StormBelt / Dental-Suburban / Medical-SunBelt campaign IDs. GoDaddy IMAP fix unblocks warmup + KS-WF6 outbound pipeline activation.</div>
+        <div class="desc">Roofing-StormBelt / Dental-Suburban / Medical-SunBelt IDs. GoDaddy IMAP fix unblocks warmup + KS-WF6 activation.</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">ðŸŽ¬</div>
+      <div class="blocker-icon">&#127909;</div>
       <div class="blocker-content">
         <div class="title">Drew: Wistia Account + Demo Videos</div>
-        <div class="desc">Create account, upload demo videos, share video IDs â†’ unblocks KS-A5 Hot Lead trigger (Wistia milestone webhooks)</div>
+        <div class="desc">Create account, upload demo videos, share video IDs &rarr; unblocks KS-A5 Hot Lead trigger</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">ðŸ’³</div>
+      <div class="blocker-icon">&#128179;</div>
       <div class="blocker-content">
-        <div class="title">Drew: Stripe Payment Links â€” 3 URLs</div>
-        <div class="desc">Starter $497 / Professional $797 / Enterprise $1,497 â†’ unblocks website purchase flow and post-payment onboarding chain</div>
+        <div class="title">Drew: Stripe Payment Links &mdash; 3 URLs</div>
+        <div class="desc">Starter $497 / Professional $797 / Enterprise $1,497 &rarr; unblocks website purchase flow + post-payment onboarding</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">ðŸ“„</div>
+      <div class="blocker-icon">&#128196;</div>
       <div class="blocker-content">
-        <div class="title">Drew: SOP Pages 26â€“33 (AGENT-04/07/08 Prompts)</div>
-        <div class="desc">Closer Copilot, Bookkeeping Reconciler, Founder Brief Writer system prompts needed to complete the final 3 Claude agents</div>
+        <div class="title">Drew: SOP Pages 26&ndash;33 (AGENT-04/07/08 Prompts)</div>
+        <div class="desc">Closer Copilot, Bookkeeping Reconciler, Founder Brief Writer prompts needed to complete final 3 Claude agents</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">ðŸŒ</div>
+      <div class="blocker-icon">&#127760;</div>
       <div class="blocker-content">
         <div class="title">Michael (WordPress): Voice Orb Iframe + Webhook Credentials</div>
-        <div class="desc">1) Replace Voice Orb iframe src with V3 URL (agent.retellai.com/orb/...?token=812a93b0...) Â· 2) Add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET to wp-config.php â†’ activates contact form â†’ KS-WF3</div>
+        <div class="desc">1) Replace Voice Orb iframe src with V3 URL &nbsp; 2) Add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET to wp-config.php &rarr; activates KS-WF3 contact form</div>
       </div>
     </div>
   </div>
 
-  <!-- Weekly Billing Report -->
+  <!-- Billing Report -->
   <div class="billing-section">
     <div class="billing-header">
       <div>
-        <div class="billing-title">Billing Report â€” Weeks 1â€“4</div>
-        <div class="billing-sub">May 1â€“25, 2026 Â· Week 1: $8/hr Â· Weeks 2â€“4: $500/week flat retainer Â· Payment via Wise</div>
+        <div class="billing-title">Billing Report &mdash; Weeks 1&ndash;4</div>
+        <div class="billing-sub">May 1&ndash;25, 2026 &middot; Week 1: $8/hr (48 hrs = $384) &middot; Weeks 2&ndash;4: $500/week flat retainer &middot; Payment via Wise</div>
       </div>
       <div class="billing-total-box">
-        <div class="billing-total-label">Total Invoiced (Weeks 1â€“3)</div>
+        <div class="billing-total-label">Total Invoiced (Weeks 1&ndash;3)</div>
         <div class="billing-total-value">$1,384</div>
-        <div class="billing-total-sub">Week 4 in progress Â· +$500 projected</div>
+        <div class="billing-total-sub">Week 4 in progress &middot; +$500 at week end</div>
       </div>
     </div>
     <table class="billing-table">
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Day</th>
+          <th>Period</th>
           <th>Hours</th>
-          <th>Tasks Completed</th>
+          <th>Builds &amp; Tasks Completed</th>
           <th>Earnings</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Week 1 -->
+
         <tr class="week-divider">
-          <td colspan="5">WEEK 1 â€” MAY 1â€“8, 2026 Â· $8/HR HOURLY Â· PAID âœ…</td>
+          <td colspan="4">WEEK 1 &mdash; MAY 1&ndash;8, 2026 &middot; $8/HR HOURLY &middot; PAID</td>
         </tr>
         <tr class="done-row">
-          <td>May 1</td><td>Friday</td><td>8 hrs</td>
-          <td>WF-VC-01 Lead Capture + WF-VC-02 AI Education Drip + WF-VC-03 Strategy Call Booking â€” full build</td>
-          <td class="earn">$64</td>
-        </tr>
-        <tr class="done-row">
-          <td>May 4</td><td>Monday</td><td>8 hrs</td>
-          <td>End-to-end demo test WF-VC-01 â†’ WF-VC-03 + WF-VC-04 Post-Call Follow-Up initial build</td>
-          <td class="earn">$64</td>
-        </tr>
-        <tr class="done-row">
-          <td>May 5</td><td>Tuesday</td><td>8 hrs</td>
-          <td>WF-VC-04 troubleshooting + adjustments â€” task creation, internal notification, stage update all working</td>
-          <td class="earn">$64</td>
-        </tr>
-        <tr class="done-row">
-          <td>May 6</td><td>Wednesday</td><td>8 hrs</td>
-          <td>WF-VC-05 Policy Active â†’ Investor Transition â€” full 12-node build, end-to-end test confirmed. Pipedrive CRM expert research. Entity emails received from Drew.</td>
-          <td class="earn">$64</td>
-        </tr>
-        <tr class="done-row">
-          <td>May 7</td><td>Thursday</td><td>8 hrs</td>
-          <td>WF-VC-06 Monthly Client Report â€” full build. GHL Opportunities pull, Claude AI email generation (PAS 400â€“500 words), GHL Conversations API send, HTML formatting, Add Note.</td>
-          <td class="earn">$64</td>
-        </tr>
-        <tr class="done-row">
-          <td>May 8</td><td>Friday</td><td>8 hrs</td>
-          <td>WF-VC-06 end-to-end confirmed. All 6 WF-VC workflows transferred to Drew's n8n. Slack bot created. Pipedrive CRM audit â€” verified 4 pipelines, 18 Person fields, 20+ Deal fields. 7 Deal Labels created. PD-WF-01 + PD-WF-02 built (inactive).</td>
-          <td class="earn">$64</td>
+          <td>May 1&ndash;8<br><small style="color:#475569">Fri, Mon&ndash;Fri</small></td>
+          <td>48 hrs</td>
+          <td>
+            NEW BUILDS: WF-VC-01 Lead Capture + WF-VC-02 AI Education Drip + WF-VC-03 Strategy Call Booking + WF-VC-04 Post-Call Follow-Up + WF-VC-05 Policy Active &rarr; Investor Transition (12-node cross-entity handoff, end-to-end tested) + WF-VC-06 Monthly Client Report (GHL Conversations API, Claude 400&ndash;500 word PAS email, HTML formatting, note logged).
+            All 6 WF-VC workflows transferred to Drew's n8n instance.
+            Slack bot created (Velocity Capital Bot).
+            Pipedrive CRM audit: 4 pipelines + 18 Person fields + 20+ Deal fields verified against Part 3 guide.
+            7 Deal Labels created.
+            PD-WF-01 New Lead Assignment + PD-WF-02 Strategy Call Follow-Up built (inactive pending Pipedrive rebuild).
+          </td>
+          <td class="earn">$384</td>
         </tr>
 
-        <!-- Week 2 -->
         <tr class="week-divider">
-          <td colspan="5">WEEK 2 â€” MAY 11â€“16, 2026 Â· $500 FLAT RETAINER Â· PAID âœ…</td>
+          <td colspan="4">WEEK 2 &mdash; MAY 11&ndash;16, 2026 &middot; $500 FLAT RETAINER &middot; PAID</td>
         </tr>
         <tr class="done-row">
-          <td>May 11â€“16</td><td>Monâ€“Fri</td><td>~40 hrs</td>
-          <td>Konsier Phase 1: KS-ERR Error Handler Â· KS-PD-EVENTS Pipedrive receiver Â· KS-A4 Stalled Deal Alert Â· KS-WF1 Email Reply Handler + AGENT-02 Reply Triage Â· KS-WF2 Retell Qualification Webhook + AGENT-03 PQA Â· Retell Alex + Sarah initial setup Â· Konsier Pipedrive pipeline (3 tracks) + custom fields Â· Notion Lead Log + Client Health databases Â· Apollo + Instantly + Slack credentials configured</td>
+          <td>May 11&ndash;16<br><small style="color:#475569">Mon&ndash;Fri</small></td>
+          <td>~40 hrs</td>
+          <td>
+            NEW BUILDS: KS-ERR Error Handler (Slack #konsier-errors) + KS-PD-EVENTS Pipedrive Webhook Receiver + KS-A4 Stalled Deal Alert (7-day threshold, daily cron, Slack #konsier-leads) + KS-WF1 Email Reply Handler + AGENT-02 Reply Triage (Instantly reply &rarr; Claude classifies intent &rarr; route to Retell Sarah or close not-interested in Pipedrive) + KS-WF2 Retell Qualification Webhook + AGENT-03 Qualification Analyzer / PQA (call_analyzed &rarr; BANT score &rarr; Pipedrive deal create/update &rarr; Notion Call QA Queue &rarr; Slack #konsier-leads).
+            Retell Alex + Sarah initial voice agent setup, voices configured, basic prompts loaded.
+            Konsier Pipedrive 3-track pipeline (Outbound / Self-Serve / Closer Track) + all custom fields (call_volume, tier, qualification_score, etc.) configured.
+            Notion Lead Log + Client Health databases created.
+            Apollo, Instantly, Slack (Konsier Bot), Anthropic API credentials configured in n8n.
+          </td>
           <td class="earn">$500</td>
         </tr>
 
-        <!-- Week 3 -->
         <tr class="week-divider">
-          <td colspan="5">WEEK 3 â€” MAY 18â€“22, 2026 Â· $500 FLAT RETAINER Â· DUE</td>
+          <td colspan="4">WEEK 3 &mdash; MAY 18&ndash;22, 2026 &middot; $500 FLAT RETAINER &middot; DUE</td>
         </tr>
         <tr class="done-row">
-          <td>May 18â€“22</td><td>Monâ€“Fri</td><td>~40 hrs</td>
-          <td>Konsier Phase 2: KS-WF3 Website Contact Form â†’ Pipedrive (inactive â€” Michael blocker) Â· KS-WF4 Stripe â†’ Onboarding Chain Â· KS-WF6 Daily Outbound Pipeline (inactive â€” Drew blockers) Â· KS-A2 Tier Routing Â· KS-A6/AGENT-06 Onboarding Drafter (7 nodes, Notion + Slack) Â· KS-WF7/AGENT-05 Customer Call QA (8 nodes, Slack #konsier-escalations) Â· Apollo + Clay + Instantly ICP scoring patterns Â· Notion Client Onboarding database</td>
+          <td>May 18&ndash;22<br><small style="color:#475569">Mon&ndash;Fri</small></td>
+          <td>~40 hrs</td>
+          <td>
+            NEW BUILDS: KS-WF3 Website Contact Form &rarr; Pipedrive (HMAC-signed webhook validation, built inactive &mdash; awaiting Michael wp-config.php) + KS-WF4 Stripe &rarr; Onboarding Chain (Stripe payment success &rarr; Pipedrive stage update &rarr; AGENT-06 trigger) + KS-WF6 Daily Outbound Lead Pipeline (Apollo ICP search &rarr; Clay enrichment &rarr; ICP scoring Code node &rarr; Instantly add lead, built inactive &mdash; awaiting Drew campaign IDs) + KS-A2 Tier Routing (4 nodes: call volume &rarr; tier logic &rarr; Pipedrive stage &rarr; Slack #konsier-leads) + KS-A6 / AGENT-06 Onboarding Drafter (7 nodes: konsier-onboarding-intake webhook &rarr; Respond 200 &rarr; Extract 12 fields &rarr; Claude Sonnet 4.6 &rarr; Code Parse &rarr; Notion KS Client Onboarding DB create page &rarr; Slack #konsier-review) + KS-WF7 / AGENT-05 Customer Call QA (8 nodes: retell-customer-qa webhook &rarr; Respond 200 &rarr; IF customer_id &rarr; Extract 8 fields &rarr; Claude Haiku 4.5 QA analysis &rarr; Code Parse &rarr; IF alert_required &rarr; Slack #konsier-escalations).
+            Apollo + Clay + Instantly ICP scoring logic (Code node with weighted scoring).
+            Notion Client Onboarding database created and configured.
+          </td>
           <td class="earn-orange">$500 DUE</td>
         </tr>
 
-        <!-- Week 4 -->
         <tr class="week-divider">
-          <td colspan="5">WEEK 4 â€” MAY 25, 2026 Â· $500 FLAT RETAINER Â· IN PROGRESS</td>
+          <td colspan="4">WEEK 4 &mdash; MAY 25, 2026 (MONDAY) &middot; $500 FLAT RETAINER &middot; IN PROGRESS</td>
         </tr>
         <tr class="done-row">
-          <td>May 25</td><td>Monday</td><td>~8.5 hrs</td>
-          <td>Alex V6 prompt rebuild (5-section, 4 objections, free trial, end_call triggers) + PUBLISHED to Retell. Sarah V4 prompt upgrade ($12.8k stat, 5 objections, time slots). KS-WF2 bug fixes (null fallbacks + Slack deal ID expression). KS-WF1 dynamic vertical field fix. KS-WF4 stage_id fix (98â†’101). Voice Orb troubleshoot + fresh V3 embed URL. Michael Slack message prepared. Retell post_call_analysis qualification_result choices fixed.</td>
-          <td class="earn-orange">$500 (week)</td>
+          <td>May 25<br><small style="color:#475569">Monday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            NEW BUILDS: KS-WF7 / AGENT-05 Customer Call QA &mdash; finalized and deployed (8 nodes: Webhook &rarr; Respond 200 &rarr; IF customer_id exists &rarr; Set Extract 8 fields &rarr; Claude Haiku 4.5 &rarr; Code Parse &rarr; IF alert_required &rarr; Slack #konsier-escalations. Created #konsier-escalations Slack channel + invited Konsier Bot.) + KS-A6 / AGENT-06 Onboarding Drafter &mdash; finalized and deployed (7 nodes: Webhook &rarr; Respond 200 &rarr; Set Extract 12 fields &rarr; Claude Sonnet 4.6 &rarr; Code Parse &rarr; Notion KS &mdash; Client Onboarding DB create page &rarr; Slack #konsier-review. Webhook: konsier-onboarding-intake.)
+            RETELL AI UPGRADES: Alex rebuilt to V6 (full 5-section expert structure: Identity / Task / Conversation Flow / Objection Handling / Rules &mdash; 4 objection handlers: pricing $497/mo, just browsing, answering service, callback &mdash; free trial CTA &mdash; end_call triggers &mdash; "speak to human" rule &mdash; qualification_result choices fixed) &rarr; PUBLISHED to production (Voice Orb live on konsier.ai). Sarah upgraded to V4 (5-step flow, $12.8k/mo stat hook, 5 objection handlers, Thu/Fri time slots, end_call triggers, voicemail script, AI disclosure, post-call extraction 4 fields with correct choices types).
+            WORKFLOW FIXES: KS-WF2 &mdash; stage_id changed from hardcoded 97 to dynamic (Qualified &rarr; 94, Not Qualified &rarr; 95) &mdash; added Slack node "Sarah Call Qualified" to #konsier-leads with Calendly link &mdash; fixed deal title null fallback &mdash; fixed Slack deal ID expression (was hardcoded "?", now dynamic from Pipedrive response). KS-WF1 &mdash; vertical field changed from hardcoded "Service Business" to dynamic from body.lead.industry. KS-WF4 &mdash; stage_id corrected 98 &rarr; 101 (Won-Onboarding).
+            TESTING: konsier.ai website audit (confirmed pricing $497/$797/$1,497, $12.8k stat, Voice Orb embed live). Voice Orb troubleshoot &mdash; identified expired V1 token on WordPress iframe, obtained fresh V3 embed URL from Retell dashboard. Test lead submitted on contact form &mdash; confirmed KS-WF3 inactive (0 executions in n8n, Michael blocker verified). Deleted 2 test Pipedrive deals (#24 + #25). Slack message prepared for Michael (Voice Orb URL + wp-config.php credentials).
+          </td>
+          <td class="earn-orange">$500<br><small>(week)</small></td>
         </tr>
+
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="2"><strong>Invoiced to Date (Weeks 1â€“3)</strong></td>
-          <td><strong>~136 hrs</strong></td>
-          <td><strong>Week 4 in progress â€” flat $500 at week end</strong></td>
+          <td><strong>Invoiced (Weeks 1&ndash;3)</strong></td>
+          <td><strong>~128 hrs</strong></td>
+          <td><strong>Week 4 in progress &mdash; $500 flat at end of week</strong></td>
           <td class="earn"><strong>$1,384</strong></td>
         </tr>
       </tfoot>
@@ -1456,47 +650,41 @@
 
   <!-- Tech Discoveries -->
   <div class="discoveries">
-    <h3>âœ… Technical Discoveries (All Sessions)</h3>
-
-    <div class="discovery-item"><div class="disc-dot"></div>Native n8n Anthropic node has a credential bug â€” switched to HTTP Request node for all Claude calls (working perfectly)</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL V1 API was deprecated Dec 31 2025 â€” all calls now use V2 (services.leadconnectorhq.com) with PIT token authentication</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL requires locationId in every V2 API body or returns 403 â€” added to all nodes</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL Conversations API requires "html" field for email body (not "body" or "message") â€” fixed in WF-VC-02</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL auto-enables DND on contacts with repeated email bounces â€” must manually disable per contact</div>
-    <div class="discovery-item"><div class="disc-dot"></div>n8n "Using Fields Below" mode prevents Claude's special characters from breaking JSON â€” applied to all Claude output nodes</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL V2 /contacts/ search by email returns 422 â€” redesigned WF-VC-03 to pass contactId directly in webhook payload</div>
-    <div class="discovery-item"><div class="disc-dot"></div>WF-VC-05: IF node requires conditions.options.version = 2 â€” missing this caused silent validation failure</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL Opportunities API (/opportunities/search) does NOT accept pipelineId as query param â€” must pull all then filter in Code node</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Claude API response text is at content[0].text â€” never $json.text. Always access via $input.item.json.content[0].text</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Plain text email with \n chars renders as wall of text in Gmail â€” convert to HTML: split on \n\n, wrap in &lt;p&gt;, replace inner \n with &lt;br&gt;</div>
-
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8 â€” Pipedrive]</strong> Pipedrive Webhook action requires Growth plan â€” webhook option not clickable on current plan. n8n polls Pipedrive API for triggers instead.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive Deal Labels are NOT created in Settings â†’ Labels. Must create from within an actual Deal record â†’ Add labels â†’ + Add label button.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> All new Pipedrive automations default to Asia/Taipei timezone â€” must manually change to America/Los_Angeles (Pacific) for Drew's account.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Slack private channels: Admin can /invite @bot via UI. Admin conversations.invite API scope is Enterprise Grid only â€” standard workspaces use UI invitation only.</div>
-
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 â€” Retell AI]</strong> Publishing a Retell agent requires separate POST /publish-agent-version/{agent_id} with body {"version": N} â€” setting is_published: true in PATCH /update-agent body does NOT publish.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 â€” Retell AI]</strong> Voice Orb embed token is version-specific â€” after publishing a new agent version, must regenerate fresh embed URL from dashboard Share modal (version dropdown â†’ refresh â†’ copy link).</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 â€” Retell AI]</strong> post_call_analysis_data field type "enum" is NOT valid â€” use "string" + choices array. "system-presets" type works for built-in fields (call_summary, user_sentiment). PATCH replaces the full array â€” always send all fields.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 â€” n8n REST API]</strong> PUT /api/v1/workflows/{id} settings field must ONLY contain {executionOrder: "v1"} â€” any extra properties cause 400 error. Always GET first, modify nodes in memory, then PUT full object back.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 â€” WordPress webhook]</strong> Konsier contact form â†’ n8n HMAC webhook requires both KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET in wp-config.php. KS-WF3 cannot receive submissions until Michael adds both values.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 â€” Retell AI]</strong> Retell fires both real-time transcript events AND post-call call_analyzed events to the same webhook URL. Always filter by event type in the first IF node (call_analyzed only) to avoid double-processing.</div>
+    <h3>Technical Discoveries (All Sessions)</h3>
+    <div class="discovery-item"><div class="disc-dot"></div>Native n8n Anthropic node has a credential bug &mdash; switched to HTTP Request node for all Claude calls</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL V1 API deprecated Dec 31 2025 &mdash; all calls use V2 (services.leadconnectorhq.com) with PIT token</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL requires locationId in every V2 API body or returns 403</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL Conversations API requires "html" field for email body &mdash; not "body" or "message"</div>
+    <div class="discovery-item"><div class="disc-dot"></div>n8n "Using Fields Below" mode prevents Claude special characters from breaking JSON</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL V2 /contacts/ search by email returns 422 &mdash; pass contactId directly in webhook payload instead</div>
+    <div class="discovery-item"><div class="disc-dot"></div>WF-VC-05: IF node requires conditions.options.version = 2 &mdash; missing causes silent validation failure</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Claude API response is at content[0].text &mdash; access via $input.item.json.content[0].text</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Plain text with \n renders as wall in Gmail &mdash; split on \n\n, wrap in &lt;p&gt;, replace inner \n with &lt;br&gt;</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive Webhook requires Growth plan &mdash; n8n polls Pipedrive API for triggers instead.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive Deal Labels NOT created in Settings &rarr; Labels. Must create from within an actual Deal record.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> All new Pipedrive automations default to Asia/Taipei timezone &mdash; change to America/Los_Angeles.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25]</strong> Retell publish requires separate POST /publish-agent-version/{id} with {"version": N} &mdash; is_published: true in PATCH body does NOT publish.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25]</strong> Retell Voice Orb token is version-specific &mdash; after publishing new version, regenerate embed URL from dashboard Share modal.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25]</strong> Retell post_call_analysis_data: "enum" is NOT a valid type &mdash; use "string" + choices array. PATCH replaces full array, always send all fields.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25]</strong> n8n REST API: PUT /api/v1/workflows/{id} settings must ONLY contain {executionOrder: "v1"} &mdash; extra properties cause 400.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25]</strong> WordPress contact form to n8n webhook requires KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET in wp-config.php before KS-WF3 can receive submissions.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25]</strong> Retell fires both real-time transcript events AND post-call call_analyzed to the same webhook URL &mdash; always filter by event type in first IF node.</div>
   </div>
 
   <!-- Footer -->
   <div class="footer">
     <div class="footer-left">
-      Built by <strong>Vladimir</strong> Â· n8n instance: <strong>n8n.srv1647733.hstgr.cloud</strong> Â· Projects: <strong>Velocity Capital Group + Konsier AI Receptionist</strong>
+      Built by <strong>Vladimir</strong> &middot; n8n: <strong>n8n.srv1647733.hstgr.cloud</strong> &middot; Projects: <strong>Velocity Capital Group + Konsier AI Receptionist</strong>
     </div>
     <div class="footer-right">
-      <span class="cred-tag active">GHL V2 API âœ“</span>
-      <span class="cred-tag active">Claude Sonnet 4.6 âœ“</span>
-      <span class="cred-tag orange">Pipedrive â†» Rebuilding</span>
-      <span class="cred-tag purple">Retell AI âœ“ Alex Live</span>
-      <span class="cred-tag active">Slack Bot âœ“</span>
-      <span class="cred-tag active">Instantly âœ“</span>
-      <span class="cred-tag active">Notion âœ“</span>
-      <span class="cred-tag orange">HeyReach âš  Trial</span>
+      <span class="cred-tag active">GHL V2 API &#10003;</span>
+      <span class="cred-tag active">Claude Sonnet 4.6 &#10003;</span>
+      <span class="cred-tag orange">Pipedrive &mdash; Rebuilding</span>
+      <span class="cred-tag purple">Retell AI &#10003; Alex Live</span>
+      <span class="cred-tag active">Slack Bot &#10003;</span>
+      <span class="cred-tag active">Instantly &#10003;</span>
+      <span class="cred-tag active">Notion &#10003;</span>
+      <span class="cred-tag orange">HeyReach &#9888; Trial</span>
     </div>
   </div>
 
