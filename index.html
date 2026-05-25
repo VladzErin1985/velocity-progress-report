@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group + Konsier — Build Progress Report</title>
+  <title>Velocity Capital Group — Build Progress Report</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -154,6 +154,7 @@
     .stat-card.yellow .value { color: #fbbf24; }
     .stat-card.orange .value { color: #fb923c; }
     .stat-card.red .value   { color: #f87171; }
+    .stat-card.purple .value { color: #818cf8; }
 
     /* ─── Progress Bar ─── */
     .progress-section {
@@ -191,6 +192,9 @@
     }
     .bar-fill.orange-fill {
       background: linear-gradient(90deg, #c2410c, #fb923c);
+    }
+    .bar-fill.purple-fill {
+      background: linear-gradient(90deg, #6d28d9, #818cf8);
     }
     .progress-label {
       font-size: 12px;
@@ -298,16 +302,7 @@
       padding-top: 14px;
     }
     .billing-table .earn { color: #34d399; font-weight: 600; white-space: nowrap; }
-    .billing-table .pending-row td { color: #475569; }
-    .billing-table .pending-earn { color: #475569; }
-    .pending-tag {
-      background: #1e2433;
-      border: 1px solid #2d3748;
-      border-radius: 4px;
-      padding: 2px 8px;
-      font-size: 11px;
-      color: #64748b;
-    }
+    .billing-table .earn-orange { color: #fb923c; font-weight: 600; white-space: nowrap; }
 
     /* ─── Section ─── */
     .section {
@@ -333,7 +328,7 @@
     .tag-lg { background: #2e1065; color: #a78bfa; }
     .tag-pc { background: #0c1a2e; color: #38bdf8; }
     .tag-pd { background: #2a1500; color: #fb923c; }
-    .tag-ks { background: #1a0a2e; color: #c084fc; }
+    .tag-ks { background: #1a1a3a; color: #818cf8; }
 
     .section-header h2 {
       font-size: 14px;
@@ -423,8 +418,6 @@
     .badge-next    { background: #1e3a5f; color: #60a5fa; }
     .badge-pending { background: #1a1f2e; color: #475569; }
     .badge-blocked { background: #451a03; color: #f59e0b; }
-    .badge-progress { background: #1e1b4b; color: #a78bfa; }
-    .wf-card.progress { border-left: 3px solid #6366f1; }
 
     .wf-name {
       font-size: 13px;
@@ -530,9 +523,6 @@
       border-bottom: 1px solid #2d1f08;
     }
     .blocker-item:last-child { border-bottom: none; }
-    .blocker-item.resolved { opacity: 0.6; }
-    .blocker-item.resolved .blocker-icon { background: #052e16; color: #10b981; }
-    .blocker-item.resolved .title { color: #10b981; }
     .blocker-icon {
       width: 28px;
       height: 28px;
@@ -609,6 +599,7 @@
     .footer-right {
       display: flex;
       gap: 8px;
+      flex-wrap: wrap;
     }
     .cred-tag {
       font-size: 10px;
@@ -628,6 +619,11 @@
       color: #fb923c;
       border-color: #78350f;
     }
+    .cred-tag.purple {
+      background: #1a1a3a;
+      color: #818cf8;
+      border-color: #3730a3;
+    }
   </style>
 </head>
 <body>
@@ -635,58 +631,50 @@
   <!-- Header -->
   <div class="header">
     <div class="header-left">
-      <h1>Velocity Capital Group + Konsier — Automation Build Report</h1>
-      <div class="subtitle">n8n + Pipedrive + Slack + SendGrid + Claude AI · Week 3 In Progress · Prepared by Vladimir</div>
+      <h1>Velocity Capital Group — Automation Build Report</h1>
+      <div class="subtitle">n8n + Pipedrive + Retell AI + Slack + Claude AI · Dual Project Build · Week 4 Complete · Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">May 22, 2026</div>
-      <div class="week-badge">Week 3 of 6 · Day 9 of 20 · <span id="last-updated"></span></div>
+      <div class="date-badge">May 25, 2026</div>
+      <div class="week-badge">Week 4 of 6 · Day 17 of 20 · <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>WEEK 3 — May 22 · Day 9 of 20 (Ahead of Schedule):</strong> AGENT-PQA (Prompt Quality Agent) live inside KS-WF2 ✅ — self-improving Retell prompt quality loop now active on every flagged call. KS-WF6 production merge complete (16 nodes, full ICP scoring + Apollo/Instantly infrastructure). KS-WF3 (Website Contact Form → Pipedrive) + KS-A2 (Tier Routing) built. Blocks: KS-WF6 activation pending Instantly campaign IDs + GoDaddy IMAP fix (Drew — urgent). KS-WF3 activation pending Michael's wp-config.php update. Monday (unblocked): KS-WF1 Switch routing fix, KS-WF4 stage_id fix, AGENT-05, AGENT-06, Calendly → Pipedrive webhook.
+    <strong>DUAL PROJECT BUILD — ACTIVE:</strong> Konsier AI Receptionist system: 11 workflows built (6 live, 5 inactive pending credentials). Retell Alex PUBLISHED V6. Velocity Capital: GHL→Pipedrive migration progressing — 6 GHL workflows live, PD-WF-03 cross-entity handoff is next. <strong>Blockers:</strong> Drew — HeyReach trial URGENT (expires ~May 27) + Instantly IDs + SOP pages 26–33. Michael — Voice Orb iframe + wp-config.php webhook credentials.
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity</div>
-      <div class="message"><strong>May 22 — Day 9 of 20, ahead of schedule — AGENT-PQA live, KS-WF6 production merge complete, KS-WF3 + KS-A2 built.</strong> I extended KS-WF2 with a self-improving call quality loop (my own addition, not in the original SOP): every outbound call with a red flag now auto-triggers Claude Haiku AGENT-PQA → structured prompt fix suggestion → logged to Notion KS — Call QA Queue for VA review. KS-WF6 is now a full 16-node production workflow merging BASHO email generation + Apollo/Instantly infrastructure. KS-WF3 (Website Contact Form → Pipedrive, with HMAC verification) and KS-A2 (Tier Routing by call volume × 22) are built and ready to activate. <span class="warn">Blocks: KS-WF6 waiting on Instantly campaign IDs + GoDaddy IMAP fix from Drew (URGENT — HeyReach trial expires ~May 27). KS-WF3 waiting on Michael (wp-config.php update). Monday builds unblocked: KS-WF1 Switch routing fix (highest priority), KS-WF4 stage_id fix, AGENT-05, AGENT-06, Calendly → Pipedrive webhook.</span></div>
+      <div class="label">Build Velocity — May 25</div>
+      <div class="message"><strong>Konsier: Alex V6 PUBLISHED — Voice Orb live. Stripe onboarding chain active. 6 Claude agent prompts complete. Call QA + Onboarding Drafter built.</strong> <span class="warn">HeyReach trial expires May 27 — Drew must upgrade. VC: PD-WF-03 cross-entity handoff queued as next critical build.</span></div>
     </div>
     <div class="timeline">
       <div class="tl-item done">
-        <div class="tl-date">May 1 — Day 1</div>
-        <div class="tl-label">WF-VC-01/02/03 ✅</div>
-      </div>
-      <div class="tl-item done">
-        <div class="tl-date">May 4-8 — Day 4-8</div>
-        <div class="tl-label">WF-VC-04/05/06 ✅</div>
+        <div class="tl-date">May 1–8 — Week 1</div>
+        <div class="tl-label">WF-VC-01→06 ✅</div>
       </div>
       <div class="tl-item done">
         <div class="tl-date">May 8</div>
-        <div class="tl-label">Pipedrive Audit ✅</div>
+        <div class="tl-label">Pipedrive Setup ✅</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 11</div>
-        <div class="tl-label">Konsier P2 ✅</div>
+        <div class="tl-date">May 11–16 — Week 2</div>
+        <div class="tl-label">Konsier Phase 1 ✅</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 12</div>
-        <div class="tl-label">PD/KS Events ✅</div>
+        <div class="tl-date">May 18–22 — Week 3</div>
+        <div class="tl-label">Konsier Phase 2 ✅</div>
       </div>
       <div class="tl-item done">
-        <div class="tl-date">May 13</div>
-        <div class="tl-label">KS-A1/A4/A5 + WF6 ✅</div>
+        <div class="tl-date">May 25 — Week 4</div>
+        <div class="tl-label">Alex PUBLISHED ✅</div>
       </div>
-      <div class="tl-item done">
-        <div class="tl-date">May 18</div>
-        <div class="tl-label">KS-WF1 Built ✅</div>
-      </div>
-      <div class="tl-item done">
-        <div class="tl-date">May 19 — Day 6</div>
-        <div class="tl-label">WF1 Done + WF2 Done ✅</div>
+      <div class="tl-item orange">
+        <div class="tl-date">Next</div>
+        <div class="tl-label">Outbound Launch</div>
       </div>
     </div>
   </div>
@@ -694,54 +682,54 @@
   <!-- Summary Stats -->
   <div class="summary-grid">
     <div class="stat-card green">
-      <div class="label">VC Workflows Live</div>
-      <div class="value">6</div>
-      <div class="sub">of 18 total · live on Drew's n8n · rebuilding for Pipedrive</div>
+      <div class="label">n8n Workflows Built</div>
+      <div class="value">17</div>
+      <div class="sub">6 VC live (GHL) · 11 Konsier built</div>
     </div>
     <div class="stat-card blue">
-      <div class="label">Konsier Automations</div>
-      <div class="value">7</div>
-      <div class="sub">ERR · A4 · PD-EVENTS · WF1 · WF2 · WF4 · WF6 — all built ✅</div>
+      <div class="label">Live &amp; Active</div>
+      <div class="value">12</div>
+      <div class="sub">6 VC (GHL) + 6 Konsier active</div>
     </div>
-    <div class="stat-card yellow">
-      <div class="label">Active Projects</div>
-      <div class="value">2</div>
-      <div class="sub">Velocity Capital + Konsier</div>
+    <div class="stat-card purple">
+      <div class="label">AI Agents Built</div>
+      <div class="value">8</div>
+      <div class="sub">2 Retell (Alex ✅ Sarah ready) · 6 Claude</div>
     </div>
-    <div class="stat-card red">
-      <div class="label">Blockers</div>
-      <div class="value">3</div>
-      <div class="sub">Waiting on Drew · Apollo/Calendly/Retell/Notion cleared May 18 ✅</div>
+    <div class="stat-card orange">
+      <div class="label">Pending Actions</div>
+      <div class="value">8</div>
+      <div class="sub">Drew: 6 items · Michael: 2 items</div>
     </div>
   </div>
 
   <!-- Progress Bars -->
   <div class="progress-section">
     <div class="progress-header">
-      <span>Overall Build Progress (VC + Konsier)</span>
-      <strong>Day 6 of 20 — VC 6/18 live · Konsier: 7 workflows built ahead of schedule · Website Receptionist live · Web embed ready · KS-WF3 + agents next</strong>
+      <span>Konsier Build Progress</span>
+      <strong>73% — 11 of 15 workflows built</strong>
     </div>
     <div class="bar-track">
-      <div class="bar-fill" style="width: 25%;"></div>
+      <div class="bar-fill purple-fill" style="width: 73%;"></div>
     </div>
+    <div class="progress-label">Live: KS-ERR · KS-PD-EVENTS · KS-A4 · KS-WF1 · KS-WF2 · KS-WF4 · Inactive (blocked): KS-WF3 · KS-WF6 · KS-A2 · KS-WF7 · KS-A6</div>
     <div class="phase-labels">
-      <span>Week 1 — VC Core ✅</span>
-      <span>Week 2 — Konsier P2 + VC PD ✅</span>
-      <span class="active">▶ Week 3 — Konsier P4 Workflows (ahead of schedule)</span>
-      <span>Week 4 — Claude Agents + AR</span>
-      <span>Week 5 — Claude Agents</span>
-      <span>Week 6 — Frontend</span>
+      <span class="active">▶ Phase 1 — Infra + Webhook Core ✅</span>
+      <span class="active">▶ Phase 2 — Outbound + QA ✅</span>
+      <span class="active">▶ Phase 3 — Retell Published ✅</span>
+      <span>Phase 4 — Outbound Live</span>
+      <span>Phase 5 — Agents 07/08</span>
     </div>
 
     <div style="margin-top: 20px;">
       <div class="progress-header">
-        <span>Pipedrive Native Automations</span>
+        <span>VC Pipedrive Native Automations</span>
         <strong style="color: #fb923c;">20% — 2 of 10 built</strong>
       </div>
       <div class="bar-track">
         <div class="bar-fill orange-fill" style="width: 20%;"></div>
       </div>
-      <div class="progress-label">WF-01 New Lead Assignment ✅ · WF-02 Strategy Call Follow-Up ✅ · WF-03 through WF-10 queued</div>
+      <div class="progress-label">PD-WF-01 New Lead Assignment ✅ · PD-WF-02 Strategy Call Follow-Up ✅ · PD-WF-03 VC→AV Handoff (CRITICAL) next · PD-WF-04 through PD-WF-10 queued</div>
     </div>
   </div>
 
@@ -865,18 +853,18 @@
     </div>
   </div>
 
-  <!-- VC Workflows (transferred to Drew's n8n, rebuilding for Pipedrive) -->
+  <!-- VC Workflows (GHL-based) -->
   <div class="section">
     <div class="section-header">
       <span class="entity-tag tag-vc">VC</span>
-      <h2>Velocity Capital — n8n Workflows (Transferred to Drew's n8n · Rebuilding for Pipedrive)</h2>
+      <h2>Velocity Capital — n8n Workflows (GHL-based · Live)</h2>
       <span class="count">6 live on GHL · Pipedrive rebuild queued</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-01</span>
-          <span class="status-badge badge-done">✅ Live (n8n)</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">Lead Capture</div>
         <div class="wf-trigger"><span>Trigger:</span> GHL Form → Webhook<br>Claude qualifies lead → GHL contact + opportunity created</div>
@@ -884,7 +872,7 @@
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-02</span>
-          <span class="status-badge badge-done">✅ Live (n8n)</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">AI Education Drip</div>
         <div class="wf-trigger"><span>Trigger:</span> Stage → Nurturing<br>Claude writes personalized Day 1 email (PAS framework, 200 words)</div>
@@ -892,7 +880,7 @@
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-03</span>
-          <span class="status-badge badge-done">✅ Live (n8n)</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">Strategy Call Booking → Prep</div>
         <div class="wf-trigger"><span>Trigger:</span> Stage → Call Scheduled<br>Claude generates call prep · saves to notes · sends confirmation email</div>
@@ -900,7 +888,7 @@
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-04</span>
-          <span class="status-badge badge-done">✅ Live (n8n)</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">Post-Call Follow-Up</div>
         <div class="wf-trigger"><span>Trigger:</span> Stage → Call Complete<br>Claude writes proposal email · creates follow-up task · moves stage to Proposal Sent</div>
@@ -908,7 +896,7 @@
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-05</span>
-          <span class="status-badge badge-done">✅ Live (n8n)</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">Policy Active → Investor Transition</div>
         <div class="wf-trigger"><span>Trigger:</span> Stage → Policy Active + cash value &gt;$50K<br>12-node cross-entity handoff: stage update → tags → Claude email → note.</div>
@@ -916,192 +904,183 @@
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">WF-VC-06</span>
-          <span class="status-badge badge-done">✅ Live (n8n)</span>
+          <span class="status-badge badge-done">✅ Live (GHL)</span>
         </div>
         <div class="wf-name">Monthly Client Report</div>
         <div class="wf-trigger"><span>Trigger:</span> Cron — 1st of month<br>Fetches active clients → Claude writes 400–500 word report → GHL Conversations API delivers → note logged</div>
       </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">PD-EVENTS</span>
-          <span class="status-badge badge-done">✅ Published</span>
-        </div>
-        <div class="wf-name">Pipedrive Webhook Receiver (VC)</div>
-        <div class="wf-trigger"><span>May 12:</span> Listens to all VC Pipedrive events · Routes stage changes, deal adds, person adds · Fixed v2.0 payload (meta.entity, previous.stage_id detection)</div>
-      </div>
     </div>
   </div>
 
-  <!-- Konsier Section -->
+  <!-- Konsier AI Receptionist System -->
   <div class="section">
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
-      <h2>Konsier — AI Receptionist Agency (Revised SOP May 14)</h2>
-      <span class="count">Phase 4 of 7 (ahead of schedule) · Phase 3 done (Hostinger) · 9 workflows built · 39 steps · 8 agents · 4 live · 5 inactive (pending activation)</span>
+      <h2>Konsier — AI Receptionist System (Drew Williams)</h2>
+      <span class="count">11 built · 6 live · 5 inactive (pending credentials / Michael)</span>
     </div>
     <div class="wf-grid">
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-STEP-07</span>
-          <span class="status-badge badge-done">✅ Done</span>
-        </div>
-        <div class="wf-name">3 Pipelines — Updated to V5 ✅</div>
-        <div class="wf-trigger">Built May 11. Renamed May 14 (SELF-SERVE → INBOUND, CLOSER TRACK → CUSTOMER LIFECYCLE). <strong>Full V5 stage rebuild confirmed with Drew — "Stick with V5 going forward."</strong><br>
-        <strong>Outbound:</strong> Emailed/AI Qualified/Async Demo → New Lead · Email Sent · Replied · Demo Booked · Demo Completed · Qualified · Lost/Disqualified<br>
-        <strong>Inbound:</strong> Demo Engaged/Checkout/Paid → Inbound Call · Qualified by Retell · Demo Scheduled · Demo Completed · Qualified · Lost<br>
-        <strong>Customer Lifecycle:</strong> Booked/Demo Held/Proposal/Negotiating → Won-Onboarding · Live · Healthy · At Risk · Churned</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-STEP-08</span>
-          <span class="status-badge badge-done">✅ Done</span>
-        </div>
-        <div class="wf-name">13 Custom Fields Created</div>
-        <div class="wf-trigger">4 Person fields (niche, years_in_business, employee_count, churn_risk_score) · 9 Deal fields (AI transcript, tier match, urgency, MRR, demo tracking, closer brief, Notion URL)</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-STEP-09</span>
-          <span class="status-badge badge-done">✅ Done</span>
-        </div>
-        <div class="wf-name">4 Permission Sets Created</div>
-        <div class="wf-trigger">VA-Outbound · VA-Fulfillment · Closer · Admin — role-based access configured. Visibility groups deferred until VAs hired.</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-PD-EVENTS</span>
-          <span class="status-badge badge-done">✅ Published</span>
-        </div>
-        <div class="wf-name">Konsier Pipedrive Webhook Receiver</div>
-        <div class="wf-trigger"><span>May 12:</span> Completely separate from VC · Path: konsier-pipedrive-events · Routes: Stage Changed · Deal Added · Person Added · Isolated per Drew's requirement</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-A1</span>
-          <span class="status-badge badge-done">✅ Done</span>
-        </div>
-        <div class="wf-name">AI Qualification — Auto Stage 91</div>
-        <div class="wf-trigger"><span>May 13:</span> Pipedrive native automation. Trigger: transcript_filled field set → Stage = AI Qualified (stage 91, OUTBOUND pipeline). Foundation for Claude lead scoring agent.</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-A4</span>
-          <span class="status-badge badge-done">✅ Done</span>
-        </div>
-        <div class="wf-name">Stalled Deal Slack Alert</div>
-        <div class="wf-trigger"><span>May 13 → Fixed May 14:</span> n8n scheduled workflow (Pipedrive rotting cannot trigger native automations). Threshold updated to 7 days per revised SOP. KS-ERR wired as error handler.</div>
-      </div>
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">KS-ERR</span>
           <span class="status-badge badge-done">✅ Live</span>
         </div>
-        <div class="wf-name">Error Handler — All Konsier Workflows</div>
-        <div class="wf-trigger"><span>May 14:</span> Error Trigger → Extract workflow name + node + error message → Slack #konsier alert. Wired to KS-A4, KS-PD-EVENTS, KS-WF6, KS-WF4. Every future workflow gets this set as error workflow before activation.</div>
+        <div class="wf-name">Error Handler</div>
+        <div class="wf-trigger"><span>Always-on:</span> Catches all n8n execution errors → Slack #konsier-errors alert with workflow name + error message</div>
       </div>
       <div class="wf-card done">
         <div class="wf-top">
-          <span class="wf-id">KS-WF4</span>
-          <span class="status-badge badge-done">✅ Built (Sandbox)</span>
+          <span class="wf-id">KS-PD-EVENTS</span>
+          <span class="status-badge badge-done">✅ Live</span>
         </div>
-        <div class="wf-name">Stripe Payment → Onboarding Chain</div>
-        <div class="wf-trigger"><span>May 15:</span> Stripe Trigger (checkout.session.completed) → Set 6 fields (customerEmail, customerName, amountTotal, pipedriveDealId, plan, stripeSessionId) → PATCH Pipedrive to stage 98 (Paid) → Slack #konsier "New Paid Customer" alert. Sandbox mode. Parallel onboarding branches (DocuSign/Notion/M365) pending Drew's templates.</div>
+        <div class="wf-name">Pipedrive Webhook Receiver</div>
+        <div class="wf-trigger"><span>Trigger:</span> Pipedrive deal events → routes to relevant downstream Konsier workflows</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top">
+          <span class="wf-id">KS-A4</span>
+          <span class="status-badge badge-done">✅ Live</span>
+        </div>
+        <div class="wf-name">Stalled Deal Alert</div>
+        <div class="wf-trigger"><span>Trigger:</span> Daily cron — deals stalled &gt;7 days in any Konsier stage → Slack #konsier-leads alert with deal details + link</div>
       </div>
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">KS-WF1</span>
-          <span class="status-badge badge-done">✅ Done</span>
+          <span class="status-badge badge-done">✅ Live</span>
         </div>
-        <div class="wf-name">Email Reply Handler — Reply Triage Agent #2</div>
-        <div class="wf-trigger"><span>May 15:</span> Webhook (Instantly reply) → Respond 200 OK → Set 5 fields → Claude Haiku classifier (positive/objection/question/unsubscribe/out_of_office/needs_review) → Code parser with markdown stripping + confidence threshold (0.7) + routeAction field.<br><span>May 18:</span> Switch routing built (6 routes) + all 6 branches — Slack alerts (#konsier-leads / #konsier-review), auto-reply No-Op, unsubscribe → Instantly blocklist API. Routing test passed. KS-ERR wired.</div>
+        <div class="wf-name">Email Reply Handler</div>
+        <div class="wf-trigger"><span>Trigger:</span> Instantly reply webhook → AGENT-02 Reply Triage → Retell Sarah dial if warm. Dynamic vertical field fixed May 25.</div>
       </div>
       <div class="wf-card done">
         <div class="wf-top">
           <span class="wf-id">KS-WF2</span>
-          <span class="status-badge badge-done">✅ Done</span>
+          <span class="status-badge badge-done">✅ Live</span>
         </div>
-        <div class="wf-name">Retell Voice Qualification Webhook — Dual Branch (Outbound + Inbound)</div>
-        <div class="wf-trigger"><span>May 19 v1:</span> Retell webhook → Code filter (call_analyzed only) → Set 5 fields → Claude Haiku summarizer → Code parser → POST Pipedrive Note → PATCH deal to stage 97 "Qualified by Retell" (v2 API). Outbound only. End-to-end tested ✅.<br><span>May 19 v2 (updated):</span> Added dual-branch IF node — checks if <code>pipedriveDealId</code> is present. <strong>TRUE (outbound)</strong>: existing deal → original Claude → Note → PATCH stage 97 flow. <strong>FALSE (inbound — web lead)</strong>: no deal exists yet → Set extract custom_analysis_data fields (caller_name, caller_email, business_type, pain_point) → POST Pipedrive Person → POST Pipedrive Deal (INBOUND pipeline 14, stage 96 "Inbound Call") → POST Pipedrive Note → Slack #konsier-leads alert. Both branches live in one workflow.<br><span>May 20 — Bug fix + full verification:</span> Discovered all inbound Set node fields returning null — root cause: upstream "Set - Extract Call Data" node overwrites <code>$json</code> before inbound branch runs. Fixed all 9 expressions to use <code>$('Webhook').first().json.body.call.call_analysis...</code> to reference original webhook data directly. Fixed deal title (was "undefined — undefined") by correcting <code>$json.callerName</code> → <code>$('Set - Extract Inbound Fields').first().json.callerName</code>. Expanded inbound Set node to 9 fields (added: businessSize, callVolume, currentSolution, qualificationResult). Updated Pipedrive Deal POST to include Qualification Result enum (178=Qualified, 179=Not Qualified). Full live test ✅ — called +1 (415) 799-4325, completed Alex 4-question flow as "Mike Torres / HVAC / mike@toroshvac.com" — Pipedrive deal "Mike Torres — HVAC (Inbound Web Call)" created in stage 96 with all 8 fields + note + Slack alert fired in 806ms.</div>
+        <div class="wf-name">Retell Qualification Webhook</div>
+        <div class="wf-trigger"><span>Trigger:</span> call_analyzed → AGENT-PQA → Pipedrive deal create/update → Slack alert. May 25: null fallbacks + deal ID expression fixed.</div>
       </div>
       <div class="wf-card done">
         <div class="wf-top">
-          <span class="wf-id">KS-AGENT</span>
-          <span class="status-badge badge-done">✅ Done</span>
+          <span class="wf-id">KS-WF4</span>
+          <span class="status-badge badge-done">✅ Live (partial)</span>
         </div>
-        <div class="wf-name">Konsier — Website Receptionist (Retell AI Agent "Alex")</div>
-        <div class="wf-trigger"><span>May 19 V1:</span> Created Retell AI inbound agent "Alex" (Single Prompt, natural female voice). Persona: AI receptionist for Konsier — answers visitors who click the konsier.ai widget. Conversation flow: greet → qualify vertical → surface missed-call pain → collect name + email. Post-Call Data Extraction: caller_name, caller_email, business_type, pain_point (4 fields). Voice Orb enabled — web embed iframe generated, ready for konsier.ai WordPress developer. Published as V1.<br><span>May 20 V5 upgrade:</span> Rewrote system prompt to V5 4-question qualification flow — (1) business type, (2) team size, (3) daily call volume, (4) current call solution → qualified path collects name + email for demo booking; unqualified path closes politely. Added 4 new Post-Call Data Extraction fields: business_size, call_volume, current_solution, qualification_result — now 8 fields total. Created 3 matching Pipedrive custom fields: Daily Call Volume (Person), Current Call Solution (Person), Qualification Result enum (Deal — Qualified=178 / Not Qualified=179). Tested live — all 8 fields captured correctly and written to Pipedrive ✅. Published as V5 — Website Receptionist.</div>
+        <div class="wf-name">Stripe → Onboarding Chain</div>
+        <div class="wf-trigger"><span>Trigger:</span> Stripe payment success → Pipedrive stage update (101) → AGENT-06 Onboarding Drafter. Stage ID fixed May 25.</div>
       </div>
-      <div class="wf-card blocked">
-        <div class="wf-top">
-          <span class="wf-id">KS-A5</span>
-          <span class="status-badge badge-blocked">⚠ Blocked</span>
-        </div>
-        <div class="wf-name">Hot Lead Tagging (Wistia)</div>
-        <div class="wf-trigger">Trigger: Wistia video watched milestone → label "Hot Lead" applied + activity created for same-day outreach. Pure workflow, no AI needed. <strong>Blocked — no Wistia account yet.</strong> Needs Drew's Wistia account + webhook setup.</div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-WF6</span>
-          <span class="status-badge badge-done">✅ Built · Inactive</span>
-        </div>
-        <div class="wf-name">Daily Outbound Lead Pipeline — Production</div>
-        <div class="wf-trigger"><span>May 22 — Production merge complete (16 nodes).</span> Schedule (9AM LA) → Apollo search 500 ICP contacts → Code ICP Score &amp; Filter (≥70 threshold — roofing +40, dental +35, medical +35, HVAC +15, size 3-25 +25, title +20, ServiceTitan/HCP/Jobber exclusion −20) → HTTP Notion Dedup Check → IF New Contact → Code Batch-50 → Claude AGENT-01 (BASHO openers) → Code Parse Output → Instantly Add Lead → Notion Lead Log (native node) → Code Aggregate → Slack #konsier-leads summary. Apollo saved searches confirmed live: Roofing Storm Belt (796 leads), Dental Suburban, Medical Sun Belt. KS-ERR wired. <strong>Blocked: Instantly campaign IDs (3 needed) + GoDaddy IMAP fix from Drew (URGENT — blocks warmup clock).</strong></div>
-      </div>
-      <div class="wf-card done">
-        <div class="wf-top">
-          <span class="wf-id">KS-BOT</span>
-          <span class="status-badge badge-done">✅ Done</span>
-        </div>
-        <div class="wf-name">Konsier Bot — Slack Icon</div>
-        <div class="wf-trigger"><span>May 13:</span> Custom SVG icon designed for Konsier Bot (dark background, purple gradient K monogram). Uploaded to Slack app — bot now shows Konsier branding in all #konsier notifications.</div>
-      </div>
-      <div class="wf-card done">
+      <div class="wf-card inactive">
         <div class="wf-top">
           <span class="wf-id">KS-WF3</span>
-          <span class="status-badge badge-done">✅ Built · Inactive</span>
+          <span class="status-badge badge-inactive">Built — Inactive</span>
         </div>
         <div class="wf-name">Website Contact Form → Pipedrive</div>
-        <div class="wf-trigger"><span>May 22 — Built (6 nodes).</span> Webhook (path: konsier-contact) → Code HMAC Verify (SHA-256 signature on X-Konsier-Signature header) → Set Extract Fields (name, email, company, message, phone) → Respond 200 OK → HTTP POST Pipedrive Person → HTTP POST Pipedrive Deal (INBOUND pipeline, stage 96 Inbound Call) → Slack #konsier-leads alert. HMAC secret generated: <code>f490f82...d43fe7</code>. <strong>Waiting on Michael: add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET to wp-config.php · embed Calendly https://calendly.com/drew-konsier/30min on site.</strong> Action needed: set "Slack — Velocity Capital" credential on Slack node in n8n UI.</div>
+        <div class="wf-trigger"><span>Blocked — Michael:</span> Add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET to wp-config.php → activates contact form → deal creation</div>
       </div>
-      <div class="wf-card done">
+      <div class="wf-card inactive">
+        <div class="wf-top">
+          <span class="wf-id">KS-WF6</span>
+          <span class="status-badge badge-inactive">Built — Inactive</span>
+        </div>
+        <div class="wf-name">Daily Outbound Lead Pipeline</div>
+        <div class="wf-trigger"><span>Blocked — Drew:</span> Instantly campaign IDs (Roofing/Dental/Medical) + GoDaddy IMAP fix for email warmup activation</div>
+      </div>
+      <div class="wf-card inactive">
         <div class="wf-top">
           <span class="wf-id">KS-A2</span>
-          <span class="status-badge badge-done">✅ Built · Inactive</span>
+          <span class="status-badge badge-inactive">Built — Inactive</span>
         </div>
-        <div class="wf-name">Tier Routing — Webhook + Deal Updater</div>
-        <div class="wf-trigger"><span>May 22 — Built (11 nodes).</span> Webhook receiver → Code Tier Logic (daily_call_volume × 22 → Starter &lt;100/mo · Professional 100–400/mo · Enterprise 400+/mo · Not Qualified) → IF Manual Override (skips if tier_match already set) → HTTP PATCH Pipedrive deal stage + tier_match field (v2 API, custom_fields wrapper) → HTTP POST Pipedrive note → Switch → 4 Slack branches (#konsier-leads for Starter/Pro/Enterprise · #konsier-review for Not Qualified). Edge cases: null volume defaults to Professional, volume 0-1 flags for review, volume &gt;100/day escalates to Enterprise + large-operation Slack alert. <strong>Action needed: set "Slack — Velocity Capital" credential on all 4 Slack nodes in n8n UI.</strong></div>
+        <div class="wf-name">Tier Routing</div>
+        <div class="wf-trigger"><span>Logic:</span> Call volume → tier assignment → Pipedrive stage update → Slack alert. Slack credentials need setting in n8n UI.</div>
       </div>
-      <div class="wf-card blocked">
+      <div class="wf-card inactive">
         <div class="wf-top">
-          <span class="wf-id">KS-A3</span>
-          <span class="status-badge badge-blocked">⚠ Blocked</span>
+          <span class="wf-id">KS-WF7 / AGENT-05</span>
+          <span class="status-badge badge-inactive">Built — Inactive</span>
         </div>
-        <div class="wf-name">Closer Round-Robin Assignment</div>
-        <div class="wf-trigger">Deferred — Drew is the sole closer for now. Round-robin logic is moot until additional closers are hired. Will revisit when team expands.</div>
+        <div class="wf-name">Customer Call QA</div>
+        <div class="wf-trigger"><span>Trigger:</span> retell-customer-qa webhook → Claude Haiku QA analysis → IF alert_required → Slack #konsier-escalations. 8 nodes.</div>
       </div>
-      <div class="wf-card pending">
+      <div class="wf-card inactive">
         <div class="wf-top">
-          <span class="wf-id">KS-A6</span>
-          <span class="status-badge badge-pending">🔄 Ready to Build</span>
+          <span class="wf-id">KS-A6 / AGENT-06</span>
+          <span class="status-badge badge-inactive">Built — Inactive</span>
         </div>
-        <div class="wf-name">Closed-Won → Onboarding Trigger</div>
-        <div class="wf-trigger">Tools now accessible — blocker resolved. V5 Layer 5 won-deal chain: Pipedrive deal → Won → n8n fires → pull deal details → pre-fill DocuSign template → send to prospect → wait for signature webhook → send Stripe Payment Link (Starter $497 / Pro $797 / Enterprise $1,497) → on payment → create Notion customer record → assign to Fulfillment VA → post #wins Slack celebration. SDVOSB/government branch: check Government/SDVOSB Channel field → route to manual invoicing instead of Stripe. Build queued.</div>
+        <div class="wf-name">Onboarding Drafter</div>
+        <div class="wf-trigger"><span>Trigger:</span> konsier-onboarding-intake webhook → Claude Sonnet 4.6 → Notion Client Onboarding page create → Slack #konsier-review. 7 nodes.</div>
       </div>
-      <div class="wf-card pending">
+    </div>
+
+    <!-- Retell AI Agents -->
+    <div class="section-header" style="margin-top: 20px;">
+      <span class="entity-tag tag-ks">RETELL</span>
+      <h2>Retell AI Voice Agents</h2>
+      <span class="count">Alex PUBLISHED V6 · Sarah built V4 · awaiting outbound go-ahead</span>
+    </div>
+    <div class="wf-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="wf-card done">
         <div class="wf-top">
-          <span class="wf-id">KS-STEP-11</span>
-          <span class="status-badge badge-pending">⏳ Queued</span>
+          <span class="wf-id">ALEX — Inbound Receptionist</span>
+          <span class="status-badge badge-done">✅ PUBLISHED V6</span>
         </div>
-        <div class="wf-name">Pipedrive AI Sales Assistant</div>
-        <div class="wf-trigger">Enable win probability prediction + email summarization. Connect Drew's email accounts. Needs ~24h to index.</div>
+        <div class="wf-name">Website Receptionist · Voice Orb Live</div>
+        <div class="wf-trigger">5-section expert prompt · 4 objection handlers (pricing $497/mo, just browsing, answering service, callback) · free trial CTA · end_call triggers · post_call_analysis (11 fields). Voice Orb embedded on konsier.ai — Michael updating iframe to V3 URL.</div>
       </div>
-      <div class="wf-card blocked">
+      <div class="wf-card inactive">
         <div class="wf-top">
-          <span class="wf-id">KS-STEP-05</span>
-          <span class="status-badge badge-blocked">⚠ Unblocked</span>
+          <span class="wf-id">SARAH — Outbound Qualifier</span>
+          <span class="status-badge badge-inactive">Built V4 — Unpublished</span>
         </div>
-        <div class="wf-name">GitHub Repository Setup</div>
-        <div class="wf-trigger">Private repo with /n8n-workflows/, /claude-agents/, /crm-schema/, /runbooks/ structure. Can start now — not blocked by Drew.</div>
+        <div class="wf-name">Outbound Voice Qualifier</div>
+        <div class="wf-trigger">5-section expert prompt · 5 objection handlers · $12.8k/mo stat hook · Thu/Fri time slots · end_call triggers. Waiting on Drew go-ahead to activate outbound campaign.</div>
+      </div>
+    </div>
+
+    <!-- Claude Agents -->
+    <div class="section-header" style="margin-top: 20px;">
+      <span class="entity-tag tag-ks">AGENTS</span>
+      <h2>Konsier — Claude AI Agents (8 Total)</h2>
+      <span class="count">6 prompts complete · 2 pending SOP pages 26–33</span>
+    </div>
+    <div class="lg-grid">
+      <div class="lg-card">
+        <div class="lg-id" style="color: #818cf8;">AGENT-01</div>
+        <div class="lg-name">Outbound Operator</div>
+        <div class="lg-desc">Reviews lead data → writes personalized cold outreach copy for Instantly campaigns</div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-id" style="color: #818cf8;">AGENT-02 ✅ Live</div>
+        <div class="lg-name">Reply Triage</div>
+        <div class="lg-desc">Reads Instantly reply → classifies intent → routes to Retell Sarah dial or marks not interested in Pipedrive</div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-id" style="color: #818cf8;">AGENT-03 (PQA)</div>
+        <div class="lg-name">Qualification Analyzer</div>
+        <div class="lg-desc">Reads Retell call transcript → BANT score → updates Pipedrive stage + Notion Call QA Queue</div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-id" style="color: #818cf8;">AGENT-04</div>
+        <div class="lg-name">Closer Copilot</div>
+        <div class="lg-desc">Pre-call briefing agent for Drew — pending SOP pages 26–33 from Drew</div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-id" style="color: #818cf8;">AGENT-05 ✅ Built</div>
+        <div class="lg-name">Customer Call QA</div>
+        <div class="lg-desc">Post-call quality analysis → detects red flags → Slack #konsier-escalations if alert_required</div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-id" style="color: #818cf8;">AGENT-06 ✅ Built</div>
+        <div class="lg-name">Onboarding Drafter</div>
+        <div class="lg-desc">12-field intake → Claude Sonnet draft → Notion Client Onboarding page → Slack #konsier-review</div>
+      </div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-07</div>
+        <div class="lg-name">Bookkeeping Reconciler</div>
+        <div class="lg-desc">Pending: Drew QBO setup + SOP pages 26–33</div>
+      </div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-08</div>
+        <div class="lg-name">Founder Brief Writer</div>
+        <div class="lg-desc">Pending: SOP pages 26–33 from Drew</div>
       </div>
     </div>
   </div>
@@ -1235,58 +1214,53 @@
     </div>
   </div>
 
-  <!-- Konsier Claude Agents -->
+  <!-- LangGraph Agents (VC Phase 2) -->
   <div class="section">
     <div class="section-header">
-      <span class="entity-tag tag-ks">KS</span>
-      <h2>Konsier — 8 Claude Agents (Phase 5)</h2>
-      <span class="count">4 built (AGENT-01 wired in WF6 · AGENT-02 live · AGENT-03 live · AGENT-PQA live) · 4 remaining · AGENT-PQA is Vladimir's addition (not in Drew's SOP)</span>
+      <span class="entity-tag tag-lg">LG</span>
+      <h2>LangGraph — VC AI Agent Layer (Phase 2)</h2>
+      <span class="count">0 done · 8 agents to build · after Pipedrive rebuild complete</span>
     </div>
     <div class="lg-grid">
-      <div class="lg-card">
-        <div class="lg-id">AGENT-01 · Sales ✅ Built (inside KS-WF6)</div>
-        <div class="lg-name">Outbound Operator</div>
-        <div class="lg-desc">Personalized BASHO cold email openers + ICP scoring. Batch 50 contacts per Claude call (10x cost reduction). Built and wired into KS-WF6 production workflow. Pending KS-WF6 activation (waiting Instantly campaign IDs + GoDaddy IMAP fix from Drew).</div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-01</div>
+        <div class="lg-name">Orchestrator Agent</div>
+        <div class="lg-desc">Routes leads through the full VC system — supervisor of all other agents</div>
       </div>
-      <div class="lg-card">
-        <div class="lg-id">AGENT-02 · Sales ✅ LIVE</div>
-        <div class="lg-name">Reply Triage</div>
-        <div class="lg-desc">Classify email replies (Interested / Unsubscribe / Bounce / Ambiguous) + route + draft response for VA #1 approval.</div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-02</div>
+        <div class="lg-name">Lead Gen Agent</div>
+        <div class="lg-desc">LinkedIn + Google + SEO — autonomous lead sourcing</div>
       </div>
-      <div class="lg-card">
-        <div class="lg-id">AGENT-03 · Sales ✅ LIVE</div>
-        <div class="lg-name">Qualification Analyzer</div>
-        <div class="lg-desc">Voice transcript → 10 structured Pipedrive fields (tier_match, business_size, call_volume, current_solution, pain_point_summary, urgency_score, qualification_result, closer_brief, red_flags, AI transcript). Wired into KS-WF2 outbound branch May 21.</div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-03</div>
+        <div class="lg-name">Education Agent</div>
+        <div class="lg-desc">Delivers content sequences — replaces WF-VC-02 Claude calls with full agent logic</div>
       </div>
-      <div class="lg-card">
-        <div class="lg-id">AGENT-PQA · QA ✅ LIVE (Vladimir's addition)</div>
-        <div class="lg-name">Prompt Quality Agent</div>
-        <div class="lg-desc">Self-improving Retell prompt quality loop — not in Drew's original SOP. Fires inline in KS-WF2 when AGENT-03 outputs red_flags. Claude Haiku writes ONE specific Retell prompt fix in structured JSON (fix_type, prompt_section, current_text, suggested_text, rationale, severity) → logged to Notion KS — Call QA Queue. VA reviews → I update the Retell agent prompt directly. Live May 22. Slack alert for new Notion entries: pending.</div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-04</div>
+        <div class="lg-name">Appointment Setter</div>
+        <div class="lg-desc">Qualifies + books calls — connects to Calendly via LangGraph tools</div>
       </div>
-      <div class="lg-card">
-        <div class="lg-id">AGENT-04 · Sales 🔄 Ready to Build</div>
-        <div class="lg-name">Closer Copilot</div>
-        <div class="lg-desc">Prompt received (Drew's 8 Claude Agent Prompts v1.0). 3 modes: pre-call brief (30 min before demo), post-call summary, nightly objection mining from Closed-Lost deals. Unblocked — building Monday.</div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-05</div>
+        <div class="lg-name">Onboarding Agent</div>
+        <div class="lg-desc">Trust + policy + entity setup — guides new VC clients through onboarding</div>
       </div>
-      <div class="lg-card">
-        <div class="lg-id">AGENT-05 · Fulfillment 🔄 Ready to Build</div>
-        <div class="lg-name">Customer Call QA</div>
-        <div class="lg-desc">Prompt received. Audits every customer AI receptionist call. quality_score 1–10. 3 strikes in 7 days → bump churn_risk_score + Slack #escalations. Unblocked — building Monday.</div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-06</div>
+        <div class="lg-name">Deal Matching Agent</div>
+        <div class="lg-desc">Matches investors to deals — queries Pinecone av-knowledge/investors</div>
       </div>
-      <div class="lg-card">
-        <div class="lg-id">AGENT-06 · Fulfillment 🔄 Ready to Build</div>
-        <div class="lg-name">Onboarding Drafter</div>
-        <div class="lg-desc">Prompt received. Intake form → Retell agent script + FAQ + booking rules. Writes Notion draft → VA reviews before provisioning. Unblocked — building Monday.</div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-07</div>
+        <div class="lg-name">Investor Follow-Up Agent</div>
+        <div class="lg-desc">Retention + upsell — re-engages inactive investors automatically</div>
       </div>
-      <div class="lg-card blocked">
-        <div class="lg-id">AGENT-07 · Back Office ⚠ Blocked</div>
-        <div class="lg-name">Bookkeeping Reconciler</div>
-        <div class="lg-desc">Monthly: Stripe ↔ bank ↔ QBO reconciliation. Flags mismatches. Writes P&L narrative to Notion. <strong>Blocked — waiting on Drew: pages 26–33 of SOP (prompt) + QBO setup.</strong></div>
-      </div>
-      <div class="lg-card blocked">
-        <div class="lg-id">AGENT-08 · Back Office ⚠ Blocked</div>
-        <div class="lg-name">Founder Brief Writer</div>
-        <div class="lg-desc">Monday 06:00 UTC: pulls Pipedrive + Stripe + Slack + Notion → one-page brief emailed to Drew. MRR delta, fires, wins, watch items. <strong>Blocked — waiting on Drew: pages 26–33 of SOP (prompt).</strong></div>
+      <div class="lg-card pending">
+        <div class="lg-id">AGENT-08</div>
+        <div class="lg-name">Property Management Agent</div>
+        <div class="lg-desc">STR + rental optimization — Hospitable + PriceLabs + guest responses</div>
       </div>
     </div>
   </div>
@@ -1334,89 +1308,48 @@
 
   <!-- Blockers -->
   <div class="blockers-section">
-    <h3>⚠ Currently Pending from Drew (as of May 19)</h3>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
+    <h3>⚠ Action Required — Pending from Drew &amp; Michael</h3>
+
+    <div class="blocker-item">
+      <div class="blocker-icon">⚡</div>
       <div class="blocker-content">
-        <div class="title">RESOLVED — Retell Phone Number Provisioned (May 20)</div>
-        <div class="desc">New 415 area code number <strong>+1 (415) 799-4325</strong> provisioned via Retell API and assigned to Alex (Website Receptionist — agent_d6bc4dc26c535c556dcfa765d7) — confirmed live. Inbound calls to this number connect directly to Alex. Same number used as from_number for Sarah outbound calls in KS-WF6. Michael to update tel: link on konsier.ai to +1 (415) 799-4325. Drew deleted previous numbers (906 + 415-683-0326) and replaced with this number.</div>
+        <div class="title">URGENT — Drew: HeyReach Trial Expires ~May 27</div>
+        <div class="desc">Upgrade trial + connect LinkedIn account → unblocks KS-WF5 LinkedIn Outreach pipeline</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">📨</div>
+      <div class="blocker-icon">📧</div>
       <div class="blocker-content">
-        <div class="title">Instantly Mailbox IMAP Connection</div>
-        <div class="desc">8 Microsoft 365 mailboxes created ✅ (May 19). Next step: connect all 8 to Instantly via IMAP (Email Accounts → Add Account) — targeting May 20. 14-day warmup clock starts from IMAP connection date. Earliest outbound go-live: ~June 3. KS-WF6 is fully built and ready to fire the moment mailboxes are warm.</div>
-      </div>
-    </div>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
-      <div class="blocker-content">
-        <div class="title">RESOLVED — Apollo Geography Targets (V5 Vertical Action Items)</div>
-        <div class="desc">Full geographic targets confirmed in V5 Vertical Action Items doc. Phase 1 verticals: <strong>Roofing</strong> — Tier A: Dallas-FW, OKC, Wichita, Denver, Colorado Springs, Kansas City MO, Tulsa · Tier A2: Tampa, Orlando, Jacksonville, Houston, San Antonio · Tier B: Phoenix, Las Vegas, Tucson. <strong>Dental</strong> — Tier A: Plano TX, Frisco TX, Cary NC, Sugar Land TX, Naperville IL, Overland Park KS, Scottsdale AZ · Tier A2: Atlanta suburbs, Phoenix suburbs, Charlotte, Raleigh-Durham, Austin, Nashville. <strong>Medical</strong> — Tier A: Phoenix, Tucson, Las Vegas, Tampa, Orlando, Jacksonville, Sarasota, Naples FL · Tier A2: Houston, San Antonio, Austin, Charlotte, Raleigh, Nashville. Phase 2 (HVAC, Plumbing) geography also documented — scaffold only. KS-WF6 Apollo searches ready to build with exact filters.</div>
+        <div class="title">Drew: Instantly Campaign IDs + GoDaddy IMAP Fix</div>
+        <div class="desc">Roofing-StormBelt / Dental-Suburban / Medical-SunBelt campaign IDs. GoDaddy IMAP fix unblocks warmup + KS-WF6 outbound pipeline activation.</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">📨</div>
+      <div class="blocker-icon">🎬</div>
       <div class="blocker-content">
-        <div class="title">Instantly Campaign Confirmation</div>
-        <div class="desc">Once the mailboxes are added, confirm which Instantly campaign KS-WF6 should feed leads into (3-email sequence, mailboxes assigned), or whether to create a new one.</div>
+        <div class="title">Drew: Wistia Account + Demo Videos</div>
+        <div class="desc">Create account, upload demo videos, share video IDs → unblocks KS-A5 Hot Lead trigger (Wistia milestone webhooks)</div>
       </div>
     </div>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
+    <div class="blocker-item">
+      <div class="blocker-icon">💳</div>
       <div class="blocker-content">
-        <div class="title">RESOLVED — Apollo Professional Upgrade</div>
-        <div class="desc">Apollo Professional plan purchased (May 18). The `mixed_people/search` endpoint now works — KS-WF6 lead sourcing is unblocked.</div>
+        <div class="title">Drew: Stripe Payment Links — 3 URLs</div>
+        <div class="desc">Starter $497 / Professional $797 / Enterprise $1,497 → unblocks website purchase flow and post-payment onboarding chain</div>
       </div>
     </div>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
+    <div class="blocker-item">
+      <div class="blocker-icon">📄</div>
       <div class="blocker-content">
-        <div class="title">RESOLVED — Calendly Login</div>
-        <div class="desc">Drew reset the Calendly password in 1Password (May 18) — login confirmed working.</div>
+        <div class="title">Drew: SOP Pages 26–33 (AGENT-04/07/08 Prompts)</div>
+        <div class="desc">Closer Copilot, Bookkeeping Reconciler, Founder Brief Writer system prompts needed to complete the final 3 Claude agents</div>
       </div>
     </div>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
+    <div class="blocker-item">
+      <div class="blocker-icon">🌐</div>
       <div class="blocker-content">
-        <div class="title">RESOLVED — Retell AI Credentials + KS-WF2 Built</div>
-        <div class="desc">Retell AI credentials added to 1Password (May 18). KS-WF2 built and end-to-end tested May 19 — "Sarah" agent live, webhook registered, call transcript → Claude summary → Pipedrive note + stage move to "Qualified by Retell" confirmed ✅. Phone number <strong>+1 (415) 799-4325</strong> provisioned via Retell API (May 20) — assigned to Alex (inbound) and used as from_number for Sarah (outbound). Michael to update tel: link on konsier.ai.</div>
-      </div>
-    </div>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
-      <div class="blocker-content">
-        <div class="title">RESOLVED — Notion Credentials</div>
-        <div class="desc">Notion login added to 1Password by Drew (May 18). Unblocks workflow logging + the customer onboarding wiki.</div>
-      </div>
-    </div>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
-      <div class="blocker-content">
-        <div class="title">RESOLVED — Server Decision: Hostinger</div>
-        <div class="desc">Konsier n8n stays on existing Hostinger VPS (n8n.srv1647733.hstgr.cloud). No migration to Hetzner needed.</div>
-      </div>
-    </div>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
-      <div class="blocker-content">
-        <div class="title">RESOLVED — 1Password Vault Fully Populated</div>
-        <div class="desc">Stripe, HeyReach, Apollo, Microsoft 365, DocuSign, Calendly, Instantly, Notion, GitHub, Konsier, Hostinger, Pipedrive, Velocity Capital, Anza — every login is now in the vault.</div>
-      </div>
-    </div>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
-      <div class="blocker-content">
-        <div class="title">RESOLVED — GitHub Account Available</div>
-        <div class="desc">GitHub login (drew@konsier.ai) now in 1Password. Ready to create konsier-automation private repo with full folder structure (n8n-workflows, claude-agents, crm-schema, runbooks).</div>
-      </div>
-    </div>
-    <div class="blocker-item resolved">
-      <div class="blocker-icon">✅</div>
-      <div class="blocker-content">
-        <div class="title">RESOLVED — Konsier Domain Live</div>
-        <div class="desc">konsier.ai built and live. WordPress site complete with pricing tiers ($497 / $797 / $1497).</div>
+        <div class="title">Michael (WordPress): Voice Orb Iframe + Webhook Credentials</div>
+        <div class="desc">1) Replace Voice Orb iframe src with V3 URL (agent.retellai.com/orb/...?token=812a93b0...) · 2) Add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET to wp-config.php → activates contact form → KS-WF3</div>
       </div>
     </div>
   </div>
@@ -1425,13 +1358,13 @@
   <div class="billing-section">
     <div class="billing-header">
       <div>
-        <div class="billing-title">Week 1 — Billing Report</div>
-        <div class="billing-sub">May 1–8, 2026 · Rate: $8/hr · Payment via Wise every Friday</div>
+        <div class="billing-title">Billing Report — Weeks 1–4</div>
+        <div class="billing-sub">May 1–25, 2026 · Week 1: $8/hr · Weeks 2–4: $500/week flat retainer · Payment via Wise</div>
       </div>
       <div class="billing-total-box">
-        <div class="billing-total-label">Week 1 Total</div>
-        <div class="billing-total-value">$384</div>
-        <div class="billing-total-sub">48 hrs logged · Payment due Friday May 8</div>
+        <div class="billing-total-label">Total Invoiced (Weeks 1–3)</div>
+        <div class="billing-total-value">$1,384</div>
+        <div class="billing-total-sub">Week 4 in progress · +$500 projected</div>
       </div>
     </div>
     <table class="billing-table">
@@ -1439,170 +1372,83 @@
         <tr>
           <th>Date</th>
           <th>Day</th>
-          <th>Login (PHT)</th>
-          <th>Logout (PHT)</th>
           <th>Hours</th>
           <th>Tasks Completed</th>
           <th>Earnings</th>
         </tr>
       </thead>
       <tbody>
+        <!-- Week 1 -->
+        <tr class="week-divider">
+          <td colspan="5">WEEK 1 — MAY 1–8, 2026 · $8/HR HOURLY · PAID ✅</td>
+        </tr>
         <tr class="done-row">
-          <td>May 1</td><td>Friday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>May 1</td><td>Friday</td><td>8 hrs</td>
           <td>WF-VC-01 Lead Capture + WF-VC-02 AI Education Drip + WF-VC-03 Strategy Call Booking — full build</td>
           <td class="earn">$64</td>
         </tr>
         <tr class="done-row">
-          <td>May 4</td><td>Monday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>May 4</td><td>Monday</td><td>8 hrs</td>
           <td>End-to-end demo test WF-VC-01 → WF-VC-03 + WF-VC-04 Post-Call Follow-Up initial build</td>
           <td class="earn">$64</td>
         </tr>
         <tr class="done-row">
-          <td>May 5</td><td>Tuesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>May 5</td><td>Tuesday</td><td>8 hrs</td>
           <td>WF-VC-04 troubleshooting + adjustments — task creation, internal notification, stage update all working</td>
           <td class="earn">$64</td>
         </tr>
         <tr class="done-row">
-          <td>May 6</td><td>Wednesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>May 6</td><td>Wednesday</td><td>8 hrs</td>
           <td>WF-VC-05 Policy Active → Investor Transition — full 12-node build, end-to-end test confirmed. Pipedrive CRM expert research. Entity emails received from Drew.</td>
           <td class="earn">$64</td>
         </tr>
         <tr class="done-row">
-          <td>May 7</td><td>Thursday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
+          <td>May 7</td><td>Thursday</td><td>8 hrs</td>
           <td>WF-VC-06 Monthly Client Report — full build. GHL Opportunities pull, Claude AI email generation (PAS 400–500 words), GHL Conversations API send, HTML formatting, Add Note.</td>
           <td class="earn">$64</td>
         </tr>
         <tr class="done-row">
-          <td>May 8</td><td>Friday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>WF-VC-06 end-to-end confirmed in Gmail. n8n workflows (WF-VC-01 to WF-VC-06) transferred 1 by 1 to Drew's n8n account. Slack bot created (Velocity Capital Bot, xoxb- token) — added to #all-velocity-capital only; remaining channels pending setup. SendGrid expert research saved to knowledge base. Pipedrive CRM audit: verified 4 pipelines (stages, probabilities, rotting — already built correctly by previous admin ✅), verified 18 Person fields ✅, verified 20+ Deal fields ✅, verified lost reasons ✅ — all confirmed matching Part 3 guide, no changes needed. NEW: created 7 Deal Labels from scratch (Military, Pilot, First Responder, High-W2, Business Owner, VIP/Referral, VA Loan Eligible). NEW: built Pipedrive Automation WF-01 (New Lead Assignment) + WF-02 (Strategy Call Follow-Up) — saved inactive pending n8n rebuild.</td>
+          <td>May 8</td><td>Friday</td><td>8 hrs</td>
+          <td>WF-VC-06 end-to-end confirmed. All 6 WF-VC workflows transferred to Drew's n8n. Slack bot created. Pipedrive CRM audit — verified 4 pipelines, 18 Person fields, 20+ Deal fields. 7 Deal Labels created. PD-WF-01 + PD-WF-02 built (inactive).</td>
           <td class="earn">$64</td>
         </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="4"><strong>Week 1 Total</strong></td>
-          <td><strong>48 hrs</strong></td>
-          <td><strong>PAID — May 8 via Wise ✅</strong></td>
-          <td class="earn"><strong>$384</strong></td>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
 
-  <!-- Week 2 Billing -->
-  <div class="billing-section">
-    <div class="billing-header">
-      <div>
-        <div class="billing-title">Week 2 — Billing Report</div>
-        <div class="billing-sub">May 11–16, 2026 · Rate: $12.50/hr ($500/wk flat ÷ 40hrs) · Wise @freelance1293</div>
-      </div>
-      <div class="billing-total-box">
-        <div class="billing-total-label">Week 2 Target</div>
-        <div class="billing-total-value">$500</div>
-        <div class="billing-total-sub">Due Friday May 16</div>
-      </div>
-    </div>
-    <table class="billing-table">
-      <thead>
-        <tr>
-          <th>Date</th><th>Day</th><th>Login (PHT)</th><th>Logout (PHT)</th><th>Hours</th><th>Tasks Completed</th><th>Earnings</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="done-row">
-          <td>May 11</td><td>Monday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Konsier project launched — read 31-page SOP. Created 3 Pipedrive pipelines (OUTBOUND, SELF-SERVE, CLOSER TRACK). Created 13 custom fields (4 Person + 9 Deal). Created 4 permission sets. Full SOP gap analysis + knowledge base documentation.</td>
-          <td class="earn">$100</td>
+        <!-- Week 2 -->
+        <tr class="week-divider">
+          <td colspan="5">WEEK 2 — MAY 11–16, 2026 · $500 FLAT RETAINER · PAID ✅</td>
         </tr>
         <tr class="done-row">
-          <td>May 12</td><td>Tuesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Built PD-EVENTS (VC Pipedrive webhook receiver) + KS-PD-EVENTS (Konsier webhook receiver) — both published in n8n. Fixed critical Pipedrive v2.0 payload bug (meta.entity, empty current object, stage detection via previous.stage_id). Konsier Pipedrive webhook registered and tested. Progress report updated and pushed to Vercel.</td>
-          <td class="earn">$100</td>
+          <td>May 11–16</td><td>Mon–Fri</td><td>~40 hrs</td>
+          <td>Konsier Phase 1: KS-ERR Error Handler · KS-PD-EVENTS Pipedrive receiver · KS-A4 Stalled Deal Alert · KS-WF1 Email Reply Handler + AGENT-02 Reply Triage · KS-WF2 Retell Qualification Webhook + AGENT-03 PQA · Retell Alex + Sarah initial setup · Konsier Pipedrive pipeline (3 tracks) + custom fields · Notion Lead Log + Client Health databases · Apollo + Instantly + Slack credentials configured</td>
+          <td class="earn">$500</td>
         </tr>
-        <tr class="done-row">
-          <td>May 13</td><td>Wednesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Konsier Step 10 — built KS-A1 (auto-stage 91 on transcript_filled), KS-A4 (stalled deal Slack alert, 3+ days no activity) as Pipedrive native automations. KS-A5 (Wistia hot lead tagging) designed but blocked — no Wistia account yet. Designed + uploaded Konsier Bot Slack icon (SVG, purple gradient). Built KS-WF6 Phase 1 POC in n8n: Manual Trigger → ICP Score Code node → IF ≥70 → Batch 50 → Claude Outbound Operator (BASHO framework, Sonnet 4.6) → Parse Output → Slack #konsier summary (1 message, all 5 openers). Researched Apollo + Clay integration architecture: API patterns, webhook flows, ZeroBounce pre-verification, Instantly campaign delivery, full cost breakdown ($156–$245/mo).</td>
-          <td class="earn">$100</td>
-        </tr>
-        <tr class="done-row">
-          <td>May 14</td><td>Thursday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Reviewed revised 43-page SOP (39 steps, 8 agents). Renamed Pipedrive pipelines via API (SELF-SERVE → INBOUND, CLOSER TRACK → CUSTOMER LIFECYCLE). Fixed KS-A4 stalled threshold (3 → 7 days). Built KS-ERR Error Handler — wired to all Konsier workflows. Built KS-WF6 real workflow structure: Schedule → Apollo ICP search → ICP Score &amp; Filter → Instantly campaign → Slack daily summary. Awaiting API keys from Drew to activate.</td>
-          <td class="earn">$100</td>
-        </tr>
-        <tr class="done-row">
-          <td>May 15</td><td>Friday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Generated Apollo API key (`n8n-enrichment`, master scope). Tested KS-WF6 end-to-end — Apollo free plan blocks search endpoint, escalated to Drew for $49/mo upgrade. Generated Instantly API key (`n8n-reply-handler`, all:all scope). Built KS-WF4 (Stripe Payment → Onboarding Chain) in sandbox mode — Stripe Trigger → Set 6 fields → PATCH Pipedrive stage 98 → Slack alert. Started KS-WF1 (Email Reply Handler) — Webhook + Set + Claude Haiku Reply Triage Agent #2 + Code parser with markdown stripping, confidence threshold (0.7), and routeAction field. Switch routing pending next session. Flagged Calendly + Instantly password issues in 1Password to Drew.</td>
-          <td class="earn">$100</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="4"><strong>Week 2 Total</strong></td>
-          <td><strong>Complete</strong></td>
-          <td><strong>Payment due: Friday May 16</strong></td>
-          <td class="earn"><strong>$500</strong></td>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
 
-  <!-- Week 3 Billing Report -->
-  <div class="billing-section">
-    <div class="billing-header">
-      <div>
-        <div class="billing-title">Week 3 — Billing Report</div>
-        <div class="billing-sub">May 18–22, 2026 · Rate: $12.50/hr ($500/wk flat ÷ 40hrs) · Wise @freelance1293</div>
-      </div>
-      <div class="billing-total-box">
-        <div class="billing-total-label">Week 3 Target</div>
-        <div class="billing-total-value">$500</div>
-        <div class="billing-total-sub">Complete ✅ · Payment due Friday May 22</div>
-      </div>
-    </div>
-    <table class="billing-table">
-      <thead>
-        <tr>
-          <th>Date</th><th>Day</th><th>Login (PHT)</th><th>Logout (PHT)</th><th>Hours</th><th>Tasks Completed</th><th>Earnings</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="done-row">
-          <td>May 18</td><td>Monday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Continued KS-WF1 (Email Reply Handler) — completed Switch node + all 6 classified branches: (1) Hot Lead → Slack #konsier-leads alert, (2) Objection → Slack #konsier-leads + flag, (3) Question → Slack #konsier-leads, (4) Needs Review → Slack #konsier-review, (5) Auto-Reply / OOO → No-Op defer, (6) Unsubscribe → Instantly API blocklist call. Created Slack channels #konsier-leads and #konsier-review (private, Konsier Bot + Drew invited). Drew cleared 4 credential blockers same day: Apollo Professional $49/mo upgrade (search API now live), Retell AI full credentials in 1Password (login + API key + agent ID + phone number + webhook destination), Notion login added, Calendly password reset. KS-WF1 in routing test.</td>
-          <td class="earn">$100</td>
+        <!-- Week 3 -->
+        <tr class="week-divider">
+          <td colspan="5">WEEK 3 — MAY 18–22, 2026 · $500 FLAT RETAINER · DUE</td>
         </tr>
         <tr class="done-row">
-          <td>May 19</td><td>Tuesday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td>Completed KS-WF1 routing test ✅. Built KS-WF2 v1 (Retell Qualification Webhook) end-to-end: Webhook → Code filter → Claude Haiku summarizer → Code parser → POST Pipedrive Note → PATCH deal stage 97 "Qualified by Retell" (v2 API). Resolved: payload wraps under body key, Pipedrive v1 PATCH broken → v2 API. Created Retell "Sarah" outbound agent (Konsier Outbound Qualifier — Single Prompt, dynamic vars: lead_name/company_name/vertical). Registered workspace webhook. Test passed ✅. Then updated KS-WF2 to v2 dual-branch architecture: IF pipedriveDealId present → outbound branch (existing flow) / IF absent → inbound branch (POST Person → POST Deal in INBOUND pipeline stage 96 → POST Note → Slack). Built Retell "Alex" agent (Website Receptionist — inbound, Single Prompt): qualifies HVAC/roofing/dental/medical visitors, collects caller_name/caller_email/business_type/pain_point via Post-Call Data Extraction. Voice Orb enabled. Corrected Sarah outbound agent prompt (was "scheduling software" → corrected to "AI receptionist that answers calls 24/7" + corrected hook/pitch). Web embed iframe code generated + ready for konsier.ai WordPress developer. Reviewed V5 SOP + Vertical Action Items doc — updated all 3 Pipedrive pipelines to V5 stage names (Drew confirmed: "Stick with V5 going forward"): Outbound old stages (Emailed/AI Qualified/Async Demo Sent) → New Lead/Email Sent/Replied/Demo Booked/Demo Completed/Qualified/Lost-Disqualified · Inbound old stages (Demo Engaged/Checkout Started/Paid) → Inbound Call/Qualified by Retell/Demo Scheduled/Demo Completed/Qualified/Lost · Customer Lifecycle old stages (Booked/Demo Held/Proposal Sent/Negotiating) → Won-Onboarding/Live/Healthy/At Risk/Churned. Apollo geography targets confirmed from Vertical Action Items — Phase 1: Roofing (Storm Belt: Dallas-FW, OKC, Denver, Tulsa), Dental (Suburban: Plano, Frisco, Scottsdale, Naperville), Medical (Sun Belt: Phoenix, Tampa, Orlando, Naples FL). HVAC moved to Phase 2 (PE consolidation risk). Provisioned new 415 area code Retell number +1 (415) 799-4325 via API — assigned to Alex as inbound agent. Assigned same from_number to Sarah for outbound calls. Michael to update tel: link on konsier.ai to +1 (415) 799-4325.</td>
-          <td class="earn">$100</td>
+          <td>May 18–22</td><td>Mon–Fri</td><td>~40 hrs</td>
+          <td>Konsier Phase 2: KS-WF3 Website Contact Form → Pipedrive (inactive — Michael blocker) · KS-WF4 Stripe → Onboarding Chain · KS-WF6 Daily Outbound Pipeline (inactive — Drew blockers) · KS-A2 Tier Routing · KS-A6/AGENT-06 Onboarding Drafter (7 nodes, Notion + Slack) · KS-WF7/AGENT-05 Customer Call QA (8 nodes, Slack #konsier-escalations) · Apollo + Clay + Instantly ICP scoring patterns · Notion Client Onboarding database</td>
+          <td class="earn-orange">$500 DUE</td>
+        </tr>
+
+        <!-- Week 4 -->
+        <tr class="week-divider">
+          <td colspan="5">WEEK 4 — MAY 25, 2026 · $500 FLAT RETAINER · IN PROGRESS</td>
         </tr>
         <tr class="done-row">
-          <td>May 20</td><td>Wednesday</td><td>3:00 PM</td><td>6:00 PM</td><td>3 hrs</td>
-          <td><strong>Retell AI — Alex V5 prompt upgrade + inbound qualification configuration.</strong> Rewrote Alex's system prompt to a structured V5 4-question qualification flow: (1) What type of business — HVAC, roofing, dental, medical, or other? (2) How many people on the team? (3) How many calls does the business receive daily? (4) How are calls currently being handled? Qualified path (right business type + team size) collects caller name + email and routes to demo booking; unqualified path closes politely without pushing. Added 4 new Post-Call Data Extraction fields in Retell — business_size, call_volume, current_solution, qualification_result — bringing total to 8 extracted fields per call. Created 3 matching Pipedrive custom fields to store the new data: Daily Call Volume (Person field), Current Call Solution (Person field), Qualification Result (Deal enum — Qualified=178 / Not Qualified=179). Ran multiple live test calls to +1 (415) 799-4325 to verify the 4-question flow, all 8 field extractions, and KS-WF2 inbound webhook payload. During testing, discovered all 8 fields were arriving as null in Pipedrive — began troubleshooting root cause.</td>
-          <td class="earn">$37.50</td>
-        </tr>
-        <tr class="done-row">
-          <td>May 20</td><td>Wednesday</td><td>6:00 PM</td><td>11:00 PM</td><td>5 hrs</td>
-          <td><strong>KS-WF2 inbound null-field bug fix + full end-to-end verification + Apollo Roofing search.</strong> Root cause of null fields identified: an upstream node ("Set - Extract Call Data") in the outbound branch was overwriting the entire $json object before the inbound branch ran — so all 9 inbound field expressions were reading from an already-replaced payload. Fix: changed all 9 expressions to reference the original webhook data directly using $('Webhook').first().json.body.call.call_analysis.* instead of $json.*. Secondary bug: deal title showing "undefined — undefined" — cause was Deal POST node using $json.callerName after $json had been replaced by the Pipedrive Person API response. Fix: changed to $('Set - Extract Inbound Fields').first().json.callerName. Full end-to-end test confirmed ✅ — called +1 (415) 799-4325, completed Alex's 4-question qualification flow as test lead "Mike Torres / HVAC / mike@torroshvac.com" — KS-WF2 received the Retell call_analyzed webhook, extracted all 8 fields, created Pipedrive Person + Deal "Mike Torres — HVAC (Inbound Web Call)" in INBOUND pipeline stage 96 (Inbound Call) with all fields correctly populated including Qualification Result, posted a Note with call summary, and fired Slack #konsier-leads alert — all in 806ms (Execution #68). Built Apollo saved search "Konsier Roofing Storm Belt Phase 1" — 796 verified leads across Storm Belt cities.</td>
-          <td class="earn">$62.50</td>
-        </tr>
-        <tr class="done-row">
-          <td>May 21</td><td>Thursday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td><strong>AGENT-03 (Qualification Analyzer) wired into KS-WF2 — outbound branch fully production-ready.</strong> I upgraded KS-WF2's outbound branch from a basic 4-field Claude Haiku summarizer to a full 10-field Sonnet 4.6 qualification engine. Expanded Set - Extract Call Data with 5 new fields: agentType (static "sarah_outbound"), callerName, callerEmail, businessType, callDurationSeconds. Replaced the Claude node with the full AGENT-03 system prompt — 9 extraction rules covering tier_match (Starter/Professional/Enterprise based on call volume), business_size, call_volume, current_solution, pain_point_summary (max 25 words), urgency_score 1–10, qualification_result with enum ID (178=Qualified / 179=Not Qualified), closer_brief (3-sentence brief for Professional/Enterprise tier only), and red_flags array. Upgraded model claude-haiku-4-5 → claude-sonnet-4-6, max_tokens 1024 → 2048. Rewrote Code parser to extract all 10 fields with typed safe fallbacks. Updated Pipedrive Note to AGENT-03 enriched format (tier, urgency, result, call volume, pain point, current solution, closer brief, red flags). Updated Pipedrive PATCH to v2 API with custom_fields wrapper: 6 deal field codes (Tier Match, Pain Point Summary, Urgency Score, Closer Brief, Qualification Result enum, AI Qualification Transcript). Every Sarah outbound call now auto-populates 6 Pipedrive deal fields, moves deal to stage 97, and posts an AGENT-03 enriched note. Built KS — Client Health Notion database — 10 properties: Client (Title), Email, Vertical (Select: Roofing/Dental/Medical), Plan (Select: Starter $497/Pro $797/Enterprise $1,497), Retell Status (Select: Not Started/Building/Live), Health (Select: Green/Yellow/Red), Issues (Text), MRR (Number), Start Date (Date), Last Updated (Date). This is the 2nd of 3 required Konsier Notion databases — feeds AGENT-08 (Founder Brief Writer) every Monday. KS — Lead Log (Database 1) already built May 20. KS — Client Onboarding (Database 3) next. Reviewed Drew's 8 Claude Agent Prompts v1.0 document — all 6 agent system prompts (AGENT-01 through AGENT-06) saved to knowledge base.</td>
-          <td class="earn">$100</td>
-        </tr>
-        <tr class="done-row">
-          <td>May 22</td><td>Friday</td><td>3:00 PM</td><td>11:00 PM</td><td>8 hrs</td>
-          <td><strong>AGENT-PQA (Prompt Quality Agent) built + KS-WF6 production merge complete.</strong> I extended KS-WF2 with a self-improving Retell prompt quality loop — my own addition, not in Drew's original SOP. Every outbound call that generates a red_flag now automatically triggers AGENT-PQA (Claude Haiku 4.5): 3 new nodes added inline after the existing Pipedrive update nodes — IF Red Flags Found (checks red_flags.length &gt; 0) → Claude AGENT-PQA (analyzes transcript + red flags, writes ONE specific Retell prompt fix in structured JSON: fix_type, prompt_section, current_text, suggested_text, rationale, severity) → Notion Log Call QA (creates page in KS — Call QA Queue database). This is the 3rd and final required Konsier Notion database (ID: 368dfdec-3149-804b-b700-fcf7e41a7d9d). The loop: VA opens KS — Call QA Queue → reads transcript + suggestion → writes notes → I update the Retell agent prompt directly. KS-WF2 published with AGENT-PQA extension active. Critical wire order: IF node must sit AFTER the HTTP POST Pipedrive Note and HTTP PATCH Pipedrive Deal nodes — not before — otherwise Pipedrive fields don't get written on calls with no red flags. I also completed the KS-WF6 production merge: merged V1 (Claude BASHO batching + advanced ICP scoring with industry weights: roofing +40, dental +35, medical +35, HVAC +15; size 3-25 +25; title match +20; verified email +10; Tier A geo +10; intent ≥60 +15; ServiceTitan/HCP/Jobber exclusion -20) with V2 (real Apollo/Instantly infrastructure). Full 16-node production workflow: Apollo search → Code Extract Apollo Fields → Code ICP Score &amp; Filter (≥70 threshold) → HTTP Notion Dedup Check → IF New Contact → Code Batch 50 for Claude → Claude AGENT-01 (BASHO openers) → Code Parse Claude Output → Instantly Add Lead → Notion Log to Lead Log (native Notion node) → Code Aggregate Results → Slack Summary. Changed Notion Lead Log node from HTTP Request to native Notion node. Archived and deleted the POC workflow. Confirmed 3 Apollo saved searches live: Konsier Roofing Storm Belt Phase 1 (796 leads), Konsier Dental Suburban Phase 1, Konsier Medical Sun Belt Phase 1. KS-WF6 activation pending: Instantly campaign IDs (3) + GoDaddy IMAP fix from Drew. Prepared konsier.ai webhook URL and HMAC secret for Michael (WordPress developer) to wire the contact form. Confirmed Calendly booking URL: https://calendly.com/drew-konsier/30min — sent to Michael for site embed.</td>
-          <td class="earn">$100</td>
+          <td>May 25</td><td>Sunday</td><td>~8.5 hrs</td>
+          <td>Alex V6 prompt rebuild (5-section, 4 objections, free trial, end_call triggers) + PUBLISHED to Retell. Sarah V4 prompt upgrade ($12.8k stat, 5 objections, time slots). KS-WF2 bug fixes (null fallbacks + Slack deal ID expression). KS-WF1 dynamic vertical field fix. KS-WF4 stage_id fix (98→101). Voice Orb troubleshoot + fresh V3 embed URL. Michael Slack message prepared. Retell post_call_analysis qualification_result choices fixed.</td>
+          <td class="earn-orange">$500 (week)</td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="4"><strong>Week 3 Total</strong></td>
-          <td><strong>Complete ✅</strong></td>
-          <td><strong>Payment due: Friday May 22</strong></td>
-          <td class="earn"><strong>$500</strong></td>
+          <td colspan="2"><strong>Invoiced to Date (Weeks 1–3)</strong></td>
+          <td><strong>~136 hrs</strong></td>
+          <td><strong>Week 4 in progress — flat $500 at week end</strong></td>
+          <td class="earn"><strong>$1,384</strong></td>
         </tr>
       </tfoot>
     </table>
@@ -1610,85 +1456,53 @@
 
   <!-- Tech Discoveries -->
   <div class="discoveries">
-    <h3>✅ Week 2–3 — Technical Discoveries</h3>
+    <h3>✅ Technical Discoveries (All Sessions)</h3>
 
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8 → Corrected May 12]</strong> Pipedrive webhooks ARE available on Drew's plan. "Send webhook request" action in automation builder is fully clickable (labeled "Webhooks NEW"). Confirmed by Drew's screenshots. Normal webhook (Tools &amp; Apps → Webhooks) is the correct approach — one listener sends all Pipedrive events to n8n for routing, avoiding duplicate logic in both systems.</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Native n8n Anthropic node has a credential bug — switched to HTTP Request node for all Claude calls (working perfectly)</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL V1 API was deprecated Dec 31 2025 — all calls now use V2 (services.leadconnectorhq.com) with PIT token authentication</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL requires locationId in every V2 API body or returns 403 — added to all nodes</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL Conversations API requires "html" field for email body (not "body" or "message") — fixed in WF-VC-02</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL auto-enables DND on contacts with repeated email bounces — must manually disable per contact</div>
+    <div class="discovery-item"><div class="disc-dot"></div>n8n "Using Fields Below" mode prevents Claude's special characters from breaking JSON — applied to all Claude output nodes</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL V2 /contacts/ search by email returns 422 — redesigned WF-VC-03 to pass contactId directly in webhook payload</div>
+    <div class="discovery-item"><div class="disc-dot"></div>WF-VC-05: IF node requires conditions.options.version = 2 — missing this caused silent validation failure</div>
+    <div class="discovery-item"><div class="disc-dot"></div>GHL Opportunities API (/opportunities/search) does NOT accept pipelineId as query param — must pull all then filter in Code node</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Claude API response text is at content[0].text — never $json.text. Always access via $input.item.json.content[0].text</div>
+    <div class="discovery-item"><div class="disc-dot"></div>Plain text email with \n chars renders as wall of text in Gmail — convert to HTML: split on \n\n, wrap in &lt;p&gt;, replace inner \n with &lt;br&gt;</div>
+
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8 — Pipedrive]</strong> Pipedrive Webhook action requires Growth plan — webhook option not clickable on current plan. n8n polls Pipedrive API for triggers instead.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive Deal Labels are NOT created in Settings → Labels. Must create from within an actual Deal record → Add labels → + Add label button.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive merge field name is "Deal title" not "Deal name" — use "Deal title" in automation action subject lines.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive "Today" due date = "The same day" · "1 day after" = "In one day" — these are the correct Pipedrive UI labels.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> All new Pipedrive automations default to Asia/Taipei timezone — must manually change to America/Los_Angeles (Pacific) for Drew's account.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Importing data does NOT trigger Pipedrive automations — manual stage changes required after bulk import.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Old pre-Part 3 Pipedrive pipelines (4 extra: Velocity Policy Created, Annual Follow Up, Investor Capital, New Products) cannot be deleted — active client records exist (Pazdierski Family, Ah Nee). Leave completely untouched.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Slack private channels: Admin can create channels and /invite @bot via UI. Admin conversations.invite API scope is Enterprise Grid only — standard workspaces use UI invitation only.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Slack bot added to Velocity Capital Bot app. n8n Slack credential type = "Slack API" (Access Token). Required scopes: chat:write, channels:read, channels:join, users:read.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Pipedrive "Checkbox" field type does not exist for Deal fields — use Single Option with Yes/No values instead. Works identically for n8n reads via API.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Pipedrive "URL" field type does not exist for Deal fields — use Text type. URLs stored and retrieved correctly as plain strings.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Pipedrive custom field count: 58/300 before Konsier fields, 70/300 after adding 13 Konsier fields. Plenty of headroom remaining.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Pipedrive Permission Sets control WHAT actions users can take — pipeline visibility restrictions (VA sees only OUTBOUND) are set via Visibility Groups, not Permission Sets.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> SOP gap: PandaDoc (contracts in WF#4) and Notion (client workspaces + agent dashboard) are required tools not in original scope — need Drew's accounts/templates before Phase 4.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 11 — Konsier]</strong> Retell AI sends 3 webhook events per call (call_started, call_ended, call_analyzed) — filter for call_analyzed only in n8n to avoid triple execution. Pass pipedrive_deal_id in metadata.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 12 — Critical Fix]</strong> Pipedrive sends v2.0 webhook payload: <code>meta.entity</code> (not <code>meta.object</code>), <code>current</code> object is EMPTY on change events. Stage changes detected from <code>previous.stage_id</code> being present. Original code always returned stageChanged:false — fixed in both PD-EVENTS and KS-PD-EVENTS.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 12 — Pipedrive Limitation]</strong> Pipedrive native automation "Update deal fields" → "Pipeline stage" only shows dynamic variable references — cannot set a hardcoded static stage name. Use n8n Pipedrive API call (PATCH /deals/{id} with stage_id) to move deals to specific stages programmatically.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 12 — Architecture]</strong> VC and Konsier require completely separate Pipedrive webhooks + n8n workflows per Drew. KS-PD-EVENTS path: konsier-pipedrive-events. PD-EVENTS path: pipedrive-events. No shared logic between projects.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 13 — Clay Critical]</strong> Clay has NO traditional REST API on standard plans. Clay enrichment flows IN via table-specific webhook URLs (Settings → Webhooks) and OUT via n8n-nodes-clay community node (Settings → Community Nodes → Install). The endpoint api.clay.com/v1/tables/{id}/rows only exists on Enterprise plan — do not use for standard accounts.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 13 — Cost Pattern]</strong> Filter-before-AI: run ICP scoring BEFORE email verification. Apollo(500) → ICP Score(~150 pass ≥70) → ZeroBounce (only 150 emails = $1.50 not $5) → Clay → Claude. 30% email verification cost reduction. Source: Six Figure Consulting 2026.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 13 — Claude Cost]</strong> Batch 50 contacts per Claude call = 10x cost reduction vs 1 per call. 500 leads ÷ 50 = 10 Claude calls/day instead of 500. Apply to all bulk AI generation tasks.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — BASHO Framework]</strong> Cold email opener formula: hyper-specific observation (something real you noticed about the company) → bridge to value (one sentence connecting observation to problem you solve) → ask (short CTA). Founder-to-founder tone. Under 2 sentences total. Outperforms generic openers.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — n8n Claude Output]</strong> Claude often wraps JSON output in markdown code blocks (```json ... ```). Always strip with: <code>.replace(/^```json\n?/, '').replace(/^```\n?/, '').replace(/\n?```$/, '')</code> before JSON.parse in Code node. Access response as: <code>$input.item.json.content[0].text</code> — not <code>$json.text</code>.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — n8n Slack]</strong> If Code node returns N items (one per contact), Slack node sends N separate messages. To send one summary message: return a single item from Code node with all data aggregated (joined openerList, etc.). Never loop contacts into individual Slack sends.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 13 — Claude Model Selection]</strong> Use Claude Haiku (claude-haiku-4-5-20251001) for classification/scoring tasks — cheap + fast. Use Claude Sonnet (claude-sonnet-4-6) for email/opener generation — quality matters. Don't use Sonnet for bulk scoring of 500 contacts.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 14 — SOP Revised]</strong> Drew sent updated 43-page SOP. Key changes: 8 Claude agents (was 5), 39 steps, SELF-SERVE renamed INBOUND, CLOSER TRACK renamed CUSTOMER LIFECYCLE, Clay deferred (Apollo native enrichment only), HeyReach added for LinkedIn, QuickBooks Online added, n8n moving to Hetzner Cloud, stalled deal = 7 days (not 3), Apollo API key name = "n8n-enrichment".</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 14 — 1Password 9 Vaults]</strong> Full vault structure confirmed: 00 Owner Only (hidden from Vladimir — correct), 01 Konsier Core, 02 Marketing & Web, 03 Outbound Engine, 04 CRM & Sales, 05 AI & Infrastructure, 06 Fulfillment Ops, 07 IT Runbook, 99 Vendor Temp. Drew populating with all tool credentials.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 14 — Clay Deferred]</strong> Per revised SOP V3: Clay enrichment deferred to Phase 2 of the business (post-launch). Apollo's native enrichment sufficient for initial outbound motion. KS-WF6 Phase 2 will NOT include Clay nodes — Apollo → Instantly direct flow instead.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 14 — HeyReach]</strong> HeyReach is a LinkedIn outreach tool — runs parallel to Instantly email sequences for multi-channel outbound. Already registered by Drew (drew@konsier.ai). API key name: n8n-linkedin. Used in WF6 Part A alongside Instantly.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 14 — n8n Error Trigger]</strong> n8n Error Trigger workflow MUST be Published/Active before it can be selected as error workflow in other workflows' Settings panel. If it shows a warning triangle icon in the dropdown, activate it first then come back.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 14 — Pipedrive Rotting]</strong> Pipedrive "rotting" (no activity for X days) CANNOT trigger native automations — confirmed limitation. Stalled deal alerts must be built entirely in n8n as a scheduled workflow: Schedule Trigger → GET all open deals → Code node filter by last_activity_date → IF stalled → Slack alert.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 14 — Apollo Login]</strong> Apollo flags new accounts from new Gmail + Philippines IP as suspicious on first login — auto-logout occurs. Sends verification email to registered address (drew@konsier.ai). Resolves after 24h or email verification. Not caused by 1Password extensions.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 15 — Apollo Free Tier Limit]</strong> Apollo free plan blocks `api/v1/mixed_people/search` endpoint with 403 error: "not accessible with this api_key on a free plan." Requires Apollo Professional ($49/mo) to unlock. The workflow itself works correctly — authentication, request format, and response handling all validated. Plan upgrade is the only blocker.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 15 — Stripe Sandbox]</strong> Modern Stripe dashboard renamed "Test Mode" to "Sandbox." Switch via account dropdown → Switch to sandbox → Konsier LLC sandbox. URL changes to /test/dashboard. Test API keys start with `sk_test_...` and `pk_test_...`. Live keys start with `sk_live_...` — never use live keys until full test pass.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 15 — n8n Stripe Trigger]</strong> n8n Stripe Trigger node auto-registers webhook in Stripe when workflow activates. Signing secret (`whsec_...`) is generated then — leave Signature Secret blank in credential during initial setup, fill in later after activation by going to Stripe Dashboard → Developers → Webhooks → reveal signing secret.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 15 — Reply Triage Architecture]</strong> Single-condition Switch is cleaner than multi-condition AND/OR. Move complex routing logic to upstream Code node — set single `routeAction` field combining classification + confidence + auto-reply flags. Then Switch routes on one field. Easier to maintain, easier to debug, supports more route types later.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 15 — Claude Output Validation]</strong> Reply Triage Code node implements 3-layer validation: (1) Strip markdown code blocks from Claude output, (2) try/catch JSON.parse with fallback to human review, (3) confidence threshold check (&lt;0.7 routes to needs_review). Auto-replies (out_of_office) get special downgrade path to prevent triggering Retell calls on vacation responders.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 15 — 1Password Credential Hygiene]</strong> Both Calendly entries in 1Password have invalid passwords — neither account login works. 1Password vault is populated but Calendly credentials are outdated. Drew to refresh on May 16.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 15 — Instantly Setup Reality]</strong> Only 1 mailbox (endyroo@yahoo.com) at 0% health — the "8 mailboxes warming" was aspirational, not actual. Zero campaigns exist. Drew committed to setting up Konsier-domain mailboxes May 16. Yahoo addresses unsuitable for B2B cold outbound (enterprise spam filters reject).</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — n8n Production Webhook Wraps Payload]</strong> In production (Published) mode, n8n wraps incoming webhook body under a <code>body</code> key: access as <code>$json.body.event</code>, not <code>$json.event</code>. Test mode sends raw payload directly. Always use <code>$json.body.*</code> prefix in production workflows triggered by external webhooks (Retell, Instantly, Pipedrive, etc.).</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — n8n IF Node Bug with Webhook Payloads]</strong> n8n IF node expression <code>{{ $json.body.event === "call_analyzed" }}</code> evaluates to False even when the value is correct — known issue with string comparison on nested webhook objects. Workaround: replace IF node with a Code node that uses JavaScript <code>items.filter(...)</code> — 100% reliable. Pattern: <code>return items.filter(item =&gt; (item.json?.body?.event || item.json?.event) === 'call_analyzed');</code></div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — Pipedrive v1 PATCH Broken]</strong> Pipedrive v1 PATCH /deals/{id} returns "Unknown method" error — the v1 endpoint does not support PATCH for deals. Use v2 API: <code>PATCH https://api.pipedrive.com/api/v2/deals/{id}</code> with header <code>x-api-token: {api_token}</code> (no api_token query param). Body remains the same JSON structure.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — n8n Raw JSON Body + Newlines]</strong> Claude output containing real newline characters (\\n) breaks raw JSON body in HTTP Request nodes — "Bad control character in string" error. Fix: switch body type from "Using JSON" to "Using Fields Below" — n8n handles character encoding automatically. Use key-value pairs; n8n builds valid JSON internally.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — Retell Webhook Scope]</strong> Retell webhook is registered at the workspace level (Settings → Webhooks), not per-agent. One webhook URL receives events for ALL agents in the workspace. Filter by agent_id or event type in n8n if needed. Retell sends 3 events per call: call_started, call_ended, call_analyzed — use call_analyzed only (has transcript + analysis + metadata).</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — Retell Metadata Pattern]</strong> Pass <code>pipedrive_deal_id</code> and <code>pipedrive_person_id</code> in the <code>metadata</code> object when creating a call via Retell API. Retell stores this on the call object and returns it verbatim in the call_analyzed webhook payload at <code>$json.body.call.metadata.pipedrive_deal_id</code>. This is the correct way to link a voice call back to a CRM record — no lookup needed.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — Retell Post-Call Data Extraction]</strong> Retell supports structured data extraction from call transcripts — configure "Post-Call Data Extraction" fields (Text, Number, Boolean types) in the agent settings. Field values appear in the <code>call_analyzed</code> webhook at <code>call.call_analysis.custom_analysis_data.{field_name}</code>. Use Text type for all string values (no separate string type — Text IS the string type). Konsier Alex agent extracts: caller_name, caller_email, business_type, pain_point.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — Retell Voice Orb Web Embed]</strong> Retell agents can be embedded on any webpage via iframe — no phone number required. Enable Voice Orb in agent settings → Share → toggle Voice Orb ON → copy shareable URL. Embed as: <code>&lt;iframe src="{url}" allow="microphone" ...&gt;</code>. The <code>allow="microphone"</code> attribute is required — without it the browser blocks mic access and the widget silently fails. Works via WebRTC (browser-to-Retell directly). Widget URL format: <code>https://agent.retellai.com/orb/{agent_id}?token={token}</code>.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 19 — KS-WF2 Inbound Branch: Empty Metadata = Web Lead]</strong> Outbound calls from KS-WF6 always pass <code>pipedrive_deal_id</code> in Retell metadata. Website calls (Voice Orb) have no metadata — the field arrives as an empty string. Using this as a branch condition in n8n (IF <code>pipedriveDealId</code> is not empty → outbound, else → inbound) correctly separates the two flows without any additional routing logic. Pattern is reusable for any dual-source Retell webhook.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 20 — n8n Upstream Set Node Clobbers $json]</strong> If a Set node runs before an IF node in the same workflow, downstream branches that use <code>$json</code> will get the Set node's output — NOT the original webhook payload. Fix: reference the original data using <code>$('Webhook').first().json</code> instead of <code>$json</code> in any downstream node. This is the correct pattern whenever you need webhook data after any transformation node has run.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 20 — Apollo Saved Searches are UI-Only]</strong> Apollo does not expose a "create saved search" endpoint in their REST API. Saved searches must be built manually in the UI. For n8n workflow use, saved search IDs are not needed — call the Apollo <code>mixed_people/search</code> endpoint directly with filter parameters instead. The UI saved searches serve as documentation/reference only.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 19 — M365 Mailboxes for Instantly Warmup]</strong> Microsoft 365 (not Gmail) is the recommended mailbox provider for cold outbound warmup. 8 M365 mailboxes created May 19 under Konsier domain. IMAP connection to Instantly is required before warmup clock starts — warmup is not triggered by mailbox creation. Plan: connect via IMAP May 20 → 14-day warmup → ~June 3 earliest outbound go-live.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 21 — Pipedrive v2 API: custom_fields Wrapper for Deal Custom Fields]</strong> Pipedrive v2 API (<code>PATCH /api/v2/deals/{id}</code>) requires custom field updates to be nested inside a <code>custom_fields</code> object — not passed as top-level body keys. Format: <code>{"stage_id": 97, "custom_fields": {"field_code": value}}</code>. Enum fields (e.g. Qualification Result) accept the option ID as an integer (178 or 179). Text/Number fields accept string or number directly. Auth via header <code>x-api-token</code>, not query param.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 21 — n8n Expression: Pure JS Object vs Template with {{ }}]</strong> Two patterns for dynamic HTTP body in n8n: (1) Template style — <code>="{ \"key\": \"{{ $json.field }}\" }"</code> — n8n interpolates <code>{{ }}</code> first, then parses as JSON. (2) Pure JS expression — <code>={ key: $json.field }</code> — n8n evaluates as JavaScript, serializes result to JSON. Use pattern (2) when referencing upstream nodes (<code>$('NodeName').first().json.field</code>) or when field values may contain special characters — JS serialization handles escaping automatically. Pattern (1) risks broken JSON if values contain quotes or newlines.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 21 — Retell AI vs AGENT-03: Separate Roles]</strong> Retell AI (Sarah outbound / Alex inbound) is the real-time voice agent on the phone. AGENT-03 (Claude Sonnet 4.6 in n8n) is the post-call transcript analyst — it reads the finished transcript after the call ends and extracts structured CRM data. The two are completely independent: Retell handles the conversation, AGENT-03 handles the data extraction. Split by Retell's <code>call_analyzed</code> webhook — the handoff point between voice AI and analytical AI.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 22 — Inline Loop Pattern: Wire Order Critical]</strong> When extending a webhook workflow with an inline quality-analysis branch (e.g., AGENT-PQA), always place the IF gate AFTER all primary CRM update nodes — not before. If the IF sits upstream, the CRM writes only happen on flagged calls and clean calls are dropped. Correct order: Code Parse → HTTP POST Note → HTTP PATCH Deal → IF Red Flags Found → (TRUE) → Claude QA Agent → Notion Log. This ensures CRM data is written on every call regardless of the branch result.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 22 — Notion Dedup: HTTP Request vs Native Node]</strong> For Notion query gates that check whether a record already exists, use an HTTP Request node (POST to Notion API search endpoint) instead of the native Notion node. The native Notion node returns 0 items on no-match — n8n stops the flow, breaking the dedup gate. HTTP Request always returns <code>{"results":[]}</code> — check <code>results.length === 0</code> for a reliable new-record gate. Pattern: <code>if ($json.results.length === 0) { /* safe to create */ }</code>.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 22 — n8n IF Node: conditions.options.version Required in JSON]</strong> When building n8n IF nodes via JSON import or programmatic workflow creation, the <code>conditions.options</code> object must include <code>"version": 2</code> — otherwise n8n throws validation error: "Missing required field 'conditions.options.version'. Expected value: 2." The n8n UI adds this field silently, so it only surfaces when building or importing workflows in raw JSON. Always add <code>"version": 2</code> to IF node parameters when writing workflow JSON by hand.</div>
-    <div class="discovery-item new"><div class="disc-dot"></div><strong>[May 22 — HMAC Webhook Auth Pattern]</strong> To verify that an incoming webhook actually came from a trusted source (e.g., WordPress contact form), use HMAC-SHA256 signature verification: sender computes <code>HMAC-SHA256(secret, rawBody)</code> and sends the result in a custom header (e.g., <code>X-Konsier-Signature</code>); receiver recomputes the same signature and compares. Secret is self-generated — run <code>openssl rand -hex 32</code> once, store in WordPress <code>wp-config.php</code> as a <code>define()</code> constant, and hardcode the same value in the n8n Code node. Never pass the secret as a URL parameter.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Slack private channels: Admin can /invite @bot via UI. Admin conversations.invite API scope is Enterprise Grid only — standard workspaces use UI invitation only.</div>
+
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 — Retell AI]</strong> Publishing a Retell agent requires separate POST /publish-agent-version/{agent_id} with body {"version": N} — setting is_published: true in PATCH /update-agent body does NOT publish.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 — Retell AI]</strong> Voice Orb embed token is version-specific — after publishing a new agent version, must regenerate fresh embed URL from dashboard Share modal (version dropdown → refresh → copy link).</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 — Retell AI]</strong> post_call_analysis_data field type "enum" is NOT valid — use "string" + choices array. "system-presets" type works for built-in fields (call_summary, user_sentiment). PATCH replaces the full array — always send all fields.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 — n8n REST API]</strong> PUT /api/v1/workflows/{id} settings field must ONLY contain {executionOrder: "v1"} — any extra properties cause 400 error. Always GET first, modify nodes in memory, then PUT full object back.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 — WordPress webhook]</strong> Konsier contact form → n8n HMAC webhook requires both KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET in wp-config.php. KS-WF3 cannot receive submissions until Michael adds both values.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25 — Retell AI]</strong> Retell fires both real-time transcript events AND post-call call_analyzed events to the same webhook URL. Always filter by event type in the first IF node (call_analyzed only) to avoid double-processing.</div>
   </div>
 
   <!-- Footer -->
   <div class="footer">
     <div class="footer-left">
-      Built by <strong>Vladimir</strong> · n8n: <strong>n8n.srv1647733.hstgr.cloud</strong> · CRM: <strong>Pipedrive</strong> · Projects: <strong>Velocity Capital + Konsier</strong>
+      Built by <strong>Vladimir</strong> · n8n instance: <strong>n8n.srv1647733.hstgr.cloud</strong> · Projects: <strong>Velocity Capital Group + Konsier AI Receptionist</strong>
     </div>
     <div class="footer-right">
-      <span class="cred-tag active">Claude Sonnet ✓</span>
+      <span class="cred-tag active">GHL V2 API ✓</span>
+      <span class="cred-tag active">Claude Sonnet 4.6 ✓</span>
       <span class="cred-tag orange">Pipedrive ↻ Rebuilding</span>
+      <span class="cred-tag purple">Retell AI ✓ Alex Live</span>
       <span class="cred-tag active">Slack Bot ✓</span>
-      <span class="cred-tag active">SendGrid ✓</span>
-      <span class="cred-tag">Konsier ▶ P2</span>
+      <span class="cred-tag active">Instantly ✓</span>
+      <span class="cred-tag active">Notion ✓</span>
+      <span class="cred-tag orange">HeyReach ⚠ Trial</span>
     </div>
   </div>
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: May 22, 2026';
+    if (el) el.textContent = 'Last updated: May 25, 2026';
   </script>
 </body>
 </html>
