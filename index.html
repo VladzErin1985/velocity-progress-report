@@ -257,8 +257,8 @@
   <div class="summary-grid">
     <div class="stat-card green">
       <div class="label">n8n Workflows Built</div>
-      <div class="value">19</div>
-      <div class="sub">6 VC live (GHL) &middot; 13 Konsier built</div>
+      <div class="value">18</div>
+      <div class="sub">6 VC live (GHL) &middot; 12 Konsier built &middot; 1 in progress</div>
     </div>
     <div class="stat-card blue">
       <div class="label">Live &amp; Active</div>
@@ -281,10 +281,10 @@
   <div class="progress-section">
     <div class="progress-header">
       <span>Konsier Build Progress</span>
-      <strong>87% &mdash; 13 of 15 workflows built</strong>
+      <strong>80% &mdash; 12 of 15 built &middot; 1 in progress</strong>
     </div>
-    <div class="bar-track"><div class="bar-fill purple-fill" style="width: 87%;"></div></div>
-    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A4 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF4 &nbsp;|&nbsp; Inactive (blocked): KS-WF3 &middot; KS-WF6 &middot; KS-A2 &middot; KS-WF7 &middot; KS-A6 &middot; KS-WF-CAL &middot; KS-WF4B &nbsp;|&nbsp; Remaining: KS-WF5 (HeyReach) &middot; KS-A5 (Wistia)</div>
+    <div class="bar-track"><div class="bar-fill purple-fill" style="width: 80%;"></div></div>
+    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A4 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF4 &nbsp;|&nbsp; Inactive (blocked): KS-WF3 &middot; KS-WF6 &middot; KS-A2 &middot; KS-WF7 &middot; KS-A6 &middot; KS-WF-CAL &nbsp;|&nbsp; In Progress: KS-WF4B &nbsp;|&nbsp; Remaining: KS-WF5 (HeyReach) &middot; KS-A5 (Wistia)</div>
     <div class="phase-labels">
       <span class="active">Phase 1 &mdash; Core &#10003;</span>
       <span class="active">Phase 2 &mdash; QA &#10003;</span>
@@ -385,7 +385,7 @@
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
       <h2>Konsier &mdash; AI Receptionist System (Drew Williams)</h2>
-      <span class="count">13 built &middot; 6 live &middot; 7 inactive (pending credentials / blockers)</span>
+      <span class="count">12 built &middot; 6 live &middot; 6 inactive (blocked) &middot; 1 in progress</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-ERR</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Error Handler</div><div class="wf-trigger"><span>Always-on:</span> Catches all n8n execution errors &rarr; Slack #konsier-errors with workflow name + error details</div></div>
@@ -412,10 +412,10 @@
         <div class="wf-name">Calendly &rarr; Pipedrive Booking &mdash; BUILT MAY 26</div>
         <div class="wf-trigger"><span>Blocked &mdash; Drew:</span> Upgrade Calendly to paid plan to register webhook. Workflow ready: booking confirmed &rarr; search person by email &rarr; GET deals &rarr; IF Pipeline 13 (OUTBOUND) &rarr; stage 92 (Demo Booked) / Pipeline 14 (INBOUND) &rarr; stage 98 (Demo Scheduled) &rarr; Slack. FALSE: Create Person &rarr; Create Deal &rarr; Slack.</div>
       </div>
-      <div class="wf-card inactive">
-        <div class="wf-top"><span class="wf-id">KS-WF4B</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div>
-        <div class="wf-name">Closed-Won &rarr; Onboarding Handoff &mdash; BUILT MAY 26</div>
-        <div class="wf-trigger"><span>5 nodes:</span> Pipedrive stage 101 webhook &rarr; Respond 200 &rarr; Edit Fields (deal_id, title, person_id, tier, pain_point_summary, urgency_score) &rarr; GET Person Details &rarr; POST to konsier-onboarding-intake (AGENT-06). Triggers onboarding drafter on deal close.</div>
+      <div class="wf-card next">
+        <div class="wf-top"><span class="wf-id">KS-WF4B</span><span class="status-badge badge-next">In Progress &#9889;</span></div>
+        <div class="wf-name">Closed-Won &rarr; Onboarding Handoff &mdash; IN PROGRESS</div>
+        <div class="wf-trigger"><span>4 of 5 nodes:</span> Pipedrive stage 101 webhook &rarr; Respond 200 &rarr; Edit Fields &rarr; GET Person Details &rarr; POST to AGENT-06 konsier-onboarding-intake (body field mapping in progress). Completing next session.</div>
       </div>
     </div>
 
@@ -660,7 +660,9 @@
           <td>May 26<br><small style="color:#475569">Tuesday</small></td>
           <td>8 hrs</td>
           <td>
-            NEW BUILDS: KS-WF-CAL Calendly &rarr; Pipedrive Booking Workflow (Calendly booking confirmed &rarr; search Pipedrive person by email &rarr; IF found: GET deals &rarr; IF Pipeline 13 OUTBOUND &rarr; PATCH stage 92 Demo Booked / ELSE Pipeline 14 &rarr; PATCH stage 98 Demo Scheduled &rarr; Slack alert; IF not found: POST Create Person &rarr; POST Create Deal &rarr; Slack alert. Fully built in n8n &mdash; blocked on Calendly paid plan for webhook registration.) + KS-WF4B Closed-Won &rarr; Onboarding Handoff (5 nodes: Webhook konsier-closed-won &rarr; Respond 200 &rarr; Edit Fields [deal_id, business_name, owner_name, niche, target_tier, person_id, pain_point_summary, urgency_score] &rarr; HTTP Request GET Person Details from Pipedrive &rarr; HTTP Request POST to AGENT-06 konsier-onboarding-intake with 8 fields.)
+            NEW BUILD: KS-WF-CAL Calendly &rarr; Pipedrive Booking Workflow (Calendly booking confirmed &rarr; search Pipedrive person by email &rarr; IF found: GET deals &rarr; IF Pipeline 13 OUTBOUND &rarr; PATCH stage 92 Demo Booked / ELSE Pipeline 14 &rarr; PATCH stage 98 Demo Scheduled &rarr; Slack alert; IF not found: POST Create Person &rarr; POST Create Deal &rarr; Slack alert. Fully built in n8n &mdash; blocked on Calendly paid plan for webhook registration.)
+            IN PROGRESS: KS-WF4B Closed-Won &rarr; Onboarding Handoff (4 of 5 nodes built. Webhook &rarr; Respond 200 &rarr; Edit Fields &rarr; GET Person Details &rarr; POST to AGENT-06. Final node body field mapping in progress.)
+            WORKFLOW AUDIT &amp; RESEARCH: Daily audit practice &mdash; reviewed existing live workflows (KS-WF1, KS-WF2, KS-WF4) for edge cases, expression accuracy, and field mapping correctness. Researched latest n8n + Calendly automation patterns for potential workflow upgrades. Ongoing: 1&ndash;2 workflow audits per day during build phase to maintain system quality and identify improvement opportunities before go-live.
           </td>
           <td style="color:#475569; font-size:12px;">Same week<br>($500 flat)</td>
         </tr>
