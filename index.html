@@ -675,7 +675,8 @@
           <td>8 hrs</td>
           <td>
             NEW BUILD: KS-WF-CAL Calendly &rarr; Pipedrive Booking Workflow (Calendly booking confirmed &rarr; search Pipedrive person by email &rarr; IF found: GET deals &rarr; IF Pipeline 13 OUTBOUND &rarr; PATCH stage 92 Demo Booked / ELSE Pipeline 14 &rarr; PATCH stage 98 Demo Scheduled &rarr; Slack alert; IF not found: POST Create Person &rarr; POST Create Deal &rarr; Slack alert. Fully built in n8n &mdash; blocked on Calendly paid plan for webhook registration.)
-            IN PROGRESS: KS-WF4B Closed-Won &rarr; Onboarding Handoff (4 of 5 nodes built. Body field mapping in progress.)
+            IN PROGRESS: KS-WF4B Closed-Won &rarr; Onboarding Handoff (4 of 5 nodes built. Webhook &rarr; Respond 200 &rarr; Edit Fields &rarr; GET Person Details &rarr; POST to AGENT-06. Final node body field mapping in progress.)
+            WORKFLOW AUDIT &amp; RESEARCH: Daily audit practice &mdash; reviewed existing live workflows (KS-WF1, KS-WF2, KS-WF4) for edge cases, expression accuracy, and field mapping correctness. Researched latest n8n + Calendly automation patterns for potential workflow upgrades. Ongoing: 1&ndash;2 workflow audits per day during build phase to maintain system quality and identify improvement opportunities before go-live.
           </td>
           <td style="color:#475569; font-size:12px;">Same week<br>($500 flat)</td>
         </tr>
