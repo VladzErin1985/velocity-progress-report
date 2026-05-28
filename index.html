@@ -730,16 +730,7 @@
 
   <!-- Tech Discoveries -->
   <div class="discoveries">
-    <h3>Technical Discoveries (All Sessions)</h3>
-    <div class="discovery-item"><div class="disc-dot"></div>Native n8n Anthropic node has a credential bug &mdash; switched to HTTP Request node for all Claude calls</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL V1 API deprecated Dec 31 2025 &mdash; all calls use V2 (services.leadconnectorhq.com) with PIT token</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL requires locationId in every V2 API body or returns 403</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL Conversations API requires "html" field for email body &mdash; not "body" or "message"</div>
-    <div class="discovery-item"><div class="disc-dot"></div>n8n "Using Fields Below" mode prevents Claude special characters from breaking JSON</div>
-    <div class="discovery-item"><div class="disc-dot"></div>GHL V2 /contacts/ search by email returns 422 &mdash; pass contactId directly in webhook payload instead</div>
-    <div class="discovery-item"><div class="disc-dot"></div>WF-VC-05: IF node requires conditions.options.version = 2 &mdash; missing causes silent validation failure</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Claude API response is at content[0].text &mdash; access via $input.item.json.content[0].text</div>
-    <div class="discovery-item"><div class="disc-dot"></div>Plain text with \n renders as wall in Gmail &mdash; split on \n\n, wrap in &lt;p&gt;, replace inner \n with &lt;br&gt;</div>
+    <h3>Technical Discoveries (May 2026)</h3>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive Webhook requires Growth plan &mdash; n8n polls Pipedrive API for triggers instead.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> Pipedrive Deal Labels NOT created in Settings &rarr; Labels. Must create from within an actual Deal record.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 8]</strong> All new Pipedrive automations default to Asia/Taipei timezone &mdash; change to America/Los_Angeles.</div>
