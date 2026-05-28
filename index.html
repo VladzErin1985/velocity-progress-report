@@ -222,7 +222,7 @@
       <div class="label">Build Velocity &mdash; Week 4 &middot; May 27</div>
       <div class="message">
         <strong>May 28: Full onboarding chain live end-to-end ✅ &mdash; stage 101 &rarr; AGENT-06 &rarr; Notion &rarr; Slack. KS-WF-CAL activated ✅. Alex V4 published (11labs-Lucas voice). KS-WF2 + KS-A2 + full inbound flow confirmed (Alex call &rarr; Pipedrive &rarr; Slack &rarr; tier routing &rarr; Calendly &rarr; Won-Onboarding &rarr; Notion draft). 16 Konsier workflows built, 10 live.</strong>
-        <span class="warn"> Drew: Stripe test event (checkout.session.completed with pipedrive_deal_id). Calendly webhook registration. HeyReach upgrade + LinkedIn. Wistia account. WordPress wp-config.php + Retell files. SOP pages 26&ndash;33.</span>
+        <span class="warn"> URGENT: Calendly trial expired (0 days left) &mdash; upgrade needed to keep scheduling active + register webhook. HeyReach trial also expired. Stripe test event pending. Wistia account. WordPress wp-config.php. SOP pages 26&ndash;33.</span>
       </div>
     </div>
     <div class="timeline">
@@ -281,7 +281,7 @@
     <div class="stat-card orange">
       <div class="label">Pending Actions</div>
       <div class="value">6</div>
-      <div class="sub">Drew: Stripe test &middot; Calendly webhook &middot; HeyReach &middot; Wistia &middot; WordPress &middot; SOP pages</div>
+      <div class="sub">URGENT: Calendly trial expired &middot; HeyReach trial expired &middot; Stripe test &middot; Wistia &middot; WordPress &middot; SOP pages</div>
     </div>
   </div>
 
@@ -539,17 +539,10 @@
   <div class="blockers-section">
     <h3>&#9888; Action Required &mdash; Pending from Drew</h3>
     <div class="blocker-item">
-      <div class="blocker-icon">&#128179;</div>
+      <div class="blocker-icon">&#9889;</div>
       <div class="blocker-content">
-        <div class="title">Drew: Stripe Test Event &mdash; Verify KS-WF4 Onboarding Trigger</div>
-        <div class="desc">Go to Stripe Dashboard &rarr; Developers &rarr; Webhooks &rarr; Send test event: checkout.session.completed with metadata: pipedrive_deal_id: "35", plan: "Enterprise". This confirms KS-WF4 fires the same chain as the Pipedrive stage test.</div>
-      </div>
-    </div>
-    <div class="blocker-item">
-      <div class="blocker-icon">&#128197;</div>
-      <div class="blocker-content">
-        <div class="title">Drew: Register Calendly Webhook (1-minute task)</div>
-        <div class="desc">Go to Calendly &rarr; Integrations &rarr; Webhooks &rarr; Add: URL = https://n8n.srv1647733.hstgr.cloud/webhook/konsier-calendly &middot; Event = invitee.created. KS-WF-CAL is live and confirmed working &mdash; just needs the source system pointed at it.</div>
+        <div class="title">URGENT &mdash; Drew: Upgrade Calendly &mdash; Trial Expired (0 days left)</div>
+        <div class="desc">Calendly free trial has expired. Upgrade to paid plan to: 1) keep scheduling active and 2) register the n8n webhook (URL: n8n.srv1647733.hstgr.cloud/webhook/konsier-calendly, event: invitee.created). KS-WF-CAL is built and live &mdash; only blocked by the account upgrade.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -560,10 +553,17 @@
       </div>
     </div>
     <div class="blocker-item">
+      <div class="blocker-icon">&#128179;</div>
+      <div class="blocker-content">
+        <div class="title">Drew: Stripe Test Event &mdash; Verify KS-WF4 Onboarding Trigger</div>
+        <div class="desc">Stripe Dashboard &rarr; Developers &rarr; Webhooks &rarr; Send test event: checkout.session.completed with metadata pipedrive_deal_id: "35". Confirms KS-WF4 fires the full onboarding chain.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
       <div class="blocker-icon">&#128231;</div>
       <div class="blocker-content">
         <div class="title">Drew: Instantly Campaign IDs + GoDaddy IMAP Fix</div>
-        <div class="desc">Roofing-StormBelt / Dental-Suburban / Medical-SunBelt IDs. GoDaddy IMAP fix unblocks warmup + KS-WF6 activation.</div>
+        <div class="desc">Roofing-StormBelt / Dental-Suburban / Medical-SunBelt campaign IDs. GoDaddy IMAP fix unblocks warmup + KS-WF6 activation.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -584,7 +584,7 @@
       <div class="blocker-icon">&#127760;</div>
       <div class="blocker-content">
         <div class="title">Drew (WordPress): Webhook Credentials &mdash; Unblocks KS-WF3 Contact Form</div>
-        <div class="desc">Add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET + RETELL_API_KEY to wp-config.php &rarr; activates KS-WF3 website contact form &rarr; Pipedrive. Voice Orb is already live on konsier.ai &#10003;</div>
+        <div class="desc">Add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET + RETELL_API_KEY to wp-config.php &rarr; activates KS-WF3 website contact form &rarr; Pipedrive. Voice Orb already live on konsier.ai &#10003;</div>
       </div>
     </div>
   </div>
