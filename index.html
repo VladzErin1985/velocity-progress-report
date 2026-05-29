@@ -692,7 +692,7 @@
         </tr>
 
         <tr class="week-divider">
-          <td colspan="4">WEEK 4 &mdash; MAY 25&ndash;26, 2026 &middot; $500 FLAT RETAINER &middot; IN PROGRESS</td>
+          <td colspan="4">WEEK 4 &mdash; MAY 25&ndash;29, 2026 &middot; $500 FLAT RETAINER &middot; IN PROGRESS &middot; DUE MAY 31 (FRIDAY)</td>
         </tr>
         <tr class="done-row">
           <td>May 25<br><small style="color:#475569">Monday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
@@ -747,13 +747,30 @@
           <td style="color:#475569; font-size:12px;">Same week<br>($500 flat)</td>
         </tr>
 
+        <tr class="done-row">
+          <td>May 29<br><small style="color:#475569">Thursday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            KS-WF3 CONFIRMED LIVE: Tested end-to-end &mdash; contact form &rarr; Pipedrive person + deal (company name - Inbound Website, pipeline 14 stage 96) &rarr; Slack #konsier-leads. Fixed: company field missing from Set node + Slack emoji broken (?? &rarr; :bell:). HMAC signature (x-konsier-signature) confirmed in webhook headers. Drew confirmed wp-config.php configured.
+
+            AGENT-04 CLOSER COPILOT (3 workflows built): KS-A4a Pre-Call Brief (9 nodes, live) &mdash; Webhook &rarr; Wait Until 2hrs before call &rarr; GET Pipedrive deal custom fields &rarr; Claude Sonnet 4.6 &rarr; Slack #konsier. Wired into KS-WF-CAL (fires on every Calendly booking, 2 trigger nodes added). KS-A4b Post-Call Summary (11 nodes, inactive) &mdash; Fathom webhook &rarr; Search Pipedrive person by email &rarr; GET deals &rarr; Claude Sonnet 4.6 &rarr; PATCH deal stage &rarr; POST Pipedrive note &rarr; Slack. KS-A4c Objection Mining (8 nodes, live) &mdash; Nightly cron 00:00 UTC &rarr; GET closed-lost deals &rarr; filter last 24hrs &rarr; Claude Sonnet 4.6 &rarr; Slack #konsier-review if new objections found.
+
+            AGENT-08 FOUNDER BRIEF WRITER (KS-A8, 11 nodes, inactive): Monday 7AM ET schedule &rarr; Stripe subscriptions + charges &rarr; Pipedrive deals &rarr; Notion KS &mdash; Client Health &rarr; Code aggregate all metrics &rarr; Claude Sonnet 4.6 (2500 tokens) &rarr; Parse JSON &rarr; Notion KS &mdash; Weekly Briefs DB (created + connected today) &rarr; Slack DM to Drew. Inactive pending Stripe key (Drew security issue with support).
+
+            SOP PAGES 26&ndash;33 RECEIVED: AGENT-04 correct prompt + timing (2hrs, not 30min) &middot; AGENT-07 Bookkeeping Reconciler (blocked QBO) &middot; AGENT-08 Founder Brief Writer. All saved to knowledge base.
+
+            PROGRESS REPORT: Updated to reflect all May 29 builds. All workflow cards + agent statuses corrected.
+          </td>
+          <td style="color:#475569; font-size:12px;">Same week<br>($500 flat)</td>
+        </tr>
+
       </tbody>
       <tfoot>
         <tr>
           <td><strong>Total Paid (Weeks 1&ndash;3)</strong></td>
-          <td><strong>~136 hrs</strong></td>
-          <td><strong>Week 4 in progress &mdash; $500 flat due end of week (May 31)</strong></td>
-          <td class="earn"><strong>$1,384</strong></td>
+          <td><strong>~176 hrs total</strong></td>
+          <td><strong>Week 4 (May 25&ndash;29): 40 hrs logged &middot; $500 flat due Friday May 31 via Wise @freelance1293</strong></td>
+          <td class="earn"><strong>$1,384 paid &middot; +$500 pending</strong></td>
         </tr>
       </tfoot>
     </table>
@@ -771,6 +788,10 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25]</strong> n8n REST API: PUT /api/v1/workflows/{id} settings must ONLY contain {executionOrder: "v1"} &mdash; extra properties cause 400.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25]</strong> WordPress contact form to n8n webhook requires KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET in wp-config.php before KS-WF3 can receive submissions.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 25]</strong> Retell fires both real-time transcript events AND post-call call_analyzed to the same webhook URL &mdash; always filter by event type in first IF node.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 29]</strong> Fluent Forms Pro (WordPress) sends contact form fields as JSON body keys &mdash; confirmed via n8n execution log: company, name, email, phone, industry, calls all map to $json.body.{fieldname}. HMAC signature sent as x-konsier-signature header automatically.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 29]</strong> Slack DM channel IDs start with "D" (e.g. D0B38QHQCQ0) &mdash; accessible from Slack profile &rarr; About tab &rarr; Channel ID. Works directly in n8n Slack node "By ID" mode to send direct messages without needing user ID.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 29]</strong> n8n Wait node resume: "specificTime" with Luxon expression DateTime.fromISO($json.start_time).minus({minutes: 30}).toISO() enables precise delay until X minutes before a scheduled event &mdash; key pattern for pre-call brief workflows.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 29]</strong> Drew's V5 SOP AGENT-04 spec: timing is 2 hours before call (not 30 min). KS-A4a was built with 30-min wait &mdash; needs update. Always cross-reference built prompt vs SOP pages when they arrive.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 26]</strong> Calendly n8n native Trigger node uses deprecated API Key auth &mdash; credential test fails. Use generic Webhook node + register webhook via Calendly API (PowerShell) instead.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 26]</strong> Calendly free trial (Teams) does not support webhook subscription API &mdash; /webhook_subscriptions returns 404. Paid plan required to register webhooks programmatically.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[May 26]</strong> n8n IF node type must match data type &mdash; comparing pipeline_id (number) using Text operator silently fails. Use Number type + enable "Convert types where required."</div>
