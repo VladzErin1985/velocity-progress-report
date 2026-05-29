@@ -406,7 +406,7 @@
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF1</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Email Reply Handler + Outbound Call Trigger</div><div class="wf-trigger"><span>Trigger:</span> Instantly reply webhook &rarr; AGENT-02 Reply Triage &rarr; Switch (6 routes): Positive Qualified &rarr; Slack Hot Lead Alert &rarr; Pipedrive Create Person &rarr; Pipedrive Create Deal &rarr; Retell Dial Sarah (Outbound). Objection/Question &rarr; Slack alerts. Unsubscribe &rarr; Instantly Blocklist. Auto-Reply &rarr; Defer OOO. Needs Review &rarr; Slack alert. May 25: 3 outbound trigger nodes added + vertical field made dynamic.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF2</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Retell Qualification Webhook</div><div class="wf-trigger"><span>Trigger:</span> call_analyzed &rarr; AGENT-PQA &rarr; Pipedrive deal create/update &rarr; Slack. May 25: stage_id dynamic + null fallbacks + deal ID fixed.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF4</span><span class="status-badge badge-done">&#10003; Live (partial)</span></div><div class="wf-name">Stripe &rarr; Onboarding Chain</div><div class="wf-trigger"><span>Trigger:</span> Stripe payment success &rarr; Pipedrive stage 101 &rarr; AGENT-06 Onboarding Drafter. Stage_id fixed 98&rarr;101 (May 25).</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF3</span><span class="status-badge badge-done">&#10003; Live &mdash; Untested Sequence</span></div><div class="wf-name">Website Contact Form &rarr; Pipedrive</div><div class="wf-trigger"><span>Live &#10003;:</span> WordPress wp-config.php configured. Contact form webhook active. Full end-to-end sequence (form submit &rarr; Pipedrive deal &rarr; Slack) not yet tested &mdash; pending sequence test.</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF3</span><span class="status-badge badge-done">&#10003; Live &mdash; Tested May 29</span></div><div class="wf-name">Website Contact Form &rarr; Pipedrive</div><div class="wf-trigger"><span>Confirmed &#10003; May 29:</span> Contact form &rarr; Pipedrive person + deal (company name - Inbound Website, pipeline 14 stage 96) &rarr; Slack #konsier-leads. Fixed: company field missing from Set node + Slack :bell: emoji. HMAC signature confirmed in headers.</div></div>
       <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">KS-WF6</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div><div class="wf-name">Daily Outbound Lead Pipeline</div><div class="wf-trigger"><span>May 27 &mdash; Restructured (19 nodes):</span> 3 vertical Apollo searches (Roofing Storm Belt 34 leads &middot; Dental Suburban 33 leads &middot; Medical Sun Belt 33 leads) + Merge &rarr; ICP Score &rarr; Notion Dedup &rarr; Batch-50 &rarr; AGENT-01 &rarr; Instantly + Notion Lead Log + Slack. Geography synced with Apollo UI. <span>Blocked &mdash; Drew:</span> Instantly campaign IDs (3) + GoDaddy IMAP fix.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-A2</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Tier Routing</div><div class="wf-trigger"><span>Activated May 27:</span> Call volume &rarr; tier assignment (Starter/Pro/Enterprise/Not Qualified) &rarr; Pipedrive stage update &rarr; Slack. All 4 Slack nodes confirmed with Velocity Capital credential &#10003;</div></div>
       <div class="wf-card inactive">
@@ -557,10 +557,17 @@
       </div>
     </div>
     <div class="blocker-item">
+      <div class="blocker-icon">&#127909;</div>
+      <div class="blocker-content">
+        <div class="title">Drew: Fathom Setup &mdash; Unblocks KS-A4b Post-Call Summary</div>
+        <div class="desc">KS-A4b (AGENT-04 Post-Call Summary) is built and waiting. Drew needs to: 1) Create free Fathom account at fathom.video &middot; 2) Connect Zoom via OAuth &middot; 3) Add webhook URL: n8n.srv1647733.hstgr.cloud/webhook/konsier-closer-post. 5-minute setup. Unblocks automatic post-demo summaries + Pipedrive stage updates.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
       <div class="blocker-icon">&#128179;</div>
       <div class="blocker-content">
-        <div class="title">Drew: Stripe Test Event &mdash; Verify KS-WF4 Onboarding Trigger</div>
-        <div class="desc">Stripe Dashboard &rarr; Developers &rarr; Webhooks &rarr; Send test event: checkout.session.completed with metadata pipedrive_deal_id: "35". Confirms KS-WF4 fires the full onboarding chain.</div>
+        <div class="title">Drew: Stripe Security Fix &mdash; Blocks KS-WF4 + KS-A8 + Payment Links</div>
+        <div class="desc">Drew confirmed May 29 (11:11 AM): "I'm having security issue with the mailboxes and Stripe. Unfortunately having to wait for their support to fix the issues." Blocks: new Stripe API key (KS-A8 Founder Brief inactive) &middot; all payment links (6 links needed: 3 phone-only + 3 widget add-on tiers) &middot; KS-WF4 onboarding chain end-to-end test.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -585,10 +592,10 @@
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">&#127760;</div>
-      <div class="blocker-content">
-        <div class="title">Drew (WordPress): Webhook Credentials &mdash; Unblocks KS-WF3 Contact Form</div>
-        <div class="desc">Add KONSIER_WEBHOOK_URL + KONSIER_WEBHOOK_SECRET + RETELL_API_KEY to wp-config.php &rarr; activates KS-WF3 website contact form &rarr; Pipedrive. Voice Orb already live on konsier.ai &#10003;</div>
+      <div class="blocker-icon">&#10003;</div>
+      <div class="blocker-content" style="opacity:0.5;">
+        <div class="title" style="text-decoration:line-through;">Drew (WordPress): Webhook Credentials &mdash; KS-WF3 Contact Form</div>
+        <div class="desc">&#10003; DONE May 29 &mdash; Drew configured wp-config.php. KS-WF3 tested end-to-end: contact form &rarr; Pipedrive person + deal (company name - Inbound Website) &rarr; Slack #konsier-leads. HMAC signature confirmed in headers.</div>
       </div>
     </div>
   </div>
