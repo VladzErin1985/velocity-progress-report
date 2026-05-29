@@ -460,17 +460,17 @@
     <div class="section-header" style="margin-top: 20px;">
       <span class="entity-tag tag-ks">AGENTS</span>
       <h2>Konsier &mdash; Claude AI Agents (8 Total)</h2>
-      <span class="count">6 prompts complete &middot; 2 pending SOP pages 26&ndash;33</span>
+      <span class="count">All 8 prompts received May 29 &middot; AGENT-04 + AGENT-08 unblocked &middot; AGENT-07 pending QBO setup</span>
     </div>
     <div class="lg-grid">
       <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-01</div><div class="lg-name">Outbound Operator</div><div class="lg-desc">Reviews lead data &rarr; writes personalized cold outreach copy for Instantly campaigns</div></div>
       <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-02 &#10003; Live</div><div class="lg-name">Reply Triage</div><div class="lg-desc">Reads Instantly reply &rarr; classifies intent &rarr; routes to Retell Sarah dial or closes in Pipedrive</div></div>
       <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-03 (PQA)</div><div class="lg-name">Qualification Analyzer</div><div class="lg-desc">Reads Retell call transcript &rarr; BANT score &rarr; updates Pipedrive stage + Notion Call QA Queue</div></div>
-      <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-04</div><div class="lg-name">Closer Copilot</div><div class="lg-desc">Pre-call briefing for Drew &mdash; pending SOP pages 26&ndash;33 from Drew</div></div>
+      <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-04 &mdash; Ready to Build</div><div class="lg-name">Closer Copilot</div><div class="lg-desc">Prompt received May 29 &#10003;. Pre-call briefing for Drew 2hrs before closing call &rarr; Notion KS Closer Briefs DB + Slack DM. Needs Pipedrive stage 99 confirmed.</div></div>
       <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-05 &#10003; Built</div><div class="lg-name">Customer Call QA</div><div class="lg-desc">Post-call quality analysis &rarr; detects red flags &rarr; Slack #konsier-escalations if alert_required</div></div>
       <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-06 &#10003; Built</div><div class="lg-name">Onboarding Drafter</div><div class="lg-desc">12-field intake &rarr; Claude Sonnet 4.6 &rarr; Notion KS Client Onboarding page &rarr; Slack #konsier-review</div></div>
-      <div class="lg-card pending"><div class="lg-id">AGENT-07</div><div class="lg-name">Bookkeeping Reconciler</div><div class="lg-desc">Pending: Drew QBO setup + SOP pages 26&ndash;33</div></div>
-      <div class="lg-card pending"><div class="lg-id">AGENT-08</div><div class="lg-name">Founder Brief Writer</div><div class="lg-desc">Pending: SOP pages 26&ndash;33 from Drew</div></div>
+      <div class="lg-card pending"><div class="lg-id">AGENT-07 &mdash; Blocked</div><div class="lg-name">Bookkeeping Reconciler</div><div class="lg-desc">Prompt received May 29 &#10003;. Blocked: Drew must set up QuickBooks Online (QBO) first. Matches Stripe transactions to QBO + Slack #konsier-finance.</div></div>
+      <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-08 &mdash; Ready to Build</div><div class="lg-name">Founder Brief Writer</div><div class="lg-desc">Prompt received May 29 &#10003;. Weekly Monday 7AM ET executive summary &rarr; Notion KS Weekly Brief DB + Slack DM + Email drew@konsier.ai.</div></div>
     </div>
   </div>
 
@@ -546,10 +546,10 @@
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">&#9889;</div>
+      <div class="blocker-icon">&#9654;</div>
       <div class="blocker-content">
-        <div class="title">URGENT &mdash; Drew: HeyReach Trial Expired</div>
-        <div class="desc">Upgrade trial + connect LinkedIn account &rarr; unblocks KS-WF5 LinkedIn Outreach pipeline</div>
+        <div class="title">HeyReach &mdash; On Hold (Velocity Capital Build, Week 3)</div>
+        <div class="desc">Drew confirmed May 29: HeyReach is for Velocity Capital, not Konsier. KS-WF5 parked. Will be wired in during VC Week 3 build.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -557,6 +557,13 @@
       <div class="blocker-content">
         <div class="title">Drew: Stripe Test Event &mdash; Verify KS-WF4 Onboarding Trigger</div>
         <div class="desc">Stripe Dashboard &rarr; Developers &rarr; Webhooks &rarr; Send test event: checkout.session.completed with metadata pipedrive_deal_id: "35". Confirms KS-WF4 fires the full onboarding chain.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">&#128203;</div>
+      <div class="blocker-content">
+        <div class="title">Drew: QuickBooks Online (QBO) Setup &mdash; Unblocks AGENT-07</div>
+        <div class="desc">AGENT-07 Bookkeeping Reconciler needs QBO set up before it can reconcile Stripe transactions. Separate setup playbook: Konsier_QBO_Setup_Playbook.docx. Confirm pricing: SOP says $697/$1,047/$1,797 but current build uses $497/$797/$1,497.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -571,13 +578,6 @@
       <div class="blocker-content">
         <div class="title">Drew: Wistia Account + Demo Videos</div>
         <div class="desc">Create account, upload demo videos, share video IDs &rarr; unblocks KS-A5 Hot Lead trigger</div>
-      </div>
-    </div>
-    <div class="blocker-item">
-      <div class="blocker-icon">&#128196;</div>
-      <div class="blocker-content">
-        <div class="title">Drew: SOP Pages 26&ndash;33 (AGENT-04/07/08 Prompts)</div>
-        <div class="desc">Closer Copilot, Bookkeeping Reconciler, Founder Brief Writer prompts needed to complete final 3 Claude agents</div>
       </div>
     </div>
     <div class="blocker-item">
