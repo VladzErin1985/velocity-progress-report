@@ -112,6 +112,22 @@
     .billing-table .earn { color: #34d399; font-weight: 600; white-space: nowrap; }
     .billing-table .earn-orange { color: #fb923c; font-weight: 600; white-space: nowrap; }
 
+    /* Project Dividers */
+    .project-divider { border-radius: 10px; padding: 16px 24px; margin: 36px 0 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .project-divider.vc { background: linear-gradient(135deg, #0a1628 0%, #0d2137 100%); border: 1px solid #1e3a5f; border-left: 5px solid #60a5fa; }
+    .project-divider.ks { background: linear-gradient(135deg, #0f0a2a 0%, #1a103a 100%); border: 1px solid #2d1e5f; border-left: 5px solid #818cf8; }
+    .project-divider .proj-label { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 4px; }
+    .project-divider.vc .proj-label { color: #60a5fa; }
+    .project-divider.ks .proj-label { color: #818cf8; }
+    .project-divider .proj-title { font-size: 16px; font-weight: 700; color: #f1f5f9; }
+    .project-divider .proj-sub { font-size: 12px; color: #64748b; margin-top: 3px; }
+    .project-divider .proj-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+    .project-divider .proj-stat { text-align: center; }
+    .project-divider .proj-stat .ps-val { font-size: 22px; font-weight: 700; }
+    .project-divider.vc .proj-stat .ps-val { color: #60a5fa; }
+    .project-divider.ks .proj-stat .ps-val { color: #818cf8; }
+    .project-divider .proj-stat .ps-label { font-size: 10px; color: #475569; text-transform: uppercase; letter-spacing: 0.6px; }
+
     /* Section */
     .section { margin-bottom: 28px; }
     .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
@@ -202,8 +218,8 @@
   <!-- Header -->
   <div class="header">
     <div class="header-left">
-      <h1>Velocity Capital Group &mdash; Automation Build Report</h1>
-      <div class="subtitle">n8n &middot; Pipedrive &middot; Retell AI &middot; Slack &middot; Claude AI &middot; Dual Project Build &middot; Week 4 &middot; Prepared by Vladimir</div>
+      <h1>Drew Williams &mdash; Dual Project Automation Build Report</h1>
+      <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 4 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
       <div class="date-badge">May 29, 2026</div>
@@ -314,6 +330,20 @@
     </div>
   </div>
 
+  <!-- PROJECT 1 DIVIDER -->
+  <div class="project-divider vc">
+    <div>
+      <div class="proj-label">Project 1 &mdash; Velocity Capital Group</div>
+      <div class="proj-title">Velocity Capital Group &mdash; Multi-Entity Investment CRM</div>
+      <div class="proj-sub">4 entities &middot; 18 n8n workflows &middot; Pipedrive CRM &middot; GHL-based (Phase 1 live) &middot; Pipedrive rebuild queued</div>
+    </div>
+    <div class="proj-stats">
+      <div class="proj-stat"><div class="ps-val">6</div><div class="ps-label">n8n Live</div></div>
+      <div class="proj-stat"><div class="ps-val">2</div><div class="ps-label">PD Automations</div></div>
+      <div class="proj-stat"><div class="ps-val">4</div><div class="ps-label">Pipelines</div></div>
+    </div>
+  </div>
+
   <!-- Pipedrive CRM -->
   <div class="section">
     <div class="section-header">
@@ -389,6 +419,20 @@
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-04</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Post-Call Follow-Up</div><div class="wf-trigger"><span>Trigger:</span> Stage &rarr; Call Complete. Claude writes proposal email &middot; creates follow-up task &middot; moves stage</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-05</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Policy Active &rarr; Investor Transition</div><div class="wf-trigger"><span>Trigger:</span> Policy Active + cash value &gt;$50K. 12-node cross-entity handoff: stage &rarr; tags &rarr; Claude email &rarr; note</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-06</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Monthly Client Report</div><div class="wf-trigger"><span>Trigger:</span> Cron &mdash; 1st of month. Claude writes 400&ndash;500 word report &rarr; GHL Conversations API &rarr; note logged</div></div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 DIVIDER -->
+  <div class="project-divider ks">
+    <div>
+      <div class="proj-label">Project 2 &mdash; Konsier AI Receptionist</div>
+      <div class="proj-title">Konsier &mdash; AI Receptionist Agency System</div>
+      <div class="proj-sub">20 workflows built &middot; 13 live &middot; 8 Claude agents &middot; 2 Retell AI agents &middot; 3 Pipedrive pipelines &middot; 5 Notion databases</div>
+    </div>
+    <div class="proj-stats">
+      <div class="proj-stat"><div class="ps-val">13</div><div class="ps-label">Live</div></div>
+      <div class="proj-stat"><div class="ps-val">10</div><div class="ps-label">AI Agents</div></div>
+      <div class="proj-stat"><div class="ps-val">7</div><div class="ps-label">Blocked</div></div>
     </div>
   </div>
 
