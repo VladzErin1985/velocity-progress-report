@@ -615,10 +615,10 @@
   <div class="blockers-section">
     <h3>&#9888; Action Required &mdash; Pending from Drew</h3>
     <div class="blocker-item">
-      <div class="blocker-icon">&#9889;</div>
+      <div class="blocker-icon">&#10003;</div>
       <div class="blocker-content">
-        <div class="title">URGENT &mdash; Drew: Upgrade Calendly &mdash; Trial Expired (0 days left)</div>
-        <div class="desc">Calendly free trial has expired. Upgrade to paid plan to: 1) keep scheduling active and 2) register the n8n webhook (URL: n8n.srv1647733.hstgr.cloud/webhook/konsier-calendly, event: invitee.created). KS-WF-CAL is built and live &mdash; only blocked by the account upgrade.</div>
+        <div class="title" style="color:#34d399;">RESOLVED &mdash; Calendly Standard Plan Upgraded &#10003;</div>
+        <div class="desc">Calendly upgraded to Standard Plan. KS-WF-CAL 4-branch webhook live. Webhook re-registered June 1.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -830,6 +830,17 @@
             KS-WF6 FULL AUDIT + UPGRADE (22 nodes): I audited the full pipeline and fixed 4 bugs. (1) Merge node typeVersion 2 only supported 2 inputs &mdash; Medical leads were silently dropped after every run. Upgraded to typeVersion 3.2 + numberInputs: 3. (2) Code &mdash; Extract Apollo Fields used $input.first() &mdash; only Roofing leads were extracted, Dental + Medical were completely dropped. Fixed to iterate all 3 Apollo responses. (3) HTTP Notion Dedup queried property &ldquo;Email&rdquo; &mdash; Notion returned 400 property not found. Fixed to &ldquo;Email &rdquo; (trailing space, matching Lead Log schema). (4) Slack &ldquo;Send a message&rdquo; had missing resource + operation parameters. Fixed. Added 3 vertical Tag nodes (Code &mdash; Tag Roofing &middot; Code &mdash; Tag Dental &middot; Code &mdash; Tag Medical) to cleanly label each lead&rsquo;s vertical + campaign before Merge. Fixed Code &mdash; Parse Claude Output to read vertical and campaign from Tag nodes instead of empty Apollo industry field. Repositioned all nodes to clean visual layout. Validated 0 errors.
 
             FULL PIPELINE TEST CONFIRMED (all 13 post-Apollo nodes): Apollo &times; 3 verticals (Roofing 638 pool &middot; Dental 263 &middot; Medical 2,935) &rarr; Merge (all 3 combined) &rarr; Extract (15 flat leads, correct vertical tags) &rarr; ICP Score &rarr; Notion Dedup &rarr; Batch 50 &rarr; Claude AGENT-01 (15 BASHO openers generated, 27.9s) &rarr; Parse (vertical + campaign preserved) &rarr; Notion Lead Log (15 pages: Vertical = Roofing/Dental/Medical, Status = Queued) &rarr; Aggregate &rarr; Slack #konsier &#10003;. Apollo geography verified against Drew&rsquo;s saved searches &mdash; all 20/18/23 cities confirmed matching. BLOCKER: Apollo api_search returns preview-only data &mdash; email + city + industry all empty. Old endpoint deprecated (422). Pending Drew: confirm if Professional plan returns full contact data via api_search, or if a separate people reveal step is needed before ICP scoring.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
+        </tr>
+
+        <tr class="done-row">
+          <td>June 2<br><small style="color:#475569">Tuesday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            KS-A4a CLOSER COPILOT REBUILT TO V5 AGENT-04 SPEC (12 nodes, live): Changed pre-call timing from 30 min &rarr; 2 hours before call. Replaced AI prompt with full 7-section brief format (Snapshot &middot; What They Actually Need &middot; Likely Objections &middot; Pricing Position &middot; Close Strategy &middot; Red Flags &middot; Opening Line). Added 6 edge-case rules (low qualification score, aged deal, missing transcript, low call volume &rarr; Starter, owner/decision-maker note, Medical/Dental HIPAA mention). Added Pipedrive person lookup node &mdash; daily call volume, current solution, employee count, niche now pulled from person record. Fixed Pipedrive v2 custom-field paths (were returning blanks). Added PATCH step writing finished brief to Pipedrive Closer Brief field. Created KS &mdash; Closer Briefs Notion database and wired workflow to log all briefs. Reformatted Slack notification for full 7-section render. Tested end-to-end on live deal &#10003;.
+
+            KS-WF6 APOLLO LEAD ENRICHMENT FIXED (25 nodes): Resolved core data issue &mdash; Apollo search endpoint withholds all contact + firmographic data (email, city, industry, employee count) by design. ICP scoring was evaluating empty fields. Built enrichment step: 3 new nodes inserted between lead extraction and ICP scoring. Batching node groups lead IDs into sets of 10 &rarr; Apollo enrichment request unlocks verified work email + full company data per lead &rarr; merge node re-attaches vertical/campaign tags. ICP scoring now runs on real data. Volume aligned to SOP 50/25/25 split (Roofing 50 &middot; Dental 25 &middot; Medical 25 per day). Tested &mdash; verified work emails confirmed on sample Roofing leads &#10003;. Blocked &mdash; Drew: Instantly access (billing issue) &middot; campaign IDs (3) &middot; GoDaddy IMAP fix.
           </td>
           <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
         </tr>
