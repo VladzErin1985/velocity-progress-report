@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 1</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 2</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -222,23 +222,23 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 4 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">June 1, 2026</div>
-      <div class="week-badge">Week 4 of 6 &middot; Day 24 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">June 2, 2026</div>
+      <div class="week-badge">Week 4 of 6 &middot; Day 25 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>JUNE 1 BUILDS:</strong> KS-WF-CAL expanded from Demo-only to full 4-branch webhook — Demo &middot; Kickoff &middot; Check-in &middot; 30-Day Review (29 nodes) ✅. All 4 branches tested + confirmed. Calendly upgraded to Standard Plan ✅. Webhook registration pending Drew email verification (new PAT needed). Apollo → Notion lead pipeline test queued. Velocity Capital build resuming mid-week. &mdash; <strong>Still blocked:</strong> Stripe security issue (KS-WF4 / KS-A8 / payment links) &middot; Instantly IDs &middot; GoDaddy IMAP &middot; Fathom (KS-A4b) &middot; QBO (AGENT-07).
+    <strong>JUNE 2 BUILDS:</strong> KS-A4a Closer Copilot rebuilt to V5 AGENT-04 spec — 7-section brief, Pipedrive person lookup, Notion Closer Briefs DB created, Pipedrive field write, Slack render. 12 nodes, tested end-to-end ✅. KS-WF6 Apollo lead enrichment step built — resolved masked contact data issue, 3 new nodes inserted, verified work emails now revealed, ICP scoring running on real data (25 nodes) ✅. &mdash; <strong>Still blocked:</strong> Stripe security issue &middot; Instantly access (402) &middot; GoDaddy IMAP &middot; Fathom (KS-A4b) &middot; QBO (AGENT-07).
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 4 &middot; June 1</div>
+      <div class="label">Build Velocity &mdash; Week 4 &middot; June 2</div>
       <div class="message">
-        <strong>June 1: KS-WF-CAL expanded to 4-branch webhook ✅ — Demo &middot; Kickoff &middot; Check-in &middot; 30-Day Review (29 nodes). All branches tested + confirmed. Calendly Standard Plan upgraded ✅. 20 Konsier workflows built, 13 live.</strong>
-        <span class="warn"> Blocked: Stripe security issue (KS-WF4 / KS-A8 / payment links) &middot; Instantly IDs &middot; GoDaddy IMAP &middot; Calendly webhook pending Drew email verification &middot; Fathom (KS-A4b) &middot; Wistia &middot; QBO (AGENT-07).</span>
+        <strong>June 2: KS-A4a Closer Copilot rebuilt to V5 AGENT-04 spec ✅ — 7-section brief, Pipedrive person lookup, Notion Closer Briefs DB, Pipedrive field write (12 nodes, tested). KS-WF6 Apollo lead enrichment fixed ✅ — resolved masked contact data, verified emails now revealed, ICP scoring on real data (25 nodes). 20 Konsier workflows built, 13 live.</strong>
+        <span class="warn"> Blocked: Stripe security issue (KS-WF4 / KS-A8 / payment links) &middot; Instantly access (402, same root cause) &middot; GoDaddy IMAP &middot; Fathom (KS-A4b) &middot; Wistia &middot; QBO (AGENT-07).</span>
       </div>
     </div>
     <div class="timeline">
@@ -278,9 +278,13 @@
         <div class="tl-date">June 1</div>
         <div class="tl-label">CAL 4-branch &#10003;</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">June 2</div>
+        <div class="tl-label">A4a + WF6 &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
-        <div class="tl-label">Apollo + VC resume</div>
+        <div class="tl-label">VC resume &middot; PD-WF-03</div>
       </div>
     </div>
   </div>
@@ -455,7 +459,7 @@
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF2</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Retell Qualification Webhook</div><div class="wf-trigger"><span>Trigger:</span> call_analyzed &rarr; AGENT-PQA &rarr; Pipedrive deal create/update &rarr; Slack. May 25: stage_id dynamic + null fallbacks + deal ID fixed.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF4</span><span class="status-badge badge-done">&#10003; Live (partial)</span></div><div class="wf-name">Stripe &rarr; Onboarding Chain</div><div class="wf-trigger"><span>Trigger:</span> Stripe payment success &rarr; Pipedrive stage 101 &rarr; AGENT-06 Onboarding Drafter. Stage_id fixed 98&rarr;101 (May 25).</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF3</span><span class="status-badge badge-done">&#10003; Live &mdash; Tested May 29</span></div><div class="wf-name">Website Contact Form &rarr; Pipedrive</div><div class="wf-trigger"><span>Confirmed &#10003; May 29:</span> Contact form &rarr; Pipedrive person + deal (company name - Inbound Website, pipeline 14 stage 96) &rarr; Slack #konsier-leads. Fixed: company field missing from Set node + Slack :bell: emoji. HMAC signature confirmed in headers.</div></div>
-      <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">KS-WF6</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div><div class="wf-name">Daily Outbound Lead Pipeline</div><div class="wf-trigger"><span>May 27 &mdash; Restructured (19 nodes):</span> 3 vertical Apollo searches (Roofing Storm Belt 34 leads &middot; Dental Suburban 33 leads &middot; Medical Sun Belt 33 leads) + Merge &rarr; ICP Score &rarr; Notion Dedup &rarr; Batch-50 &rarr; AGENT-01 &rarr; Instantly + Notion Lead Log + Slack. Geography synced with Apollo UI. <span>Blocked &mdash; Drew:</span> Instantly campaign IDs (3) + GoDaddy IMAP fix.</div></div>
+      <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">KS-WF6</span><span class="status-badge badge-inactive">Built &mdash; Inactive (Lead Enrichment Fixed June 2)</span></div><div class="wf-name">Daily Outbound Lead Pipeline</div><div class="wf-trigger"><span>25 nodes (June 2 fix):</span> 3 vertical Apollo searches (Roofing 50 &middot; Dental 25 &middot; Medical 25, SOP 50/25/25 split) &rarr; Tag &rarr; Merge &rarr; Extract &rarr; <strong>Batch IDs &rarr; Apollo Bulk Reveal (email + firmographics unlocked)</strong> &rarr; ICP Score &rarr; Notion Dedup &rarr; Batch-50 &rarr; AGENT-01 &rarr; Instantly + Notion Lead Log + Slack. Fixed: Apollo search masks all contact data &mdash; bulk_match reveal step now unlocks verified work emails + industry + city + employee count before ICP scoring. Tested: verified emails confirmed &#10003;. <span>Blocked &mdash; Drew:</span> Instantly access (402, billing issue) &middot; campaign IDs (3) &middot; GoDaddy IMAP fix.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-A2</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Tier Routing</div><div class="wf-trigger"><span>Activated May 27:</span> Call volume &rarr; tier assignment (Starter/Pro/Enterprise/Not Qualified) &rarr; Pipedrive stage update &rarr; Slack. All 4 Slack nodes confirmed with Velocity Capital credential &#10003;</div></div>
       <div class="wf-card inactive">
         <div class="wf-top"><span class="wf-id">KS-WF7 / AGENT-05</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div>
@@ -488,9 +492,9 @@
         <div class="wf-trigger"><span>May 27 &mdash; 7 nodes:</span> Wistia webhook &rarr; IF percent_watched &ge; 50 &rarr; Search Person &rarr; GET Deals &rarr; PATCH deal (Demo % Watched + Async Demo Opened) &rarr; Slack #konsier hot lead alert. <span>Blocked &mdash; Drew:</span> Wistia account not set up, no video IDs yet.</div>
       </div>
       <div class="wf-card done">
-        <div class="wf-top"><span class="wf-id">KS-A4a</span><span class="status-badge badge-done">&#10003; Live &mdash; May 29</span></div>
+        <div class="wf-top"><span class="wf-id">KS-A4a</span><span class="status-badge badge-done">&#10003; Live &mdash; Rebuilt June 2 (V5 Spec)</span></div>
         <div class="wf-name">Closer Copilot &mdash; Pre-Call Brief</div>
-        <div class="wf-trigger"><span>9 nodes (May 29):</span> Webhook konsier-closer-pre &rarr; Respond 200 &rarr; Extract booking data &rarr; Wait Until 2hrs before call &rarr; GET Pipedrive deal (qualification fields) &rarr; Claude Sonnet 4.6 (AGENT-04) &rarr; Parse JSON &rarr; Slack #konsier. Wired into KS-WF-CAL (fires on every Calendly demo booked).</div>
+        <div class="wf-trigger"><span>12 nodes (June 2 rebuild):</span> Webhook konsier-closer-pre &rarr; Respond 200 &rarr; Extract &rarr; Wait 2hrs before call &rarr; GET Pipedrive deal &rarr; GET Pipedrive person (call volume, niche, solution) &rarr; Build context &rarr; Claude Sonnet 4.6 (AGENT-04, 7-section brief) &rarr; Parse JSON &rarr; PATCH Pipedrive Closer Brief field &rarr; POST Notion Closer Briefs DB &rarr; Slack #konsier. Tested end-to-end on live deal &#10003;.</div>
       </div>
       <div class="wf-card inactive">
         <div class="wf-top"><span class="wf-id">KS-A4b</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div>
