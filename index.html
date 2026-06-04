@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 3</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 4</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -868,11 +868,26 @@
           <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
         </tr>
 
+        <tr class="done-row">
+          <td>June 4<br><small style="color:#475569">Thursday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            VELOCITY CAPITAL &mdash; WF-VC-01 THROUGH WF-VC-05 REBUILT FOR PIPEDRIVE (GHL fully removed): I rebuilt all five Velocity Capital workflows against Pipedrive directly. WF-VC-01 Lead Capture (9 nodes) &mdash; webhook trigger, Pipedrive Person + Deal created at stage 51, Slack notification. WF-VC-02 AI Education Drip (8 nodes) &mdash; PD-EVENTS stage 43 trigger, Pipedrive person lookup, AI-written Day 1 email sent via Pipedrive mailbox. WF-VC-03 Strategy Call Booking (10 nodes) &mdash; Calendly v2 webhook, deal stage patched to 44, call prep note posted. WF-VC-04 Post-Call Follow-Up (11 nodes) &mdash; PD-EVENTS stage 60 trigger, AI proposal email, PATCH stage 61, activity created +3 days, Slack. WF-VC-05 Policy Active &rarr; Investor Transition (14 nodes) &mdash; PD-EVENTS stage 63 trigger, IF cash value &gt;$50K: PATCH deal stage 64, set &ldquo;Active in AV?&rdquo; = Yes on person, AI investor welcome email, Pipedrive mailbox, pinned note, Slack &mdash; else: below-threshold note only. All 5 workflows validated clean (0 errors), saved inactive and ready for activation.
+
+            KONSIER &mdash; KS-WF2 OUTBOUND QUALIFICATION CHAIN FIXED + TESTED END-TO-END: I identified and fixed 3 bugs blocking the outbound call-to-Pipedrive chain. (1) IF &mdash; Inbound or Outbound node had a trailing newline in the expression causing a type mismatch on every outbound call &mdash; removed and corrected to string type. (2) Claude &mdash; Transcript Summarizer was embedding raw transcript text directly into a JSON body, breaking on any call with multi-line speech &mdash; added a Code node that builds the full request body with proper JSON serialization before the Claude call. (3) HTTP &mdash; PATCH Pipedrive Deal was sending the Tier Match field as a plain text string; Pipedrive expects a numeric enum ID &mdash; added a second Code node that maps the tier label to the correct option ID (Growth=168, Scale=169, Enterprise=170) and serializes the full PATCH body safely.
+
+            I activated KS-A4c (Closer Copilot &mdash; Objection Mining, nightly cron) and KS-A4 (Stalled Deal Alert, daily cron) &mdash; both were built but had never been activated.
+
+            OUTBOUND CHAIN TEST CONFIRMED END-TO-END &#10003;: Sarah called a test lead, qualified them, and the full chain fired: call_analyzed webhook received &rarr; AGENT-03 analyzed transcript &rarr; Pipedrive deal moved to stage 94 (Qualified) &rarr; all custom fields written (pain point, urgency score, closer brief, transcript, qualification result) &rarr; Slack #konsier-leads notified with result, tier, pain point summary, and Calendly link.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
+        </tr>
+
       </tbody>
       <tfoot>
         <tr>
           <td><strong>Total Paid (Weeks 1&ndash;5)</strong></td>
-          <td><strong>~224 hrs total</strong></td>
+          <td><strong>~248 hrs total</strong></td>
           <td><strong>Week 5 (June 1&ndash;6): In progress &middot; $500 flat received May 30 via Wise @freelance1293 &#10003;</strong></td>
           <td class="earn"><strong>$2,384 paid</strong></td>
         </tr>
