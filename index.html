@@ -830,13 +830,45 @@
           <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
         </tr>
 
+        <tr class="done-row">
+          <td>June 2<br><small style="color:#475569">Tuesday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            KS-A4a CLOSER COPILOT REBUILT TO V5 AGENT-04 SPEC (12 nodes, live): I changed the pre-call timing from 30 minutes to 2 hours before the scheduled call. I replaced the AI briefing prompt with the full 7-section format: Snapshot &middot; What They Actually Need &middot; Likely Objections &middot; Pricing Position &middot; Close Strategy &middot; Red Flags &middot; Opening Line. I added six edge-case rules (low qualification score, aged deal, missing transcript, low call volume &rarr; recommend Starter, owner/decision-maker note, Medical/Dental HIPAA mention). I fixed how the workflow reads Pipedrive deal data &mdash; corrected the v2 custom-field paths that were returning blanks, so the brief now pulls real deal data. I added a Pipedrive person lookup so daily call volume, current solution, employee count, and niche populate correctly (these live on the person record, not the deal). I added a step that writes the finished brief into the deal&rsquo;s Closer Brief field in Pipedrive. I created a new KS &mdash; Closer Briefs Notion database and wired the workflow to log every brief there (title, all 7 sections, confidence rating). I reformatted the Slack notification to render the full 7-section brief. Tested end-to-end on a test deal &mdash; brief generated correctly and wrote to all three destinations: Pipedrive field, Notion database, and Slack. All six edge cases fired correctly. Final workflow: 12 nodes, validated clean (0 errors).
+
+            KS-WF6 APOLLO LEAD ENRICHMENT FIXED (25 nodes): I diagnosed the lead-data problem &mdash; Apollo&rsquo;s search returns only partial records (name, title, company); email, city, industry, and employee count are withheld by design. I built the enrichment step (3 new nodes) between lead extraction and ICP scoring: a batching node, an Apollo enrichment request, and a data-merge node. The enrichment call unlocks each lead&rsquo;s verified email plus full company data in batches of 10. I aligned daily volume to the SOP split &mdash; Roofing 50 &middot; Dental 25 &middot; Medical 25 per day. Tested and confirmed on sample Roofing leads: all returned verified work emails with complete company data. Workflow validated with zero errors (25 nodes). BLOCKER: Instantly access (billing issue) &middot; campaign IDs (3) &middot; GoDaddy IMAP fix still pending Drew.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
+        </tr>
+
+        <tr class="done-row">
+          <td>June 3<br><small style="color:#475569">Wednesday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            STRIPE CREDENTIAL FIX + KS-WF4 REACTIVATED: I identified a Stripe account mismatch &mdash; the n8n credential was connected to a restricted, inaccessible account. I updated the credential to the correct account with the test secret key and webhook signing secret. KS-WF4 reactivated with correct credentials &#10003;. Test event pending &mdash; Drew&rsquo;s prior test event went to the wrong endpoint; will resend to confirmed n8n URL.
+
+            QBO OAUTH2 CREDENTIAL CREATED: I built the credential shell (Konsier &mdash; QuickBooks Online) using Drew&rsquo;s Intuit Developer app Client ID and Secret. OAuth browser sign-in still required &mdash; Drew completing Intuit app setup separately. Unblocks AGENT-07 once OAuth is completed.
+
+            NEW BUILD &mdash; KS-A7 BOOKKEEPING RECONCILER (13 nodes, inactive): I created the Notion KS &mdash; Bookkeeping Log database and the #konsier-finance Slack channel (private, Drew + Konsier Bot added). Workflow: Stripe subscriptions + charges &rarr; QBO reconciliation &rarr; AGENT-07 &rarr; Notion log &rarr; Slack #konsier-finance. Inactive: awaiting QBO OAuth completion.
+
+            KS-A4a CONFIRMED LIVE IN PRODUCTION: Fired automatically on a real inbound lead (Mark Torres, roofing contractor). Delivered full 7-section pre-call brief to Slack &mdash; pitch angle, 3 specific objection handlers with responses, cold-start advisory for unqualified lead. V5 AGENT-04 spec confirmed end-to-end &#10003;.
+
+            VC BUILD RESUMED &mdash; PD-WF-03 VC&rarr;AV PIPELINE HANDOFF (8 nodes, inactive): I built the first cross-entity automation in the Velocity system. When a VC deal reaches Policy Delivered (Stage 64), PD-EVENTS auto-triggers PD-WF-03. Workflow: GET Pipedrive Person &rarr; PATCH Person record (Active in VC flag + Ecosystem Stage) &rarr; POST new deal in AV pipeline &rarr; POST handoff note on original VC deal &rarr; Slack #all-velocity-capital. PD-EVENTS routing confirmed active: Stage 64 branch &rarr; HTTP trigger to PD-WF-03 &#10003;.
+
+            NEW BUILD &mdash; KS-A8 FOUNDER BRIEF WRITER (11 nodes, inactive): Monday 7AM ET schedule &rarr; Stripe subscriptions + charges &rarr; Pipedrive deals &rarr; Notion Client Health &rarr; Claude Sonnet 4.6 (AGENT-08, 2500 tokens) &rarr; Parse JSON &rarr; Notion KS &mdash; Weekly Briefs DB (created + connected today) &rarr; Slack DM to Drew. Inactive pending Stripe key (Drew security issue with support). All 8 Claude agents from Drew&rsquo;s SOP are now built.
+
+            BLOCKERS: KS-WF4 Stripe test pending Drew resend &middot; QBO OAuth pending Drew Intuit app setup &middot; Instantly + GoDaddy IMAP still pending support resolution &middot; sk_live_ key &mdash; Drew should regenerate in Stripe before go-live.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
+        </tr>
+
       </tbody>
       <tfoot>
         <tr>
-          <td><strong>Total Paid (Weeks 1&ndash;4)</strong></td>
-          <td><strong>~216 hrs total</strong></td>
-          <td><strong>Week 5 (June 1+): In progress &middot; $500 flat due Friday June 6 via Wise @freelance1293</strong></td>
-          <td class="earn"><strong>$1,884 paid &middot; +$500 pending</strong></td>
+          <td><strong>Total Paid (Weeks 1&ndash;5)</strong></td>
+          <td><strong>~240 hrs total</strong></td>
+          <td><strong>Week 5 (June 1&ndash;6): $500 flat received May 30 via Wise @freelance1293 &#10003;</strong></td>
+          <td class="earn"><strong>$2,384 paid</strong></td>
         </tr>
       </tfoot>
     </table>
