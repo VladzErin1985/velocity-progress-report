@@ -219,10 +219,10 @@
   <div class="header">
     <div class="header-left">
       <h1>Drew Williams &mdash; Dual Project Automation Build Report</h1>
-      <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 4 &middot; Prepared by Vladimir</div>
+      <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 5 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">June 3, 2026</div>
+      <div class="date-badge">June 4, 2026</div>
       <div class="week-badge">Week 5 of 6 &middot; Day 26 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
@@ -235,7 +235,7 @@
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 4 &middot; June 2</div>
+      <div class="label">Build Velocity &mdash; Week 5 &middot; June 4</div>
       <div class="message">
         <strong>June 3: Stripe credential fixed + KS-WF4 reactivated ✅. KS-A7 Bookkeeping Reconciler built (13 nodes) ✅. QBO OAuth2 credential shell created ✅. KS-A4a fired on real lead (Mark Torres) ✅. VC RESUMED: PD-WF-03 VC→AV Handoff built (8 nodes) ✅ + PD-EVENTS activated ✅. 28 total workflows built, 19 live.</strong>
         <span class="warn"> Blocked: Instantly (402) &middot; GoDaddy IMAP &middot; Fathom (KS-A4b) &middot; Wistia &middot; QBO OAuth (Drew must complete) &middot; Stripe test event resend.</span>
@@ -429,7 +429,7 @@
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-02</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">AI Education Drip</div><div class="wf-trigger"><span>Trigger:</span> Stage &rarr; Nurturing. Claude writes personalized Day 1 email (PAS framework, 200 words max)</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-03</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Strategy Call Booking &rarr; Prep</div><div class="wf-trigger"><span>Trigger:</span> Stage &rarr; Call Scheduled. Claude generates call prep &middot; saves to notes &middot; sends confirmation</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-04</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Post-Call Follow-Up</div><div class="wf-trigger"><span>Trigger:</span> Stage &rarr; Call Complete. Claude writes proposal email &middot; creates follow-up task &middot; moves stage</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-05</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Policy Active &rarr; Investor Transition</div><div class="wf-trigger"><span>Trigger:</span> Policy Active + cash value &gt;$50K. 12-node cross-entity handoff: stage &rarr; tags &rarr; Claude email &rarr; note</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-05</span><span class="status-badge badge-done">&#10003; Rebuilt (Pipedrive)</span></div><div class="wf-name">Policy Active &rarr; Investor Transition</div><div class="wf-trigger"><span>Trigger:</span> Stage 63 (Policy Issued) via PD-EVENTS. 14 nodes: IF cash value &gt;$50K &rarr; stage 64 + Active in AV? = Yes + Claude email + Pipedrive mailbox + note + Slack. Else &rarr; note only.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-06</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Monthly Client Report</div><div class="wf-trigger"><span>Trigger:</span> Cron &mdash; 1st of month. Claude writes 400&ndash;500 word report &rarr; GHL Conversations API &rarr; note logged</div></div>
     </div>
   </div>
@@ -939,7 +939,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: June 3, 2026';
+    if (el) el.textContent = 'Last updated: June 4, 2026';
   </script>
 </body>
 </html>
