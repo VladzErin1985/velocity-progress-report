@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 4</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 5</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -219,25 +219,25 @@
   <div class="header">
     <div class="header-left">
       <h1>Drew Williams &mdash; Dual Project Automation Build Report</h1>
-      <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 5 &middot; Prepared by Vladimir</div>
+      <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 4 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">June 4, 2026</div>
-      <div class="week-badge">Week 5 of 6 &middot; Day 26 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">June 5, 2026</div>
+      <div class="week-badge">Week 5 of 6 &middot; Day 28 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Transition Alert -->
   <div class="transition-banner">
-    <strong>JUNE 4 BUILDS:</strong> WF-VC-01 through WF-VC-05 all rebuilt for Pipedrive (GHL fully removed) &#10003;. WF-VC-05 Policy Active &rarr; Investor Transition 14 nodes &#10003;. &mdash; <strong>JUNE 3 BUILDS:</strong> Stripe credential fixed + KS-WF4 reactivated &#10003;. KS-A7 Bookkeeping Reconciler (13 nodes) &#10003;. KS-A8 Founder Brief Writer (11 nodes) &#10003;. PD-WF-03 VC&rarr;AV Handoff (8 nodes) &#10003;. &mdash; <strong>JUNE 2 BUILDS:</strong> KS-A4a rebuilt V5 spec (12 nodes) &#10003; + KS-WF6 Apollo enrichment fixed (25 nodes) &#10003;. &mdash; <strong>Still blocked:</strong> Instantly (402) &middot; GoDaddy IMAP &middot; Fathom (KS-A4b) &middot; QBO OAuth (Drew) &middot; Stripe test event resend.
+    <strong>JUNE 5 BUILDS:</strong> KS-WF2 IF node fix (string type, loose validation) ✅. KS-WF4 full rebuild (client_reference_id + email fallback, 12 nodes, published) ✅. KS-A4 confirmed firing on schedule ✅. KS-A4c IF expression fix + activated ✅. WF-VC-06 Pipedrive rebuild published ✅. KS-WF2 lead name fix (GET Pipedrive Person node added) + Calendly link fix (konsier/demo) + closer_brief null fix ✅. KS-WF2 full outbound chain tested end-to-end ✅. &mdash; <strong>JUNE 4 BUILDS:</strong> All 6 VC workflows (WF-VC-01 through WF-VC-06) rebuilt Pipedrive-native &mdash; GHL fully removed, new workflow IDs, 0 validation errors. &mdash; <strong>JUNE 3 BUILDS:</strong> Stripe credential fixed + KS-WF4 reactivated ✅. QBO OAuth2 shell built ✅. KS-A7 built (13 nodes, inactive) ✅. KS-A4a confirmed live on real lead ✅. PD-WF-03 built (8 nodes) ✅ + PD-EVENTS Stage 64 routing ✅. &mdash; <strong>Still blocked:</strong> Instantly (402) &middot; GoDaddy IMAP &middot; Fathom (KS-A4b) &middot; QBO OAuth (Drew) &middot; Stripe test event resend.
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 5 &middot; June 4</div>
+      <div class="label">Build Velocity &mdash; Week 5 &middot; June 5</div>
       <div class="message">
-        <strong>June 4: WF-VC-01 &rarr; WF-VC-05 all rebuilt for Pipedrive &mdash; GHL fully removed &#10003;. WF-VC-05 Policy Active &rarr; Investor Transition (14 nodes) complete &#10003;. 29 total workflows built, 19 live.</strong>
+        <strong>June 5: KS-WF2 IF fix ✅ + KS-WF4 rebuilt (12 nodes, dual-path: client_reference_id + email fallback) ✅ + KS-A4 + KS-A4c activated ✅ + WF-VC-06 Pipedrive rebuild published ✅ + KS-WF2 lead name + Calendly + null fixes ✅ + outbound chain tested end-to-end ✅. June 4: All 6 VC workflows rebuilt Pipedrive-native (GHL removed). 31 total workflows built, 18 live.</strong>
         <span class="warn"> Blocked: Instantly (402) &middot; GoDaddy IMAP &middot; Fathom (KS-A4b) &middot; Wistia &middot; QBO OAuth (Drew must complete) &middot; Stripe test event resend.</span>
       </div>
     </div>
@@ -286,6 +286,14 @@
         <div class="tl-date">June 3</div>
         <div class="tl-label">PD-WF-03 + KS-A7 &#10003;</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">June 4</div>
+        <div class="tl-label">VC-01&rarr;06 PD &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">June 5</div>
+        <div class="tl-label">WF2/WF4/A4c &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
         <div class="tl-label">PD-WF-04 &middot; QBO OAuth</div>
@@ -297,13 +305,13 @@
   <div class="summary-grid">
     <div class="stat-card green">
       <div class="label">n8n Workflows Built</div>
-      <div class="value">28</div>
-      <div class="sub">6 VC (GHL) + 1 PD-WF-03 &middot; 21 Konsier built (13 live &middot; 8 inactive/blocked)</div>
+      <div class="value">31</div>
+      <div class="sub">6 VC (Pipedrive native, June 4 rebuild) + 3 PD auto + 22 Konsier built (14 live &middot; 8 inactive/blocked)</div>
     </div>
     <div class="stat-card blue">
       <div class="label">Live &amp; Active</div>
-      <div class="value">19</div>
-      <div class="sub">6 VC (GHL) + 13 Konsier active &mdash; KS-A8 built/inactive (Stripe key pending). KS-A4b inactive (Fathom).</div>
+      <div class="value">18</div>
+      <div class="sub">WF-VC-01 + WF-VC-06 (Pipedrive) + 16 Konsier active &mdash; KS-A4 + KS-A4c activated June 5. KS-A8 inactive (Stripe key). KS-A4b inactive (Fathom).</div>
     </div>
     <div class="stat-card purple">
       <div class="label">AI Agents Built</div>
@@ -320,11 +328,11 @@
   <!-- Progress Bars -->
   <div class="progress-section">
     <div class="progress-header">
-      <span>Konsier Build Progress &mdash; 20 of 20 built</span>
-      <strong>13 live &middot; 7 inactive/blocked pending Drew actions</strong>
+      <span>Konsier Build Progress &mdash; 22 of 22 built</span>
+      <strong>16 live &middot; 6 inactive/blocked pending Drew actions</strong>
     </div>
-    <div class="bar-track"><div class="bar-fill purple-fill" style="width: 78%;"></div></div>
-    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A2 &middot; KS-A4 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF3 &#10003; &middot; KS-WF4 &middot; KS-WF4B &middot; KS-WF-CAL &middot; KS-A6 &middot; KS-A4a &#10003;May29 &middot; KS-A4c &#10003;May29 &nbsp;|&nbsp; Inactive/Blocked: KS-A8 (Stripe key — Drew security issue) &middot; KS-A4b (Fathom setup) &middot; KS-WF6 (Instantly IDs) &middot; KS-WF7 (Wistia) &middot; KS-WF5 (HeyReach/VC only) &middot; KS-A5 (Wistia) &middot; KS-WF-CAL webhook (Calendly trial expired)</div>
+    <div class="bar-track"><div class="bar-fill purple-fill" style="width: 88%;"></div></div>
+    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A2 &middot; KS-A4 &#10003;June5 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF3 &middot; KS-WF4 &#10003;June5 rebuilt &middot; KS-WF4B &middot; KS-WF-CAL &middot; KS-A6 &middot; KS-A4a &middot; KS-A4c &#10003;June5 &middot; KS-A7 (QBO pending) &middot; KS-WF7 &middot; KS-WF-ERR &nbsp;|&nbsp; Inactive/Blocked: KS-A8 (Stripe key) &middot; KS-A4b (Fathom setup) &middot; KS-WF6 (Instantly IDs) &middot; KS-WF5 (HeyReach) &middot; KS-A5 (Wistia)</div>
     <div class="phase-labels">
       <span class="active">Phase 1 &mdash; Core &#10003;</span>
       <span class="active">Phase 2 &mdash; QA &#10003;</span>
@@ -347,7 +355,7 @@
     <div>
       <div class="proj-label">Project 1 &mdash; Velocity Capital Group</div>
       <div class="proj-title">Velocity Capital Group &mdash; Multi-Entity Investment CRM</div>
-      <div class="proj-sub">4 entities &middot; 18 n8n workflows &middot; Pipedrive CRM &middot; GHL-based (Phase 1 live) &middot; Pipedrive rebuild queued</div>
+      <div class="proj-sub">4 entities &middot; 18 n8n workflows &middot; Pipedrive CRM &middot; Pipedrive-native (rebuilt June 4) &middot; GHL fully removed</div>
     </div>
     <div class="proj-stats">
       <div class="proj-stat"><div class="ps-val">6</div><div class="ps-label">n8n Live</div></div>
@@ -421,16 +429,16 @@
   <div class="section">
     <div class="section-header">
       <span class="entity-tag tag-vc">VC</span>
-      <h2>Velocity Capital &mdash; n8n Workflows (GHL-based &middot; Live)</h2>
-      <span class="count">6 live on GHL &middot; Pipedrive rebuild queued</span>
+      <h2>Velocity Capital &mdash; n8n Workflows (Pipedrive-native &middot; Rebuilt June 4)</h2>
+      <span class="count">WF-VC-01 + WF-VC-06 live &middot; WF-VC-02 through WF-VC-05 built/inactive &middot; GHL fully removed</span>
     </div>
     <div class="wf-grid">
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-01</span><span class="status-badge badge-done">&#10003; Rebuilt (Pipedrive)</span></div><div class="wf-name">Lead Capture</div><div class="wf-trigger"><span>Trigger:</span> Webhook (Typeform/WP/Meta Ads). 9 nodes: Claude qualifies lead &rarr; Pipedrive Person + Deal created (stage 51) &rarr; Slack #all-velocity-capital</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-02</span><span class="status-badge badge-done">&#10003; Rebuilt (Pipedrive)</span></div><div class="wf-name">AI Education Drip</div><div class="wf-trigger"><span>Trigger:</span> PD-EVENTS stage 43. 8 nodes: Get Person &rarr; Claude Day 1 email (PAS, 200 words) &rarr; Pipedrive mailbox &rarr; Slack</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-03</span><span class="status-badge badge-done">&#10003; Rebuilt (Pipedrive)</span></div><div class="wf-name">Strategy Call Booking &rarr; Prep</div><div class="wf-trigger"><span>Trigger:</span> Calendly v2 webhook. 10 nodes: Find Person + Deal &rarr; Claude call prep &rarr; Pipedrive note + email &rarr; PATCH stage 44</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-04</span><span class="status-badge badge-done">&#10003; Rebuilt (Pipedrive)</span></div><div class="wf-name">Post-Call Follow-Up</div><div class="wf-trigger"><span>Trigger:</span> PD-EVENTS stage 60. 11 nodes: Get Person &rarr; Claude proposal email &rarr; Pipedrive mailbox &rarr; PATCH stage 61 &rarr; POST Activity +3 days &rarr; Slack</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-05</span><span class="status-badge badge-done">&#10003; Rebuilt (Pipedrive)</span></div><div class="wf-name">Policy Active &rarr; Investor Transition</div><div class="wf-trigger"><span>Trigger:</span> Stage 63 (Policy Issued) via PD-EVENTS. 14 nodes: IF cash value &gt;$50K &rarr; stage 64 + Active in AV? = Yes + Claude email + Pipedrive mailbox + note + Slack. Else &rarr; note only.</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-06</span><span class="status-badge badge-done">&#10003; Live (GHL)</span></div><div class="wf-name">Monthly Client Report</div><div class="wf-trigger"><span>Trigger:</span> Cron &mdash; 1st of month. Claude writes 400&ndash;500 word report &rarr; GHL Conversations API &rarr; note logged</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-01</span><span class="status-badge badge-done">&#10003; Live (Pipedrive native)</span></div><div class="wf-name">Lead Capture</div><div class="wf-trigger"><span>Rebuilt June 4:</span> Webhook &rarr; Pipedrive POST Person + Deal &rarr; Claude qualifies lead &rarr; Slack #vc-leads. GHL removed.</div></div>
+      <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">WF-VC-02</span><span class="status-badge badge-inactive">Built &mdash; Inactive (Pipedrive)</span></div><div class="wf-name">AI Education Drip</div><div class="wf-trigger"><span>Rebuilt June 4:</span> Pipedrive Stage 61 (Nurturing) webhook &rarr; GET deal + person &rarr; Claude Day 1 email (PAS, 200 words max) &rarr; Pipedrive email + note. GHL removed.</div></div>
+      <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">WF-VC-03</span><span class="status-badge badge-inactive">Built &mdash; Inactive (Pipedrive)</span></div><div class="wf-name">Strategy Call Booking &rarr; Prep</div><div class="wf-trigger"><span>Rebuilt June 4:</span> Pipedrive Stage 62 (Call Scheduled) &rarr; GET deal + person &rarr; Claude call prep note &rarr; Pipedrive note logged + Slack #vc-prep. GHL removed.</div></div>
+      <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">WF-VC-04</span><span class="status-badge badge-inactive">Built &mdash; Inactive (Pipedrive)</span></div><div class="wf-name">Post-Call Follow-Up</div><div class="wf-trigger"><span>Rebuilt June 4:</span> Pipedrive Stage 63 (Call Complete) &rarr; GET deal + person &rarr; Claude proposal email &rarr; Pipedrive email + note + PATCH stage. GHL removed.</div></div>
+      <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">WF-VC-05</span><span class="status-badge badge-inactive">Built &mdash; Inactive (Pipedrive)</span></div><div class="wf-name">Policy Active &rarr; Investor Transition</div><div class="wf-trigger"><span>Rebuilt June 4:</span> Pipedrive Stage 64 (Policy Active) &rarr; 10-node cross-entity handoff: GET person &rarr; PATCH person (Active in VC) &rarr; Claude transition email &rarr; Pipedrive note + Slack #vc-transitions. GHL removed.</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">WF-VC-06</span><span class="status-badge badge-done">&#10003; Live &mdash; Pipedrive (June 5)</span></div><div class="wf-name">Monthly Client Report</div><div class="wf-trigger"><span>Rebuilt + published June 5 (10 nodes):</span> Cron 1st of month &rarr; GET Pipedrive deals (stages 63 + 64) &rarr; Code extract + filter &rarr; Claude Sonnet 4.6 (400&ndash;500 word PAS report) &rarr; Pipedrive email + note + Slack #vc-reports. GHL removed. Note confirmed logged on Deal #35 &#10003;.</div></div>
     </div>
   </div>
 
@@ -439,12 +447,12 @@
     <div>
       <div class="proj-label">Project 2 &mdash; Konsier AI Receptionist</div>
       <div class="proj-title">Konsier &mdash; AI Receptionist Agency System</div>
-      <div class="proj-sub">20 workflows built &middot; 13 live &middot; 8 Claude agents &middot; 2 Retell AI agents &middot; 3 Pipedrive pipelines &middot; 5 Notion databases</div>
+      <div class="proj-sub">22 workflows built &middot; 16 live &middot; 8 Claude agents &middot; 2 Retell AI agents &middot; 3 Pipedrive pipelines &middot; 5 Notion databases</div>
     </div>
     <div class="proj-stats">
-      <div class="proj-stat"><div class="ps-val">13</div><div class="ps-label">Live</div></div>
+      <div class="proj-stat"><div class="ps-val">16</div><div class="ps-label">Live</div></div>
       <div class="proj-stat"><div class="ps-val">10</div><div class="ps-label">AI Agents</div></div>
-      <div class="proj-stat"><div class="ps-val">7</div><div class="ps-label">Blocked</div></div>
+      <div class="proj-stat"><div class="ps-val">6</div><div class="ps-label">Blocked</div></div>
     </div>
   </div>
 
@@ -453,15 +461,15 @@
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
       <h2>Konsier &mdash; AI Receptionist System (Drew Williams)</h2>
-      <span class="count">20 built &middot; 13 live &middot; 7 inactive/blocked &middot; KS-WF3 &#10003; May 29 &middot; KS-A4a + KS-A4c &#10003; May 29 &middot; KS-WF-CAL 4-branch &#10003; June 1 &middot; Calendly Standard Plan upgraded &#10003;</span>
+      <span class="count">22 built &middot; 16 live &middot; 6 inactive/blocked &middot; KS-WF4 rebuilt June 5 &#10003; &middot; KS-A4 + KS-A4c activated June 5 &#10003; &middot; KS-WF-CAL 4-branch &#10003; June 1</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-ERR</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Error Handler</div><div class="wf-trigger"><span>Always-on:</span> Catches all n8n execution errors &rarr; Slack #konsier-errors with workflow name + error details</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-PD-EVENTS</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Pipedrive Webhook Receiver</div><div class="wf-trigger"><span>Trigger:</span> Pipedrive deal events &rarr; routes to relevant downstream Konsier workflows</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-A4</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Stalled Deal Alert</div><div class="wf-trigger"><span>Trigger:</span> Daily cron &mdash; deals stalled &gt;7 days &rarr; Slack #konsier-leads with deal link + details</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-A4</span><span class="status-badge badge-done">&#10003; Live (confirmed June 5)</span></div><div class="wf-name">Stalled Deal Alert</div><div class="wf-trigger"><span>Confirmed active June 5:</span> Daily cron &rarr; deals stalled &gt;7 days &rarr; Slack #konsier-leads with deal link + details. Fired on Deal #35 (Mark Torres) with no logged activity &#10003;.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF1</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Email Reply Handler + Outbound Call Trigger</div><div class="wf-trigger"><span>Trigger:</span> Instantly reply webhook &rarr; AGENT-02 Reply Triage &rarr; Switch (6 routes): Positive Qualified &rarr; Slack Hot Lead Alert &rarr; Pipedrive Create Person &rarr; Pipedrive Create Deal &rarr; Retell Dial Sarah (Outbound). Objection/Question &rarr; Slack alerts. Unsubscribe &rarr; Instantly Blocklist. Auto-Reply &rarr; Defer OOO. Needs Review &rarr; Slack alert. May 25: 3 outbound trigger nodes added + vertical field made dynamic.</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF2</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Retell Qualification Webhook</div><div class="wf-trigger"><span>Trigger:</span> call_analyzed &rarr; AGENT-PQA &rarr; Pipedrive deal create/update &rarr; Slack. May 25: stage_id dynamic + null fallbacks + deal ID fixed.</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF4</span><span class="status-badge badge-done">&#10003; Live (partial)</span></div><div class="wf-name">Stripe &rarr; Onboarding Chain</div><div class="wf-trigger"><span>Trigger:</span> Stripe payment success &rarr; Pipedrive stage 101 &rarr; AGENT-06 Onboarding Drafter. Stage_id fixed 98&rarr;101 (May 25).</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF2</span><span class="status-badge badge-done">&#10003; Live (June 5 fixes)</span></div><div class="wf-name">Retell Qualification Webhook</div><div class="wf-trigger"><span>Trigger:</span> call_analyzed &rarr; AGENT-03 (PQA) &rarr; Pipedrive deal PATCH + note &rarr; Slack. <strong>June 5:</strong> IF node fixed (string type, loose validation — was crashing on string pipedriveDealId). GET Pipedrive Person node added (pulls authoritative lead name from Pipedrive record). Calendly link fixed (drew-konsier/30min &rarr; konsier/demo). closer_brief null fix (empty string &rarr; null for Pipedrive v2 long text field). Outbound chain tested end-to-end 4x — Mark Torres, Qualified, Professional tier, 9/10 urgency, konsier/demo &#10003;.</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF4</span><span class="status-badge badge-done">&#10003; Live (rebuilt June 5)</span></div><div class="wf-name">Stripe &rarr; Onboarding Chain</div><div class="wf-trigger"><span>Full rebuild June 5 (12 nodes):</span> Stripe payment success &rarr; <strong>Primary path:</strong> client_reference_id (deal ID in URL param, e.g. ?client_reference_id=35) &rarr; PATCH Pipedrive deal stage 101. <strong>Fallback path:</strong> if no client_reference_id &rarr; search Pipedrive by customer email &rarr; GET open deals &rarr; find Customer Lifecycle pipeline deal &rarr; PATCH stage 101. Both paths merge at Merge node &rarr; Slack #konsier-onboarding &rarr; AGENT-06 trigger. ⚠ Full end-to-end test pending Drew test payment (card 4242 4242 4242 4242).</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF3</span><span class="status-badge badge-done">&#10003; Live &mdash; Tested May 29</span></div><div class="wf-name">Website Contact Form &rarr; Pipedrive</div><div class="wf-trigger"><span>Confirmed &#10003; May 29:</span> Contact form &rarr; Pipedrive person + deal (company name - Inbound Website, pipeline 14 stage 96) &rarr; Slack #konsier-leads. Fixed: company field missing from Set node + Slack :bell: emoji. HMAC signature confirmed in headers.</div></div>
       <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">KS-WF6</span><span class="status-badge badge-inactive">Built &mdash; Inactive (Lead Enrichment Fixed June 2)</span></div><div class="wf-name">Daily Outbound Lead Pipeline</div><div class="wf-trigger"><span>25 nodes (June 2 fix):</span> 3 vertical Apollo searches (Roofing 50 &middot; Dental 25 &middot; Medical 25, SOP 50/25/25 split) &rarr; Tag &rarr; Merge &rarr; Extract &rarr; <strong>Batch IDs &rarr; Apollo Bulk Reveal (email + firmographics unlocked)</strong> &rarr; ICP Score &rarr; Notion Dedup &rarr; Batch-50 &rarr; AGENT-01 &rarr; Instantly + Notion Lead Log + Slack. Fixed: Apollo search masks all contact data &mdash; bulk_match reveal step now unlocks verified work emails + industry + city + employee count before ICP scoring. Tested: verified emails confirmed &#10003;. <span>Blocked &mdash; Drew:</span> Instantly access (402, billing issue) &middot; campaign IDs (3) &middot; GoDaddy IMAP fix.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-A2</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Tier Routing</div><div class="wf-trigger"><span>Activated May 27:</span> Call volume &rarr; tier assignment (Starter/Pro/Enterprise/Not Qualified) &rarr; Pipedrive stage update &rarr; Slack. All 4 Slack nodes confirmed with Velocity Capital credential &#10003;</div></div>
@@ -506,9 +514,9 @@
         <div class="wf-trigger"><span>11 nodes (May 29):</span> Fathom webhook konsier-closer-post &rarr; Extract transcript + attendees &rarr; Search Pipedrive person &rarr; GET deals &rarr; Claude Sonnet 4.6 (AGENT-04) &rarr; Parse &rarr; PATCH Pipedrive stage &rarr; POST note &rarr; Slack #konsier. <span>Blocked:</span> Drew must set up Fathom (fathom.video &rarr; connect Zoom &rarr; paste webhook URL). 5-min task.</div>
       </div>
       <div class="wf-card done">
-        <div class="wf-top"><span class="wf-id">KS-A4c</span><span class="status-badge badge-done">&#10003; Live &mdash; May 29</span></div>
+        <div class="wf-top"><span class="wf-id">KS-A4c</span><span class="status-badge badge-done">&#10003; Live &mdash; IF fix + activated June 5</span></div>
         <div class="wf-name">Closer Copilot &mdash; Objection Mining</div>
-        <div class="wf-trigger"><span>8 nodes (May 29):</span> Schedule 00:00 UTC nightly &rarr; GET Pipedrive closed-lost deals &rarr; Code filter last 24hrs &rarr; IF any deals &rarr; Claude Sonnet 4.6 (AGENT-04 mode=objection_mining) &rarr; Parse &rarr; IF new objections &rarr; Slack #konsier-review with rebuttal suggestions.</div>
+        <div class="wf-trigger"><span>8 nodes (May 29):</span> Schedule 00:00 UTC nightly &rarr; GET Pipedrive closed-lost deals &rarr; Code filter last 24hrs &rarr; IF any deals &rarr; Claude Sonnet 4.6 (AGENT-04 mode=objection_mining) &rarr; Parse &rarr; IF new objections &rarr; Slack #konsier-review. <strong>June 5 fix:</strong> IF condition had double == prefix (=={{ $json.count }}) evaluating as string "=0" instead of number 0. Fixed expression, republished. Active &#10003;.</div>
       </div>
       <div class="wf-card inactive">
         <div class="wf-top"><span class="wf-id">KS-A8</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div>
@@ -872,13 +880,29 @@
           <td>June 4<br><small style="color:#475569">Thursday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
           <td>8 hrs</td>
           <td>
-            VELOCITY CAPITAL &mdash; WF-VC-01 THROUGH WF-VC-05 REBUILT FOR PIPEDRIVE (GHL fully removed): I rebuilt all five Velocity Capital workflows against Pipedrive directly. WF-VC-01 Lead Capture (9 nodes) &mdash; webhook trigger, Pipedrive Person + Deal created at stage 51, Slack notification. WF-VC-02 AI Education Drip (8 nodes) &mdash; PD-EVENTS stage 43 trigger, Pipedrive person lookup, AI-written Day 1 email sent via Pipedrive mailbox. WF-VC-03 Strategy Call Booking (10 nodes) &mdash; Calendly v2 webhook, deal moved to stage 44, call prep note posted. WF-VC-04 Post-Call Follow-Up (11 nodes) &mdash; PD-EVENTS stage 60 trigger, AI proposal email, stage updated to 61, activity created +3 days, Slack. WF-VC-05 Policy Active &rarr; Investor Transition (14 nodes) &mdash; PD-EVENTS stage 63 trigger, IF cash value &gt;$50K: deal moved to stage 64, &ldquo;Active in AV?&rdquo; = Yes set on person, AI investor welcome email, Pipedrive mailbox, pinned note, Slack &mdash; else: below-threshold note only. All 5 workflows validated clean (0 errors), saved inactive and ready for activation.
+            VC PIPEDRIVE REBUILD &mdash; ALL 6 WORKFLOWS (WF-VC-01 through WF-VC-06): Removed all GHL-based logic from every workflow and rebuilt each one natively against the Pipedrive API. WF-VC-01 Lead Capture &mdash; rebuilt: Webhook &rarr; Pipedrive POST Person + Deal &rarr; Claude qualifies &rarr; Slack #vc-leads (new ID, active) &#10003;. WF-VC-02 AI Education Drip &mdash; rebuilt: Pipedrive Stage 61 webhook &rarr; GET deal + person &rarr; Claude Day 1 email (PAS, 200 words max) &rarr; Pipedrive email + note (new ID, inactive) &#10003;. WF-VC-03 Strategy Call Prep &mdash; rebuilt: Pipedrive Stage 62 &rarr; GET deal + person &rarr; Claude prep note &rarr; Pipedrive note + Slack #vc-prep (new ID, inactive) &#10003;. WF-VC-04 Post-Call Follow-Up &mdash; rebuilt: Pipedrive Stage 63 &rarr; GET deal + person &rarr; Claude proposal email &rarr; Pipedrive email + note + PATCH stage (new ID, inactive) &#10003;. WF-VC-05 Policy Active &rarr; Investor Transition &mdash; rebuilt: Pipedrive Stage 64 &rarr; 10-node cross-entity handoff, GET person &rarr; PATCH person (Active in VC) &rarr; Claude transition email &rarr; Pipedrive note + Slack (updated ID, inactive) &#10003;. WF-VC-06 Monthly Client Report &mdash; rebuilt: Cron 1st of month &rarr; GET Pipedrive deals (stages 63 + 64) &rarr; Code extract + filter &rarr; Claude Sonnet 4.6 (400&ndash;500 word PAS report) &rarr; Pipedrive email + note + Slack #vc-reports (new ID, inactive pending test) &#10003;.
+            All 6 workflows validated &mdash; 0 errors confirmed across every rebuilt node before saving. GHL credential references fully removed from all 6 workflows.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
+        </tr>
 
-            KONSIER &mdash; KS-WF2 OUTBOUND QUALIFICATION CHAIN FIXED + TESTED END-TO-END: I identified and fixed 3 bugs blocking the outbound call-to-Pipedrive chain. (1) Routing node had a trailing newline in the expression causing a type mismatch on every outbound call &mdash; removed and corrected to string type. (2) The Claude transcript analysis step was embedding raw call transcript text directly into the message body, breaking on any call with multi-line speech &mdash; added a data preparation step before the Claude call to handle the transcript correctly. (3) The Pipedrive deal update step was sending the Tier Match field as plain text; Pipedrive expects a numeric option ID &mdash; added a mapping step that converts the tier label to the correct option (Growth, Scale, Enterprise) before updating the deal.
+        <tr class="done-row">
+          <td>June 5<br><small style="color:#475569">Friday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            KS-WF2 IF NODE FIX: Identified routing crash in outbound branch &mdash; IF node was evaluating pipedriveDealId with strict Number type. When the value arrived as a string (from Retell metadata), n8n threw a type conversion error and the entire workflow crashed before reaching AGENT-03. Updated condition type to String with loose validation. Republished and confirmed clean on next execution.
 
-            I activated KS-A4c (Closer Copilot &mdash; Objection Mining, nightly cron) and KS-A4 (Stalled Deal Alert, daily cron) &mdash; both were built but had never been activated.
+            KS-WF4 FULL REBUILD (12 nodes): Previous version relied on metadata.pipedrive_deal_id embedded in the Stripe event &mdash; this only works for API-generated checkout sessions, not for static Payment Links. Rebuilt with dual-path approach: Primary path reads client_reference_id from Stripe event (passed via URL param when closer sends the link, e.g. ?client_reference_id=35) &rarr; PATCH deal stage 101 directly. Fallback path: if no client_reference_id present, searches Pipedrive by customer email &rarr; GET open deals &rarr; finds Customer Lifecycle pipeline deal &rarr; PATCH stage 101. Both paths converge at a Merge node before Slack + AGENT-06 trigger. Validated 0 errors, republished &#10003;. Full test pending &mdash; Drew needs to complete a test payment with card 4242 4242 4242 4242.
 
-            OUTBOUND CHAIN TEST CONFIRMED END-TO-END &#10003;: Sarah called a test lead, qualified them, and the full chain fired: call_analyzed webhook received &rarr; AGENT-03 analyzed transcript &rarr; Pipedrive deal moved to stage 94 (Qualified) &rarr; all custom fields written (pain point, urgency score, closer brief, transcript, qualification result) &rarr; Slack #konsier-leads notified with result, tier, pain point summary, and Calendly link.
+            KS-A4 CONFIRMED ACTIVE: Stalled Deal Alert confirmed firing correctly on schedule &mdash; identified Deal #35 (Mark Torres) with no logged activity. Working as designed &#10003;.
+
+            KS-A4c IF FIX + ACTIVATED: On first scheduled run, IF condition checking deal count hit an expression error. Root cause: double == prefix in leftValue (=={{ $json.count }}) &mdash; n8n evaluated the leftValue as the literal string "=0" instead of the number 0, so the condition always failed. Removed the double prefix, fixed expression to {{ $json.count }}. Republished and activated &#10003;.
+
+            WF-VC-06 PUBLISHED: Tested rebuilt Pipedrive-native workflow &mdash; confirmed note logged on Deal #35 (Mark Torres) &#10003;. Reverted stage filter to stages 63 + 64 only (removed stage 41 which was added during testing). Published (activated) &#10003;.
+
+            KS-WF2 ADDITIONAL FIXES: (1) Lead name in Slack was blank for outbound calls &mdash; post-call analysis doesn&rsquo;t always capture caller_name for outbound. Added HTTP &mdash; GET Pipedrive Person node before Slack node, pulling the person record by pipedrivePersonId and reading data.name directly. All future Slack qualified notifications now show the actual Pipedrive person name &#10003;. (2) Calendly link in Slack was pointing to stale drew-konsier/30min URL. Updated to correct konsier/demo link &#10003;. (3) Pipedrive v2 PATCH returning 400 on closer_brief field when not qualified &mdash; Pipedrive v2 requires null (not empty string) to clear long text custom fields. Fixed: parsed.closer_brief || '' &rarr; parsed.closer_brief || null &#10003;.
+
+            KS-WF2 OUTBOUND CHAIN TESTED END-TO-END (4 calls): Confirmed full chain: outbound call fired &rarr; Sarah answers &rarr; AGENT-03 analyzes transcript &rarr; IF Qualified: Pipedrive deal PATCH (stage 94, closer_brief, tier) + Pipedrive note + Slack with lead name (Mark Torres) + Calendly link (konsier/demo). Result: Qualified, Professional tier, 9/10 urgency &#10003;.
           </td>
           <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
         </tr>
@@ -887,7 +911,7 @@
       <tfoot>
         <tr>
           <td><strong>Total Paid (Weeks 1&ndash;5)</strong></td>
-          <td><strong>~248 hrs total</strong></td>
+          <td><strong>~240 hrs total</strong></td>
           <td><strong>Week 5 (June 1&ndash;6): In progress &middot; $500 flat received May 30 via Wise @freelance1293 &#10003;</strong></td>
           <td class="earn"><strong>$2,384 paid</strong></td>
         </tr>
@@ -933,6 +957,13 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 2]</strong> Apollo bulk_match returns results in the same positional order as the input details array &mdash; zip by position (index-based), not by ID match, when merging revealed data back to batch metadata. Apollo may return null for unmatched records; skip nulls before emitting leads.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 3]</strong> Stripe credential mismatch: n8n can store a valid-looking credential that authenticates against the wrong Stripe account. KS-WF4 webhook registration was silently failing because the credential pointed to drew@konsier.ai (restricted account) instead of info@konsier.ai (correct account). Always verify the Account ID shown in n8n credential test output matches the intended Stripe dashboard account.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 3]</strong> PD-EVENTS cross-entity routing: Use IF node checking current_stage_id from the live deal GET (not from webhook payload) to route to correct downstream workflow. Stage IDs are pipeline-specific &mdash; Stage 64 = Policy Delivered in VC pipeline. Confirm stage ID from Pipedrive pipeline settings before hardcoding in IF condition.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 4]</strong> GHL-to-Pipedrive workflow rebuild pattern: Delete all GHL node references first, then rebuild each trigger point using Pipedrive webhook + stage filter. Pipedrive email sends via POST /api/v2/deals/{id}/emails (not GHL Conversations API). Note logging uses POST /api/v1/notes with deal_id. Validate 0 errors before saving each rebuilt workflow.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 4]</strong> Pipedrive email API (v2): POST /api/v2/deals/{id}/emails with body { subject, content, from_email, to_email } &mdash; emails appear in deal timeline. Different from notes (POST /api/v1/notes). Use v2 for emails, v1 for notes (v1 notes endpoint still active and stable).</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 5]</strong> n8n IF node type mismatch on string vs number: Strict Number type evaluation on a string value (e.g. pipedriveDealId arriving as "35" from Retell metadata) throws a conversion error and crashes the workflow branch entirely &mdash; no graceful skip. Fix: change IF condition type to String with loose validation ("Convert types where required" enabled).</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 5]</strong> Stripe Payment Link limitation: Static Payment Links carry no dynamic metadata. The Stripe checkout.session.completed event will have client_reference_id only if the Payment Link URL includes ?client_reference_id={deal_id} (passed by the closer at send time). Build a fallback path: if client_reference_id is empty, search Pipedrive by customer_email from the Stripe event to locate the correct deal.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 5]</strong> Pipedrive v2 long text custom field validation: PATCH returns 400 if a long text field receives an empty string "". Error message: "Expected non-empty 'string' as long text custom field value &mdash; use null to clear the field." Fix: always send null (not "") when the value is absent. In n8n Code node: parsed.fieldValue || null (not || '').</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 5]</strong> Retell outbound calls don&rsquo;t populate caller_name in post_call_analysis by default &mdash; Sarah doesn&rsquo;t always capture the name from the conversation. To get the authoritative lead name in downstream nodes, add a GET Pipedrive Person request using the pipedrivePersonId passed in Retell metadata, then read data.name from the response. More reliable than relying on any call analysis field.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 5]</strong> n8n expression double-prefix bug: Writing =={{ $json.count }} in a condition leftValue field evaluates to the literal string "=0" instead of the number 0. The extra == before the {{ }} is interpreted as a string prefix rather than an operator. Always write {{ $json.count }} without any prefix in n8n expression fields &mdash; the curly braces alone evaluate to the value.</div>
   </div>
 
   <!-- Footer -->
@@ -941,9 +972,9 @@
       Built by <strong>Vladimir</strong> &middot; n8n: <strong>n8n.srv1647733.hstgr.cloud</strong> &middot; Projects: <strong>Velocity Capital Group + Konsier AI Receptionist</strong>
     </div>
     <div class="footer-right">
-      <span class="cred-tag active">GHL V2 API &#10003;</span>
+      <span class="cred-tag">GHL &mdash; Removed</span>
       <span class="cred-tag active">Claude Sonnet 4.6 &#10003;</span>
-      <span class="cred-tag orange">Pipedrive &mdash; Rebuilding</span>
+      <span class="cred-tag active">Pipedrive API &#10003;</span>
       <span class="cred-tag purple">Retell AI &#10003; Alex Live</span>
       <span class="cred-tag active">Slack Bot &#10003;</span>
       <span class="cred-tag active">Instantly &#10003;</span>
@@ -954,7 +985,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: June 4, 2026';
+    if (el) el.textContent = 'Last updated: June 5, 2026';
   </script>
 </body>
 </html>
