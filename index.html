@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 4</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 5</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -222,8 +222,8 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 4 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">June 4, 2026</div>
-      <div class="week-badge">Week 5 of 6 &middot; Day 27 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">June 5, 2026</div>
+      <div class="week-badge">Week 5 of 6 &middot; Day 28 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
@@ -235,10 +235,10 @@
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 5 &middot; June 4</div>
+      <div class="label">Build Velocity &mdash; Week 5 &middot; June 5</div>
       <div class="message">
-        <strong>June 4: All 6 VC workflows rebuilt Pipedrive-native (GHL removed) ✅ + KS-WF2 3 bugs fixed ✅ + KS-A4 + KS-A4c activated ✅ + outbound chain tested end-to-end (Loom recorded) ✅. 31 total workflows built, 18 live.</strong>
-        <span class="warn"> Blocked: Instantly (402) &middot; GoDaddy IMAP &middot; Fathom (KS-A4b) &middot; Wistia &middot; QBO OAuth (Drew must complete) &middot; Stripe test event resend.</span>
+        <strong>June 5: KS-WF4 Stripe Payment &rarr; Onboarding Chain confirmed end-to-end ✅ + KS-WF2 IF routing bug fixed ✅ + KS-A4 + KS-A4c confirmed live ✅. 31 total workflows built, 18 live.</strong>
+        <span class="warn"> Blocked: Instantly (402) &middot; GoDaddy IMAP &middot; Fathom (KS-A4b) &middot; Wistia &middot; QBO OAuth (Drew must complete).</span>
       </div>
     </div>
     <div class="timeline">
@@ -289,6 +289,10 @@
       <div class="tl-item done">
         <div class="tl-date">June 4</div>
         <div class="tl-label">VC-01&rarr;06 PD &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">June 5</div>
+        <div class="tl-label">WF4 confirmed &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -887,6 +891,21 @@
           <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
         </tr>
 
+        <tr class="done-row">
+          <td>June 5<br><small style="color:#475569">Friday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            KONSIER &mdash; KS-WF2 OUTBOUND ROUTING BUG FIXED: Identified and fixed a type-check error in the outbound branch routing node. The IF condition was evaluating pipedriveDealId using strict Number type validation &mdash; when the value arrived as a string from Retell metadata, n8n threw a conversion error and crashed the branch before reaching AGENT-03. Updated condition type to String with loose validation and republished. Confirmed clean on next execution.
+
+            KONSIER &mdash; KS-WF4 STRIPE PAYMENT &rarr; ONBOARDING CHAIN CONFIRMED END-TO-END: Rebuilt the workflow trigger from Stripe Trigger node to a generic Webhook node at a fixed endpoint path. The Stripe Trigger node had a signing secret desync issue after workflow edits &mdash; Stripe events were firing but n8n was rejecting delivery with a signature mismatch, causing pending_webhooks: 1 with no execution recorded. Replaced with generic Webhook node (no signing secret required) at stable path. Ran full live test &mdash; Stripe payment received &rarr; Pipedrive Deal #35 (Mark Torres) moved to Won - Onboarding (stage 101, Customer Lifecycle pipeline) &rarr; Slack #konsier New Paid Customer alert fired &rarr; Notion KS &mdash; Client Onboarding draft created. Full chain confirmed working end-to-end &#10003;.
+
+            KONSIER &mdash; KS-A4 STALLED DEAL ALERT CONFIRMED LIVE: Confirmed firing correctly on schedule &mdash; identified Deal #35 (Mark Torres) with no logged activity. Working as designed.
+
+            KONSIER &mdash; KS-A4c CLOSER COPILOT EXPRESSION BUG FIXED: On first scheduled run, the IF condition checking deal count had a double == prefix (=={{ $json.count }}) which n8n evaluated as the literal string "=0" instead of the number 0. Fixed the expression to {{ $json.count }} (no prefix) and republished. Confirmed clean.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 5<br>($500 flat)</td>
+        </tr>
+
       </tbody>
       <tfoot>
         <tr>
@@ -944,6 +963,8 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 4]</strong> Pipedrive v2 long text custom field validation: PATCH returns 400 if a long text field receives an empty string "". Error message: "Expected non-empty 'string' as long text custom field value &mdash; use null to clear the field." Fix: always send null (not "") when the value is absent. In n8n Code node: parsed.fieldValue || null (not || '').</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 4]</strong> Retell outbound calls don&rsquo;t populate caller_name in post_call_analysis by default &mdash; Sarah doesn&rsquo;t always capture the name from the conversation. To get the authoritative lead name in downstream nodes, add a GET Pipedrive Person request using the pipedrivePersonId passed in Retell metadata, then read data.name from the response. More reliable than relying on any call analysis field.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 4]</strong> n8n expression double-prefix bug: Writing =={{ $json.count }} in a condition leftValue field evaluates to the literal string "=0" instead of the number 0. The extra == before the {{ }} is interpreted as a string prefix rather than an operator. Always write {{ $json.count }} without any prefix in n8n expression fields &mdash; the curly braces alone evaluate to the value.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 5]</strong> Stripe Trigger node signing secret desync: After modifying and reactivating a workflow that uses the n8n Stripe Trigger node, the signing secret between Stripe and n8n desyncs silently. Stripe fires the event (event shows pending_webhooks: 1) but n8n rejects delivery with a 401 signature mismatch &mdash; no execution is recorded and no error surfaces in n8n. Fix: replace the Stripe Trigger node with a generic n8n Webhook node at a fixed path. No signing secret is needed &mdash; webhook fires and delivers reliably regardless of workflow edits or reactivations.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 5]</strong> n8n generic Webhook node data wrapping: When Stripe delivers a checkout.session.completed event to a generic n8n Webhook node, the full payload is nested inside $json.body &mdash; data paths are $json.body.data.object.customer_details.email, $json.body.data.object.client_reference_id, etc. The Stripe Trigger node omits this wrapper and delivers directly at $json.data.object.*. The two trigger types require different expression paths &mdash; always verify paths from a real execution output before writing Set node expressions.</div>
   </div>
 
   <!-- Footer -->
@@ -965,7 +986,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: June 4, 2026';
+    if (el) el.textContent = 'Last updated: June 5, 2026';
   </script>
 </body>
 </html>
