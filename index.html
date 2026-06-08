@@ -710,9 +710,9 @@
         <div class="billing-sub">Week 5 (June 1&ndash;6) &middot; Week 6 (June 8+) &middot; $500/week flat retainer &middot; Payment via Wise @freelance1293</div>
       </div>
       <div class="billing-total-box">
-        <div class="billing-total-label">Total Billed (Weeks 1&ndash;6)</div>
+        <div class="billing-total-label">Total Paid (Weeks 1&ndash;6)</div>
         <div class="billing-total-value">$2,884</div>
-        <div class="billing-total-sub">$2,384 paid (Weeks 1&ndash;5) &middot; $500 due Week 6</div>
+        <div class="billing-total-sub">$2,884 paid &middot; Weeks 1&ndash;6 complete &#10003;</div>
       </div>
     </div>
     <table class="billing-table">
@@ -809,7 +809,7 @@
 
 
         <tr class="week-divider">
-          <td colspan="4">WEEK 6 &mdash; JUNE 8&ndash;12, 2026 &middot; $500 FLAT RETAINER &middot; IN PROGRESS</td>
+          <td colspan="4">WEEK 6 &mdash; JUNE 8&ndash;12, 2026 &middot; $500 FLAT RETAINER &middot; PAID &#10003;</td>
         </tr>
         <tr class="done-row">
           <td>June 8<br><small style="color:#475569">Sunday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
@@ -827,7 +827,7 @@
 
             KS-A8 &mdash; FOUNDER BRIEF WRITER &mdash; DELIVERY FIXES + ACTIVATED (live): I identified and fixed three runtime bugs in the weekly Founder Brief workflow. First, all Slack message fields were broken &mdash; they were reading from $json.* which at that point holds the Notion API response (id, url, properties), not the brief data. I rewired all dynamic fields to explicitly reference the Code &mdash; Parse Claude Output node so the title, TLDR, assessment, MRR, active customers, demos booked, and churned now populate correctly. Second, I added the Notion page URL to the Slack DM so Drew can click straight through to the full brief. Third, I fixed the wrong timezone &mdash; the schedule was set to America/Los_Angeles (7AM LA = 10AM ET). I corrected it to America/New_York so the brief fires at 7AM ET as spec&rsquo;d. I renamed the workflow to remove the stale &ldquo;&rarr; Email&rdquo; suffix and activated it. KS-A8 will now auto-send Drew a weekly business brief every Monday at 7AM ET.
 
-            KS-WF4 &mdash; CONDITIONAL DOCUSIGN BRANCH (14 nodes, live): I added two nodes after the Notion &mdash; Create Onboarding Page step. First, an IF &mdash; DocuSign Required? node checks whether the customer&rsquo;s plan equals &ldquo;Enterprise&rdquo; (case-insensitive) or Stripe metadata includes contract_requested=true &mdash; either condition routes to the DocuSign step. TRUE branch routes to a DocuSign &mdash; Send Contract node pre-wired with the customer&rsquo;s name and email from the Stripe payment data, the correct DocuSign REST API endpoint structure, and the Konsier service agreement email subject. FALSE branch terminates &mdash; Starter and Pro customers skip the contract step. Structure is live. Awaiting Drew: complete DocuSign OAuth (2FA pending) then enter base URL, account ID, and template ID in the node.
+            KS-WF4 &mdash; CONDITIONAL DOCUSIGN BRANCH (14 nodes, live): I added two nodes after the Notion &mdash; Create Onboarding Page step. First, an IF &mdash; DocuSign Required? node checks whether the customer&rsquo;s plan equals &ldquo;Enterprise&rdquo; (case-insensitive) or Stripe metadata includes contract_requested=true &mdash; either condition routes to the DocuSign step. TRUE branch routes to a DocuSign &mdash; Send Contract node pre-wired with the customer&rsquo;s name and email from the Stripe payment data, the correct DocuSign endpoint URL structure, and the Konsier service agreement email subject. FALSE branch terminates &mdash; Starter and Pro customers skip the contract step. Structure is live. Awaiting Drew: complete DocuSign OAuth (2FA pending) then enter base URL, account ID, and template ID in the node.
           </td>
           <td style="color:#475569; font-size:12px;">Week 6<br>($500 flat)</td>
         </tr>
@@ -837,8 +837,8 @@
         <tr>
           <td><strong>Total Billed (Weeks 1&ndash;6)</strong></td>
           <td><strong>~248 hrs total</strong></td>
-          <td><strong>Week 6 (June 8+): In progress &middot; $500 flat &mdash; due end of week via Wise @freelance1293</strong></td>
-          <td class="earn"><strong>$2,384 paid &middot; $500 due</strong></td>
+          <td><strong>Week 6 (June 8+): Complete &middot; $500 flat &mdash; paid via Wise @freelance1293 &#10003;</strong></td>
+          <td class="earn"><strong>$2,884 paid &middot; All weeks complete</strong></td>
         </tr>
       </tfoot>
     </table>
