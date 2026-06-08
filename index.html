@@ -533,7 +533,7 @@
     <div class="section-header" style="margin-top: 20px;">
       <span class="entity-tag tag-ks">RETELL</span>
       <h2>Retell AI Voice Agents</h2>
-      <span class="count">Alex PUBLISHED V4 May 28 (11labs-Lucas voice) &middot; Sarah V4 built &middot; awaiting outbound go-ahead</span>
+      <span class="count">Alex PUBLISHED V4 &middot; 11labs-Lucas voice &middot; Sarah V4 active &mdash; warm qualifier in KS-WF1 (dials on email reply + phone present)</span>
     </div>
     <div class="wf-grid" style="grid-template-columns: repeat(2, 1fr);">
       <div class="wf-card done">
@@ -541,10 +541,10 @@
         <div class="wf-name">Website Receptionist &middot; Voice Orb Live on konsier.ai</div>
         <div class="wf-trigger">Voice updated retell-Cimo &rarr; 11labs-Lucas (May 28). Prompt V4: removed "Drew" from 3 spots &rarr; "Konsier team member". "15-min demo with founder Drew" &rarr; "fifteen-minute call with a Konsier team member". 4 objection handlers: pricing $497/mo / just browsing / answering service / callback &middot; free trial CTA &middot; end_call triggers &middot; post_call_analysis 11 fields.</div>
       </div>
-      <div class="wf-card inactive">
-        <div class="wf-top"><span class="wf-id">SARAH &mdash; Outbound Qualifier</span><span class="status-badge badge-inactive">V4 &mdash; Unpublished</span></div>
-        <div class="wf-name">Outbound Voice Qualifier</div>
-        <div class="wf-trigger">5-section expert prompt &middot; 5 objection handlers &middot; $12.8k/mo stat hook &middot; Thu/Fri time slots &middot; end_call triggers &middot; post-call extraction 4 fields (with choices) &middot; Awaiting Drew go-ahead to activate outbound.</div>
+      <div class="wf-card done">
+        <div class="wf-top"><span class="wf-id">SARAH &mdash; Warm Outbound Qualifier</span><span class="status-badge badge-done">&#10003; V4 Active &mdash; KS-WF1</span></div>
+        <div class="wf-name">Outbound Voice Qualifier (Second Touch)</div>
+        <div class="wf-trigger">5-section expert prompt &middot; 5 objection handlers &middot; $12.8k/mo stat hook &middot; Thu/Fri time slots &middot; end_call triggers &middot; post-call extraction 4 fields. <strong>June 8 V5:</strong> Sarah now fires as warm qualifier on email reply leads (phone present). Receives prospect&rsquo;s email reply snippet in metadata (first 300 chars) so she can reference what they said in her opener.</div>
       </div>
     </div>
 
@@ -552,7 +552,7 @@
     <div class="section-header" style="margin-top: 20px;">
       <span class="entity-tag tag-ks">AGENTS</span>
       <h2>Konsier &mdash; Claude AI Agents (8 Total)</h2>
-      <span class="count">All 8 prompts received May 29 &middot; AGENT-04 + AGENT-08 unblocked &middot; AGENT-07 pending QBO setup</span>
+      <span class="count">All 8 prompts received &middot; AGENT-06 V5 prompt live June 8 &middot; AGENT-08 activated June 8 &middot; AGENT-07 pending QBO OAuth</span>
     </div>
     <div class="lg-grid">
       <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-01</div><div class="lg-name">Outbound Operator</div><div class="lg-desc">Reviews lead data &rarr; writes personalized cold outreach copy for Instantly campaigns</div></div>
@@ -560,7 +560,7 @@
       <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-03 (PQA)</div><div class="lg-name">Qualification Analyzer</div><div class="lg-desc">Reads Retell call transcript &rarr; BANT score &rarr; updates Pipedrive stage + Notion Call QA Queue</div></div>
       <div class="lg-card"><div class="lg-id" style="color: #34d399;">AGENT-04 &#10003; Built &mdash; May 29</div><div class="lg-name">Closer Copilot</div><div class="lg-desc">3 workflows: KS-A4a Pre-Call Brief &#10003; live (2hrs before, wired into KS-WF-CAL) &middot; KS-A4b Post-Call Summary built/inactive (Fathom setup pending) &middot; KS-A4c Objection Mining &#10003; live (nightly cron).</div></div>
       <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-05 &#10003; Built</div><div class="lg-name">Customer Call QA</div><div class="lg-desc">Post-call quality analysis &rarr; detects red flags &rarr; Slack #konsier-escalations if alert_required</div></div>
-      <div class="lg-card"><div class="lg-id" style="color: #818cf8;">AGENT-06 &#10003; Built</div><div class="lg-name">Onboarding Drafter</div><div class="lg-desc">12-field intake &rarr; Claude Sonnet 4.6 &rarr; Notion KS Client Onboarding page &rarr; Slack #konsier-review</div></div>
+      <div class="lg-card"><div class="lg-id" style="color: #34d399;">AGENT-06 &#10003; V5 Updated June 8</div><div class="lg-name">Onboarding Drafter</div><div class="lg-desc">12-field intake &rarr; Claude Sonnet 4.6 &rarr; Notion KS Client Onboarding page &rarr; Slack #konsier-review. V5: 8-niche voice tone table + SDVOSB FAQ auto-included for Medical &amp; Legal.</div></div>
       <div class="lg-card"><div class="lg-id" style="color: #fb923c;">AGENT-07 &#10003; Built &mdash; Inactive (KS-A7)</div><div class="lg-name">Bookkeeping Reconciler</div><div class="lg-desc">KS-A7 built June 3 (13 nodes). Stripe → QBO reconciliation → AGENT-07 → Notion KS Bookkeeping Log → Slack #konsier-finance. #konsier-finance channel created ✓. Inactive: Drew must complete QBO OAuth sign-in in n8n (Intuit Developer app setup in progress).</div></div>
       <div class="lg-card"><div class="lg-id" style="color: #34d399;">AGENT-08 &#10003; LIVE June 8</div><div class="lg-name">Founder Brief Writer</div><div class="lg-desc">KS-A8 activated June 8. Monday 7AM ET &rarr; Stripe + Pipedrive + Notion Client Health &rarr; Claude Sonnet 4.6 &rarr; Notion KS Weekly Briefs DB &rarr; Slack DM to Drew (with Notion link). June 8: 3 runtime bugs fixed &mdash; Slack refs, Notion URL, timezone ET &#10003;.</div></div>
     </div>
