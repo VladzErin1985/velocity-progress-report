@@ -498,9 +498,9 @@
         <div class="wf-trigger"><span>Activated May 27 (5 nodes):</span> KS-PD-EVENTS stage 101 &rarr; Edit Fields (7 fields incl rawCurrent custom field codes) &rarr; GET Person Details &rarr; POST to AGENT-06 (konsier-onboarding-intake). Fires on every deal reaching Won-Onboarding. Live &#10003;</div>
       </div>
       <div class="wf-card inactive">
-        <div class="wf-top"><span class="wf-id">KS-WF5</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div>
-        <div class="wf-name">LinkedIn Reply Handler (HeyReach)</div>
-        <div class="wf-trigger"><span>May 27 &mdash; Branch 2 complete:</span> heeyreach-events webhook &rarr; IF message_replied &rarr; Search Person by Email &rarr; GET Deals &rarr; PATCH stage 91 (AI Qualified) &rarr; Slack #konsier. <span>Blocked &mdash; Drew:</span> HeyReach trial expired (URGENT) + LinkedIn account not connected.</div>
+        <div class="wf-top"><span class="wf-id">KS-WF5 / KS-WF-LINKEDIN</span><span class="status-badge badge-inactive">Built &mdash; Extend for V5</span></div>
+        <div class="wf-name">LinkedIn Reply Handler (HeyReach &mdash; V5 Lane 4)</div>
+        <div class="wf-trigger"><span>May 27 base built:</span> heeyreach-events webhook &rarr; IF message_replied &rarr; Search Person by Email &rarr; GET Deals &rarr; PATCH stage 91 &rarr; Slack #konsier. <strong>V5 update needed:</strong> Extend to route LinkedIn replies through AGENT-02 classification (different context from email replies &mdash; shorter messages, no Calendly CTA on first touch). <span>Blocked &mdash; Drew:</span> HeyReach API key + LinkedIn account connection.</div>
       </div>
       <div class="wf-card inactive">
         <div class="wf-top"><span class="wf-id">KS-A5</span><span class="status-badge badge-inactive">Built &mdash; Inactive</span></div>
@@ -638,10 +638,10 @@
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">&#9654;</div>
+      <div class="blocker-icon">&#128231;</div>
       <div class="blocker-content">
-        <div class="title">HeyReach &mdash; On Hold (Velocity Capital Build, Week 3)</div>
-        <div class="desc">Drew confirmed May 29: HeyReach is for Velocity Capital, not Konsier. KS-WF5 parked. Will be wired in during VC Week 3 build.</div>
+        <div class="title">Drew: HeyReach API Key + Webhook &mdash; Unblocks KS-WF-LINKEDIN (V5 Lane 4)</div>
+        <div class="desc">V5 architecture adds LinkedIn as a 4th entry lane: HeyReach outbound &rarr; LinkedIn reply &rarr; KS-WF-LINKEDIN &rarr; AGENT-02 classifies &rarr; Pipedrive deal. Drew confirmed HeyReach is now active on Konsier (not Velocity Capital). Blocked: HeyReach API key + webhook setup needed to build KS-WF-LINKEDIN. KS-WF5 (existing LinkedIn handler) to be reviewed and extended.</div>
       </div>
     </div>
     <div class="blocker-item">
