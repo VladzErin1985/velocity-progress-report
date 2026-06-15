@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 12</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 15</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -219,21 +219,21 @@
   <div class="header">
     <div class="header-left">
       <h1>Drew Williams &mdash; Dual Project Automation Build Report</h1>
-      <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 6 &middot; Prepared by Vladimir</div>
+      <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 7 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">June 12, 2026</div>
-      <div class="week-badge">Week 6 &middot; Day 35 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">June 15, 2026</div>
+      <div class="week-badge">Week 7 &middot; Day 36 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 6 &middot; June 12</div>
+      <div class="label">Build Velocity &mdash; Week 7 &middot; June 15</div>
       <div class="message">
-        <strong>June 12: PD-WF-03 VC&rarr;AV Handoff activated ✅ &mdash; Slack config fixed &middot; stage 64 Policy Delivered &rarr; GET Person &rarr; PATCH Person &rarr; POST AV deal &rarr; POST handoff note &rarr; Slack #all-velocity-capital. PD-WF-04 AV&rarr;AR Deal Sourcing built ✅ &mdash; 8 nodes &middot; stage 69 Commitment Received &rarr; AR Acquisition Inquiry deal (pipeline 11) + person updated. PD-WF-05 AR&rarr;AC Construction Trigger built ✅ &mdash; 8 nodes &middot; stage 80 Closed/Won &rarr; AC Project Inquiry deal (pipeline 12) + person updated. PD-EVENTS routing expanded &mdash; 3 cross-entity handoff IFs chained (Stage 64 &middot; 69 &middot; 80) all live. Konsier QA: KS-WF2 qualification chain tested (2 executions ✓) &middot; KS-WF6 3-lead test &mdash; Apollo &rarr; ICP &rarr; Notion log confirmed ✓ &middot; KS-A8 brief confirmed in Slack + Notion ✓. 35 total workflows built, 22 live. June 11: KS-WF2 Lane 3 ✅ &mdash; Calendly single-use link auto-sent after every qualified Alex widget call (5 nodes: qualified gate &middot; Calendly create &middot; Pipedrive deal note &middot; 15-min wait &middot; Slack alert) &middot; all 3 Konsier entry lanes now complete. KS-WF6 Security Hardening ✅ &mdash; 3 API keys (Apollo x6 nodes, Notion, Instantly) migrated from hardcoded node params to n8n credential store &middot; multi-batch parse bug fixed (&gt;50 leads now route correctly) &middot; maxTokens cap added &middot; Slack op fix &middot; 0 validation errors &middot; KS-WF17 luxon crash fixed. June 10: KS-WF18 Dunning Recovery (32 nodes, built) ✅ &middot; KS-WF17 Deliverability Monitor (15 nodes, built inactive) ✅ &middot; KS-WF6 Roofing campaign ID wired + agent_one_opener fixed ✅ &middot; Apollo Roofing M1 ICP count confirmed (3,421) ✅. June 9: KS-WF3 V5 Lane 2 upgrade (12 nodes) ✅. June 8: AGENT-06 V5 prompt live ✅ &middot; KS-A8 activated ✅.</strong>
-        <span class="warn"> Blocked: Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Fathom (KS-A4b) &middot; Wistia &middot; QBO OAuth (Drew must complete).</span>
+        <strong>June 15: KS-WF4 billing_cadence wired + end-to-end tested ✅ &mdash; I created Billing Cadence custom Deal field in Pipedrive &middot; I added billingCadence Set node expression (amount_total &ge; 500,000 cents &rarr; annual, else monthly) &middot; I fixed Slack deprecated op &middot; I disabled DocuSign placeholder &middot; I switched to Pipedrive API v1 PUT for custom field support &middot; Deal #35 Billing Cadence = &ldquo;monthly&rdquo; confirmed ✓ &middot; Slack #konsier alert confirmed ✓. Stripe links verified: monthly $697/$1,047/$1,797 ✅ &middot; annual prices flagged ($6,970/$10,470/$17,970 vs spec $7,104/$10,680/$18,324) &mdash; Drew acknowledged, fixing. I created 3 new Pipedrive custom fields: HIPAA Required (Person, set type) &middot; BAA Active (Deal, set type) &middot; Minutes MTD (Deal, double) &#10003;. KS-WF4B HIPAA/BAA Gate upgraded to 9 nodes (live) &mdash; Medical/Legal clients now hold at onboarding until BAA is signed, Slack escalation fires to Drew &#10003;. AGENT-03 updated with hipaa_required auto-detection (field #10) &mdash; AI flags regulated leads during qualification calls and writes result to Pipedrive Person HIPAA Required field via new HTTP PATCH node &#10003;. June 12: PD-WF-03&rarr;05 all live ✅ &mdash; 3 cross-entity handoffs (VC&rarr;AV&rarr;AR&rarr;AC) chained in PD-EVENTS. June 11: KS-WF2 Lane 3 ✅ &middot; KS-WF6 Security Hardening ✅ &middot; KS-WF17 luxon fix live. June 10: KS-WF18 Dunning (32 nodes) ✅ &middot; KS-WF17 Deliverability Monitor ✅. June 9: KS-WF3 Lane 2 upgrade ✅. June 8: V5 + KS-A8 live ✅. 36 total workflows built, 23 live.</strong>
+        <span class="warn"> Blocked: Stripe annual prices (Drew fixing) &middot; Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Fathom (KS-A4b) &middot; Wistia &middot; QBO OAuth (Drew must complete).</span>
       </div>
     </div>
     <div class="timeline">
@@ -309,9 +309,13 @@
         <div class="tl-date">June 12</div>
         <div class="tl-label">PD-WF-03&rarr;05 &#10003;</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">June 15</div>
+        <div class="tl-label">WF4 + WF4B HIPAA &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
-        <div class="tl-label">Campaign IDs &middot; WF6 Activate</div>
+        <div class="tl-label">Annual prices &middot; WF6 Activate</div>
       </div>
     </div>
   </div>
@@ -491,8 +495,8 @@
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-PD-EVENTS</span><span class="status-badge badge-done">&#10003; Live (June 8 &mdash; 15 nodes)</span></div><div class="wf-name">Pipedrive Webhook Receiver</div><div class="wf-trigger"><span>Trigger:</span> Pipedrive deal events &rarr; routes to relevant downstream Konsier workflows. <strong>June 8:</strong> Added Stage-Qualified routing branch &mdash; any deal reaching stage 94 (Outbound Qualified) or stage 97 (Inbound Qualified by Retell) &rarr; person lookup in Pipedrive &rarr; Slack #konsier-leads booking link alert &rarr; Pipedrive task created (due +1 day at 9AM). Fixes V5 Lane 2&sol;3 entry gap &mdash; all 3 entry points now complete the full qualification&rarr;booking sequence.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-A4</span><span class="status-badge badge-done">&#10003; Live (confirmed June 4)</span></div><div class="wf-name">Stalled Deal Alert</div><div class="wf-trigger"><span>Confirmed active June 4:</span> Daily cron &rarr; deals stalled &gt;7 days &rarr; Slack #konsier-leads with deal link + details. Fired on Deal #35 (Mark Torres) with no logged activity &#10003;.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF1</span><span class="status-badge badge-done">&#10003; Live (June 8 &mdash; 18 nodes)</span></div><div class="wf-name">Email Reply Handler + Outbound Call Trigger</div><div class="wf-trigger"><span>Trigger:</span> Instantly reply webhook &rarr; AGENT-02 Reply Triage &rarr; Switch (6 routes): Positive Qualified &rarr; Slack Hot Lead Alert &rarr; Pipedrive Create Person (phone stored) &rarr; Create Deal &rarr; <strong>IF Phone Exists: Retell dial Sarah (email_reply_snippet in metadata, first 300 chars of prospect reply) &middot; ELSE: Slack #konsier-leads &ldquo;Hot Lead &mdash; No Phone&rdquo; with lead details + Calendly link</strong>. Objection/Question &rarr; Slack alerts. Unsubscribe &rarr; Instantly Blocklist. Auto-Reply &rarr; Defer OOO. Needs Review &rarr; Slack alert. <strong>June 8:</strong> Phone check node + email_reply_snippet added. Sarah is now warm qualifier (second touch after positive reply).</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF2</span><span class="status-badge badge-done">&#10003; Live (June 4 fixes)</span></div><div class="wf-name">Retell Qualification Webhook</div><div class="wf-trigger"><span>Trigger:</span> call_analyzed &rarr; AGENT-03 (PQA) &rarr; Pipedrive deal PATCH + note &rarr; Slack. <strong>June 4:</strong> IF node fixed (string type, loose validation). GET Pipedrive Person node added (lead name from Pipedrive record). Calendly link fixed (konsier/demo). closer_brief null fix (empty string &rarr; null for Pipedrive v2 long text field). Outbound chain tested end-to-end — Mark Torres, Qualified, Professional tier, 9/10 urgency, konsier/demo &#10003;.</div></div>
-      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF4</span><span class="status-badge badge-done">&#10003; Live (14 nodes &mdash; June 8)</span></div><div class="wf-name">Stripe &rarr; Onboarding Chain + DocuSign Branch</div><div class="wf-trigger"><span>Full rebuild June 4 (12 nodes) + DocuSign branch June 8 (14 nodes):</span> Stripe payment success &rarr; client_reference_id path or email fallback &rarr; PATCH Pipedrive deal stage 101 &rarr; Merge &rarr; Slack #konsier &rarr; AGENT-06 trigger &rarr; Notion onboarding page &rarr; <strong>IF &mdash; DocuSign Required? (plan=Enterprise OR contract_requested=true) &rarr; DocuSign &mdash; Send Contract (name + email pre-wired).</strong> Starter &amp; Pro: branch terminates. End-to-end confirmed June 8 &#10003;. DocuSign node awaiting Drew: OAuth 2FA + template ID.</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF2</span><span class="status-badge badge-done">&#10003; Live (June 15 &mdash; AGENT-03 hipaa_required)</span></div><div class="wf-name">Retell Qualification Webhook</div><div class="wf-trigger"><span>Trigger:</span> call_analyzed &rarr; AGENT-03 (PQA) &rarr; Pipedrive deal PATCH + note &rarr; Slack. <strong>June 4:</strong> IF node fixed (string type, loose validation). GET Pipedrive Person node added (lead name from Pipedrive record). Calendly link fixed (konsier/demo). closer_brief null fix (empty string &rarr; null for Pipedrive v2 long text field). Outbound chain tested end-to-end &#10003;. <strong>June 15:</strong> AGENT-03 updated with field #10 (hipaa_required &mdash; true for Medical/Dental/Legal/Attorney niches). Code &mdash; Parse Summarizer Output updated to extract hipaa_required. New HTTP &mdash; PATCH Person HIPAA Field node writes option ID 186 to Pipedrive Person HIPAA Required field (or null if false). Connected after Slack Calendly alert &#10003;.</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF4</span><span class="status-badge badge-done">&#10003; Live (14 nodes &mdash; June 15 billing cadence)</span></div><div class="wf-name">Stripe &rarr; Onboarding Chain + Billing Cadence + DocuSign Branch</div><div class="wf-trigger"><span>Full rebuild June 4 (12 nodes) + DocuSign branch June 8 (14 nodes):</span> Stripe payment success &rarr; client_reference_id path or email fallback &rarr; <strong>Set billingCadence</strong> (amount_total &ge; 500,000 cents &rarr; &ldquo;annual&rdquo; else &ldquo;monthly&rdquo;) &rarr; Pipedrive v1 PUT (stage 101 + Billing Cadence custom field) &rarr; Merge &rarr; Slack #konsier &rarr; AGENT-06 trigger &rarr; Notion onboarding page &rarr; <strong>IF &mdash; DocuSign Required?</strong> (plan=Enterprise OR contract_requested=true) &rarr; DocuSign &mdash; Send Contract. Starter &amp; Pro: branch terminates. <strong>June 15:</strong> Billing Cadence Deal field created + wired. Switched to Pipedrive v1 PUT (v2 rejects custom field hashes). Deal #35 Billing Cadence = &ldquo;monthly&rdquo; confirmed &#10003;. DocuSign node awaiting Drew: OAuth 2FA + template ID.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-WF3</span><span class="status-badge badge-done">&#10003; Live &mdash; V5 Lane 2 Upgrade June 9 (12 nodes)</span></div><div class="wf-name">Website Contact Form &rarr; Pipedrive + Sarah Call</div><div class="wf-trigger"><span>V5 Lane 2 upgrade June 9 (12 nodes):</span> Webhook POST &rarr; Extract Form Data (name, email, phone, company, industry, message) &rarr; Respond 200 &rarr; Create Pipedrive Person &rarr; Create Deal (pipeline 14, stage 96) &rarr; <strong>Calendly API &mdash; Create Single-Use Booking Link</strong> (POST /scheduling_links, max_event_count: 1, per-prospect unique URL) &rarr; Add Booking Link to Pipedrive Deal (pinned note) + Slack #konsier-leads alert (with dynamic link) &rarr; <strong>IF Phone Exists: Retell &mdash; Dial Sarah (outbound call, lead metadata + pipedrive IDs in call metadata) &middot; ELSE: Slack &ldquo;No Phone&rdquo; alert (manual send booking link)</strong>. No SMTP needed &mdash; Sarah calls immediately on form submit per V5 design. Previously: workflow ended at Slack notification (Lane 2 gap). Now fully compliant with V5 flowchart &#10003;.</div></div>
       <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">KS-WF6</span><span class="status-badge badge-inactive">Built &mdash; Expanding to 7 Verticals (June 21 Go-Live)</span></div><div class="wf-name">Daily Outbound Lead Pipeline</div><div class="wf-trigger"><span>29 nodes (June 9 expansion):</span> 5 vertical Apollo searches (Roofing 50 &middot; Dental 25 &middot; Medical 25 &middot; HVAC 50 &middot; Plumbing 50) &rarr; Tag &rarr; Merge 5-input &rarr; Extract &rarr; <strong>Apollo Bulk Reveal (email + firmographics unlocked)</strong> &rarr; ICP Score &rarr; Notion Dedup &rarr; Batch-50 &rarr; AGENT-01 &rarr; Instantly + Notion Lead Log + Slack. <strong>June 9:</strong> Expanded 3 &rarr; 5 verticals (HVAC 16 Inland cities + Plumbing 15 Sun Belt cities added) &#10003; &middot; Maildoso 65/70 mailboxes warming &#10003;. <strong>June 10:</strong> Roofing campaign ID wired (5283cca2-ebb2-41dd-9c61-a4a793b6da1e) &#10003; &middot; agent_one_opener personalization fixed (was raw string &rarr; key-value object) &#10003;. <span>Pending:</span> 4 campaign IDs from Drew (Dental &middot; Medical &middot; HVAC &middot; Plumbing) &middot; Go-live: June 21.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-A2</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Tier Routing</div><div class="wf-trigger"><span>Activated May 27:</span> Call volume &rarr; tier assignment (Starter/Pro/Enterprise/Not Qualified) &rarr; Pipedrive stage update &rarr; Slack. All 4 Slack nodes confirmed with Velocity Capital credential &#10003;</div></div>
@@ -512,9 +516,9 @@
         <div class="wf-trigger"><span>Expanded June 1 (29 nodes):</span> Calendly booking &rarr; Code Normalize Payload &rarr; Search Person &rarr; GET Deals &rarr; Switch (4 routes): Demo &rarr; IF Pipeline 13/14 &rarr; Stage 92/98 &rarr; Slack &rarr; KS-A4a trigger &middot; Kickoff &rarr; Code find CL deal &rarr; Pipedrive note &rarr; Slack &middot; Check-in &rarr; same &middot; 30-Day Review &rarr; same. All 4 branches tested &#10003;. Calendly Standard Plan upgraded &#10003;. <strong>Pending:</strong> Webhook registration requires new Calendly PAT with users:read scope (Drew email verification needed).</div>
       </div>
       <div class="wf-card done">
-        <div class="wf-top"><span class="wf-id">KS-WF4B</span><span class="status-badge badge-done">&#10003; Live</span></div>
-        <div class="wf-name">Closed-Won &rarr; Onboarding Handoff</div>
-        <div class="wf-trigger"><span>Activated May 27 (5 nodes):</span> KS-PD-EVENTS stage 101 &rarr; Edit Fields (7 fields incl rawCurrent custom field codes) &rarr; GET Person Details &rarr; POST to AGENT-06 (konsier-onboarding-intake). Fires on every deal reaching Won-Onboarding. Live &#10003;</div>
+        <div class="wf-top"><span class="wf-id">KS-WF4B</span><span class="status-badge badge-done">&#10003; Live &mdash; HIPAA Gate June 15 (9 nodes)</span></div>
+        <div class="wf-name">Closed-Won &rarr; Onboarding Handoff + HIPAA/BAA Gate</div>
+        <div class="wf-trigger"><span>May 27 (5 nodes) &rarr; June 15 upgrade (9 nodes):</span> KS-PD-EVENTS stage 101 &rarr; Edit Fields &rarr; GET Person Details &rarr; <strong>IF &mdash; HIPAA Required?</strong> (reads Person HIPAA Required field) &rarr; TRUE: GET Pipedrive Deal &rarr; <strong>IF &mdash; BAA Signed?</strong> (reads Deal BAA Active field) &rarr; TRUE: POST to AGENT-06 &#10003; &middot; FALSE: Slack #konsier-escalations &ldquo;Hold onboarding &mdash; BAA required&rdquo; alert to Drew. FALSE (non-HIPAA niche): POST to AGENT-06 directly. Medical and Legal clients now hold at onboarding until Drew confirms BAA signed. 0 validation errors &#10003;</div>
       </div>
       <div class="wf-card inactive">
         <div class="wf-top"><span class="wf-id">KS-WF5 / KS-WF-LINKEDIN</span><span class="status-badge badge-inactive">Built &mdash; Extend for V5</span></div>
@@ -727,8 +731,8 @@
     <div class="blocker-item">
       <div class="blocker-icon">&#128231;</div>
       <div class="blocker-content">
-        <div class="title">Drew: 7 Instantly Campaign IDs &mdash; Unblocks KS-WF6 (June 21 Go-Live)</div>
-        <div class="desc">Instantly unblocked June 9 &#10003; &middot; Maildoso 65/70 mailboxes connected, all warming since June 7 &middot; Day 14 = June 21 (production go-live). GoDaddy IMAP replaced by Maildoso in V5 &mdash; no longer a blocker. <strong>Roofing-M1-StormCorridor wired June 10 &#10003;</strong> (ID: 5283cca2-ebb2-41dd-9c61-a4a793b6da1e) &middot; agent_one_opener personalization fixed June 10 &#10003;. Waiting: 4 remaining campaign IDs (Dental / Medical / HVAC / Plumbing &mdash; Drew still building those campaigns).</div>
+        <div class="title">Drew: Instantly Campaign IDs &mdash; Month 1 Ready &middot; KS-WF6 Go-Live</div>
+        <div class="desc">Instantly unblocked June 9 &#10003; &middot; Maildoso 65/70 mailboxes connected, all warming since June 7 &middot; Day 14 = June 21 (production go-live). GoDaddy IMAP replaced by Maildoso in V5 &mdash; no longer a blocker. <strong>Roofing-M1-StormCorridor wired June 10 &#10003;</strong> (ID: 5283cca2-ebb2-41dd-9c61-a4a793b6da1e) &middot; agent_one_opener personalization fixed June 10 &#10003;. <strong style="color:#34d399;">June 13 update: Month 1 campaign ready to go &#10003;.</strong> Drew intentionally holding months 2+ &mdash; building end of week to keep sequences fresh. Plan: month 1 live at Day 14; months 2+ come online just ahead of each send date. Drew owns this.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -736,6 +740,13 @@
       <div class="blocker-content">
         <div class="title">Drew: Wistia Account + Demo Videos</div>
         <div class="desc">Create account, upload demo videos, share video IDs &rarr; unblocks KS-A5 Hot Lead trigger</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">&#9888;</div>
+      <div class="blocker-content">
+        <div class="title">Drew: Stripe Annual Prices &mdash; Fix Needed &middot; billing_cadence Monthly Path &#10003;</div>
+        <div class="desc">Links received June 15. Monthly prices verified: $697&sol;$1,047&sol;$1,797 &#10003;. billing_cadence wired into KS-WF4 + Pipedrive Deal field &mdash; end-to-end tested &#10003; (Deal #35 Billing Cadence = &ldquo;monthly&rdquo;, Slack confirmed). Annual prices discrepancy: current $6,970&sol;$10,470&sol;$17,970 vs V6.1 locked 15% = $7,104&sol;$10,680&sol;$18,324. Drew acknowledged June 15 &mdash; fixing. Annual billing_cadence path and QBO annual invoice branch cannot be tested until Drew updates Stripe prices.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -755,9 +766,9 @@
         <div class="billing-sub">Week 5 (June 1&ndash;6) &middot; Week 6 (June 8+) &middot; $500/week flat retainer &middot; Payment via Wise @freelance1293</div>
       </div>
       <div class="billing-total-box">
-        <div class="billing-total-label">Total Paid (Weeks 1&ndash;6)</div>
+        <div class="billing-total-label">Total Paid (Weeks 1&ndash;5)</div>
         <div class="billing-total-value">$2,884</div>
-        <div class="billing-total-sub">$2,884 paid &middot; Weeks 1&ndash;6 complete &#10003;</div>
+        <div class="billing-total-sub">$2,884 paid &middot; Week 6 in transit &middot; Week 7 in progress</div>
       </div>
     </div>
     <table class="billing-table">
@@ -854,7 +865,7 @@
 
 
         <tr class="week-divider">
-          <td colspan="4">WEEK 6 &mdash; JUNE 8&ndash;12, 2026 &middot; $500 FLAT RETAINER &middot; PAID &#10003;</td>
+          <td colspan="4">WEEK 6 &mdash; JUNE 8&ndash;12, 2026 &middot; $500 FLAT RETAINER &middot; &#9888; PAYMENT IN TRANSIT &mdash; Wise Security Review &mdash; Expected June 17</td>
         </tr>
         <tr class="done-row">
           <td>June 8<br><small style="color:#475569">Monday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
@@ -938,13 +949,37 @@
           <td style="color:#475569; font-size:12px;">Week 6<br>($500 flat)</td>
         </tr>
 
+        <tr class="week-divider">
+          <td colspan="4">WEEK 7 &mdash; JUNE 15&ndash;20, 2026 &middot; $500 FLAT RETAINER &middot; IN PROGRESS</td>
+        </tr>
+        <tr class="done-row">
+          <td>June 15<br><small style="color:#475569">Sunday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            KS-WF4 &mdash; BILLING_CADENCE WIRING + END-TO-END TEST &#10003;: I created the Billing Cadence custom Deal field in Pipedrive (Text type, field hash: cff47c45434bda824dd926f7e7d6d4c0170fcabd). I added a billingCadence field to the Set node with expression: amount_total &ge; 500,000 cents &rarr; &ldquo;annual&rdquo;, else &ldquo;monthly&rdquo; (clean gap &mdash; monthly max = 179,700 cents, annual min = 697,000 cents). I wired the field into the Pipedrive PATCH node JSON body.
+
+            I fixed 3 issues blocking publish: (1) Slack node had deprecated internal operation value &ldquo;Send&rdquo; (old internal key) &mdash; I re-selected to remap to current &ldquo;post&rdquo; value; field wipe was a known side effect, I restored the message text with billingCadence included. (2) DocuSign node had no credentials (placeholder awaiting Drew OAuth) &mdash; I disabled it to unblock publish without losing the node. (3) Pipedrive API v2 rejects custom field hashes &mdash; 400 &ldquo;Parameter not allowed for this request.&rdquo; I switched to v1 PUT /v1/deals/{id}?api_token=... (v1 PATCH returns 404; PUT required) and updated the JSON body with the custom field hash keyed directly.
+
+            I published and activated &#10003;. End-to-end test confirmed: Stripe test checkout &rarr; KS-WF4 fired &rarr; Deal #35 Billing Cadence field = &ldquo;monthly&rdquo; &#10003; &rarr; Slack #konsier alert &ldquo;Billing: monthly&rdquo; &#10003;.
+
+            STRIPE PAYMENT LINKS VERIFIED: I verified all 6 links as active. Monthly prices match V6.1 spec: Starter $697 / Pro $1,047 / Enterprise $1,797 &#10003;. I flagged an annual prices discrepancy: current $6,970&sol;$10,470&sol;$17,970 vs V6.1 locked 15% discount = $7,104&sol;$10,680&sol;$18,324 &mdash; 2-month-free (16.7%) was used instead. Drew acknowledged June 15: &ldquo;Correct. I&rsquo;ll change that.&rdquo; I will re-test the annual billing_cadence path once prices are updated.
+
+            PIPEDRIVE CUSTOM FIELD INFRASTRUCTURE: I created 3 new Pipedrive custom fields to support V6.1 compliance and metering requirements. (1) HIPAA Required &mdash; Person field, set type, field hash: 73b64590e4bf4be4f9a1e020f81be59dbeae6fd8. Option ID 186 = Yes. Set by AGENT-03 during qualification for Medical, Dental, Legal, and Attorney niches. (2) BAA Active &mdash; Deal field, set type, field hash: ae7b9edd18f57e49fad4392256e326616e6ee338. Option ID 187 = Yes. Drew sets manually when client signs Business Associate Agreement. (3) Minutes MTD &mdash; Deal field, double type, field hash: 6bc027c801d7cf72540fb33ef9c997c5fabbf279. Reserved for call usage metering &mdash; deferred to June 16.
+
+            KS-WF4B &mdash; HIPAA/BAA GATE (9 nodes, live): I extended the Closed-Won &rarr; Onboarding Handoff workflow from 5 to 9 nodes. After the existing Stripe stage update and Slack alert, I added an IF &mdash; HIPAA Required? node that reads the HIPAA Required Person field. TRUE branch: I added GET Pipedrive Deal &rarr; IF &mdash; BAA Signed? checking the BAA Active Deal field. TRUE (BAA confirmed): workflow proceeds to AGENT-06 onboarding trigger as normal. FALSE (BAA not signed): Slack #konsier-escalations fires a direct alert to Drew with deal name, client email, and &ldquo;Hold onboarding &mdash; BAA required&rdquo; action item. FALSE branch (non-HIPAA niche): workflow routes directly to AGENT-06 without the BAA check. Medical and Legal clients now hold at onboarding until Drew manually confirms the BAA is signed. 0 validation errors. Live &#10003;.
+
+            KS-WF2 &mdash; AGENT-03 HIPAA AUTO-DETECTION (live): I updated AGENT-03 (Post-Qualification Analyzer) in KS-WF2 to extract a new field &mdash; hipaa_required. I added field #10 to the system prompt: &ldquo;hipaa_required: true if the caller niche (business_type) is Medical, Dental, Legal, or Attorney. false for all other niches.&rdquo; I updated the default JSON return block to include hipaa_required: false. I updated Code &mdash; Parse Summarizer Output to read and return hipaa_required from the parsed Claude JSON. I added a new HTTP &mdash; PATCH Person HIPAA Field node (Pipedrive PATCH /api/v2/persons/{personId}) that writes option ID 186 to the HIPAA Required Person field when hipaa_required is true, and null (clearing the field) when false. Connected after Slack &mdash; Sarah Call Qualified (Send Calendly). AGENT-03 now automatically flags regulated leads during every qualification call &mdash; the flag propagates to the KS-WF4B gate on next payment &#10003;.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 7<br>($500 flat)</td>
+        </tr>
+
       </tbody>
       <tfoot>
         <tr>
-          <td><strong>Total Billed (Weeks 1&ndash;6)</strong></td>
-          <td><strong>~272 hrs total</strong></td>
-          <td><strong>Week 6 (June 8&ndash;12): In progress &middot; $500 flat retainer &mdash; Wise @freelance1293</strong></td>
-          <td class="earn"><strong>$2,884 paid (Weeks 1&ndash;5) &middot; Week 6 current</strong></td>
+          <td><strong>Total Billed (Weeks 1&ndash;7)</strong></td>
+          <td><strong>~280 hrs total</strong></td>
+          <td><strong>Week 7 (June 15+): In progress &middot; $500 flat retainer &mdash; Wise @freelance1293</strong></td>
+          <td class="earn"><strong>$2,884 paid (Weeks 1&ndash;5) &middot; Week 6 in transit &middot; Week 7 current</strong></td>
         </tr>
       </tfoot>
     </table>
@@ -1013,6 +1048,11 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 11]</strong> n8n Code node $runIndex: resolves to the 0-based index of the item currently being processed in a multi-item execution loop. Use $(&apos;NodeName&apos;).all()[$runIndex] to correctly pair upstream batch items with the current execution context &mdash; unlike .first() which always returns the first upstream item regardless of loop position. Critical for batch-processing patterns where a downstream Code node must look up data from the same batch position as the current LLM execution. Note: $runIndex is valid at runtime but may trigger a conservative validator warning &mdash; the warning is a false positive.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 12]</strong> Pipedrive person custom fields &mdash; enum vs varchar require different PATCH values. Enum fields (e.g. Ecosystem Stage, Active in AV) must receive the option ID as a string (e.g. &apos;79&apos; for Yes) &mdash; not the display label. Varchar fields (e.g. Active in VC) receive the string value directly (&apos;Yes&apos;). Mixing them causes silent field mismatch: patching an enum field with a label does not throw an error but stores incorrectly. Always verify field type from Pipedrive API schema before writing the PATCH body.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 12]</strong> PD-EVENTS cross-entity chaining pattern: chaining IF nodes where the FALSE output of each IF feeds into the next IF&rsquo;s input allows unlimited stage-based routing without rebuilding the central hub. Each new cross-entity workflow adds one IF + one HTTP node pair to PD-EVENTS. sourceIndex=1 on addConnection targets the FALSE output branch of an IF node. The routing chain handles all pipeline handoffs in a single Pipedrive webhook with no polling overhead.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 15]</strong> Pipedrive API v2 (/api/v2/deals/{id}) does NOT accept custom field hashes in the request body &mdash; returns 400: &ldquo;Parameter [hash] is not allowed for this request.&rdquo; Custom Deal field updates must use Pipedrive API v1 (/v1/deals/{id}?api_token=...) with PUT method. Note: PATCH on v1 deals returns 404 &mdash; must be PUT. v2 handles standard fields only; v1 handles custom field hashes + standard fields. Always use v1 PUT when the payload includes any custom field hash key.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 15]</strong> billing_cadence threshold for Konsier Stripe plans: monthly max = 179,700 cents ($1,797 Enterprise monthly), annual min = 697,000 cents ($6,970 Starter annual). A threshold of 500,000 cents (halfway) cleanly separates the two without overlap &mdash; no edge case exists between 179,700 and 697,000. Safe to use: amount_total &ge; 500000 ? &apos;annual&apos; : &apos;monthly&apos; as a single IF expression in the n8n Set node.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 15]</strong> Pipedrive &ldquo;set&rdquo; type custom fields store option IDs (integers), not display labels. PATCH /api/v2/persons/{id} with the field hash as key must send the numeric option ID (&lsquo;186&rsquo; for Yes) &mdash; sending the label string (&ldquo;Yes&rdquo;) does not throw an error but stores nothing. Retrieve option IDs from GET /api/v2/personFields or from the field schema in Pipedrive Settings. Always verify before wiring into a PATCH node.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 15]</strong> HIPAA gate architecture &mdash; separate Person field from Deal field: use a Person field (hipaa_required, set by AI during qualification) for the detection signal, and a separate Deal field (baa_active, set manually by Drew post-signature) for the compliance action gate. This separation ensures the AI detection and the human confirmation step are independently auditable and never overwrite each other.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 15]</strong> n8n Webhook node in responseNode mode: &ldquo;onError&rdquo; must be set at the node level (top-level property on the node JSON object), NOT inside parameters.options.onError. Setting it inside parameters has no effect &mdash; the node-level property is what controls whether n8n returns a response to the caller or silently closes the connection on error. Use n8n_update_partial_workflow with updates: &#123;&ldquo;onError&rdquo;: &ldquo;continueRegularOutput&rdquo;&#125; to set it correctly.</div>
   </div>
 
   <!-- Footer -->
@@ -1034,7 +1074,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: June 12, 2026';
+    if (el) el.textContent = 'Last updated: June 15, 2026 (HIPAA Gate)';
   </script>
 </body>
 </html>
