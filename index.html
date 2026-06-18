@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 17</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 18</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -222,16 +222,17 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 7 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">June 17, 2026</div>
-      <div class="week-badge">Week 7 &middot; Day 38 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">June 18, 2026</div>
+      <div class="week-badge">Week 7 &middot; Day 39 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 7 &middot; June 17</div>
+      <div class="label">Build Velocity &mdash; Week 7 &middot; June 18</div>
       <div class="message">
+        <strong>June 18: KS-WF20 &mdash; Speed-to-Lead Callback (13 nodes, inactive &#10003;) + KS-WF7 Text-Back extension (12 nodes &#10003;) + A2P 10DLC runbook + KS-WF6 readiness audit &mdash; I built KS-WF20 per V6.1 item #7: webhook /konsier-speed-to-lead &rarr; consent gate &rarr; calling window check (Intl.DateTimeFormat hourCycle h23, 8am&ndash;9pm local) &rarr; GET Pipedrive Org (retell_agent_id + retell_from_number per client) &rarr; POST Retell v2/create-phone-call &rarr; Pipedrive note &rarr; Slack #konsier. After-hours: Twilio SMS placeholder. I extended KS-WF7 with IF &mdash; Missed/Unanswered? (disconnection_reason == voicemail_reached OR machine_detected) &rarr; Twilio SMS Text-Back placeholder before AGENT-05. I wrote a 7-step A2P 10DLC registration runbook at /runbooks/a2p-10dlc-registration.md. I audited KS-WF6 (29 nodes) + KS-WF1 (18 nodes) and documented 3 go-live blockers. 41 total workflows built, 24 live.</strong>
         <strong>June 17: KS-WF22 &mdash; Review Request SMS (13 nodes, inactive &#10003;) + KS-A10 &mdash; Review Response Drafter AGENT-10 (9 nodes, inactive &#10003;) + KS-WF19 &mdash; SAM.gov Watch (13 nodes, inactive &#10003;) &mdash; I built the full Review &amp; Reputation Engine (V6.1 item #6). I created 2 Pipedrive Org custom fields (Review Engine Active &middot; Google Review URL) and 2 Notion DBs (KS &mdash; Google Reviews Queue &middot; KS &mdash; Review Requests throttle log). KS-WF22: I wired a webhook trigger from KS-WF7 (AGENT-05) on non-alert call outcomes &rarr; checks 90-day SMS throttle via Notion &rarr; checks Pipedrive Org Review Engine Active flag &rarr; sends SMS with client&apos;s Google Review URL (Twilio placeholder) &rarr; logs to Notion &rarr; Slack #konsier. KS-A10: I built an hourly CRON that polls KS &mdash; Google Reviews Queue for Pending reviews &rarr; Claude Sonnet AGENT-10 drafts a response in the client&apos;s voice &rarr; sets Notion Status to Draft Ready &rarr; Slack alert for VA review. I updated KS-WF7 to POST to KS-WF22 on non-alert outcomes. KS-WF19: I built a daily CRON (06:00 PT) that queries the SAM.gov Opportunities API for SDVOSB set-asides across 4 NAICS codes (561421 &middot; 561422 &middot; 541512 &middot; 541519) &rarr; Claude Sonnet batch fit scoring (1&ndash;10) &rarr; Notion log for all opportunities &rarr; Slack #konsier on fit &ge;7 or value &ge;$100K. All 3 workflows validated (0 errors). Placeholders: SMS credentials &middot; Google Review URL per client &middot; Review Engine Active = Yes per client &middot; SAM.gov API key. 40 total workflows built, 24 live.</strong>
         <span class="warn"> Blocked: Stripe annual prices (Drew fixing) &middot; Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Fathom (KS-A4b) &middot; Wistia &middot; QBO OAuth (Drew must complete).</span>
       </div>
@@ -321,9 +322,13 @@
         <div class="tl-date">June 17</div>
         <div class="tl-label">WF22 + A10 + WF19 &#10003;</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">June 18</div>
+        <div class="tl-label">WF20 + Text-Back &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
-        <div class="tl-label">SAM.gov API key &middot; WF6 Activate</div>
+        <div class="tl-label">WF6 Activate June 21 &middot; AGENT-11</div>
       </div>
     </div>
   </div>
@@ -332,8 +337,8 @@
   <div class="summary-grid">
     <div class="stat-card green">
       <div class="label">n8n Workflows Built</div>
-      <div class="value">40</div>
-      <div class="sub">6 VC (Pipedrive native) + 5 PD auto + 29 Konsier built (19 live &middot; 10 inactive/blocked) &mdash; KS-WF22 + KS-A10 + KS-WF19 added June 17</div>
+      <div class="value">41</div>
+      <div class="sub">6 VC (Pipedrive native) + 5 PD auto + 30 Konsier built (19 live &middot; 11 inactive/blocked) &mdash; KS-WF20 Speed-to-Lead added June 18</div>
     </div>
     <div class="stat-card blue">
       <div class="label">Live &amp; Active</div>
@@ -355,11 +360,11 @@
   <!-- Progress Bars -->
   <div class="progress-section">
     <div class="progress-header">
-      <span>Konsier Build Progress &mdash; 29 built (V6.1 ongoing)</span>
-      <strong>19 live &middot; 10 inactive/blocked pending Drew actions</strong>
+      <span>Konsier Build Progress &mdash; 30 built (V6.1 ongoing)</span>
+      <strong>19 live &middot; 11 inactive/blocked pending Drew actions</strong>
     </div>
     <div class="bar-track"><div class="bar-fill purple-fill" style="width: 97%;"></div></div>
-    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A2 &middot; KS-A4 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF3 &middot; KS-WF4 &middot; KS-WF4B &middot; KS-WF-CAL &middot; KS-A6 &middot; KS-A4a &middot; KS-A4c &middot; KS-A7 (QBO pending) &middot; KS-WF7 &middot; KS-A8 &middot; <strong>KS-WF-USAGE &#10003; June 16</strong> &middot; <strong>KS-WF-METER-RESET &#10003; June 16</strong> &nbsp;|&nbsp; Inactive/Blocked: <strong>KS-WF17 &#10003; June 10 (activation checklist pending)</strong> &middot; <strong>KS-WF18 &#10003; June 10 (Stripe webhook pending)</strong> &middot; <strong>KS-WF22 &#10003; June 17 (SMS credentials + client config)</strong> &middot; <strong>KS-A10 &#10003; June 17 (VA queue setup)</strong> &middot; <strong>KS-WF19 &#10003; June 17 (SAM.gov API key)</strong> &middot; KS-A4b (Fathom) &middot; KS-WF6 (Instantly IDs) &middot; KS-WF5 (HeyReach) &middot; KS-A5 (Wistia)</div>
+    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A2 &middot; KS-A4 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF3 &middot; KS-WF4 &middot; KS-WF4B &middot; KS-WF-CAL &middot; KS-A6 &middot; KS-A4a &middot; KS-A4c &middot; KS-A7 (QBO pending) &middot; KS-WF7 &middot; KS-A8 &middot; <strong>KS-WF-USAGE &#10003; June 16</strong> &middot; <strong>KS-WF-METER-RESET &#10003; June 16</strong> &nbsp;|&nbsp; Inactive/Blocked: <strong>KS-WF17 &#10003; June 10 (activation checklist pending)</strong> &middot; <strong>KS-WF18 &#10003; June 10 (Stripe webhook pending)</strong> &middot; <strong>KS-WF22 &#10003; June 17 (SMS credentials + client config)</strong> &middot; <strong>KS-A10 &#10003; June 17 (VA queue setup)</strong> &middot; <strong>KS-WF19 &#10003; June 17 (SAM.gov API key)</strong> &middot; KS-A4b (Fathom) &middot; KS-WF6 (Instantly IDs) &middot; <strong>KS-WF20 &#10003; June 18 (Twilio + Pipedrive Org fields pending per client)</strong> &middot; KS-WF5 (HeyReach) &middot; KS-A5 (Wistia)</div>
     <div class="phase-labels">
       <span class="active">Phase 1 &mdash; Core &#10003;</span>
       <span class="active">Phase 2 &mdash; QA &#10003;</span>
@@ -482,12 +487,12 @@
     <div>
       <div class="proj-label">Project 2 &mdash; Konsier AI Receptionist</div>
       <div class="proj-title">Konsier &mdash; AI Receptionist Agency System (V5)</div>
-      <div class="proj-sub">24 workflows built &middot; 17 live &middot; 8 Claude agents (V5 prompts) &middot; 2 Retell AI agents &middot; 3 Pipedrive pipelines &middot; 5 Notion databases &middot; V6.1 in progress</div>
+      <div class="proj-sub">30 workflows built &middot; 19 live &middot; 9 Claude agents &middot; 2 Retell AI agents &middot; 3 Pipedrive pipelines &middot; 5 Notion databases &middot; V6.1 in progress</div>
     </div>
     <div class="proj-stats">
-      <div class="proj-stat"><div class="ps-val">17</div><div class="ps-label">Live</div></div>
-      <div class="proj-stat"><div class="ps-val">10</div><div class="ps-label">AI Agents</div></div>
-      <div class="proj-stat"><div class="ps-val">6</div><div class="ps-label">Blocked</div></div>
+      <div class="proj-stat"><div class="ps-val">19</div><div class="ps-label">Live</div></div>
+      <div class="proj-stat"><div class="ps-val">9</div><div class="ps-label">AI Agents</div></div>
+      <div class="proj-stat"><div class="ps-val">11</div><div class="ps-label">Inactive</div></div>
     </div>
   </div>
 
@@ -496,7 +501,7 @@
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
       <h2>Konsier &mdash; AI Receptionist System (Drew Williams)</h2>
-      <span class="count">29 built &middot; 19 live &middot; 10 inactive/blocked &middot; KS-WF22 + KS-A10 + KS-WF19 built June 17 &#10003; &middot; KS-WF7 activated June 17 &#10003;</span>
+      <span class="count">30 built &middot; 19 live &middot; 11 inactive/blocked &middot; KS-WF20 + Text-Back ext. built June 18 &#10003; &middot; KS-WF22 + KS-A10 + KS-WF19 built June 17 &#10003;</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-ERR</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Error Handler</div><div class="wf-trigger"><span>Always-on:</span> Catches all n8n execution errors &rarr; Slack #konsier-errors with workflow name + error details</div></div>
@@ -509,9 +514,9 @@
       <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">KS-WF6</span><span class="status-badge badge-inactive">Built &mdash; Expanding to 7 Verticals (June 21 Go-Live)</span></div><div class="wf-name">Daily Outbound Lead Pipeline</div><div class="wf-trigger"><span>29 nodes (June 9 expansion):</span> 5 vertical Apollo searches (Roofing 50 &middot; Dental 25 &middot; Medical 25 &middot; HVAC 50 &middot; Plumbing 50) &rarr; Tag &rarr; Merge 5-input &rarr; Extract &rarr; <strong>Apollo Bulk Reveal (email + firmographics unlocked)</strong> &rarr; ICP Score &rarr; Notion Dedup &rarr; Batch-50 &rarr; AGENT-01 &rarr; Instantly + Notion Lead Log + Slack. <strong>June 9:</strong> Expanded 3 &rarr; 5 verticals (HVAC 16 Inland cities + Plumbing 15 Sun Belt cities added) &#10003; &middot; Maildoso 65/70 mailboxes warming &#10003;. <strong>June 10:</strong> Roofing campaign ID wired (5283cca2-ebb2-41dd-9c61-a4a793b6da1e) &#10003; &middot; agent_one_opener personalization fixed (was raw string &rarr; key-value object) &#10003;. <span>Pending:</span> 4 campaign IDs from Drew (Dental &middot; Medical &middot; HVAC &middot; Plumbing) &middot; Go-live: June 21.</div></div>
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-A2</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Tier Routing</div><div class="wf-trigger"><span>Activated May 27:</span> Call volume &rarr; tier assignment (Starter/Pro/Enterprise/Not Qualified) &rarr; Pipedrive stage update &rarr; Slack. All 4 Slack nodes confirmed with Velocity Capital credential &#10003;</div></div>
       <div class="wf-card done">
-        <div class="wf-top"><span class="wf-id">KS-WF7 / AGENT-05</span><span class="status-badge badge-done">&#10003; Live &mdash; Updated June 17 (10 nodes)</span></div>
-        <div class="wf-name">Customer Call QA + Review Trigger</div>
-        <div class="wf-trigger"><span>10 nodes (June 17 update):</span> Webhook retell-customer-qa (onError: continueRegularOutput) &rarr; Respond 200 &rarr; Set Extract QA Data (caller_phone + org_pipedrive_id added) &rarr; Claude Haiku 4.5 (AGENT-05) &rarr; Code Parse &rarr; IF alert_required &rarr; TRUE: Slack #konsier-escalations. FALSE (clean call): HTTP POST &rarr; KS-WF22 /konsier-review-request (call_outcome: &ldquo;positive&rdquo;) &rarr; Review Request Engine fires if Pipedrive Org has Review Engine Active flag set. Activated June 17 &#10003;.</div>
+        <div class="wf-top"><span class="wf-id">KS-WF7 / AGENT-05</span><span class="status-badge badge-done">&#10003; Live &mdash; Text-Back ext. June 18 (12 nodes)</span></div>
+        <div class="wf-name">Customer Call QA + Review Trigger + Missed-Call Text-Back</div>
+        <div class="wf-trigger"><span>12 nodes (June 18 update):</span> Webhook retell-customer-qa &rarr; Respond 200 &rarr; Set Extract QA Data (caller_phone + org_pipedrive_id + disconnection_reason) &rarr; <strong>IF &mdash; Missed/Unanswered? (disconnection_reason == voicemail_reached OR machine_detected) &rarr; TRUE: HTTP Twilio SMS Text-Back PLACEHOLDER. FALSE:</strong> Claude Haiku 4.5 (AGENT-05) &rarr; Code Parse &rarr; IF alert_required &rarr; TRUE: Slack #konsier-escalations &middot; FALSE: HTTP POST &rarr; KS-WF22 /konsier-review-request. Live &#10003;.</div>
       </div>
       <div class="wf-card done">
         <div class="wf-top"><span class="wf-id">KS-A6 / AGENT-06</span><span class="status-badge badge-done">&#10003; Live &mdash; V5 Prompt June 8</span></div>
@@ -600,7 +605,7 @@
     <div class="section-header" style="margin-top: 20px;">
       <span class="entity-tag tag-ks">V6.1</span>
       <h2>Konsier V6.1 &mdash; New Builds (Week 7+)</h2>
-      <span class="count">KS-WF22 + KS-A10 + KS-WF19 built June 17 &#10003; &middot; KS-WF-USAGE + KS-WF-METER-RESET live June 16 &#10003; &middot; KS-WF18 built June 10 &#10003; &middot; KS-WF17 built June 10 inactive &#10003;</span>
+      <span class="count">KS-WF20 Speed-to-Lead built June 18 &#10003; &middot; KS-WF22 + KS-A10 + KS-WF19 June 17 &#10003; &middot; KS-WF-USAGE + KS-WF-METER-RESET live June 16 &#10003; &middot; KS-WF18 + KS-WF17 built June 10 &#10003;</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done">
@@ -637,6 +642,11 @@
         <div class="wf-top"><span class="wf-id">KS-WF19</span><span class="status-badge badge-inactive">Built &mdash; Inactive (SAM.gov API key placeholder &middot; June 17 &mdash; 13 nodes)</span></div>
         <div class="wf-name">SAM.gov Federal Contract Watch</div>
         <div class="wf-trigger"><span>13 nodes (June 17):</span> CRON Mon&ndash;Fri 8AM ET &rarr; HTTP SAM.gov API (search active_opportunities, naicsCodes 561499&sol;561421, ptype=p, limit 10, placeholder API key) &rarr; Code Parse Opportunities &rarr; IF New Opportunities? &rarr; HTTP Notion Dedup Check (KS &mdash; SAM.gov Watch DB, 382dfdec-3149-8111...) &rarr; IF Not Seen? &rarr; HTTP Notion Log New Contract &rarr; Slack #konsier (contract title + estimated value + response deadline). <span>Pending:</span> SAM.gov API key from Sam.gov account (free registration) &rarr; Drew to register and provide key.</div>
+      </div>
+      <div class="wf-card inactive">
+        <div class="wf-top"><span class="wf-id">KS-WF20</span><span class="status-badge badge-inactive">Built &mdash; Inactive (Twilio + Pipedrive Org fields pending per client &middot; June 18 &mdash; 13 nodes)</span></div>
+        <div class="wf-name">Speed-to-Lead Callback</div>
+        <div class="wf-trigger"><span>13 nodes (June 18 &mdash; V6.1 item #7):</span> Webhook /konsier-speed-to-lead &rarr; Respond 200 &rarr; Set Extract Payload (name, phone, timezone, consent, org_pipedrive_id, booking_link) &rarr; IF &mdash; Consent = True? &rarr; FALSE: HTTP Log Rejection (Notion Lead Log). TRUE: Code &mdash; Check Calling Window (Intl.DateTimeFormat hourCycle h23 &middot; 8am&ndash;9pm local) &rarr; IF &mdash; In Window? &rarr; FALSE: HTTP Twilio After-Hours SMS PLACEHOLDER. TRUE: HTTP GET Pipedrive Org (retell_agent_id + retell_from_number per client) &rarr; HTTP POST Retell v2/create-phone-call &rarr; HTTP Pipedrive Note &rarr; Slack #konsier. Per-client multi-tenant: Retell agent_id + from_number stored in Pipedrive Org &mdash; no per-client forks. <span>Pending per client:</span> Pipedrive Org custom fields (retell_agent_id + retell_from_number) &middot; Twilio creds + A2P 10DLC &middot; Runbook: /runbooks/a2p-10dlc-registration.md.</div>
       </div>
     </div>
   </div>
@@ -1030,6 +1040,21 @@
           <td style="color:#475569; font-size:12px;">Week 7<br>($500 flat)</td>
         </tr>
 
+        <tr class="done-row">
+          <td>June 18<br><small style="color:#475569">Thursday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            KS-WF20 &mdash; SPEED-TO-LEAD CALLBACK (13 nodes, inactive &mdash; V6.1 item #7): I built KS-WF20 per the Speed-to-Lead spec. I wired a webhook trigger at /konsier-speed-to-lead &rarr; Respond 200 OK &rarr; Set &mdash; Extract Payload (name, phone, timezone, consent, org_pipedrive_id, source, booking_link) &rarr; IF &mdash; Consent = True? &rarr; FALSE: HTTP &mdash; Log Rejection to Notion Lead Log (consent gate hard-reject, no call fires). TRUE: Code &mdash; Check Calling Window (Intl.DateTimeFormat with hourCycle: &lsquo;h23&rsquo; + IANA timezone string, gate 8am&ndash;9pm local) &rarr; IF &mdash; In Calling Window? &rarr; FALSE: HTTP &mdash; Twilio After-Hours SMS PLACEHOLDER. TRUE: HTTP &mdash; GET Pipedrive Org (reads retell_agent_id + retell_from_number custom fields per client) &rarr; HTTP &mdash; POST Retell v2/create-phone-call (from_number + agent_id pulled from Pipedrive Org &mdash; single workflow serves all clients, no per-client forks) &rarr; HTTP &mdash; Pipedrive Note (logs call attempt on Org record) &rarr; Slack #konsier alert. Pending per client: Pipedrive Org custom fields retell_agent_id + retell_from_number not yet created &middot; Twilio sub-account + A2P 10DLC registration per client brand.
+
+            KS-WF7 &mdash; TEXT-BACK EXTENSION (12 nodes, live): I extended KS-WF7 with a Missed/Unanswered detection branch. I added disconnection_reason to Set &mdash; Extract QA Data (assignment #11). I inserted IF &mdash; Missed/Unanswered? between Set and Claude AGENT-05 &mdash; OR condition: disconnection_reason == &lsquo;voicemail_reached&rsquo; OR disconnection_reason == &lsquo;machine_detected&rsquo;. TRUE branch: HTTP &mdash; Twilio SMS Text-Back placeholder (To = caller_phone, From = TWILIO_FROM_NUMBER_PLACEHOLDER, Body = booking link message with CLIENT_BOOKING_LINK_PLACEHOLDER). FALSE branch: existing Claude AGENT-05 path unchanged. I shifted AGENT-05 and all downstream nodes +240px right to prevent visual overlap. I confirmed the workflow remains live &#10003;.
+
+            A2P 10DLC REGISTRATION RUNBOOK: I wrote a 7-step VA runbook at /runbooks/a2p-10dlc-registration.md. Steps: (1) Twilio sub-account creation per client &middot; (2) Brand registration (legal name, EIN, website, business type) &middot; (3) Messaging Service creation &middot; (4) Campaign registration with sample messages + use case template (Customer Care for Text-Back &middot; Lead Generation for Speed-to-Lead after-hours) &middot; (5) n8n node updates for KS-WF20 + KS-WF7 (replace TWILIO_ACCOUNT_SID_PLACEHOLDER + TWILIO_FROM_NUMBER_PLACEHOLDER per client) &middot; (6) Pipedrive Org custom field values (retell_agent_id + retell_from_number) &middot; (7) Compliance test checklist (STOP opt-out, booking link end-to-end, Retell call confirm within 60 sec). I confirmed A2P 10DLC registration is required per client brand before any SMS fires.
+
+            KS-WF6 + KS-WF1 READINESS AUDIT: I audited all 5 Apollo search nodes, bulk reveal, ICP scorer, Notion dedup, Claude AGENT-01, Notion Lead Log, and Slack nodes in KS-WF6 (29 nodes) &mdash; all correctly wired, Roofing campaign ID confirmed. I documented 3 pre-activation blockers: (1) 4 Instantly campaign IDs missing (Dental/Medical/HVAC/Plumbing &mdash; Drew expected June 21); (2) Schedule Trigger has no explicit timezone &mdash; must confirm n8n instance timezone = America&sol;Los_Angeles before activation; (3) Slack summary text still reads &lsquo;PAUSED&rsquo; &mdash; remove before go-live. I found 1 KS-WF1 data issue: AGENT-02 system prompt still references $497 Starter pricing (old pre-V6.1) &mdash; needs update to V6.1 correct amounts before first email replies arrive.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 7<br>($500 flat)</td>
+        </tr>
+
       </tbody>
       <tfoot>
         <tr>
@@ -1117,6 +1142,9 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 16]</strong> n8n Slack node v2.4 &ldquo;Send Message To&rdquo; field: the parameter name is <code>select</code> (not <code>sendTo</code>). The channel is set via <code>channelId</code> with a resource locator object &#123; __rl: true, value: &ldquo;#channel-name&rdquo;, mode: &ldquo;name&rdquo;, cachedResultName: &ldquo;#channel-name&rdquo; &#125; &mdash; NOT a plain string in a <code>channel</code> field. Using <code>sendTo</code> or <code>channel</code> (old v1 field names) causes validation errors &ldquo;Required property &lsquo;Send Message To&rsquo; cannot be empty&rdquo; + &ldquo;Invalid value for select.&rdquo; Always validate against <code>nodes-base.slack</code> with a sample config to confirm field names before submitting a create/update.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 17]</strong> Pipedrive Org custom field boolean pattern: Org fields do not have a native boolean/checkbox type. I implemented per-client subscription flags using a Text field with &ldquo;Yes&rdquo; as the truthy value (Review Engine Active &middot; key: f0b4323aef98f8fc0d3bdbb148449c3db8c81fb9). n8n IF node checks <code>custom_fields['hash'] == 'Yes'</code> with caseSensitive: false. This is the correct pattern for any per-client feature flag on a Pipedrive Org record.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 17]</strong> n8n HTTP Request node <code>specifyBody</code> valid values are <code>keypair</code> and <code>json</code> only &mdash; <code>string</code> is not accepted and causes a validation error. For Twilio-style form-encoded bodies (application/x-www-form-urlencoded), use <code>specifyBody: &ldquo;keypair&rdquo;</code> with a <code>bodyParameters</code> array of name/value pairs. Each URL-encoded field (To, From, Body) maps to a named key in the array &mdash; n8n handles URL encoding automatically.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 18]</strong> Retell <code>disconnection_reason</code> field values for missed-call Text-Back detection: <code>voicemail_reached</code> = call reached voicemail without a live pickup; <code>machine_detected</code> = Retell detected an answering machine during the call. Both should trigger a Text-Back SMS. Use an IF node with OR combinator on both values to catch all missed-call outcomes. All other disconnection values (<code>call_ended</code>, <code>dial_failed</code>, etc.) indicate a real conversation or dial error and should NOT trigger a text-back. Always filter in the first IF node before any downstream action.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 18]</strong> <code>Intl.DateTimeFormat</code> with <code>hourCycle: &lsquo;h23&rsquo;</code> + <code>hour12: false</code> is the correct pattern for timezone-aware local hour extraction in n8n Code nodes. <code>hour12: false</code> alone can return the string <code>&ldquo;24&rdquo;</code> at midnight in some JS engines instead of <code>&ldquo;0&rdquo;</code>. Setting both <code>hour12: false</code> and <code>hourCycle: &lsquo;h23&rsquo;</code> guarantees a 0&ndash;23 integer range across all IANA timezone strings. Pattern: <code>new Intl.DateTimeFormat(&lsquo;en-US&rsquo;, &#123; timeZone: tz, hour: &lsquo;2-digit&rsquo;, hour12: false, hourCycle: &lsquo;h23&rsquo; &#125;).format(new Date())</code>. Parse result with <code>parseInt()</code> before any numeric comparison.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 18]</strong> Multi-tenant Speed-to-Lead pattern: store <code>retell_agent_id</code> + <code>retell_from_number</code> as Pipedrive Org Text custom fields &mdash; one set of values per client org. KS-WF20 reads them via GET Pipedrive Org before POSTing to Retell <code>v2/create-phone-call</code> &mdash; one workflow serves all Konsier clients without per-client forks or duplicate workflows. Pair with a per-client Twilio sub-account (via A2P 10DLC runbook) to maintain brand-level SMS compliance while sharing the single /konsier-speed-to-lead webhook endpoint.</div>
   </div>
 
   <!-- Footer -->
@@ -1138,7 +1166,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: June 17, 2026 (KS-WF22 + KS-A10 Review Engine + KS-WF19 SAM.gov Watch)';
+    if (el) el.textContent = 'Last updated: June 18, 2026 (KS-WF20 Speed-to-Lead + KS-WF7 Text-Back + A2P Runbook + KS-WF6 Audit)';
   </script>
 </body>
 </html>
