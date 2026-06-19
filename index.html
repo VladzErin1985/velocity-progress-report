@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 18</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 19</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,18 +223,17 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 7 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">June 18, 2026</div>
-      <div class="week-badge">Week 7 &middot; Day 39 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">June 19, 2026</div>
+      <div class="week-badge">Week 7 &middot; Day 40 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 7 &middot; June 18</div>
+      <div class="label">Build Velocity &mdash; Week 7 &middot; June 19</div>
       <div class="message">
-        <strong>June 18: KS-WF20 &mdash; Speed-to-Lead Callback (13 nodes, inactive &#10003;) + KS-WF7 Text-Back extension (12 nodes &#10003;) + A2P 10DLC runbook + KS-WF6 readiness audit &mdash; I built KS-WF20 per V6.1 item #7: webhook /konsier-speed-to-lead &rarr; consent gate &rarr; calling window check (Intl.DateTimeFormat hourCycle h23, 8am&ndash;9pm local) &rarr; GET Pipedrive Org (retell_agent_id + retell_from_number per client) &rarr; POST Retell v2/create-phone-call &rarr; Pipedrive note &rarr; Slack #konsier. After-hours: Twilio SMS placeholder. I extended KS-WF7 with IF &mdash; Missed/Unanswered? (disconnection_reason == voicemail_reached OR machine_detected) &rarr; Twilio SMS Text-Back placeholder before AGENT-05. I wrote a 7-step A2P 10DLC registration runbook at /runbooks/a2p-10dlc-registration.md. I audited KS-WF6 (29 nodes) + KS-WF1 (18 nodes) and documented 3 go-live blockers. 41 total workflows built, 24 live.</strong>
-        <strong>June 17: KS-WF22 &mdash; Review Request SMS (13 nodes, inactive &#10003;) + KS-A10 &mdash; Review Response Drafter AGENT-10 (9 nodes, inactive &#10003;) + KS-WF19 &mdash; SAM.gov Watch (13 nodes, inactive &#10003;) &mdash; I built the full Review &amp; Reputation Engine (V6.1 item #6). I created 2 Pipedrive Org custom fields (Review Engine Active &middot; Google Review URL) and 2 Notion DBs (KS &mdash; Google Reviews Queue &middot; KS &mdash; Review Requests throttle log). KS-WF22: I wired a webhook trigger from KS-WF7 (AGENT-05) on non-alert call outcomes &rarr; checks 90-day SMS throttle via Notion &rarr; checks Pipedrive Org Review Engine Active flag &rarr; sends SMS with client&apos;s Google Review URL (Twilio placeholder) &rarr; logs to Notion &rarr; Slack #konsier. KS-A10: I built an hourly CRON that polls KS &mdash; Google Reviews Queue for Pending reviews &rarr; Claude Sonnet AGENT-10 drafts a response in the client&apos;s voice &rarr; sets Notion Status to Draft Ready &rarr; Slack alert for VA review. I updated KS-WF7 to POST to KS-WF22 on non-alert outcomes. KS-WF19: I built a daily CRON (06:00 PT) that queries the SAM.gov Opportunities API for SDVOSB set-asides across 4 NAICS codes (561421 &middot; 561422 &middot; 541512 &middot; 541519) &rarr; Claude Sonnet batch fit scoring (1&ndash;10) &rarr; Notion log for all opportunities &rarr; Slack #konsier on fit &ge;7 or value &ge;$100K. All 3 workflows validated (0 errors). Placeholders: SMS credentials &middot; Google Review URL per client &middot; Review Engine Active = Yes per client &middot; SAM.gov API key. 40 total workflows built, 24 live.</strong>
+        <strong>June 19: AGENT-11 &mdash; Expansion Spotter (15 nodes, active &#10003;) &mdash; I built AGENT-11 as V6.1 item #8: a weekly CRON (Tue 9AM ET) that pulls all Customer Lifecycle clients (Pipedrive pipeline 15, stages 102/103/104) + reads the last 7 days of flagged calls from Notion KS &mdash; Call QA Queue &rarr; aggregates signals per client (minutes_mtd, usage_pct, missed_calls_mtd, positive_outcomes_mtd, QA red flags) &rarr; Claude Sonnet AGENT-11 analyzes signals and generates ranked add-on expansion recommendations (max 5, each must cite observed data &mdash; no generic pitches) &rarr; creates one page per recommendation in Notion KS &mdash; Expansion Queue (Client Name, Tier, Recommended Add-On, Observed Evidence, Suggested Talk Track, Status: Pending, Week Of) &rarr; posts ranked summary to Slack #sales. I ran a full end-to-end test with synthetic clients: Claude correctly ranked Green Valley Plumbing (Pro, 31 positive outcomes MTD) &rarr; Review Engine, Apex HVAC (Starter, 18 missed calls MTD) &rarr; Text-Back, Summit Electrical (Starter, 9 positive outcomes) &rarr; Review Engine. All 3 Notion pages created &#10003;. Slack #sales message posted &#10003;. I also built PD-WF-06 to close the final link in the 4-entity cross-entity chain: AC stage 88 (Project Complete/Won) &rarr; GET Person &rarr; PATCH Ecosystem Stage = Full Ecosystem (184) &rarr; GET open AV deals &rarr; POST Distribution Review activity (+7 days) &rarr; POST note on AC deal &rarr; Slack #all-velocity-capital. I extended PD-EVENTS with IF &mdash; Stage 88 chain routing. All 4 cross-entity handoffs now live: VC&rarr;AV &middot; AV&rarr;AR &middot; AR&rarr;AC &middot; AC&rarr;AV. 43 total workflows built, 26 live.</strong>
         <span class="warn"> Blocked: Stripe annual prices (Drew fixing) &middot; Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Fathom (KS-A4b) &middot; Wistia &middot; QBO OAuth (Drew must complete).</span>
       </div>
     </div>
@@ -327,9 +326,13 @@
         <div class="tl-date">June 18</div>
         <div class="tl-label">WF20 + Text-Back &#10003;</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">June 19</div>
+        <div class="tl-label">AGENT-11 + PD-WF-06 &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
-        <div class="tl-label">WF6 Activate June 21 &middot; AGENT-11</div>
+        <div class="tl-label">WF6 Activate June 21</div>
       </div>
     </div>
   </div>
@@ -338,18 +341,18 @@
   <div class="summary-grid">
     <div class="stat-card green">
       <div class="label">n8n Workflows Built</div>
-      <div class="value">41</div>
-      <div class="sub">6 VC (Pipedrive native) + 5 PD auto + 30 Konsier built (19 live &middot; 11 inactive/blocked) &mdash; KS-WF20 Speed-to-Lead added June 18</div>
+      <div class="value">43</div>
+      <div class="sub">6 VC (Pipedrive native) + 6 PD auto + 31 Konsier built (20 live &middot; 11 inactive/blocked) &mdash; AGENT-11 Expansion Spotter + PD-WF-06 AC&rarr;AV Completion Loop added June 19</div>
     </div>
     <div class="stat-card blue">
       <div class="label">Live &amp; Active</div>
-      <div class="value">24</div>
-      <div class="sub">WF-VC-01 + WF-VC-06 + 19 Konsier active + PD-WF-03 &#10003; + PD-WF-04 &#10003; + PD-WF-05 &#10003; &mdash; KS-WF17 + KS-WF18 built/inactive. KS-A4b inactive (Fathom). DocuSign pending.</div>
+      <div class="value">26</div>
+      <div class="sub">WF-VC-01 + WF-VC-06 + 20 Konsier active + PD-WF-03 &#10003; + PD-WF-04 &#10003; + PD-WF-05 &#10003; + <strong>PD-WF-06 &#10003; June 19</strong> &mdash; KS-WF17 + KS-WF18 built/inactive. KS-A4b inactive (Fathom). DocuSign pending.</div>
     </div>
     <div class="stat-card purple">
       <div class="label">AI Agents Built</div>
-      <div class="value">11</div>
-      <div class="sub">2 Retell (Alex V4 live &middot; Sarah V4 ready) &middot; 9 Claude (AGENT-04 &#10003; + AGENT-08 &#10003; + AGENT-10 Review Drafter &#10003; + AGENT-07 inactive QBO)</div>
+      <div class="value">12</div>
+      <div class="sub">2 Retell (Alex V4 live &middot; Sarah V4 ready) &middot; 10 Claude (AGENT-04 &#10003; + AGENT-08 &#10003; + AGENT-10 Review Drafter &#10003; + AGENT-11 Expansion Spotter &#10003; + AGENT-07 inactive QBO)</div>
     </div>
     <div class="stat-card orange">
       <div class="label">Pending Actions</div>
@@ -361,11 +364,11 @@
   <!-- Progress Bars -->
   <div class="progress-section">
     <div class="progress-header">
-      <span>Konsier Build Progress &mdash; 30 built (V6.1 ongoing)</span>
-      <strong>19 live &middot; 11 inactive/blocked pending Drew actions</strong>
+      <span>Konsier Build Progress &mdash; 31 built (V6.1 ongoing)</span>
+      <strong>20 live &middot; 11 inactive/blocked pending Drew actions</strong>
     </div>
     <div class="bar-track"><div class="bar-fill purple-fill" style="width: 97%;"></div></div>
-    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A2 &middot; KS-A4 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF3 &middot; KS-WF4 &middot; KS-WF4B &middot; KS-WF-CAL &middot; KS-A6 &middot; KS-A4a &middot; KS-A4c &middot; KS-A7 (QBO pending) &middot; KS-WF7 &middot; KS-A8 &middot; <strong>KS-WF-USAGE &#10003; June 16</strong> &middot; <strong>KS-WF-METER-RESET &#10003; June 16</strong> &nbsp;|&nbsp; Inactive/Blocked: <strong>KS-WF17 &#10003; June 10 (activation checklist pending)</strong> &middot; <strong>KS-WF18 &#10003; June 10 (Stripe webhook pending)</strong> &middot; <strong>KS-WF22 &#10003; June 17 (SMS credentials + client config)</strong> &middot; <strong>KS-A10 &#10003; June 17 (VA queue setup)</strong> &middot; <strong>KS-WF19 &#10003; June 17 (SAM.gov API key)</strong> &middot; KS-A4b (Fathom) &middot; KS-WF6 (Instantly IDs) &middot; <strong>KS-WF20 &#10003; June 18 (Twilio + Pipedrive Org fields pending per client)</strong> &middot; KS-WF5 (HeyReach) &middot; KS-A5 (Wistia)</div>
+    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A2 &middot; KS-A4 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF3 &middot; KS-WF4 &middot; KS-WF4B &middot; KS-WF-CAL &middot; KS-A6 &middot; KS-A4a &middot; KS-A4c &middot; KS-A7 (QBO pending) &middot; KS-WF7 &middot; KS-A8 &middot; <strong>KS-WF-USAGE &#10003; June 16</strong> &middot; <strong>KS-WF-METER-RESET &#10003; June 16</strong> &middot; <strong>KS-AGENT-11 &#10003; June 19</strong> &nbsp;|&nbsp; Inactive/Blocked: <strong>KS-WF17 &#10003; June 10 (activation checklist pending)</strong> &middot; <strong>KS-WF18 &#10003; June 10 (Stripe webhook pending)</strong> &middot; <strong>KS-WF22 &#10003; June 17 (SMS credentials + client config)</strong> &middot; <strong>KS-A10 &#10003; June 17 (VA queue setup)</strong> &middot; <strong>KS-WF19 &#10003; June 17 (SAM.gov API key)</strong> &middot; KS-A4b (Fathom) &middot; KS-WF6 (Instantly IDs) &middot; <strong>KS-WF20 &#10003; June 18 (Twilio + Pipedrive Org fields pending per client)</strong> &middot; KS-WF5 (HeyReach) &middot; KS-A5 (Wistia)</div>
     <div class="phase-labels">
       <span class="active">Phase 1 &mdash; Core &#10003;</span>
       <span class="active">Phase 2 &mdash; QA &#10003;</span>
@@ -376,10 +379,10 @@
     <div style="margin-top: 20px;">
       <div class="progress-header">
         <span>VC Pipedrive Native Automations</span>
-        <strong style="color: #fb923c;">50% &mdash; 5 of 10 built</strong>
+        <strong style="color: #fb923c;">60% &mdash; 6 of 10 built</strong>
       </div>
-      <div class="bar-track"><div class="bar-fill orange-fill" style="width: 50%;"></div></div>
-      <div class="progress-label">PD-WF-01 &#10003; &middot; PD-WF-02 &#10003; &middot; PD-WF-03 VC&rarr;AV Handoff &#10003; activated June 12 &middot; PD-WF-04 AV&rarr;AR &#10003; live June 12 &middot; PD-WF-05 AR&rarr;AC &#10003; live June 12 &middot; PD-WF-06 through PD-WF-10 queued</div>
+      <div class="bar-track"><div class="bar-fill orange-fill" style="width: 60%;"></div></div>
+      <div class="progress-label">PD-WF-01 &#10003; &middot; PD-WF-02 &#10003; &middot; PD-WF-03 VC&rarr;AV Handoff &#10003; activated June 12 &middot; PD-WF-04 AV&rarr;AR &#10003; live June 12 &middot; PD-WF-05 AR&rarr;AC &#10003; live June 12 &middot; <strong>PD-WF-06 AC&rarr;AV Completion Loop &#10003; live June 19</strong> &middot; PD-WF-07 through PD-WF-10 queued</div>
     </div>
   </div>
 
@@ -391,8 +394,8 @@
       <div class="proj-sub">4 entities &middot; 18 n8n workflows &middot; Pipedrive CRM &middot; Pipedrive-native (rebuilt June 4) &middot; GHL fully removed</div>
     </div>
     <div class="proj-stats">
-      <div class="proj-stat"><div class="ps-val">9</div><div class="ps-label">n8n Live</div></div>
-      <div class="proj-stat"><div class="ps-val">5</div><div class="ps-label">PD Automations</div></div>
+      <div class="proj-stat"><div class="ps-val">10</div><div class="ps-label">n8n Live</div></div>
+      <div class="proj-stat"><div class="ps-val">6</div><div class="ps-label">PD Automations</div></div>
       <div class="proj-stat"><div class="ps-val">4</div><div class="ps-label">Pipelines</div></div>
     </div>
   </div>
@@ -458,7 +461,7 @@
         <div class="wf-name">AR &rarr; AC Construction Trigger (Closed / Won)</div>
         <div class="wf-trigger"><span>8 nodes (June 12):</span> PD-EVENTS Stage 80 &rarr; GET Person &rarr; PATCH Person (Active in AR + Active in AC + Ecosystem Stage) &rarr; POST Create AC Project Inquiry deal (pipeline 12, stage 81) &rarr; POST Note pinned on AR Deal &rarr; Slack #all-velocity-capital.</div>
       </div>
-      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-06</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">AC &rarr; AV Completion Loop</div><div class="wf-trigger"><span>Trigger:</span> Project Complete/Won. Update Person ecosystem + trigger cost seg</div></div>
+      <div class="wf-card done"><div class="wf-top"><span class="wf-id">PD-WF-06</span><span class="status-badge badge-done">&#10003; Live &mdash; June 19 (9 nodes)</span></div><div class="wf-name">AC &rarr; AV Completion Loop</div><div class="wf-trigger"><span>9 nodes (June 19):</span> PD-EVENTS Stage 88 (Project Complete/Won, AC pipeline) &rarr; GET Person &rarr; PATCH Person (Full Ecosystem Stage 184) &rarr; GET Open AV Deals (pipeline 10) &rarr; POST Activity on AV Deal (Distribution Review Due, 7-day follow-up) &rarr; POST Note pinned on AC Deal &rarr; Slack #all-velocity-capital. Closes 4-entity ecosystem circle.</div></div>
       <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-07</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Stale Lead Re-engagement</div><div class="wf-trigger"><span>Trigger:</span> Deal rotting = Yes. Create re-engage call + check-in email + webhook</div></div>
       <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-08</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Education Progress Tracking</div><div class="wf-trigger"><span>n8n:</span> Education platform webhook &rarr; PATCH Pipedrive deal Education Modules field</div></div>
       <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-09</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Monthly Investor Update</div><div class="wf-trigger"><span>Trigger:</span> Cron &mdash; 1st of month. AV Active Investment deals &rarr; n8n monthly report</div></div>
@@ -502,7 +505,7 @@
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
       <h2>Konsier &mdash; AI Receptionist System (Drew Williams)</h2>
-      <span class="count">30 built &middot; 19 live &middot; 11 inactive/blocked &middot; KS-WF20 + Text-Back ext. built June 18 &#10003; &middot; KS-WF22 + KS-A10 + KS-WF19 built June 17 &#10003;</span>
+      <span class="count">31 built &middot; 20 live &middot; 11 inactive/blocked &middot; AGENT-11 Expansion Spotter built June 19 &#10003; &middot; KS-WF20 + Text-Back ext. built June 18 &#10003; &middot; KS-WF22 + KS-A10 + KS-WF19 built June 17 &#10003;</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-ERR</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Error Handler</div><div class="wf-trigger"><span>Always-on:</span> Catches all n8n execution errors &rarr; Slack #konsier-errors with workflow name + error details</div></div>
@@ -606,9 +609,14 @@
     <div class="section-header" style="margin-top: 20px;">
       <span class="entity-tag tag-ks">V6.1</span>
       <h2>Konsier V6.1 &mdash; New Builds (Week 7+)</h2>
-      <span class="count">KS-WF20 Speed-to-Lead built June 18 &#10003; &middot; KS-WF22 + KS-A10 + KS-WF19 June 17 &#10003; &middot; KS-WF-USAGE + KS-WF-METER-RESET live June 16 &#10003; &middot; KS-WF18 + KS-WF17 built June 10 &#10003;</span>
+      <span class="count">AGENT-11 Expansion Spotter built June 19 &#10003; &middot; KS-WF20 Speed-to-Lead built June 18 &#10003; &middot; KS-WF22 + KS-A10 + KS-WF19 June 17 &#10003; &middot; KS-WF-USAGE + KS-WF-METER-RESET live June 16 &#10003; &middot; KS-WF18 + KS-WF17 built June 10 &#10003;</span>
     </div>
     <div class="wf-grid">
+      <div class="wf-card done">
+        <div class="wf-top"><span class="wf-id">KS-AGENT-11</span><span class="status-badge badge-done">&#10003; Live &mdash; June 19 (15 nodes)</span></div>
+        <div class="wf-name">Expansion Spotter (AGENT-11)</div>
+        <div class="wf-trigger"><span>15 nodes (June 19 &mdash; V6.1 item #8):</span> CRON Tuesday 9AM ET &rarr; GET Pipedrive Customer Lifecycle deals (pipeline 15, stages 102&sol;103&sol;104 &mdash; minutes_mtd + tier per client) &rarr; Code &mdash; Extract Client Signals (calculates usage_pct, flags high_usage &ge;80%, reads missed_calls_mtd + positive_outcomes_mtd) &rarr; GET Notion KS &mdash; Call QA Queue (flagged calls past 7 days, red_flags samples) &rarr; Code &mdash; Aggregate Per Client &rarr; Code &mdash; Build Claude Payload (system prompt with 5 add-on signal rules: Speed-to-Lead &middot; Text-Back &middot; Review Engine &middot; Web Chat &middot; Front Desk Bundle &mdash; strict evidence-required rules, max 5 recs, JSON only) &rarr; Claude Sonnet AGENT-11 &rarr; Code &mdash; Parse Output &rarr; IF &mdash; Any Recommendations? &rarr; TRUE: Code &mdash; Emit Individual Recs &rarr; HTTP Create Notion Expansion Queue Page (Client Name title &middot; Tier select &middot; Recommended Add-On select &middot; Observed Evidence rich_text &middot; Suggested Talk Track rich_text &middot; Status: Pending &middot; Week Of date) &rarr; Aggregate &rarr; Code &mdash; Build Slack Message &rarr; Slack &mdash; Post to #sales (ranked list with evidence + talk track per rec). FALSE: graceful exit. End-to-end test passed June 19 &#10003;.</div>
+      </div>
       <div class="wf-card done">
         <div class="wf-top"><span class="wf-id">KS-WF-USAGE</span><span class="status-badge badge-done">&#10003; Live &mdash; June 16 (9 nodes)</span></div>
         <div class="wf-name">Call Usage Metering</div>
@@ -1056,6 +1064,25 @@
           <td style="color:#475569; font-size:12px;">Week 7<br>($500 flat)</td>
         </tr>
 
+        <tr class="done-row">
+          <td>June 19<br><small style="color:#475569">Friday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            AGENT-11 &mdash; EXPANSION SPOTTER (15 nodes, active &mdash; V6.1 item #8): I built AGENT-11 as a weekly intelligence layer that scans all active Konsier clients and surfaces ranked add-on expansion opportunities every Tuesday before the sales week begins. I designed the workflow to aggregate two signal sources &mdash; live usage data from Pipedrive and quality flags from Notion &mdash; then pass them to Claude Sonnet for analysis.
+
+            DATA COLLECTION: I wired Schedule Trigger (CRON: Tuesday 9AM ET, after Monday AGENT-05 digests run) &rarr; HTTP &mdash; GET Pipedrive Customers (pipeline 15, Customer Lifecycle, status=open, limit=500 &mdash; pulls all active client deals in stages 102 Live, 103 Healthy, 104 At Risk) &rarr; Code &mdash; Extract Client Signals (filters deals by stage, reads minutes_mtd custom field + tier enum field per deal, calculates usage_pct = minutes_mtd &divide; tier allowance, flags high_usage when &ge;80%, maps Starter=1000&sol;Pro=1750&sol;Enterprise=3000 minute allowances) &rarr; HTTP &mdash; GET Notion KS &mdash; Call QA Queue (queries flagged calls from the past 7 days, extracts red_flags text per record) &rarr; Code &mdash; Aggregate Per Client (merges client array + QA signals into a single structured payload: week_of, active_clients[], qa_signals.total_flagged_calls_this_week, qa_signals.issue_samples[]).
+
+            CLAUDE AGENT-11 PROMPT DESIGN: I built Code &mdash; Build Claude Payload to assemble a strict system prompt listing the 5 available add-ons with their price points and required evidence signals: Speed-to-Lead ($147&sol;mo &mdash; signal: web lead response gaps), Text-Back ($97&sol;mo &mdash; signal: missed&sol;unanswered call patterns), Review Engine ($147&sol;mo &mdash; signal: consistent positive call outcomes), Web Chat ($97&sol;mo &mdash; signal: web traffic without a chat widget), Front Desk Bundle ($247&sol;mo &mdash; signal: client needs both Text-Back and Web Chat). I enforced 5 non-negotiable rules in the prompt: (1) only recommend if specific data supports it &mdash; no guessing; (2) observed_evidence must cite actual numbers from the payload; (3) if data is sparse return fewer recs or an empty array &mdash; never manufacture evidence; (4) rank by evidence strength, max 5; (5) return JSON array only, no explanation, no markdown. Output schema per recommendation: client_name, tier, recommended_addon, observed_evidence, suggested_talk_track.
+
+            DOWNSTREAM PROCESSING: I wired HTTP &mdash; POST Claude Sonnet &rarr; Code &mdash; Parse Claude Output (regex-extracts the JSON array from Claude&apos;s response, validates all 4 required fields per rec, strips incomplete entries, caps at 5) &rarr; IF &mdash; Any Recommendations? (count &gt; 0). TRUE branch: Code &mdash; Emit Individual Recs (splits array into one item per recommendation for individual Notion page creation) &rarr; HTTP &mdash; Create Notion Expansion Queue Page (per rec: Client Name title, Tier select, Recommended Add-On select, Observed Evidence rich_text, Suggested Talk Track rich_text, Status = Pending select, Week Of date) &rarr; Aggregate (collects all created pages) &rarr; Code &mdash; Build Slack Message (formats ranked list with client, tier, add-on, evidence, and talk track per entry) &rarr; Slack &mdash; Post to #sales. FALSE branch: graceful exit with no output, no noise.
+
+            END-TO-END TEST: I injected 3 synthetic clients with real signal patterns &mdash; Apex HVAC Services (Starter, 18 missed calls MTD), Green Valley Plumbing (Pro, 31 positive outcomes MTD, 88% minute usage), Summit Electrical Co (Starter, 9 positive outcomes, 42% usage). Claude ranked: (1) Green Valley Plumbing &rarr; Review Engine (evidence: 31 positive outcomes MTD, highest among active clients &mdash; talk track: &ldquo;You&apos;re closing 31 positive calls this month &mdash; Review Engine captures that momentum right after the call while the experience is fresh&rdquo;); (2) Apex HVAC &rarr; Text-Back (evidence: 18 missed calls MTD with 0 positive outcomes recorded &mdash; inbound demand going completely cold); (3) Summit Electrical &rarr; Review Engine (evidence: 9 positive outcomes at only 42% minute usage &mdash; strong positive call rate relative to overall volume). All 3 Notion Expansion Queue pages created &#10003;. Slack #sales ranked message posted &#10003;. Workflow activated and live.
+
+            PD-WF-06 &mdash; AC &rarr; AV COMPLETION LOOP (9 nodes, active &mdash; VC Pipedrive automation #6): I built PD-WF-06 to close the 4-entity ecosystem circle in Velocity Capital&apos;s Pipedrive CRM. When a deal reaches Stage 88 (Project Complete/Won) inside the AC Construction pipeline (pipeline 12), PD-EVENTS fires PD-WF-06 via an internal webhook trigger and the workflow executes a 9-node chain: I wired Webhook &rarr; Set (extract dealId, personId, dealTitle, stageId from payload) &rarr; Get Person (Pipedrive) &rarr; Update Person (writes Full Ecosystem Stage custom field, option 184 &mdash; marks the contact as having touched all 4 entities: VC, AV, AR, AC) &rarr; Get Open AV Deals (pipeline 10, person-scoped, limit 1) &rarr; Create Activity on AV Deal (subject: &ldquo;Distribution Review Due &mdash; [name] AC project complete,&rdquo; type: meeting, due 7 days out &mdash; graceful skip if no open AV deal exists) &rarr; Add pinned Note to AC Deal (confirms loop triggered, timestamps the event) &rarr; Slack #all-velocity-capital. I also extended PD-EVENTS with a new IF node for Stage 88 chained off the Stage 80 FALSE branch, keeping all cross-entity routing in a single webhook receiver. PD-WF-06 is the final link in the VC&rarr;AV&rarr;AR&rarr;AC&rarr;AV cycle &mdash; a person who completes an AC construction project automatically surfaces back in AV as a distribution candidate.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 7<br>($500 flat)</td>
+        </tr>
+
       </tbody>
       <tfoot>
         <tr>
@@ -1096,7 +1123,7 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 8]</strong> n8n node names with em-dashes can be stored with corrupted UTF-8 encoding (â€" instead of &mdash;) in the n8n database. Referencing the display name in addConnection source field causes "Source node not found." Fix: reference the node by its UUID instead of its name for any node containing em-dashes or special characters.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 8]</strong> n8n expression optional chaining (?.) is NOT supported. $json.data.email?.[0]?.value throws a validation error. Fix: use nested ternary &mdash; $json.data.email &amp;&amp; $json.data.email.length ? $json.data.email[0].value : 'fallback'. All optional chaining in n8n expressions must be rewritten as explicit null checks.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 10]</strong> n8n POST /api/v1/workflows: the "active" field is read-only and must be omitted from the create request body. Sending "active": false returns {"message":"request/body/active is read-only: value must be omitted"}. Strip the field before POSTing &mdash; n8n creates workflows inactive by default.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 10]</strong> PowerShell ConvertFrom-Json &rarr; ConvertTo-Json round-trip corrupts UTF-8 em-dash (U+2014) to a plain hyphen. n8n node names that use em-dash as delimiter (e.g. "Webhook &mdash; Stripe Dunning") get silently corrupted, breaking all downstream $('Node &mdash; Name') references. Fix: read workflow JSON as a raw string ($raw = Get-Content file -Raw -Encoding utf8), apply -replace to strip the active field, POST the raw string directly with -Body $raw. Never pass workflow JSON through ConvertFrom-Json when the file contains em-dashes.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 10]</strong> JSON serialization round-trip (parse &rarr; re-serialize) corrupts UTF-8 em-dash (U+2014) to a plain hyphen. n8n node names that use em-dash as delimiter (e.g. &ldquo;Webhook &mdash; Stripe Dunning&rdquo;) get silently renamed, breaking all downstream $(&lsquo;Node &mdash; Name&rsquo;) references in Code nodes. Fix: read workflow JSON as a raw string and apply string replacement directly without deserializing. Never pass workflow JSON through a parse &rarr; serialize cycle when the file contains em-dashes in node names.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 10]</strong> Apollo api_search response structure: total_entries is a top-level field on the response object &mdash; NOT nested inside pagination. Accessing $r.pagination.total_entries returns null. Correct path: $r.total_entries.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 10]</strong> Apollo organization_technologies filter silently fails for niche contractor CRMs (JobNimbus, AccuLynx, Roofr, CompanyCam) &mdash; returns same full count as if no filter was applied. The filter works correctly for enterprise SaaS (Salesforce dropped 3,421 &rarr; 1,560 in the same search). These local trade tools are simply not in Apollo&rsquo;s technology database. Always verify technographic filters with a sanity check against a known enterprise tool before assuming the filter is working.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 10]</strong> Pipedrive Customer Lifecycle pipeline deal PATCH: must use API v2 endpoint PATCH /api/v2/deals/{id}. Using v1 PATCH returns "Unknown method" error. v1 is still active for notes and persons but deal updates in some pipelines require v2.</div>
@@ -1116,12 +1143,14 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 16]</strong> Retell AI voice TTS number pronunciation: numerals like &ldquo;15&rdquo; are read literally as &ldquo;one-five&rdquo; by the TTS engine instead of &ldquo;fifteen.&rdquo; Always spell out spoken numbers in voice agent prompts &mdash; &ldquo;fifteen-minute demo&rdquo; not &ldquo;15-minute demo,&rdquo; &ldquo;twenty-four seven&rdquo; not &ldquo;24/7,&rdquo; &ldquo;January fifteenth&rdquo; not &ldquo;1/15.&rdquo; Applies to all numeric values that will be spoken aloud by Alex or Sarah.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 16]</strong> n8n Slack node v2.4 &ldquo;Send Message To&rdquo; field: the parameter name is <code>select</code> (not <code>sendTo</code>). The channel is set via <code>channelId</code> with a resource locator object &#123; __rl: true, value: &ldquo;#channel-name&rdquo;, mode: &ldquo;name&rdquo;, cachedResultName: &ldquo;#channel-name&rdquo; &#125; &mdash; NOT a plain string in a <code>channel</code> field. Using <code>sendTo</code> or <code>channel</code> (old v1 field names) causes validation errors &ldquo;Required property &lsquo;Send Message To&rsquo; cannot be empty&rdquo; + &ldquo;Invalid value for select.&rdquo; Always validate against <code>nodes-base.slack</code> with a sample config to confirm field names before submitting a create/update.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 17]</strong> SAM.gov Opportunities API v2 supports comma-separated naicsCode parameter for multi-NAICS queries in a single request (e.g. naicsCode=561421,561422,541512,541519). SDVOSB set-asides use typeOfSetAside=SDVOSBC. Date range uses YYYYMMDD format in postedFrom/postedTo. Response includes totalRecords (top-level) and opportunitiesData[] array with title, agency, naicsCode, typeOfSetAside, responseDeadLine, and uiLink per opportunity. Free API key required &mdash; register at sam.gov/content/entity-registration before the workflow can activate.</div>
-    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 17]</strong> Notion internal integration token (ntn_...) stored in project memory was stale and returning 401. Correct current token found by reading the Authorization header of a live HTTP Request node via n8n MCP get_workflow in full mode. When a Notion API call returns 401 unexpectedly, pull the token from a live workflow node rather than relying on saved credentials or memory &mdash; tokens are not rotated automatically but can differ between what was saved and what is actually in use.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 17]</strong> Notion internal integration token (ntn_...) stored in project memory was stale and returning 401. Correct current token found by reading the Authorization header directly from a live HTTP Request node inside the n8n workflow editor. When a Notion API call returns 401 unexpectedly, pull the token from a live workflow node rather than relying on saved credentials or memory &mdash; tokens are not rotated automatically but can differ between what was saved and what is actually in use.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 17]</strong> Pipedrive Org custom field boolean pattern: Org fields do not have a native boolean/checkbox type. I implemented per-client subscription flags using a Text field with &ldquo;Yes&rdquo; as the truthy value (Review Engine Active &middot; key: f0b4323aef98f8fc0d3bdbb148449c3db8c81fb9). n8n IF node checks <code>custom_fields['hash'] == 'Yes'</code> with caseSensitive: false. This is the correct pattern for any per-client feature flag on a Pipedrive Org record.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 17]</strong> n8n HTTP Request node <code>specifyBody</code> valid values are <code>keypair</code> and <code>json</code> only &mdash; <code>string</code> is not accepted and causes a validation error. For Twilio-style form-encoded bodies (application/x-www-form-urlencoded), use <code>specifyBody: &ldquo;keypair&rdquo;</code> with a <code>bodyParameters</code> array of name/value pairs. Each URL-encoded field (To, From, Body) maps to a named key in the array &mdash; n8n handles URL encoding automatically.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 18]</strong> Retell <code>disconnection_reason</code> field values for missed-call Text-Back detection: <code>voicemail_reached</code> = call reached voicemail without a live pickup; <code>machine_detected</code> = Retell detected an answering machine during the call. Both should trigger a Text-Back SMS. Use an IF node with OR combinator on both values to catch all missed-call outcomes. All other disconnection values (<code>call_ended</code>, <code>dial_failed</code>, etc.) indicate a real conversation or dial error and should NOT trigger a text-back. Always filter in the first IF node before any downstream action.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 18]</strong> <code>Intl.DateTimeFormat</code> with <code>hourCycle: &lsquo;h23&rsquo;</code> + <code>hour12: false</code> is the correct pattern for timezone-aware local hour extraction in n8n Code nodes. <code>hour12: false</code> alone can return the string <code>&ldquo;24&rdquo;</code> at midnight in some JS engines instead of <code>&ldquo;0&rdquo;</code>. Setting both <code>hour12: false</code> and <code>hourCycle: &lsquo;h23&rsquo;</code> guarantees a 0&ndash;23 integer range across all IANA timezone strings. Pattern: <code>new Intl.DateTimeFormat(&lsquo;en-US&rsquo;, &#123; timeZone: tz, hour: &lsquo;2-digit&rsquo;, hour12: false, hourCycle: &lsquo;h23&rsquo; &#125;).format(new Date())</code>. Parse result with <code>parseInt()</code> before any numeric comparison.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 18]</strong> Multi-tenant Speed-to-Lead pattern: store <code>retell_agent_id</code> + <code>retell_from_number</code> as Pipedrive Org Text custom fields &mdash; one set of values per client org. KS-WF20 reads them via GET Pipedrive Org before POSTing to Retell <code>v2/create-phone-call</code> &mdash; one workflow serves all Konsier clients without per-client forks or duplicate workflows. Pair with a per-client Twilio sub-account (via A2P 10DLC runbook) to maintain brand-level SMS compliance while sharing the single /konsier-speed-to-lead webhook endpoint.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 19]</strong> n8n HTTP Request body mode conflict: <code>specifyBody: &ldquo;string&rdquo;</code> + <code>contentType: &ldquo;json&rdquo;</code> does NOT send the string as the request body &mdash; n8n wraps the entire JSON.stringify output as a form field key, resulting in <code>&#123;&ldquo;&#123;...full json...&#125;&rdquo;: &ldquo;&rdquo;&#125;</code> being sent. APIs return field-level validation errors (e.g. Anthropic: &ldquo;model: Field required&rdquo;) instead of a body parse error, which obscures the root cause. Fix: use <code>contentType: &ldquo;raw&rdquo;</code> + <code>rawContentType: &ldquo;application/json&rdquo;</code> when using <code>specifyBody: &ldquo;string&rdquo;</code> to pass a raw JSON string as the body. The <code>contentType: &ldquo;json&rdquo;</code> mode is for keypair form-style bodies, not raw string output.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 19]</strong> Notion Create Page API always requires explicit <code>parent.database_id</code> in the POST /v1/pages body, even if the integration token already has access to the target database. No implicit parent is inferred from the token&apos;s permissions. Omitting the parent field returns 400: &ldquo;Provide a parent.page_id or parent.database_id parameter.&rdquo; Always include <code>&#123; &ldquo;parent&rdquo;: &#123; &ldquo;database_id&rdquo;: &ldquo;...&rdquo; &#125; &#125;</code> on every page creation call regardless of how the integration was set up.</div>
   </div>
 
   <!-- Footer -->
@@ -1143,7 +1172,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: June 18, 2026 (KS-WF20 Speed-to-Lead + KS-WF7 Text-Back + A2P Runbook + KS-WF6 Audit)';
+    if (el) el.textContent = 'Last updated: June 19, 2026 (AGENT-11 Expansion Spotter active + PD-WF-06 AC→AV Completion Loop active — 4-entity VC ecosystem circle closed)';
   </script>
 </body>
 </html>
