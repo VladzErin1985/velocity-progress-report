@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 25</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 26</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,17 +223,17 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 8 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">June 25, 2026</div>
-      <div class="week-badge">Week 8 &middot; Day 44 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">June 26, 2026</div>
+      <div class="week-badge">Week 8 &middot; Day 45 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 8 &middot; June 25</div>
+      <div class="label">Build Velocity &mdash; Week 8 &middot; June 26</div>
       <div class="message">
-        <strong>June 25: VC V3 WF-02 Recompete Radar &#10003; (16 nodes, active) + WF-04 MP&sol;JV Compliance Tracker &#10003; (6 nodes, active) + V3 SOP Full Audit &#10003; &mdash; I built and activated WF-02, completing the four-workflow GovCon automation chain (WF-01 &rarr; WF-03 &rarr; V-02 &rarr; WF-02). The workflow runs every Monday at 07:00 PT, queries USAspending.gov for federal construction contracts with period-of-performance end dates in the 12&ndash;18 month window across 12 NAICS construction codes and AC&rsquo;s six-state geography (CA/NV/AZ/UT/OR/NM), deduplicates by PIID against existing Recompete Watch deals in Pipedrive, then creates a P6 deal in stage 119 (Recompete Watch) per new contract and calls V-09 Recompete Researcher (claude-sonnet-4-6) to produce a six-section incumbent intelligence dossier &mdash; Incumbent Profile &middot; Contract Summary &middot; Agency&sol;Office Notes &middot; Re-solicitation Window &middot; Strategic Opportunity &middot; Recommended Action &mdash; pinned as a deal note. Weekly Slack digest posts to #all-velocity-capital. I also audited all 15 Velocity Capital workflows (V1 + V3) against the expanded V3 SOP: four GovCon WFs (WF-01&ndash;04) verified correct &#10003; &middot; five PD cross-entity handoffs (PD-WF-03&ndash;06 + PD-EVENTS) verified correct &#10003; &mdash; PD-WF-06 AC&rarr;AV Completion Loop (9 nodes, active, built June 19) was found active in n8n but missing from documentation, now recorded &middot; six V1 education&sol;policy workflows (WF-VC-01&ndash;06) confirmed as valid Phase 3 placeholders awaiting ScoreApp&sol;Skool tools &middot; WF-14 Compliance Guard identified as next unblocked Phase 1 build. I also built and activated WF-04 MP&sol;JV Compliance Tracker (6 nodes, daily 08:00 PT): 7-item compliance calendar (SBA VetCert &middot; SAM.gov &middot; CSLB &middot; GL &middot; WC &middot; Mentor-Prot&eacute;g&eacute; &middot; JV Agreement), parallel IF fan-out &mdash; urgent Slack alert fires any day an item is &le;30 days from expiry, weekly digest posts every Monday.</strong>
+        <strong>June 26: WF-14 Compliance Guard &#10003; (13 nodes, active) + WF-13 Cross-Entity Handoffs &#10003; (12 nodes, active) &mdash; I built WF-14, the mandatory compliance gate for all VC outbound. Three-check system: Pipedrive suppression flag &rarr; insurance state-licensing filter &rarr; V-06 Claude linter (6 violation categories). Tested and live. June 25: VC V3 WF-02 Recompete Radar &#10003; (16 nodes, active) + WF-04 MP&sol;JV Compliance Tracker &#10003; (6 nodes, active) + V3 SOP Full Audit &#10003; &mdash; I built and activated WF-02, completing the four-workflow GovCon automation chain (WF-01 &rarr; WF-03 &rarr; V-02 &rarr; WF-02). The workflow runs every Monday at 07:00 PT, queries USAspending.gov for federal construction contracts with period-of-performance end dates in the 12&ndash;18 month window across 12 NAICS construction codes and AC&rsquo;s six-state geography (CA/NV/AZ/UT/OR/NM), deduplicates by PIID against existing Recompete Watch deals in Pipedrive, then creates a P6 deal in stage 119 (Recompete Watch) per new contract and calls V-09 Recompete Researcher (claude-sonnet-4-6) to produce a six-section incumbent intelligence dossier &mdash; Incumbent Profile &middot; Contract Summary &middot; Agency&sol;Office Notes &middot; Re-solicitation Window &middot; Strategic Opportunity &middot; Recommended Action &mdash; pinned as a deal note. Weekly Slack digest posts to #all-velocity-capital. I also audited all 15 Velocity Capital workflows (V1 + V3) against the expanded V3 SOP: four GovCon WFs (WF-01&ndash;04) verified correct &#10003; &middot; five PD cross-entity handoffs (PD-WF-03&ndash;06 + PD-EVENTS) verified correct &#10003; &mdash; PD-WF-06 AC&rarr;AV Completion Loop (9 nodes, active, built June 19) was found active in n8n but missing from documentation, now recorded &middot; six V1 education&sol;policy workflows (WF-VC-01&ndash;06) confirmed as valid Phase 3 placeholders awaiting ScoreApp&sol;Skool tools &middot; WF-14 Compliance Guard identified as next unblocked Phase 1 build. I also built and activated WF-04 MP&sol;JV Compliance Tracker (6 nodes, daily 08:00 PT): 7-item compliance calendar (SBA VetCert &middot; SAM.gov &middot; CSLB &middot; GL &middot; WC &middot; Mentor-Prot&eacute;g&eacute; &middot; JV Agreement), parallel IF fan-out &mdash; urgent Slack alert fires any day an item is &le;30 days from expiry, weekly digest posts every Monday.</strong>
         <span class="warn"> Blocked: Stripe annual prices (Drew fixing) &middot; Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Fathom (KS-A4b) &middot; Vimeo &middot; QBO OAuth (Drew must complete).</span>
       </div>
     </div>
@@ -346,9 +346,13 @@
         <div class="tl-date">June 25</div>
         <div class="tl-label">WF-02 + WF-04 &#10003;</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">June 26</div>
+        <div class="tl-label">WF-14 &#10003; &middot; WF-13 &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
-        <div class="tl-label">WF-14 Guard</div>
+        <div class="tl-label">WF-05 Ingest</div>
       </div>
     </div>
   </div>
@@ -357,13 +361,13 @@
   <div class="summary-grid">
     <div class="stat-card green">
       <div class="label">n8n Workflows Built</div>
-      <div class="value">48</div>
-      <div class="sub">6 VC (Pipedrive native) + 6 PD auto + 31 Konsier built (20 live &middot; 11 inactive/blocked) + <strong>5 VC V3 GovCon &#10003; June 23&ndash;25 (WF-01 &middot; WF-02 &middot; WF-03 &middot; V-02 &middot; WF-04)</strong></div>
+      <div class="value">50</div>
+      <div class="sub">6 VC (Pipedrive native) + 6 PD auto + 31 Konsier built (20 live &middot; 11 inactive/blocked) + <strong>7 VC V3 &#10003; June 23&ndash;26 (WF-01 &middot; WF-02 &middot; WF-03 &middot; V-02 &middot; WF-04 &middot; WF-14 &middot; WF-13)</strong></div>
     </div>
     <div class="stat-card blue">
       <div class="label">Live &amp; Active</div>
-      <div class="value">31</div>
-      <div class="sub">WF-VC-01 + WF-VC-06 + 20 Konsier active + PD-WF-03 &#10003; + PD-WF-04 &#10003; + PD-WF-05 &#10003; + <strong>PD-WF-06 &#10003; June 19</strong> + <strong>WF-01 &#10003; + WF-02 &#10003; + WF-03 &#10003; + V-02 &#10003; + WF-04 &#10003; June 23&ndash;25</strong> &mdash; KS-WF17 + KS-WF18 built/inactive. KS-A4b inactive (Fathom). DocuSign pending.</div>
+      <div class="value">33</div>
+      <div class="sub">WF-VC-01 + WF-VC-06 + 20 Konsier active + PD-WF-03 &#10003; + PD-WF-04 &#10003; + PD-WF-05 &#10003; + <strong>PD-WF-06 &#10003; June 19</strong> + <strong>WF-01 &#10003; + WF-02 &#10003; + WF-03 &#10003; + V-02 &#10003; + WF-04 &#10003; June 23&ndash;25</strong> + <strong>WF-14 &#10003; + WF-13 &#10003; June 26</strong> &mdash; KS-WF17 + KS-WF18 built/inactive. KS-A4b inactive (Fathom). DocuSign pending.</div>
     </div>
     <div class="stat-card purple">
       <div class="label">AI Agents Built</div>
@@ -395,10 +399,10 @@
     <div style="margin-top: 20px;">
       <div class="progress-header">
         <span>Velocity Capital V3 &mdash; Overall Build Progress (38 workflows total)</span>
-        <strong style="color: #fb923c;">45% &mdash; 17 of 38 built &middot; 21 not started</strong>
+        <strong style="color: #fb923c;">50% &mdash; 19 of 38 built &middot; 19 not started</strong>
       </div>
-      <div class="bar-track"><div class="bar-fill orange-fill" style="width: 45%;"></div></div>
-      <div class="progress-label"><strong>Live (11):</strong> WF-VC-01 &middot; WF-VC-06 &middot; PD-WF-03 &middot; PD-WF-04 &middot; PD-WF-05 &middot; PD-WF-06 &middot; <strong>WF-01 &#10003; &middot; WF-02 &#10003; &middot; WF-03 &#10003; &middot; V-02 &#10003; &middot; WF-04 &#10003;</strong> &nbsp;|&nbsp; <strong>Built / inactive (6):</strong> WF-VC-02 &middot; WF-VC-03 &middot; WF-VC-04 &middot; WF-VC-05 (V3 gaps) &middot; PD-WF-01 &middot; PD-WF-02 &nbsp;|&nbsp; <strong>Not started (21):</strong> WF-14 + WF-05&ndash;08 (V3 new &middot; 5) &middot; WF-AR-01&ndash;05 (5) &middot; WF-AV-01&ndash;04 (4) &middot; WF-AC-01&ndash;03 (3) &middot; PD-WF-07&ndash;10 (4)</div>
+      <div class="bar-track"><div class="bar-fill orange-fill" style="width: 50%;"></div></div>
+      <div class="progress-label"><strong>Live (13):</strong> WF-VC-01 &middot; WF-VC-06 &middot; PD-WF-03 &middot; PD-WF-04 &middot; PD-WF-05 &middot; PD-WF-06 &middot; <strong>WF-01 &#10003; &middot; WF-02 &#10003; &middot; WF-03 &#10003; &middot; V-02 &#10003; &middot; WF-04 &#10003; &middot; WF-14 &#10003; &middot; WF-13 &#10003; June 26</strong> &nbsp;|&nbsp; <strong>Built / inactive (6):</strong> WF-VC-02 &middot; WF-VC-03 &middot; WF-VC-04 &middot; WF-VC-05 (V3 gaps) &middot; PD-WF-01 &middot; PD-WF-02 &nbsp;|&nbsp; <strong>Not started (19):</strong> WF-05&ndash;08 (V3 new &middot; 4) &middot; WF-AR-01&ndash;05 (5) &middot; WF-AV-01&ndash;04 (4) &middot; WF-AC-01&ndash;03 (3) &middot; PD-WF-07&ndash;10 (3)</div>
     </div>
     <div style="margin-top: 14px;">
       <div class="progress-header">
@@ -418,7 +422,7 @@
       <div class="proj-sub">5 entities &middot; 27 n8n workflows (V3) &middot; Pipedrive CRM &middot; P0 Foundation complete June 22 &middot; 6 pipelines &middot; GHL fully removed</div>
     </div>
     <div class="proj-stats">
-      <div class="proj-stat"><div class="ps-val">11</div><div class="ps-label">n8n Live</div></div>
+      <div class="proj-stat"><div class="ps-val">13</div><div class="ps-label">n8n Live</div></div>
       <div class="proj-stat"><div class="ps-val">6</div><div class="ps-label">PD Automations</div></div>
       <div class="proj-stat"><div class="ps-val">6</div><div class="ps-label">Pipelines</div></div>
     </div>
@@ -689,13 +693,18 @@
     <div class="section-header">
       <span class="entity-tag" style="background:#7c3aed; color:#fff; border-radius:4px; padding:2px 8px; font-size:11px; font-weight:700; letter-spacing:.5px;">V3</span>
       <h2>Velocity Capital V3 &mdash; New Builds (P0 Foundation Complete June 22)</h2>
-      <span class="count">5 built (WF-01 &#10003; &middot; WF-02 &#10003; &middot; WF-03 &#10003; &middot; V-02 &#10003; &middot; WF-04 &#10003;) &middot; 5 queued &middot; WF-14 Compliance Guard next</span>
+      <span class="count">7 built (WF-01 &#10003; &middot; WF-02 &#10003; &middot; WF-03 &#10003; &middot; V-02 &#10003; &middot; WF-04 &#10003; &middot; WF-14 &#10003; &middot; WF-13 &#10003;) &middot; 5 queued</span>
     </div>
     <div class="wf-grid">
-      <div class="wf-card pending">
-        <div class="wf-top"><span class="wf-id">WF-14</span><span class="status-badge badge-pending" style="color:#f87171;">&#9888; Queued &mdash; MANDATORY FIRST</span></div>
+      <div class="wf-card done">
+        <div class="wf-top"><span class="wf-id">WF-14</span><span class="status-badge badge-done">&#10003; Active &mdash; June 26 (13 nodes)</span></div>
         <div class="wf-name">Compliance Guard</div>
-        <div class="wf-trigger"><span>Required before any V3 outbound activates:</span> State-licensing filter &rarr; TCPA consent check &rarr; suppression_flag gate &rarr; route to WF-09 or hold. No outbound can fire until WF-14 is live.</div>
+        <div class="wf-trigger"><span>13 nodes (built June 26, active &mdash; webhook POST /wf14-compliance-guard):</span> Synchronous gate for all V3 outbound. Three checks: (1) Pipedrive suppression flag lookup &rarr; hard-block if flagged Yes; (2) Insurance state-licensing filter &rarr; block if out of CA&sol;NV&sol;AZ&sol;UT&sol;OR&sol;NM for insurance content; (3) V-06 Claude Compliance Linter (claude-sonnet-4-6) &rarr; six violation categories: BROKER&sol;DEALER &middot; SECURITIES &middot; INDIVIDUALIZED_ADVICE &middot; GUARANTEED_RETURNS &middot; INSURANCE_UNLICENSED &middot; UNQUALIFIED_CLAIM. Returns <code>&#123;approved: true&sol;false&#125;</code> synchronously. Every block fires Slack alert to #all-velocity-capital.</div>
+      </div>
+      <div class="wf-card done">
+        <div class="wf-top"><span class="wf-id">WF-13</span><span class="status-badge badge-done">&#10003; Active &mdash; June 26 (12 nodes)</span></div>
+        <div class="wf-name">Cross-Entity Handoffs</div>
+        <div class="wf-trigger"><span>12 nodes (built June 26, active &mdash; triggered by PD-EVENTS stage 109 + stage 64):</span> Three flywheel handoffs: (1) P3 Disposition Keep (stage 109, enum 236) &rarr; create P5 AC Projects deal at Scoping (stage 81) + pinned link note; (2) P3 Disposition Syndicate (enum 237) &rarr; create P2 AV Investor deal at Prospect (stage 65) + &ldquo;Prepare deal-room package&rdquo; activity; (3) P1 Funded (stage 64) &rarr; PATCH Person Investor Type = IBC-Funded LP (enum 198). All paths fire Slack alerts. PD-EVENTS updated: dual-trigger on stage 64 (PD-WF-03 then WF-13) + new stage 109 route.</div>
       </div>
       <div class="wf-card done">
         <div class="wf-top"><span class="wf-id">WF-01</span><span class="status-badge badge-done">&#10003; Active &mdash; June 23 (15 nodes)</span></div>
@@ -781,6 +790,13 @@
   <!-- Blockers -->
   <div class="blockers-section">
     <h3>&#9888; Action Required &mdash; Pending from Drew</h3>
+    <div class="blocker-item">
+      <div class="blocker-icon">&#127968;</div>
+      <div class="blocker-content">
+        <div class="title">Drew: WF-05 Distressed Ingest &mdash; 5 Answers Needed Before Build</div>
+        <div class="desc">Next Velocity V3 build is paused pending Drew&rsquo;s decisions: 1) List provider &mdash; PropStream, BatchLeads, or DealMachine? &middot; 2) Outreach at launch &mdash; email + Pipedrive only, or Lob direct mail from day one? &middot; 3) AR pipeline rebuild now (V3 P0) or build WF-05 with current stages and migrate later? &middot; 4) Twilio account &mdash; new Anza Realty account or existing? &middot; 5) Volume target &mdash; how many properties per night? Note: A2P 10DLC registration takes 2&ndash;4 weeks &mdash; need to start Week 1 once Twilio account is confirmed.</div>
+      </div>
+    </div>
     <div class="blocker-item">
       <div class="blocker-icon">&#128202;</div>
       <div class="blocker-content">
@@ -945,6 +961,17 @@
           <td style="color:#475569; font-size:12px;">Week 8<br>($500 flat)</td>
         </tr>
 
+        <tr class="done-row">
+          <td>June 26<br><small style="color:#475569">Friday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            VC V3 PHASE 1 &mdash; WF-14 COMPLIANCE GUARD (13 nodes, active): I built, debugged, and activated the mandatory compliance gate that sits in front of all Velocity Capital outbound. WF-14 is the required prerequisite before WF-05 through WF-09 go live. The workflow is webhook-based and synchronous &mdash; every outbound workflow POSTs the message content to WF-14 and waits for an &#123;approved: true&sol;false&#125; response before sending. Three checks run in sequence. First: global suppression &mdash; I look up the Person record in Pipedrive and check the Suppression Flag custom field (enum key <code>7c42f9e6&hellip;</code>); any contact flagged &ldquo;Yes&rdquo; is hard-blocked regardless of content or channel. Second: insurance-licensing state filter &mdash; if the content type is &ldquo;insurance&rdquo;, I check the contact&rsquo;s State of Residence (V3 Person field <code>9e2b78a2&hellip;</code>) against AC&rsquo;s six licensed states (CA &middot; NV &middot; AZ &middot; UT &middot; OR &middot; NM); any out-of-state insurance outbound is blocked. Third: V-06 Claude Compliance Linter &mdash; the full message passes to Claude V-06 (claude-sonnet-4-6) which checks six violation categories: BROKER&sol;DEALER (capital raiser, paid-to-raise, transaction-based compensation language) &middot; SECURITIES (soliciting investment interest without the required disclaimer) &middot; INDIVIDUALIZED_ADVICE (personalized financial, tax, or legal recommendations) &middot; GUARANTEED_RETURNS (guaranteed or risk-free return claims) &middot; INSURANCE_UNLICENSED (specific premium quotes or binding coverage commitments) &middot; UNQUALIFIED_CLAIM (claiming licensure or registration not factually held). V-06 returns structured JSON &mdash; any violation hard-blocks the message. Every block triggers a Slack alert to #all-velocity-capital with violation type, reason, person ID, channel, and calling workflow. The caller always receives a synchronous &#123;approved: true&#125; or &#123;approved: false, reason, violation_type, summary&#125; response. I ran three live test cases against the active webhook and all three passed: clean GovCon outreach (approved &#10003;) &middot; message containing &ldquo;capital raiser&rdquo; + &ldquo;guaranteed 15% annual returns&rdquo; (blocked &mdash; BROKER_DEALER violation + two co-violations flagged &#10003;) &middot; educational IBC overview with &ldquo;This is general information only, not a specific insurance offer&rdquo; (approved &#10003;).
+
+            VC V3 PHASE 1 &mdash; WF-13 CROSS-ENTITY HANDOFFS (12 nodes, active): I built and activated WF-13, the cross-entity flywheel workflow that automates three Pipedrive pipeline handoffs. When a P3 Disposition deal (stage 109, pipeline 11) is marked Keep, I automatically create a P5 AC Projects deal at Scoping (stage 81, pipeline 12) and pin a note linking back to the originating P3 deal. When marked Syndicate, I create a P2 AV Investor deal at Prospect (stage 65, pipeline 10) and add a &ldquo;Prepare deal-room package for syndication&rdquo; activity against the new deal. When a P1 deal reaches Funded (stage 64, pipeline 7), I PATCH the Person record to set Investor Type = IBC-Funded LP &mdash; tagging the investor for AV onboarding regardless of when PD-WF-03 runs the AV deal creation. All three handoff paths post Slack alerts to #all-velocity-capital with deal title, deal ID, and outcome. I updated PD-EVENTS (the master Pipedrive webhook router) to route stage 109 events to WF-13 via a new IF node at the end of the chain, and to dual-trigger stage 64 events: PD-WF-03 continues to create the AV deal as before, and WF-13 now fires immediately after to set the IBC-Funded LP tag on the Person record. WF-13 completes the automated flywheel: any deal disposition in P3 now automatically propagates to the correct downstream pipeline with no manual step.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 8<br>($500 flat)</td>
+        </tr>
+
       </tbody>
       <tfoot>
         <tr>
@@ -970,6 +997,9 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 22]</strong> Pipedrive Deal Link custom field (<code>28acc196575fb788fca703799c49a6280920bb38</code>) is a shared field across all 4 entity pipelines (VC, AV, AR, AC) &mdash; the same field key reads and writes on any pipeline&rsquo;s deal. No per-pipeline lookup required. Use it in any cross-entity workflow step to set a back-reference URL from the new deal to the originating deal.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 24]</strong> Pipedrive notes API &mdash; <code>pinned_to_deal_flag: 1</code> in the POST /v1/notes body pins the note to the deal record for immediate visibility when opening the deal in Pipedrive. Without this flag, the note is written to the activity feed only and does not surface prominently in the deal view &mdash; critical for workflow-generated drafts that require immediate review before action.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 25]</strong> USAspending.gov (<code>/api/v2/search/spending_by_award/</code>) filters on <code>action_date</code> (obligation&sol;modification date) by default &mdash; not period-of-performance end date. To target contracts expiring in a future window, use a broad 5-year past action_date range to capture all active multi-year contracts, then apply client-side POP end date filtering in a Code node. USAspending is fully free and keyless &mdash; POST with JSON body only. NAICS filtering via <code>naics_codes</code> array in the <code>filters</code> object. Award type codes A, B, C, D = definitive contracts (excludes IDIQs, delivery orders, grants). Response fields include <code>Award ID</code> (PIID), <code>Recipient Name</code>, <code>Awarding Agency</code>, <code>End Date</code>, <code>Award Amount</code>, and <code>Place of Performance State Code</code>.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 26]</strong> n8n Slack node (typeVersion 2.2) requires <code>channelId</code> as a resource-locator object &mdash; <code>&#123; __rl: true, value: &ldquo;C086BRLVBUP&rdquo;, mode: &ldquo;list&rdquo;, cachedResultName: &ldquo;all-velocity-capital&rdquo; &#125;</code> &mdash; not a plain <code>channel</code> string parameter. Setting <code>channel: &ldquo;#all-velocity-capital&rdquo;</code> causes an activation error. Additionally, the correct credential type is <code>slackApi</code> (not <code>slackOAuth2Api</code>); adding <code>authentication: &ldquo;oAuth2&rdquo;</code> in parameters forces the wrong credential lookup. Always model new Slack nodes directly from a confirmed-working workflow (WF-14) instead of the n8n-mcp validator defaults.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 26]</strong> n8n Code node mode mismatch: <code>.first()</code> is only available in &ldquo;Run Once for All Items&rdquo; mode &mdash; calling <code>$input.first()</code> or <code>$(&apos;Node&apos;).first()</code> inside a Code node set to &ldquo;Run Once for Each Item&rdquo; throws &ldquo;Can&apos;t use .first() here&rdquo; at runtime. The validator does not catch this at build time. Always set Code nodes that reference <code>.first()</code> to <code>runOnceForAllItems</code>. In a single-item webhook context the two modes behave identically &mdash; the only difference is which helper methods are available.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 26]</strong> n8n typeVersion mismatch between validator recommendations and the n8n instance version (2.59.0): the n8n-mcp validator suggests upgrading IF nodes to typeVersion 2.3 and Slack nodes to typeVersion 2.5, but these versions do not exist in n8n 2.59.0 &mdash; activating a workflow with these typeVersions throws &ldquo;Cannot read properties of undefined (reading &apos;execute&apos;)&rdquo; with no further detail. Always match typeVersions against a confirmed-working active workflow on the same instance (WF-03 Bid&sol;No-Bid is the reference): IF = 2.2, Slack = 2.2, Webhook = 2, Respond to Webhook = 1.1. Also: Slack node at typeVersion 2.2 requires credential type <code>slackOAuth2Api</code> (not <code>slackApi</code>) with <code>authentication: &ldquo;oAuth2&rdquo;</code> parameter.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 24]</strong> n8n chained webhook workflows (WF-01 &rarr; WF-03 &rarr; WF-04): each workflow is independent and communicates via internal HTTP POST to <code>http://localhost:5678/webhook/[path]</code>. The calling workflow adds <code>onError: continueRegularOutput</code> on the trigger node so it never fails if the downstream workflow is unreachable. The called workflow uses <code>responseMode: responseNode</code> + Respond to Webhook (200 OK) to release the caller immediately and continue asynchronously. Pass all needed context in the POST body &mdash; downstream nodes cannot reference the calling workflow&rsquo;s node data.</div>
   </div>
 
@@ -992,7 +1022,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: June 25, 2026 (WF-02 Recompete Radar + WF-04 MP/JV Compliance Tracker built + active — five GovCon workflows live + full V3 SOP audit)';
+    if (el) el.textContent = 'Last updated: June 26, 2026 (WF-14 Compliance Guard + WF-13 Cross-Entity Handoffs built + active — seven V3 workflows live)';
   </script>
 </body>
 </html>
