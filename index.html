@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; June 30</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; July 1</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,18 +223,18 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 9 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">June 30, 2026</div>
-      <div class="week-badge">Week 9 &middot; Day 47 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">July 1, 2026</div>
+      <div class="week-badge">Week 9 &middot; Day 48 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 9 &middot; June 30</div>
+      <div class="label">Build Velocity &mdash; Week 9 &middot; July 1</div>
       <div class="message">
-        <strong>June 30: V6.1 10&sol;10 complete &mdash; billing_cadence wiring (KS-WF4 + KS-WF18 + KS-A8) &#10003; + KS-WF21 Reactivation Campaign &#10003; (19 nodes). Annual pricing confirmed by Drew: $7,104&sol;$10,680&sol;$18,324 (15% discount). In KS-WF4, I fixed the billingCadence Pipedrive Deal PATCH expression &mdash; it was reading <code>$json.billingCadence</code> after the Merge node, which evaluates to undefined on the email-lookup fallback path; I rewired it to reference Set &mdash; Parse Customer Data directly and added <code>metadata?.billing_cadence</code> as primary source with amount_total &ge; 500,000 threshold as fallback. In KS-WF18 Dunning Recovery, I built the annual billing cadence gate (32 &rarr; 34 nodes): I added billingCadence extraction to Code &mdash; Find Lifecycle Deal, inserted IF &mdash; Annual S1 Bypass? between Switch S1 and PATCH Stage 104 &mdash; annual customers skip Stage 104 (At Risk) and the churn_risk score bump entirely on their first failure and receive a Slack notice to #konsier-escalations instead; at S2 churn_risk caps at 1 (not 2) and at S3 caps at 2 (not 3) for annual tier. In KS-A8 Founder Brief Writer, I added annual&sol;monthly breakdown to Code &mdash; Aggregate Data (newAnnualCount &middot; newMonthlyCount &middot; annualNewRevenue &middot; newAnnualPct) and added a BILLING CADENCE section to the Claude input &mdash; Drew&rsquo;s weekly brief now reports annual vs. monthly mix. Stripe payment link metadata patch deferred to launch day &mdash; amount_total threshold fallback covers all three workflows in the interim. <strong>KS-WF21 + AGENT-09 Reactivation Campaign &#10003; (19 nodes, inactive):</strong> I built the full reactivation compliance gate: webhook trigger receives campaign_notion_id &rarr; Notion campaign fetch &rarr; hard gate (attestation_signed=true AND drew_approved=true, no bypass even in testing) &rarr; DNC + opt-out scrub removes flagged contacts &rarr; AGENT-09 (claude-sonnet-4-6) generates 3 SMS script variants (AI-disclosure opening line mandatory, Reply STOP opt-out mandatory in every variant per attorney June 30) &rarr; Code validation gate checks disclosure and STOP text in all 3 variants, hard blocks on any miss &rarr; Notion PATCH status to &ldquo;Pending Drew Approval&rdquo; + writes all 3 scripts &rarr; Slack #konsier-escalations with full script preview for Drew approval. V6.1 build list is now 10&sol;10 complete. June 29: WF-05 Distressed Property Ingest &#10003; (9 nodes) + WF-06 OZ + Tax + Landlord Overlay &#10003; (7 nodes) + KS-A8 Founder Brief Writer end-to-end confirmed &#10003; (5 bugs fixed) &mdash; I built WF-05, the Anza Realty nightly property ingest pipeline: webhook trigger, APN normalizer + dedup, 3-signal Hot flag, BatchData skip-trace call, Pipedrive P3 AR deal create (pipeline 11, stage 73 Raw Lead) with 4 custom fields, WF-06 OZ Overlay trigger. BatchLeads trigger, BatchData API key, and WF-06 URL are placeholders pending Drew&rsquo;s confirmations. I also ran a full audit of KS-A8 Founder Brief Writer, found 5 compounding bugs, and fixed all of them &mdash; wrong Notion credential (Pipedrive token on Notion node), wrong Pipedrive URL (web app URL returning HTML login page), JSON body newline escaping on Claude request, missing output schema in system prompt, and MRR expression with a leading space sending a string instead of a number. KS-A8 now runs end-to-end: Notion Weekly Brief page confirmed created &middot; Slack DM with full Founder Brief confirmed delivered to Drew. June 26: WF-14 Compliance Guard &#10003; (13 nodes, active) + WF-13 Cross-Entity Handoffs &#10003; (12 nodes, active) &mdash; I built WF-14, the mandatory compliance gate for all VC outbound. Three-check system: Pipedrive suppression flag &rarr; insurance state-licensing filter &rarr; V-06 Claude linter (6 violation categories). Tested and live. June 25: VC V3 WF-02 Recompete Radar &#10003; (16 nodes, active) + WF-04 MP&sol;JV Compliance Tracker &#10003; (6 nodes, active) + V3 SOP Full Audit &#10003; &mdash; I built and activated WF-02, completing the four-workflow GovCon automation chain (WF-01 &rarr; WF-03 &rarr; V-02 &rarr; WF-02). The workflow runs every Monday at 07:00 PT, queries USAspending.gov for federal construction contracts with period-of-performance end dates in the 12&ndash;18 month window across 12 NAICS construction codes and AC&rsquo;s six-state geography (CA/NV/AZ/UT/OR/NM), deduplicates by PIID against existing Recompete Watch deals in Pipedrive, then creates a P6 deal in stage 119 (Recompete Watch) per new contract and calls V-09 Recompete Researcher (claude-sonnet-4-6) to produce a six-section incumbent intelligence dossier &mdash; Incumbent Profile &middot; Contract Summary &middot; Agency&sol;Office Notes &middot; Re-solicitation Window &middot; Strategic Opportunity &middot; Recommended Action &mdash; pinned as a deal note. Weekly Slack digest posts to #all-velocity-capital. I also audited all 15 Velocity Capital workflows (V1 + V3) against the expanded V3 SOP: four GovCon WFs (WF-01&ndash;04) verified correct &#10003; &middot; five PD cross-entity handoffs (PD-WF-03&ndash;06 + PD-EVENTS) verified correct &#10003; &mdash; PD-WF-06 AC&rarr;AV Completion Loop (9 nodes, active, built June 19) was found active in n8n but missing from documentation, now recorded &middot; six V1 education&sol;policy workflows (WF-VC-01&ndash;06) confirmed as valid Phase 3 placeholders awaiting ScoreApp&sol;Skool tools &middot; WF-14 Compliance Guard identified as next unblocked Phase 1 build. I also built and activated WF-04 MP&sol;JV Compliance Tracker (6 nodes, daily 08:00 PT): 7-item compliance calendar (SBA VetCert &middot; SAM.gov &middot; CSLB &middot; GL &middot; WC &middot; Mentor-Prot&eacute;g&eacute; &middot; JV Agreement), parallel IF fan-out &mdash; urgent Slack alert fires any day an item is &le;30 days from expiry, weekly digest posts every Monday.</strong>
-        <span class="warn"> Blocked: Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Fathom (KS-A4b) &middot; Vimeo &middot; QBO OAuth (Drew must complete).</span>
+        <strong>July 1: I created the Notion database KS-WF21 reads from and writes to for every reactivation campaign &#10003; &mdash; I matched every property name and type exactly to what the workflow already expects (Client Name, Campaign Type, Offer, Attestation Signed, Drew Approved, Contact List DB ID, Client Timezone, Booking Link, Status, three Script fields, Compliance Notes, Contacts Cleared) by reading the workflow&rsquo;s own steps rather than guessing, so no workflow changes were needed once the database existed. I also set up a second website receptionist agent covering the professional verticals &mdash; Dental, Medical, Legal, Real Estate &mdash; configured with the exact same qualification flow, criteria, objection handling, and post-call fields as Alex, since Alex&rsquo;s script already qualifies every vertical correctly and only needed a fresh identity, not new logic. It&rsquo;s running under a placeholder voice and name for now, holding off publishing until Drew confirms both. On the Velocity Capital side, I built PD-WF-09 Monthly Investor Update &mdash; fully wired, no blockers, pulls the AV active-investment portfolio on the 1st of every month and posts an internal summary to Slack.</strong> <strong>June 30: V6.1 10&sol;10 complete &mdash; billing_cadence wiring (KS-WF4 + KS-WF18 + KS-A8) &#10003; + KS-WF21 Reactivation Campaign &#10003; (19 nodes). Annual pricing confirmed by Drew: $7,104&sol;$10,680&sol;$18,324 (15% discount). In KS-WF4, I fixed the billingCadence Pipedrive Deal PATCH expression &mdash; it was reading <code>$json.billingCadence</code> after the Merge node, which evaluates to undefined on the email-lookup fallback path; I rewired it to reference Set &mdash; Parse Customer Data directly and added <code>metadata?.billing_cadence</code> as primary source with amount_total &ge; 500,000 threshold as fallback. In KS-WF18 Dunning Recovery, I built the annual billing cadence gate (32 &rarr; 34 nodes): I added billingCadence extraction to Code &mdash; Find Lifecycle Deal, inserted IF &mdash; Annual S1 Bypass? between Switch S1 and PATCH Stage 104 &mdash; annual customers skip Stage 104 (At Risk) and the churn_risk score bump entirely on their first failure and receive a Slack notice to #konsier-escalations instead; at S2 churn_risk caps at 1 (not 2) and at S3 caps at 2 (not 3) for annual tier. In KS-A8 Founder Brief Writer, I added annual&sol;monthly breakdown to Code &mdash; Aggregate Data (newAnnualCount &middot; newMonthlyCount &middot; annualNewRevenue &middot; newAnnualPct) and added a BILLING CADENCE section to the Claude input &mdash; Drew&rsquo;s weekly brief now reports annual vs. monthly mix. Stripe payment link metadata patch deferred to launch day &mdash; amount_total threshold fallback covers all three workflows in the interim. <strong>KS-WF21 + AGENT-09 Reactivation Campaign &#10003; (19 nodes, inactive):</strong> I built the full reactivation compliance gate: webhook trigger receives campaign_notion_id &rarr; Notion campaign fetch &rarr; hard gate (attestation_signed=true AND drew_approved=true, no bypass even in testing) &rarr; DNC + opt-out scrub removes flagged contacts &rarr; AGENT-09 (claude-sonnet-4-6) generates 3 SMS script variants (AI-disclosure opening line mandatory, Reply STOP opt-out mandatory in every variant per attorney June 30) &rarr; Code validation gate checks disclosure and STOP text in all 3 variants, hard blocks on any miss &rarr; Notion PATCH status to &ldquo;Pending Drew Approval&rdquo; + writes all 3 scripts &rarr; Slack #konsier-escalations with full script preview for Drew approval. V6.1 build list is now 10&sol;10 complete. June 29: WF-05 Distressed Property Ingest &#10003; (9 nodes) + WF-06 OZ + Tax + Landlord Overlay &#10003; (7 nodes) + KS-A8 Founder Brief Writer end-to-end confirmed &#10003; (5 bugs fixed) &mdash; I built WF-05, the Anza Realty nightly property ingest pipeline: webhook trigger, APN normalizer + dedup, 3-signal Hot flag, BatchData skip-trace call, Pipedrive P3 AR deal create (pipeline 11, stage 73 Raw Lead) with 4 custom fields, WF-06 OZ Overlay trigger. BatchLeads trigger, BatchData API key, and WF-06 URL are placeholders pending Drew&rsquo;s confirmations. I also ran a full audit of KS-A8 Founder Brief Writer, found 5 compounding bugs, and fixed all of them &mdash; wrong Notion credential (Pipedrive token on Notion node), wrong Pipedrive URL (web app URL returning HTML login page), JSON body newline escaping on Claude request, missing output schema in system prompt, and MRR expression with a leading space sending a string instead of a number. KS-A8 now runs end-to-end: Notion Weekly Brief page confirmed created &middot; Slack DM with full Founder Brief confirmed delivered to Drew. June 26: WF-14 Compliance Guard &#10003; (13 nodes, active) + WF-13 Cross-Entity Handoffs &#10003; (12 nodes, active) &mdash; I built WF-14, the mandatory compliance gate for all VC outbound. Three-check system: Pipedrive suppression flag &rarr; insurance state-licensing filter &rarr; V-06 Claude linter (6 violation categories). Tested and live. June 25: VC V3 WF-02 Recompete Radar &#10003; (16 nodes, active) + WF-04 MP&sol;JV Compliance Tracker &#10003; (6 nodes, active) + V3 SOP Full Audit &#10003; &mdash; I built and activated WF-02, completing the four-workflow GovCon automation chain (WF-01 &rarr; WF-03 &rarr; V-02 &rarr; WF-02). The workflow runs every Monday at 07:00 PT, queries USAspending.gov for federal construction contracts with period-of-performance end dates in the 12&ndash;18 month window across 12 NAICS construction codes and AC&rsquo;s six-state geography (CA/NV/AZ/UT/OR/NM), deduplicates by PIID against existing Recompete Watch deals in Pipedrive, then creates a P6 deal in stage 119 (Recompete Watch) per new contract and calls V-09 Recompete Researcher (claude-sonnet-4-6) to produce a six-section incumbent intelligence dossier &mdash; Incumbent Profile &middot; Contract Summary &middot; Agency&sol;Office Notes &middot; Re-solicitation Window &middot; Strategic Opportunity &middot; Recommended Action &mdash; pinned as a deal note. Weekly Slack digest posts to #all-velocity-capital. I also audited all 15 Velocity Capital workflows (V1 + V3) against the expanded V3 SOP: four GovCon WFs (WF-01&ndash;04) verified correct &#10003; &middot; five PD cross-entity handoffs (PD-WF-03&ndash;06 + PD-EVENTS) verified correct &#10003; &mdash; PD-WF-06 AC&rarr;AV Completion Loop (9 nodes, active, built June 19) was found active in n8n but missing from documentation, now recorded &middot; six V1 education&sol;policy workflows (WF-VC-01&ndash;06) confirmed as valid Phase 3 placeholders awaiting ScoreApp&sol;Skool tools &middot; WF-14 Compliance Guard identified as next unblocked Phase 1 build. I also built and activated WF-04 MP&sol;JV Compliance Tracker (6 nodes, daily 08:00 PT): 7-item compliance calendar (SBA VetCert &middot; SAM.gov &middot; CSLB &middot; GL &middot; WC &middot; Mentor-Prot&eacute;g&eacute; &middot; JV Agreement), parallel IF fan-out &mdash; urgent Slack alert fires any day an item is &le;30 days from expiry, weekly digest posts every Monday.</strong>
+        <span class="warn"> Blocked: Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Fathom (KS-A4b) &middot; Vimeo &middot; QBO OAuth (Drew must complete) &middot; new receptionist agent voice + name confirmation &middot; reactivation text-message sending tool decision.</span>
       </div>
     </div>
     <div class="timeline">
@@ -362,6 +362,10 @@
         <div class="tl-date">June 30</div>
         <div class="tl-label">KS-WF21 + A09 &#10003;</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">July 1</div>
+        <div class="tl-label">Reactivation DB + 2nd receptionist + PD-WF-09 &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
         <div class="tl-label">Stripe launch prep</div>
@@ -373,8 +377,8 @@
   <div class="summary-grid">
     <div class="stat-card green">
       <div class="label">n8n Workflows Built</div>
-      <div class="value">52</div>
-      <div class="sub">6 VC (Pipedrive native) + 6 PD auto + 31 Konsier built (20 live &middot; 11 inactive/blocked) + <strong>9 VC V3 &#10003; June 23&ndash;29 (WF-01 &middot; WF-02 &middot; WF-03 &middot; V-02 &middot; WF-04 &middot; WF-14 &middot; WF-13 &middot; WF-05 &middot; WF-06)</strong></div>
+      <div class="value">53</div>
+      <div class="sub">6 VC (Pipedrive native) + 7 PD auto + 31 Konsier built (20 live &middot; 11 inactive/blocked) + <strong>9 VC V3 &#10003; June 23&ndash;29 (WF-01 &middot; WF-02 &middot; WF-03 &middot; V-02 &middot; WF-04 &middot; WF-14 &middot; WF-13 &middot; WF-05 &middot; WF-06)</strong> + <strong>PD-WF-09 &#10003; July 1</strong></div>
     </div>
     <div class="stat-card blue">
       <div class="label">Live &amp; Active</div>
@@ -383,8 +387,8 @@
     </div>
     <div class="stat-card purple">
       <div class="label">AI Agents Built</div>
-      <div class="value">12</div>
-      <div class="sub">2 Retell (Alex V4 live &middot; Sarah V4 ready) &middot; 10 Claude (AGENT-04 &#10003; + AGENT-08 &#10003; + AGENT-10 Review Drafter &#10003; + AGENT-11 Expansion Spotter &#10003; + AGENT-07 inactive QBO)</div>
+      <div class="value">13</div>
+      <div class="sub">3 Retell (Alex V4 live &middot; Sarah V4 ready &middot; new professional-vertical receptionist built July 1, pending voice&sol;name) &middot; 10 Claude (AGENT-04 &#10003; + AGENT-08 &#10003; + AGENT-10 Review Drafter &#10003; + AGENT-11 Expansion Spotter &#10003; + AGENT-07 inactive QBO)</div>
     </div>
     <div class="stat-card orange">
       <div class="label">Pending Actions</div>
@@ -400,7 +404,7 @@
       <strong>20 live &middot; 11 inactive/blocked pending Drew actions</strong>
     </div>
     <div class="bar-track"><div class="bar-fill purple-fill" style="width: 97%;"></div></div>
-    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A2 &middot; KS-A4 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF3 &middot; KS-WF4 &middot; KS-WF4B &middot; KS-WF-CAL &middot; KS-A6 &middot; KS-A4a &middot; KS-A4c &middot; KS-A7 (QBO pending) &middot; KS-WF7 &middot; KS-A8 &middot; <strong>KS-WF-USAGE &#10003; June 16</strong> &middot; <strong>KS-WF-METER-RESET &#10003; June 16</strong> &middot; <strong>KS-AGENT-11 &#10003; June 19</strong> &nbsp;|&nbsp; Inactive/Blocked: <strong>KS-WF17 &#10003; June 10 (activation checklist pending)</strong> &middot; <strong>KS-WF18 &#10003; June 10 (Stripe webhook pending)</strong> &middot; <strong>KS-WF22 &#10003; June 17 (SMS credentials + client config)</strong> &middot; <strong>KS-A10 &#10003; June 17 (VA queue setup)</strong> &middot; <strong>KS-WF19 &#10003; June 17 (SAM.gov API key)</strong> &middot; KS-A4b (Fathom) &middot; KS-WF6 (Instantly IDs) &middot; <strong>KS-WF20 &#10003; June 18 (Twilio + Pipedrive Org fields pending per client)</strong> &middot; KS-WF5 (HeyReach) &middot; KS-A5 (Vimeo)</div>
+    <div class="progress-label">Live: KS-ERR &middot; KS-PD-EVENTS &middot; KS-A2 &middot; KS-A4 &middot; KS-WF1 &middot; KS-WF2 &middot; KS-WF3 &middot; KS-WF4 &middot; KS-WF4B &middot; KS-WF-CAL &middot; KS-A6 &middot; KS-A4a &middot; KS-A4c &middot; KS-A7 (QBO pending) &middot; KS-WF7 &middot; KS-A8 &middot; <strong>KS-WF-USAGE &#10003; June 16</strong> &middot; <strong>KS-WF-METER-RESET &#10003; June 16</strong> &middot; <strong>KS-AGENT-11 &#10003; June 19</strong> &nbsp;|&nbsp; Inactive/Blocked: <strong>KS-WF17 &#10003; June 10 (activation checklist pending)</strong> &middot; <strong>KS-WF18 &#10003; June 10 (Stripe webhook pending)</strong> &middot; <strong>KS-WF22 &#10003; June 17 (SMS credentials + client config)</strong> &middot; <strong>KS-A10 &#10003; June 17 (VA queue setup)</strong> &middot; <strong>KS-WF19 &#10003; June 17 (SAM.gov API key)</strong> &middot; KS-A4b (Fathom) &middot; KS-WF6 (Instantly IDs) &middot; <strong>KS-WF20 &#10003; June 18 (Twilio + Pipedrive Org fields pending per client)</strong> &middot; KS-WF5 (HeyReach) &middot; KS-A5 (Vimeo) &middot; <strong>KS-WF21 &#10003; June 30 (database created July 1 &mdash; pending text-message tool decision + Drew campaign approval)</strong></div>
     <div class="phase-labels">
       <span class="active">Phase 1 &mdash; Core &#10003;</span>
       <span class="active">Phase 2 &mdash; QA &#10003;</span>
@@ -410,19 +414,19 @@
     </div>
     <div style="margin-top: 20px;">
       <div class="progress-header">
-        <span>Velocity Capital V3 &mdash; Overall Build Progress (38 workflows total)</span>
-        <strong style="color: #fb923c;">55% &mdash; 21 of 38 built &middot; 17 not started</strong>
+        <span>Velocity Capital V3 &mdash; Overall Build Progress (39 workflows total)</span>
+        <strong style="color: #fb923c;">56% &mdash; 22 of 39 built &middot; 17 not started</strong>
       </div>
-      <div class="bar-track"><div class="bar-fill orange-fill" style="width: 55%;"></div></div>
-      <div class="progress-label"><strong>Live (13):</strong> WF-VC-01 &middot; WF-VC-06 &middot; PD-WF-03 &middot; PD-WF-04 &middot; PD-WF-05 &middot; PD-WF-06 &middot; <strong>WF-01 &#10003; &middot; WF-02 &#10003; &middot; WF-03 &#10003; &middot; V-02 &#10003; &middot; WF-04 &#10003; &middot; WF-14 &#10003; &middot; WF-13 &#10003; June 26</strong> &nbsp;|&nbsp; <strong>Built / inactive (8):</strong> WF-VC-02 &middot; WF-VC-03 &middot; WF-VC-04 &middot; WF-VC-05 (V3 gaps) &middot; PD-WF-01 &middot; PD-WF-02 &middot; <strong>WF-05 &#10003; &middot; WF-06 &#10003; June 29</strong> &nbsp;|&nbsp; <strong>Not started (17):</strong> WF-07&ndash;08 (V3 new &middot; 2) &middot; WF-AR-01&ndash;05 (5) &middot; WF-AV-01&ndash;04 (4) &middot; WF-AC-01&ndash;03 (3) &middot; PD-WF-07&ndash;10 (3)</div>
+      <div class="bar-track"><div class="bar-fill orange-fill" style="width: 56%;"></div></div>
+      <div class="progress-label"><strong>Live (13):</strong> WF-VC-01 &middot; WF-VC-06 &middot; PD-WF-03 &middot; PD-WF-04 &middot; PD-WF-05 &middot; PD-WF-06 &middot; <strong>WF-01 &#10003; &middot; WF-02 &#10003; &middot; WF-03 &#10003; &middot; V-02 &#10003; &middot; WF-04 &#10003; &middot; WF-14 &#10003; &middot; WF-13 &#10003; June 26</strong> &nbsp;|&nbsp; <strong>Built / inactive (9):</strong> WF-VC-02 &middot; WF-VC-03 &middot; WF-VC-04 &middot; WF-VC-05 (V3 gaps) &middot; PD-WF-01 &middot; PD-WF-02 &middot; <strong>WF-05 &#10003; &middot; WF-06 &#10003; June 29</strong> &middot; <strong>PD-WF-09 &#10003; July 1</strong> &nbsp;|&nbsp; <strong>Not started (17):</strong> WF-07&ndash;08 (V3 new &middot; 2) &middot; WF-AR-01&ndash;05 (5) &middot; WF-AV-01&ndash;04 (4) &middot; WF-AC-01&ndash;03 (3) &middot; PD-WF-07&ndash;08 + PD-WF-10 (3)</div>
     </div>
     <div style="margin-top: 14px;">
       <div class="progress-header">
         <span>PD Native Automations &mdash; subset only (PD-WF-01 through PD-WF-10)</span>
-        <strong style="color: #fb923c;">60% &mdash; 6 of 10 built</strong>
+        <strong style="color: #fb923c;">70% &mdash; 7 of 10 built</strong>
       </div>
-      <div class="bar-track"><div class="bar-fill orange-fill" style="width: 60%;"></div></div>
-      <div class="progress-label">PD-WF-01 &#10003; &middot; PD-WF-02 &#10003; &middot; PD-WF-03 VC&rarr;AV Handoff &#10003; activated June 12 &middot; PD-WF-04 AV&rarr;AR &#10003; live June 12 &middot; PD-WF-05 AR&rarr;AC &#10003; live June 12 &middot; <strong>PD-WF-06 AC&rarr;AV Completion Loop &#10003; live June 19</strong> &middot; PD-WF-07 through PD-WF-10 queued</div>
+      <div class="bar-track"><div class="bar-fill orange-fill" style="width: 70%;"></div></div>
+      <div class="progress-label">PD-WF-01 &#10003; &middot; PD-WF-02 &#10003; &middot; PD-WF-03 VC&rarr;AV Handoff &#10003; activated June 12 &middot; PD-WF-04 AV&rarr;AR &#10003; live June 12 &middot; PD-WF-05 AR&rarr;AC &#10003; live June 12 &middot; <strong>PD-WF-06 AC&rarr;AV Completion Loop &#10003; live June 19</strong> &middot; <strong>PD-WF-09 Monthly Investor Update &#10003; built July 1</strong> &middot; PD-WF-07, PD-WF-08, PD-WF-10 queued</div>
     </div>
   </div>
 
@@ -435,7 +439,7 @@
     </div>
     <div class="proj-stats">
       <div class="proj-stat"><div class="ps-val">13</div><div class="ps-label">n8n Live</div></div>
-      <div class="proj-stat"><div class="ps-val">6</div><div class="ps-label">PD Automations</div></div>
+      <div class="proj-stat"><div class="ps-val">7</div><div class="ps-label">PD Automations</div></div>
       <div class="proj-stat"><div class="ps-val">6</div><div class="ps-label">Pipelines</div></div>
     </div>
   </div>
@@ -473,7 +477,7 @@
     <div class="section-header" style="margin-top: 4px;">
       <span class="entity-tag tag-pd">PD AUTO</span>
       <h2>Pipedrive Native Automations &mdash; 10 Total</h2>
-      <span class="count">6 built (4 live &middot; 2 inactive) &middot; 4 remaining</span>
+      <span class="count">7 built (4 live &middot; 3 inactive) &middot; 3 remaining</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card inactive">
@@ -504,7 +508,7 @@
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">PD-WF-06</span><span class="status-badge badge-done">&#10003; Live &mdash; June 19 (9 nodes)</span></div><div class="wf-name">AC &rarr; AV Completion Loop</div><div class="wf-trigger"><span>9 nodes (June 19):</span> PD-EVENTS Stage 88 (Project Complete/Won, AC pipeline) &rarr; Person lookup &rarr; Update Person (Full Ecosystem Stage 184) &rarr; Fetch Open AV Deals (pipeline 10) &rarr; Add Activity on AV Deal (Distribution Review Due, 7-day follow-up) &rarr; Add Note on AC Deal &rarr; Slack #all-velocity-capital. Closes 4-entity ecosystem circle.</div></div>
       <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-07</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Stale Lead Re-engagement</div><div class="wf-trigger"><span>Trigger:</span> Deal rotting = Yes. Create re-engage call + check-in email + webhook</div></div>
       <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-08</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Education Progress Tracking</div><div class="wf-trigger"><span>n8n:</span> Education platform webhook &rarr; update Pipedrive deal Education Modules field</div></div>
-      <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-09</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">Monthly Investor Update</div><div class="wf-trigger"><span>Trigger:</span> Cron &mdash; 1st of month. AV Active Investment deals &rarr; n8n monthly report</div></div>
+      <div class="wf-card inactive"><div class="wf-top"><span class="wf-id">PD-WF-09</span><span class="status-badge badge-inactive">Built &mdash; Inactive &mdash; July 1 (9 nodes)</span></div><div class="wf-name">Monthly Investor Update</div><div class="wf-trigger"><span>9 nodes (July 1, no blockers):</span> Schedule Trigger (1st of month, 8am) &rarr; pull AV Active Investment deals (pipeline 10) &rarr; aggregate portfolio totals (funded amount, soft commits, average target IRR) &rarr; IF any active investments &rarr; Claude Sonnet 4.6 writes a short internal portfolio summary &rarr; post to #all-velocity-capital. Internal report only &mdash; does not email investors directly (that&rsquo;s WF-AV-04, still queued, needs SendGrid).</div></div>
       <div class="wf-card pending"><div class="wf-top"><span class="wf-id">PD-WF-10</span><span class="status-badge badge-pending">Queued</span></div><div class="wf-name">No-Show Follow-Up</div><div class="wf-trigger"><span>Trigger:</span> Activity &rarr; Not Done. Re-book call + "we missed you" email + note</div></div>
     </div>
   </div>
@@ -531,7 +535,7 @@
     <div>
       <div class="proj-label">Project 2 &mdash; Konsier AI Receptionist</div>
       <div class="proj-title">Konsier &mdash; AI Receptionist Agency System (V5)</div>
-      <div class="proj-sub">30 workflows built &middot; 19 live &middot; 9 Claude agents &middot; 2 Retell AI agents &middot; 3 Pipedrive pipelines &middot; 5 Notion databases &middot; V6.1 in progress</div>
+      <div class="proj-sub">30 workflows built &middot; 19 live &middot; 9 Claude agents &middot; 3 Retell AI agents &middot; 3 Pipedrive pipelines &middot; 6 Notion databases &middot; V6.1 in progress</div>
     </div>
     <div class="proj-stats">
       <div class="proj-stat"><div class="ps-val">19</div><div class="ps-label">Live</div></div>
@@ -545,7 +549,7 @@
     <div class="section-header">
       <span class="entity-tag tag-ks">KS</span>
       <h2>Konsier &mdash; AI Receptionist System (Drew Williams)</h2>
-      <span class="count">31 built &middot; 20 live &middot; 11 inactive/blocked &middot; AGENT-11 Expansion Spotter built June 19 &#10003; &middot; KS-WF20 + Text-Back ext. built June 18 &#10003; &middot; KS-WF22 + KS-A10 + KS-WF19 built June 17 &#10003;</span>
+      <span class="count">31 built &middot; 20 live &middot; 11 inactive/blocked &middot; KS-WF21 Reactivation Campaign database created July 1 &#10003; &middot; AGENT-11 Expansion Spotter built June 19 &#10003; &middot; KS-WF20 + Text-Back ext. built June 18 &#10003; &middot; KS-WF22 + KS-A10 + KS-WF19 built June 17 &#10003;</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done"><div class="wf-top"><span class="wf-id">KS-ERR</span><span class="status-badge badge-done">&#10003; Live</span></div><div class="wf-name">Error Handler</div><div class="wf-trigger"><span>Always-on:</span> Catches all n8n execution errors &rarr; Slack #konsier-errors with workflow name + error details</div></div>
@@ -613,9 +617,9 @@
     <div class="section-header" style="margin-top: 20px;">
       <span class="entity-tag tag-ks">RETELL</span>
       <h2>Retell AI Voice Agents</h2>
-      <span class="count">Alex PUBLISHED V7 &#10003; June 16 &middot; openai-Onyx voice &middot; SOP V6.1 aligned &middot; Sarah V3 API-patched &#10003; June 16 &middot; SOP V6.1 aligned</span>
+      <span class="count">Alex PUBLISHED V7 &#10003; June 16 &middot; openai-Onyx voice &middot; SOP V6.1 aligned &middot; Sarah V3 API-patched &#10003; June 16 &middot; SOP V6.1 aligned &middot; new professional-vertical receptionist built July 1 &mdash; pending voice&sol;name</span>
     </div>
-    <div class="wf-grid" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="wf-grid" style="grid-template-columns: repeat(3, 1fr);">
       <div class="wf-card done">
         <div class="wf-top"><span class="wf-id">ALEX &mdash; Inbound Receptionist</span><span class="status-badge badge-done">&#10003; PUBLISHED V7 &mdash; June 16</span></div>
         <div class="wf-name">Website Receptionist &middot; Voice Orb Live on konsier.ai &middot; openai-Onyx voice</div>
@@ -625,6 +629,11 @@
         <div class="wf-top"><span class="wf-id">SARAH &mdash; Warm Outbound Qualifier</span><span class="status-badge badge-done">&#10003; V3 Patched &mdash; June 16</span></div>
         <div class="wf-name">Outbound Voice Qualifier (Second Touch)</div>
         <div class="wf-trigger"><strong>June 16 V3 SOP alignment (API patch):</strong> Removed unverified $12,800/mo stat from Hook step. Em-dashes normalized throughout. &ldquo;fifteen-minute&rdquo; spelled out for TTS pronunciation. SOP hook restored: &ldquo;We work with [vertical] businesses so their phones are always answered.&rdquo; Book step: &ldquo;fifteen-minute demo this week.&rdquo; <strong>June 8 V5:</strong> Sarah fires as warm qualifier on email reply leads (phone present). Receives prospect&rsquo;s email reply snippet in metadata (first 300 chars).</div>
+      </div>
+      <div class="wf-card inactive">
+        <div class="wf-top"><span class="wf-id">NEW RECEPTIONIST &mdash; Professional Verticals</span><span class="status-badge badge-inactive">Built &mdash; Not Published &mdash; July 1</span></div>
+        <div class="wf-name">Website Receptionist &middot; Dental &middot; Medical &middot; Legal &middot; Real Estate</div>
+        <div class="wf-trigger"><strong>July 1:</strong> I set up a second inbound receptionist agent to cover the professional-services verticals Alex doesn&rsquo;t lead with, configured with the exact same qualification flow, qualifying criteria, objection handling, and post-call reporting fields as Alex &mdash; only the introduction line differs. <span>Pending:</span> final voice selection and confirmed display name before I publish it live; a separate widget key is also needed for these client sites.</div>
       </div>
     </div>
 
@@ -696,6 +705,11 @@
         <div class="wf-top"><span class="wf-id">KS-WF20</span><span class="status-badge badge-inactive">Built &mdash; Inactive (Twilio + Pipedrive Org fields pending per client &middot; June 18 &mdash; 13 nodes)</span></div>
         <div class="wf-name">Speed-to-Lead Callback</div>
         <div class="wf-trigger"><span>13 nodes (June 18 &mdash; V6.1 item #7):</span> Webhook /konsier-speed-to-lead &rarr; Respond 200 &rarr; Set Extract Payload (name, phone, timezone, consent, org_pipedrive_id, booking_link) &rarr; IF &mdash; Consent = True? &rarr; FALSE: Log rejection to Notion Lead Log. TRUE: Code &mdash; Check Calling Window (Intl.DateTimeFormat hourCycle h23 &middot; 8am&ndash;9pm local) &rarr; IF &mdash; In Window? &rarr; FALSE: Twilio After-Hours SMS PLACEHOLDER. TRUE: Pipedrive Org lookup (retell_agent_id + retell_from_number per client) &rarr; Retell outbound call trigger &rarr; Add Pipedrive Note &rarr; Slack #konsier. Per-client multi-tenant: Retell agent_id + from_number stored in Pipedrive Org &mdash; no per-client forks. <span>Pending per client:</span> Pipedrive Org custom fields (retell_agent_id + retell_from_number) &middot; Twilio creds + A2P 10DLC &middot; Runbook: /runbooks/a2p-10dlc-registration.md.</div>
+      </div>
+      <div class="wf-card inactive">
+        <div class="wf-top"><span class="wf-id">KS-WF21 / AGENT-09</span><span class="status-badge badge-inactive">Built &mdash; Inactive (19 nodes, June 30 &mdash; database created July 1)</span></div>
+        <div class="wf-name">Reactivation Campaign Compliance Gate</div>
+        <div class="wf-trigger"><span>19 nodes (built June 30 &mdash; V6.1 item #10):</span> Webhook receives a campaign record reference &rarr; fetches the campaign details from Notion &rarr; hard compliance gate (attestation signed AND Drew approved, both required, no bypass even in testing) &rarr; removes any contact on the do-not-call or opted-out list &rarr; AGENT-09 (claude-sonnet-4-6) drafts 3 SMS script variants, each with a mandatory AI-disclosure opening line and a mandatory opt-out instruction &rarr; validation step hard-blocks the batch if either is missing from any variant &rarr; writes all 3 scripts back to the campaign record and alerts Drew for approval. <span>July 1:</span> I created the Notion database this workflow reads from and writes to and confirmed every field name and type matches exactly &mdash; no workflow changes needed. <span>Pending:</span> a contact list database is still needed per client before a campaign can run, and the text-message sending tool is still being decided, so the workflow stays inactive for now.</div>
       </div>
     </div>
   </div>
@@ -849,6 +863,20 @@
       <div class="blocker-content">
         <div class="title" style="color:#34d399;">RESOLVED &mdash; Calendly Standard Plan Upgraded &#10003;</div>
         <div class="desc">Calendly upgraded to Standard Plan. KS-WF-CAL 4-branch webhook live. Webhook re-registered June 1.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">&#127908;</div>
+      <div class="blocker-content">
+        <div class="title">Drew: Voice + Name Confirmation &mdash; New Professional-Vertical Receptionist</div>
+        <div class="desc">Second receptionist agent (Dental &sol; Medical &sol; Legal &sol; Real Estate) is built and configured, running on a placeholder voice and name. Just needs Drew to confirm the final voice and display name before I publish it and generate its widget key.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">&#128172;</div>
+      <div class="blocker-content">
+        <div class="title">Drew: Text-Message Sending Tool Decision &mdash; Unblocks KS-WF21 Live Sends</div>
+        <div class="desc">KS-WF21 Reactivation Campaign can now draft scripts and hold them for Drew&rsquo;s approval &mdash; the database it needs was created July 1. It still can&rsquo;t send anything until Drew picks the text-message sending tool. A per-client contact list database is also needed before the first real campaign runs.</div>
       </div>
     </div>
     <div class="blocker-item">
@@ -1037,11 +1065,22 @@
           <td style="color:#475569; font-size:12px;">Week 9<br>($500 flat)</td>
         </tr>
 
+        <tr class="done-row">
+          <td>July 1<br><small style="color:#475569">Wednesday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER KS-WF21 &mdash; REACTIVATION CAMPAIGNS DATABASE:</strong> I created the Notion database that KS-WF21 reads from and writes to for every reactivation campaign, named KS &mdash; Reactivation Campaigns. I matched every property name and type exactly to what the workflow already expects &mdash; Client Name (title), Campaign Type (select), Offer, Attestation Signed (checkbox), Drew Approved (checkbox), Contact List DB ID, Client Timezone, Booking Link (url), Status (New &sol; Gate Blocked &sol; Pending Drew Approval &sol; Sent), three Script fields, Compliance Notes, and Contacts Cleared (number) &mdash; by reading the workflow&rsquo;s own steps rather than guessing at field names, so no workflow changes were needed once the database existed. I confirmed the match field by field against the workflow&rsquo;s gate check, scrub step, and both write-back steps, and the database is live and ready to hold its first campaign record. A contact list database is still needed per client before an actual campaign can run, and the text-message sending tool is still being decided, so the workflow stays inactive for now. <strong>KONSIER &mdash; SECOND WEBSITE RECEPTIONIST (PROFESSIONAL VERTICALS), RETELL AI:</strong> I set up a second Retell AI inbound receptionist agent to cover Dental, Medical, Legal, and Real Estate callers &mdash; the four verticals Alex doesn&rsquo;t lead with. I configured it with the exact same qualification flow, qualifying criteria, objection handling, and post-call reporting fields as Alex, since Alex&rsquo;s existing script already qualifies every vertical correctly and only needed a fresh identity, not new logic. I have it running under a placeholder name and voice for now &mdash; holding off publishing it live until Drew confirms the final voice and name, at which point it&rsquo;s a quick swap and I can generate its widget key for the professional-vertical client sites.
+
+            <strong>VELOCITY CAPITAL &mdash; PD-WF-09 MONTHLY INVESTOR UPDATE:</strong> I built the next workflow on the original Pipedrive automation list, closing out one more item on that ten-workflow set (7 of 10 now built). It fires automatically at 8am on the 1st of every month and pulls every deal currently sitting in the AV pipeline&rsquo;s Active Investment stage. I added a step that totals the portfolio in one pass &mdash; sums the Investment Amount, Funded Amount, and Soft Commit Amount fields across every active deal, and averages the Target IRR field across all of them &mdash; then checks whether there are any active investments at all before continuing, so a month with zero active deals doesn&rsquo;t error out, it just posts a short &ldquo;nothing to report&rdquo; note to Slack instead. When there is a portfolio to report, I added a step that writes a 150&ndash;250 word internal summary covering total capital deployed, investor count, portfolio health, and one recommended action if there&rsquo;s an obvious one &mdash; worded specifically for Drew, not for investors. That summary posts straight to the #all-velocity-capital Slack channel. Nothing was missing to build or wire this one &mdash; it reads real Pipedrive field data and uses credentials already set up for other workflows, so it&rsquo;s ready to run as soon as it&rsquo;s turned on. This is strictly an internal pulse check for Drew; it does not email investors directly &mdash; that&rsquo;s a separate, still-queued workflow (WF-AV-04) that needs an email-sending tool added first.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 9<br>($500 flat)</td>
+        </tr>
+
       </tbody>
       <tfoot>
         <tr>
           <td><strong>Total Billed (Weeks 1&ndash;9)</strong></td>
-          <td><strong>~288 hrs total</strong></td>
+          <td><strong>~296 hrs total</strong></td>
           <td><strong>Week 9 (June 29+): In progress &middot; $500 flat retainer &mdash; Wise @freelance1293</strong></td>
           <td class="earn"><strong>$3,884 paid (Weeks 1&ndash;7) &middot; Week 8&ndash;9 current</strong></td>
         </tr>
@@ -1070,6 +1109,7 @@
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 29]</strong> Claude API output schema discipline: specifying &ldquo;Strict JSON only. No markdown.&rdquo; in a system prompt is insufficient if you don&rsquo;t also define the exact key names. Claude will return valid JSON but with arbitrary key names of its own choosing (e.g. <code>title</code> instead of <code>brief_title</code>). Downstream nodes referencing <code>$json.brief_title</code> receive <code>undefined</code> with no error at the Claude node. Always include a complete example JSON object with exact key names and value types in the system prompt whenever a Claude node feeds structured data to downstream workflow nodes.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 30]</strong> n8n <code>patchNodeField</code> uses dot-notation to target elements inside a nested array &mdash; <code>parameters.assignments.assignments.6.value</code> to reach index 6 of a Set node&rsquo;s assignments array. Bracket notation (<code>[6]</code>) returns &ldquo;property does not exist&rdquo; even for valid array positions. Use dot-path notation throughout when targeting any element inside an assignment array, connection spec, or nested object field in n8n workflow JSON.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[June 30]</strong> n8n connection operations use <code>source</code> and <code>target</code> parameters (not <code>from</code>&sol;<code>to</code>). For node names containing em-dashes (&mdash;), the name lookup fails in connection operations &mdash; use node IDs as <code>source</code>&sol;<code>target</code> values when the node name contains special characters. IF node branches specify <code>branch: &ldquo;true&rdquo;</code>&sol;<code>&ldquo;false&rdquo;</code> and Switch cases use <code>case: N</code> as smart parameters on the connection call.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[July 1]</strong> A voice agent&rsquo;s spoken introduction and its scripted opening line live in two separate places &mdash; updating the instructions the agent follows does not automatically update the exact first sentence it speaks on a call. Both the internal script and the standalone opening-line field have to be updated together, or the agent will still greet callers with its old name.</div>
   </div>
 
   <!-- Footer -->
@@ -1091,7 +1131,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: June 30, 2026 (V6.1 10/10 complete — billing_cadence wiring: KS-WF4 + KS-WF18 + KS-A8 + KS-WF21 Reactivation Campaign built)';
+    if (el) el.textContent = 'Last updated: July 1, 2026 (KS-WF21 Reactivation Campaigns database created + second website receptionist agent built + PD-WF-09 Monthly Investor Update built)';
   </script>
 </body>
 </html>
