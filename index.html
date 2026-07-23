@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; July 22</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; July 23</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,8 +223,8 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 9 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">July 22, 2026</div>
-      <div class="week-badge">Week 12 &middot; Day 63 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">July 23, 2026</div>
+      <div class="week-badge">Week 12 &middot; Day 64 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
@@ -426,9 +426,13 @@
         <div class="tl-date">July 22</div>
         <div class="tl-label">PD-WF-09 Audit &#10003; &middot; WF-10 (1&sol;4)</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">July 23</div>
+        <div class="tl-label">WF-10 Branch 2 Started &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
-        <div class="tl-label">WF-10 Branch 2 &middot; PD-WF-10</div>
+        <div class="tl-label">WF-10 Compliance Gate &middot; PD-WF-10</div>
       </div>
     </div>
   </div>
@@ -779,7 +783,7 @@
     <div class="section-header">
       <span class="entity-tag" style="background:#7c3aed; color:#fff; border-radius:4px; padding:2px 8px; font-size:11px; font-weight:700; letter-spacing:.5px;">V3</span>
       <h2>Velocity Capital V3 &mdash; New Builds (P0 Foundation Complete June 22)</h2>
-      <span class="count">11 of 14 built (WF-01 &#10003; &middot; WF-02 &#10003; &middot; WF-03 &#10003; &middot; WF-04 &#10003; &middot; WF-05 &#10003; &middot; WF-06 &#10003; &middot; WF-07 &#10003; &middot; WF-08 &#10003; &middot; WF-09 &#10003; &middot; WF-13 &#10003; &middot; WF-14 &#10003;) &middot; WF-10 in progress (branch 1&sol;4) &middot; WF-11 &amp; WF-12 not started &middot; plus V-02 &#10003; (satellite workflow, not part of the 14)</span>
+      <span class="count">11 of 14 built (WF-01 &#10003; &middot; WF-02 &#10003; &middot; WF-03 &#10003; &middot; WF-04 &#10003; &middot; WF-05 &#10003; &middot; WF-06 &#10003; &middot; WF-07 &#10003; &middot; WF-08 &#10003; &middot; WF-09 &#10003; &middot; WF-13 &#10003; &middot; WF-14 &#10003;) &middot; WF-10 in progress (branch 2&sol;4) &middot; WF-11 &amp; WF-12 not started &middot; plus V-02 &#10003; (satellite workflow, not part of the 14)</span>
     </div>
     <div class="wf-grid">
       <div class="wf-card done">
@@ -843,9 +847,9 @@
         <div class="wf-trigger"><span>25 nodes (built July 14):</span> ScoreApp&sol;Skool quiz webhook &rarr; creates P1 Education &amp; Policy deal + scoring &rarr; state-licensing filter runs before any agent reply goes out &rarr; the critical FORK: a lead scoring liquid_capital_band &#8805;$50K ALSO gets a P2 (AV Investor) fast-track prospect created in parallel, not instead of, the P1 nurture &rarr; tax_problem_flag routes to a partner-menu tag. <span>Blocked:</span> ScoreApp&sol;Skool account connection needed to activate &mdash; built and wired as a placeholder against the real payload shape, same accepted-risk treatment as WF-05&sol;06&sol;07.</div>
       </div>
       <div class="wf-card inactive">
-        <div class="wf-top"><span class="wf-id">WF-10</span><span class="status-badge badge-inactive">Branch 1&sol;4 built &mdash; July 22</span></div>
+        <div class="wf-top"><span class="wf-id">WF-10</span><span class="status-badge badge-inactive">Branch 2 in progress &mdash; July 23 (22 nodes)</span></div>
         <div class="wf-name">Webinar &rarr; Investor + Verification</div>
-        <div class="wf-trigger"><span>17 nodes so far (branch 1 of 4, built July 22):</span> Zoom&sol;eWebinar event webhook &rarr; matches or creates the person&rsquo;s P2 Investor record &rarr; moves them into the Webinar&sol;Deck stage &rarr; branches on attendance duration (&gt;25min logs a deck-owed note, shorter logs a lighter note). Critical writes (Create Person, Create Deal) alert Slack directly on failure instead of failing silently. <span>Still to build:</span> V-04 Investor Concierge inbound-question branch (compliance-gated), the Parallel Markets verification-link send, and the verification-callback branch. <span>Blocked:</span> Zoom&sol;eWebinar and Parallel Markets connections needed to activate; deck-delivery email tool not yet decided.</div>
+        <div class="wf-trigger"><span>22 nodes so far (branch 1 complete, branch 2 started July 23):</span> Zoom&sol;eWebinar event webhook &rarr; matches or creates the person&rsquo;s P2 Investor record &rarr; moves them into the Webinar&sol;Deck stage &rarr; branches on attendance duration (&gt;25min logs a deck-owed note, shorter logs a lighter note). Critical writes (Create Person, Create Deal) alert Slack directly on failure instead of failing silently. <span>New (branch 2, partial):</span> an inbound investor question now gets a drafted reply from the concierge agent, grounded in general information only, never individualized advice. <span>Still to build:</span> routing that draft through compliance review before it sends, the Parallel Markets verification-link send, and the verification-callback branch. <span>Blocked:</span> Zoom&sol;eWebinar and Parallel Markets connections needed to activate; deck-delivery email tool not yet decided; real payload shape for inbound investor questions not yet confirmed.</div>
       </div>
     </div>
   </div>
@@ -1131,6 +1135,15 @@
           <td style="color:#475569; font-size:12px;">Week 12<br>($500 flat)</td>
         </tr>
 
+        <tr class="done-row">
+          <td>July 23<br><small style="color:#475569">Thursday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>VELOCITY CAPITAL &mdash; WF-10 WEBINAR &rarr; INVESTOR BUILD, BRANCH 2 STARTED (17&rarr;22 nodes):</strong> I continued the workflow that turns a webinar registration into a tracked investor prospect, moving into the second of its four planned pieces &mdash; the part that answers an investor's follow-up questions. When a question comes in, the workflow now pulls out who it's from and what they're asking, then has the investor concierge agent draft a reply grounded strictly in general, publicly-shareable information about the process &mdash; never individualized advice or a specific deal recommendation, the same guardrail every other AI-drafted message in this system follows. I stopped deliberately at the drafted-reply stage today rather than pushing all the way through, same one-piece-at-a-time approach as the rest of this build. Still to come on this piece: routing that draft through the same compliance review every other AI-drafted message here goes through before anything sends, and logging the outcome either way. I also caught and fixed one real bug before calling today done: a data-extraction step was written using a shortcut that only works in a different processing mode than the one that step actually runs in &mdash; caught by comparing it against the equivalent, already-working step earlier in the same workflow rather than assuming it would behave the same way, and corrected it to match. Verified the whole workflow error-free afterward. <strong>KONSIER &mdash; HOT LEAD TRIGGER AUDIT (KS-A5, 7&rarr;10 nodes):</strong> I audited the workflow that fires when a prospect watches a demo video past the halfway mark &mdash; it updates their watch-percentage on the CRM record and alerts the team so a hot lead doesn't sit unnoticed. Migrated the last hardcoded access key across all three outbound steps into secure credential storage and added retry protection to each. I found and fixed a real gap that had never been caught since this was built: there was no handling at all for the case where the person watching the video doesn't have a matching record in the CRM yet &mdash; a completely plausible scenario, since not every video viewer is already a captured lead &mdash; and without that handling, the next two steps would have broken silently with nothing to show anyone what happened. Added a proper check for that case, with its own direct alert so it surfaces instead of vanishing. Worth confirming a genuinely good practice already in place here too: the branch for a low watch percentage is correctly left to do nothing at all, since that's the right behavior, not a gap. One real open question I flagged rather than guessed an answer to: the step that updates the CRM record grabs whichever deal comes back first for that person, with no filtering &mdash; if someone already has more than one deal on file across different parts of the pipeline, this could end up updating the wrong one, and that needs a decision before it goes live rather than an assumption from me.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 12<br>($500 flat)</td>
+        </tr>
+
       </tbody>
       <tfoot>
         <tr>
@@ -1183,7 +1196,7 @@
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: July 22, 2026 (Velocity Capital PD-WF-09 Monthly Investor Update audited — cross-checked the pipeline stage, all four financial field mappings, and the AI model configuration against the reference tables, all confirmed already correct; migrated the last hardcoded access key and added retry protection to both outbound steps; added a new safeguard against a duplicate monthly post if the workflow is manually re-run before the month changes. Also started WF-10 Webinar → Investor + Verification — branch 1 of 4 built and verified: webinar event handling, investor-record matching/creation, and attendance-based follow-up logging)';
+    if (el) el.textContent = 'Last updated: July 23, 2026 (Velocity Capital WF-10 Webinar → Investor + Verification — branch 2 started: an inbound investor question now gets a drafted reply from the concierge agent, grounded in general information only. Still to route that draft through compliance review before it sends.)';
   </script>
 </body>
 </html>
