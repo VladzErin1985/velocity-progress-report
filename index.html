@@ -995,17 +995,31 @@ Second: WF-11's last piece, the one that's been sitting blocked on your investor
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">&#128220;</div>
+      <div class="blocker-icon">&#127891;</div>
       <div class="blocker-content">
-        <div class="title">Drew: InvestNext vs. DocuSign Routing + Attorney-Clearance Timeline &mdash; WF-11 Fund-of-Funds Flow</div>
-        <div class="desc">WF-11 pieces 1 through 3 of 4 are now built and verified clean (Docs Out paperwork logging, Wire Confirmed manual-approval gate, and Feeder Fund Single-LP structuring enforcement &mdash; that last one didn't need your input, since it's a stated spec rule rather than an open decision). The final piece cannot be built until two decisions come back: 1) which investor types should route to InvestNext vs. DocuSign for sub-doc signing &mdash; not yet confirmed, so both are logged the same way for now rather than guessed at; 2) when the real attorney-clearance step will be set up in Pipedrive &mdash; until it exists, this workflow will never auto-move a deal to Funded on its own, always requiring a person to confirm clearance and move it manually.</div>
+        <div class="title">Drew: ScoreApp&sol;Skool Account &mdash; Unblocks WF-09 Live Trigger</div>
+        <div class="desc">WF-09 Education Funnel + FORK is fully built (25 nodes, includes the liquid-capital fast-track fork and the tax-flag partner-menu tag). Cannot go live until a ScoreApp&sol;Skool account is connected &mdash; currently wired against an assumed quiz-webhook payload shape as a placeholder.</div>
       </div>
     </div>
     <div class="blocker-item">
-      <div class="blocker-icon">&#128273;</div>
+      <div class="blocker-icon">&#127902;</div>
       <div class="blocker-content">
-        <div class="title">Drew: Confirm Current Stripe Signing Key &mdash; Unblocks Payment Webhook Signature Verification</div>
-        <div class="desc">KS-WF4&rsquo;s Stripe payment trigger has a built, disabled signature-verification step ready to enable &mdash; but the two candidate signing secrets on file both predate June 5 and are tied to the old endpoint, neither confirmed current. Drew needs to confirm the live signing secret for the active payment webhook before this can be turned on safely.</div>
+        <div class="title">Drew: Zoom&sol;eWebinar + Parallel Markets Connections &mdash; Unblocks WF-10 Live</div>
+        <div class="desc">WF-10 Webinar &rarr; Investor + Verification is fully built, all 4 branches complete (43 nodes). Cannot go live until: 1) a Zoom&sol;eWebinar connection is in place so the workflow actually receives real webinar-attendance events; 2) Parallel Markets is connected so the accreditation-verification link and callback branches have a real source instead of a placeholder. The deck-delivery email tool also still needs deciding.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">&#128220;</div>
+      <div class="blocker-content">
+        <div class="title">Drew: Confirm Real InvestNext&sol;DocuSign Split + DocuSign OAuth + Attorney-Clearance Timeline &mdash; WF-11 Fund-of-Funds Flow</div>
+        <div class="desc">All 4 pieces of WF-11 are now built (Docs Out paperwork logging, Wire Confirmed manual-approval gate, Feeder Fund Single-LP structuring enforcement, and the sub-doc routing piece). Rather than stay stuck waiting, the last piece was built with every investor type temporarily defaulting to DocuSign, clearly logged as a temporary rule so switching to the real split later is a one-line change, not a rebuild. Two things still need Drew: 1) confirm the real InvestNext-vs-DocuSign split by investor type, once decided; 2) complete DocuSign OAuth (2FA) so the actual document send can go live &mdash; until then this piece logs the obligation correctly but still requires a manual send. Separately, unchanged: when the real attorney-clearance step will be set up in Pipedrive &mdash; until it exists, this workflow will never auto-move a deal to Funded on its own, always requiring a person to confirm clearance and move it manually.</div>
+      </div>
+    </div>
+    <div class="blocker-item">
+      <div class="blocker-icon">&#10003;</div>
+      <div class="blocker-content" style="opacity:0.5;">
+        <div class="title" style="text-decoration:line-through; color:#34d399;">RESOLVED &mdash; Stripe Signing Key Confirmed &#10003;</div>
+        <div class="desc">Drew confirmed the current live signing secret for the Konsier payment webhook. KS-WF4&rsquo;s signature-verification step can now be enabled.</div>
       </div>
     </div>
     <div class="blocker-item">
