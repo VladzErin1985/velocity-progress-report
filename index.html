@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; August 25</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; August 26</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,16 +223,26 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">August 25, 2026</div>
-      <div class="week-badge">Week 17 &middot; Day 89 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">August 26, 2026</div>
+      <div class="week-badge">Week 17 &middot; Day 90 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 17 &middot; August 25</div>
+      <div class="label">Build Velocity &mdash; Week 17 &middot; August 26</div>
       <div class="message">
+        <strong>VELOCITY &mdash; OZ/TAX/LANDLORD OVERLAY AUDITED, A LIVE PAID AI KEY FOUND EXPOSED (WF-06):</strong> This is the piece that runs right after a new distressed property gets pulled in, it looks up the property's opportunity-zone status, estimates the year-one tax benefit, scores how landlord-friendly the state is, and writes all of that back onto the deal before handing things off to the next piece, the one that actually reaches out to the property owner. It also has a newer, still-partial piece attached to it that uses AI to read all of that and recommend a deal structure and exit strategy, purely as a suggestion for a human to review, never a final call on its own.
+        <br><br>
+        Same discipline as always, checked its real logic closely, and found something serious: a live AI-service key was sitting in plain text in this piece, an active, metered credential, not just an internal tool token, more like leaving a company credit card number sitting in a text file. Moved it immediately to the same shared, secure vault everything else in this build uses.
+        <br><br>
+        Also found and fixed a real gap in the newer AI-scoring piece: if that AI call ever came back in a format it couldn't read, the piece had a placeholder ready for that case, but nothing was actually checking for it before writing a result, so a real failure would have quietly written a blank, nonsensical note straight onto a real deal instead of flagging that something went wrong. Built in a real check so a genuine failure now gets its own clearly-labeled note instead.
+        <br><br>
+        This piece is still inactive, same as the one before it, still waiting on a couple of Opportunity Zone data-source details on your end, so nothing here changes when it goes live, just makes sure it's clean and safe once it does.
+        <br><br>
+        <strong>VELOCITY &mdash; DISTRESSED PROPERTY INTAKE AUDITED (WF-05):</strong> This is the very first piece in the Anza property-acquisition chain, the one meant to take in a raw list of distressed properties, clean up and dedupe the property IDs, filter down to the ones with enough real distress signals to be worth pursuing, then hand qualified ones off to the next piece in the chain to actually go find the owner's contact info and get a deal started in your pipeline. It's still sitting inactive, same as before, since it's still waiting on the property-data subscription and skip-trace key on your end, so nothing new to report on that front. Went through the whole thing end to end anyway, since a piece that's never fired even once deserves the same real check as one that runs every day. Found the usual couple of things worth fixing: a credential sitting in plain text got moved to the same shared, secure vault everything else uses, and a genuine safety net was missing entirely, so if this piece ever failed for real once it's live, nobody would have been alerted, that's fixed now too. One thing that looked broken at first but wasn't: a note left on the piece itself claimed the handoff to the next stage still needed updating, when it's actually already correctly wired and pointing at the right place, checked directly rather than trusting the note. Nothing here changes what's still blocking activation, that part's still entirely on your end.
+        <br><br>
         <strong>VELOCITY &mdash; MP/JV COMPLIANCE TRACKER AUDITED, A REAL LIVE ALERT FAILURE FOUND AND FIXED (WF-04):</strong> This is the piece that watches your SDVOSB certification, SAM.gov registration, California contractor license, and insurance coverage for anything approaching its expiration date, and is meant to raise a real alert the moment any of those gets close to lapsing, since losing even one of them means losing your set-aside eligibility outright. This is also the first piece in this whole batch that has actually been running for real every single day since late June, so instead of only reviewing its logic on paper, I pulled its real day-by-day history the same way I did for the two pieces below. That turned up something real and worth knowing about directly. The piece's weekly status message had been quietly failing to send on every single Monday it should have gone out, for as far back as the history goes. The cause was a genuine gap between a correction that had already been made on paper in an earlier pass and what was actually still running live, the fix itself had been prepared but never actually carried all the way through to the version genuinely executing on schedule, so the piece kept running its original, broken version underneath a setup that looked fixed on inspection. The weekly message is the lower-stakes half of what this piece does, the exact same unpublished gap was sitting on its more important twin too, the real urgent alert meant to fire the moment your SDVOSB certification, SAM.gov registration, or insurance coverage gets within 30 days of lapsing. That alert simply hasn't had a reason to fire yet, nothing has crossed that threshold, the earliest is expected around October 2, so this would have gone completely undetected until the one moment it actually mattered most. Fixed it and then checked the piece's real live version directly afterward, not just the saved configuration, to make sure the correction genuinely carried through this time rather than repeating the same gap. Both alerts are now confirmed live and correctly configured.
         <br><br>
         <strong>VELOCITY &mdash; BID/NO-BID SCORER AUDITED (WF-03):</strong> This is the piece that decides, for every new GovCon notice that comes in, whether it's actually worth pursuing. It reads the opportunity, scores it against your real capabilities and target criteria, and automatically routes the deal into Pursue, Watch, or Archive, with a Slack summary either way and a separate urgent alert if it spots a genuine sole-source opportunity. Same discipline as always, checked its real logic closely rather than assuming a clean-looking piece is a safe one, and found two real things worth fixing. First, the routine one: a couple of credentials elsewhere in this piece were still sitting in plain text instead of the same shared, secure vault everything else in this build uses, moved over now, nothing about the piece's behavior changes. Second, a more serious one: if the actual scoring step ever hiccupped, even something as ordinary as a brief connection blip, the piece had no way to tell that apart from a real, deliberate "not worth pursuing" decision, and would have quietly filed the opportunity away as dead either way. A real opportunity could have gotten permanently archived for no reason other than a momentary technical hiccup, with nobody ever knowing it happened. Fixed it the same way I fixed WF-01's version of this exact problem: built in a real distinction between the two outcomes, so a genuine technical failure now posts its own separate, clearly-marked alert and leaves the deal exactly where it was for a human to look at, instead of quietly wearing the same face as a real "no" decision. Also added a retry on the scoring step itself, so a one-off blip has a real chance to resolve on its own before it ever needs to raise anything. One more honest thing worth flagging directly: this piece has never actually fired even once in its entire history, since it only ever runs after WF-01 finds a brand-new notice, and WF-01's own key has been sitting as a placeholder this whole time (see below). So everything just fixed here is proven correct on paper, not yet proven against a single real notice, that will only really get tested for the first time once WF-01's key finally gets supplied.
@@ -528,9 +538,13 @@
         <div class="tl-date">August 25</div>
         <div class="tl-label">WF-03 + WF-04 audited &#10003;</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">August 26</div>
+        <div class="tl-label">WF-05 + WF-06 audited &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
-        <div class="tl-label">WF-05 audit</div>
+        <div class="tl-label">WF-07 audit</div>
       </div>
     </div>
   </div>
@@ -1404,6 +1418,28 @@ One more honest thing worth flagging directly: this piece has never actually fir
           </td>
           <td style="color:#475569; font-size:12px;">Week 17<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>August 26<br><small style="color:#475569">Wednesday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>VELOCITY &mdash; OZ/TAX/LANDLORD OVERLAY AUDITED, A LIVE PAID AI KEY FOUND EXPOSED (WF-06):</strong> This is the piece that runs right after a new distressed property gets pulled in, it looks up the property's opportunity-zone status, estimates the year-one tax benefit, scores how landlord-friendly the state is, and writes all of that back onto the deal before handing things off to the next piece, the one that actually reaches out to the property owner. It also has a newer, still-partial piece attached to it that uses AI to read all of that and recommend a deal structure and exit strategy, purely as a suggestion for a human to review, never a final call on its own.
+
+Same discipline as always, checked its real logic closely, and found something serious: a live AI-service key was sitting in plain text in this piece, an active, metered credential, not just an internal tool token, more like leaving a company credit card number sitting in a text file. Moved it immediately to the same shared, secure vault everything else in this build uses.
+
+Also found and fixed a real gap in the newer AI-scoring piece: if that AI call ever came back in a format it couldn't read, the piece had a placeholder ready for that case, but nothing was actually checking for it before writing a result, so a real failure would have quietly written a blank, nonsensical note straight onto a real deal instead of flagging that something went wrong. Built in a real check so a genuine failure now gets its own clearly-labeled note instead.
+
+This piece is still inactive, same as the one before it, still waiting on a couple of Opportunity Zone data-source details on your end, so nothing here changes when it goes live, just makes sure it's clean and safe once it does.
+            <br><br>
+            <strong>VELOCITY &mdash; DISTRESSED PROPERTY INTAKE AUDITED (WF-05):</strong> This is the very first piece in the Anza property-acquisition chain, the one meant to take in a raw list of distressed properties, clean up and dedupe the property IDs, filter down to the ones with enough real distress signals to be worth pursuing, then hand qualified ones off to the next piece in the chain to actually go find the owner's contact info and get a deal started in your pipeline.
+
+It's still sitting inactive, same as before, since it's still waiting on the property-data subscription and skip-trace key on your end, so nothing new to report on that front. Went through the whole thing end to end anyway, since a piece that's never fired even once deserves the same real check as one that runs every day.
+
+Found the usual couple of things worth fixing: a credential sitting in plain text got moved to the same shared, secure vault everything else uses, and a genuine safety net was missing entirely, so if this piece ever failed for real once it's live, nobody would have been alerted, that's fixed now too. One thing that looked broken at first but wasn't: a note left on the piece itself claimed the handoff to the next stage still needed updating, when it's actually already correctly wired and pointing at the right place, checked directly rather than trusting the note.
+
+Nothing here changes what's still blocking activation, that part's still entirely on your end.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 17<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1469,6 +1505,8 @@ One more honest thing worth flagging directly: this piece has never actually fir
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 24]</strong> A request to an outside data source can succeed every single time and still be structurally unable to ever find what it's actually looking for &mdash; a piece asking for records ending soon was sorted to show the oldest-ending records first with only one page ever pulled, one real result came back over twenty years old, meaning anything genuinely near-term was sorted completely out of reach regardless of how many times it ran. Worth checking not just whether an outside request succeeds, but whether its sort order and page size could ever actually surface the thing it's meant to find, before trusting a clean "zero results" as proof nothing real exists.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 25]</strong> A step that hands off a real decision to an outside AI call needs its own way to tell "the call genuinely failed" apart from "the call succeeded and the honest answer was no" &mdash; without that distinction, a plain connection hiccup can get treated exactly the same as a deliberate, real decision to walk away from something, and quietly archive it forever with nobody the wiser. Worth checking every AI-scoring step in a pipeline for this exact gap, not just the ones that have already misbehaved once.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 25]</strong> A piece can look correctly fixed on inspection and still be quietly running its old, broken version underneath, if a correction gets saved on paper but never actually carries all the way through to what's genuinely executing on schedule &mdash; a weekly alert had been silently failing every single week for exactly this reason, while its more urgent twin carried the identical invisible gap, it just hadn't had a real reason to fire yet. Worth checking a scheduled piece's real, currently-running version directly, not just its saved configuration, especially on anything that already looked fixed once before.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 26]</strong> A note left directly on a never-executed piece claiming a downstream connection still needs updating can go stale the same way any other note can &mdash; checked the actual receiving piece's real live connection point directly instead of trusting the comment, and found it already matched exactly, the handoff was correct, only the note describing it was outdated. Worth verifying a flagged "still needs updating" claim against the real target directly before spending time re-fixing something that's already fine.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 26]</strong> An AI-scoring step can have a real failure flag already built into its own fallback data, and still let a failure through completely unnoticed if nothing downstream actually checks that flag before writing the result somewhere real &mdash; the failure-detection logic existed, it just was never wired to anything, so a genuine parse failure would have posted a blank, nonsensical result to a real record with nothing marking it as a failure at all. Worth tracing whether a failure flag a piece already sets for itself is actually read by anything downstream, not just confirming the flag gets set correctly.</div>
   </div>
 
   <!-- Footer -->
@@ -1490,7 +1528,7 @@ One more honest thing worth flagging directly: this piece has never actually fir
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: August 25, 2026 (Velocity: audited WF-04, the MP/JV Compliance Tracker, and found a real live alert failure, the weekly digest had been silently failing every Monday because a correction made on paper had never actually carried through to the live running version, with the identical gap sitting unnoticed on the urgent compliance alert too. Fixed both and confirmed directly against the real live version. Also audited WF-03, the Bid/No-Bid Scorer, fixing the same class of plain-text credential exposure found on other pieces plus a more serious gap where a genuine technical failure in the AI scoring step could have silently looked identical to a real decision to walk away from an opportunity, permanently archiving something real for no reason other than a momentary glitch. Built in a real distinction between the two, added a retry on the scoring step itself, and confirmed this piece has never fired even once yet since it depends entirely on WF-01 finding a real notice first, so that part remains proven correct on paper, not yet proven against real traffic.)';
+    if (el) el.textContent = 'Last updated: August 26, 2026 (Velocity: audited WF-06, the OZ/Tax/Landlord Overlay piece, and found a live, paid AI-service key sitting in plain text, moved immediately to the shared secure vault. Also fixed a real gap in its newer AI deal-scoring piece, a genuine parse failure would have posted a blank, nonsensical result straight onto a real deal with nothing flagging it as a failure, now it gets its own clearly-labeled note instead. Also audited WF-05, the Distressed Property Intake piece, still inactive pending the property-data subscription and skip-trace key, but went through it end to end anyway since a never-fired piece deserves the same real check as a daily one. Moved a plain-text credential to the shared secure vault and added a missing safety-net alert. Also checked a note claiming a downstream handoff still needed updating, and confirmed directly against the real receiving piece that it was already correctly wired, only the note itself was stale.)';
   </script>
 </body>
 </html>
