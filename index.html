@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; August 26</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; August 27</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,16 +223,26 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">August 26, 2026</div>
-      <div class="week-badge">Week 17 &middot; Day 90 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">August 27, 2026</div>
+      <div class="week-badge">Week 17 &middot; Day 91 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 17 &middot; August 26</div>
+      <div class="label">Build Velocity &mdash; Week 17 &middot; August 27</div>
       <div class="message">
+        <strong>VELOCITY &mdash; COMPLIANCE GUARD AUDITED, ANOTHER LIVE PAID AI KEY FOUND EXPOSED (WF-14):</strong> This is the piece every other piece across this build calls before sending anything to a real person, it checks in real time for suppression-list conflicts, licensing conflicts, and outright compliance-language violations, like an unlicensed activity claim or a guaranteed-returns promise, and blocks anything risky before it ever goes out.
+        <br><br>
+        Same discipline as always, checked its real logic closely and found the exact same class of issue found earlier this week on the piece that scores incoming deals: a live AI-service key was sitting in plain text, an active, metered credential, moved immediately to the same shared, secure vault everything else in this build uses. Also found and fixed the routine version of the same issue, a separate credential elsewhere in the piece sitting in plain text instead of the shared vault.
+        <br><br>
+        On top of that, found something serious for a compliance gate specifically: two of this piece's own block-alert messages were built in a way that would have caused them to fail every single time they tried to actually fire, meaning a real compliance block could have happened completely silently, with nobody on the team ever seeing it. Fixed both, and added the same missing safety net every other piece in this build already has, so a genuine failure anywhere in this piece can no longer vanish with zero alert.
+        <br><br>
+        One thing checked and confirmed correct, not touched: this piece is deliberately built to block first and ask questions later whenever it can't confirm something is safe, exactly the right behavior for something guarding compliance, not a gap to close. This piece hasn't been triggered by real traffic yet, since the pieces that are supposed to call it haven't started sending real outbound messages through it.
+        <br><br>
+        <strong>VELOCITY &mdash; WENT BACK INTO WF-06 AFTER SPOTTING SOMETHING WORTH A SECOND LOOK:</strong> While in the OZ/Tax/Landlord Overlay piece again, noticed several steps flagged as not actually wired correctly, tracing back to how a credential got moved into the shared vault a couple weeks ago. Dug into it directly and found the type of connection several steps were pointing at didn't actually match what was genuinely stored for it, including the step that writes the tax and landlord scores back onto the real deal, meaning that write would not have actually worked the way it was supposed to. Fixed every affected step to point at the correct connection type, and confirmed directly afterward that the fix took. Also updated an old internal note on this same piece that still said its newer AI deal-scoring addition wasn't finished yet, it's actually been fully built and connected for a few weeks now, just never written down, so a future session doesn't waste time redoing work that's already done.
+        <br><br>
         <strong>VELOCITY &mdash; OZ/TAX/LANDLORD OVERLAY AUDITED, A LIVE PAID AI KEY FOUND EXPOSED (WF-06):</strong> This is the piece that runs right after a new distressed property gets pulled in, it looks up the property's opportunity-zone status, estimates the year-one tax benefit, scores how landlord-friendly the state is, and writes all of that back onto the deal before handing things off to the next piece, the one that actually reaches out to the property owner. It also has a newer, still-partial piece attached to it that uses AI to read all of that and recommend a deal structure and exit strategy, purely as a suggestion for a human to review, never a final call on its own.
         <br><br>
         Same discipline as always, checked its real logic closely, and found something serious: a live AI-service key was sitting in plain text in this piece, an active, metered credential, not just an internal tool token, more like leaving a company credit card number sitting in a text file. Moved it immediately to the same shared, secure vault everything else in this build uses.
@@ -542,9 +552,13 @@
         <div class="tl-date">August 26</div>
         <div class="tl-label">WF-05 + WF-06 audited &#10003;</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">August 27</div>
+        <div class="tl-label">WF-14 audited &#10003; &middot; WF-06 re-audited &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
-        <div class="tl-label">WF-07 audit</div>
+        <div class="tl-label">WF-13 &sol; V-02 audit</div>
       </div>
     </div>
   </div>
@@ -1440,6 +1454,28 @@ Nothing here changes what's still blocking activation, that part's still entirel
           </td>
           <td style="color:#475569; font-size:12px;">Week 17<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>August 27<br><small style="color:#475569">Thursday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>VELOCITY &mdash; COMPLIANCE GUARD AUDITED, ANOTHER LIVE PAID AI KEY FOUND EXPOSED (WF-14):</strong> This is the piece every other piece across this build calls before sending anything to a real person, it checks in real time for suppression-list conflicts, licensing conflicts, and outright compliance-language violations, like an unlicensed activity claim or a guaranteed-returns promise, and blocks anything risky before it ever goes out.
+
+Same discipline as always, checked its real logic closely and found the exact same class of issue found earlier this week on the piece that scores incoming deals: a live AI-service key was sitting in plain text, an active, metered credential, moved immediately to the same shared, secure vault everything else in this build uses. Also found and fixed the routine version of the same issue, a separate credential elsewhere in the piece sitting in plain text instead of the shared vault.
+
+On top of that, found something serious for a compliance gate specifically: two of this piece's own block-alert messages were built in a way that would have caused them to fail every single time they tried to actually fire, meaning a real compliance block could have happened completely silently, with nobody on the team ever seeing it. Fixed both, and added the same missing safety net every other piece in this build already has, so a genuine failure anywhere in this piece can no longer vanish with zero alert.
+
+One thing checked and confirmed correct, not touched: this piece is deliberately built to block first and ask questions later whenever it can't confirm something is safe, exactly the right behavior for something guarding compliance, not a gap to close.
+
+This piece hasn't been triggered by real traffic yet, since the pieces that are supposed to call it haven't started sending real outbound messages through it.
+            <br><br>
+            <strong>VELOCITY &mdash; WENT BACK INTO WF-06 AFTER SPOTTING SOMETHING WORTH A SECOND LOOK:</strong> While in the OZ/Tax/Landlord Overlay piece again, noticed several steps flagged as not actually wired correctly, tracing back to how a credential got moved into the shared vault a couple weeks ago.
+
+Dug into it directly and found the type of connection several steps were pointing at didn't actually match what was genuinely stored for it, including the step that writes the tax and landlord scores back onto the real deal, meaning that write would not have actually worked the way it was supposed to. Fixed every affected step to point at the correct connection type, and confirmed directly afterward that the fix took.
+
+Also updated an old internal note on this same piece that still said its newer AI deal-scoring addition wasn't finished yet, it's actually been fully built and connected for a few weeks now, just never written down, so a future session doesn't waste time redoing work that's already done.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 17<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1507,6 +1543,8 @@ Nothing here changes what's still blocking activation, that part's still entirel
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 25]</strong> A piece can look correctly fixed on inspection and still be quietly running its old, broken version underneath, if a correction gets saved on paper but never actually carries all the way through to what's genuinely executing on schedule &mdash; a weekly alert had been silently failing every single week for exactly this reason, while its more urgent twin carried the identical invisible gap, it just hadn't had a real reason to fire yet. Worth checking a scheduled piece's real, currently-running version directly, not just its saved configuration, especially on anything that already looked fixed once before.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 26]</strong> A note left directly on a never-executed piece claiming a downstream connection still needs updating can go stale the same way any other note can &mdash; checked the actual receiving piece's real live connection point directly instead of trusting the comment, and found it already matched exactly, the handoff was correct, only the note describing it was outdated. Worth verifying a flagged "still needs updating" claim against the real target directly before spending time re-fixing something that's already fine.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 26]</strong> An AI-scoring step can have a real failure flag already built into its own fallback data, and still let a failure through completely unnoticed if nothing downstream actually checks that flag before writing the result somewhere real &mdash; the failure-detection logic existed, it just was never wired to anything, so a genuine parse failure would have posted a blank, nonsensical result to a real record with nothing marking it as a failure at all. Worth tracing whether a failure flag a piece already sets for itself is actually read by anything downstream, not just confirming the flag gets set correctly.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 27]</strong> A piece can pass every automated check completely clean and still be broken in a way that's only visible by actually looking at it directly &mdash; several steps had a credential correctly moved into the shared vault weeks ago, but pointed at the wrong type of connection for it, something no automated check caught, only visible by opening the piece itself and looking. Worth periodically eyeballing a piece directly even after it's already validated clean, some real problems only show up that way.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 27]</strong> The exact same credential-migration mistake, wiring the right vault entry to the wrong connection type, has now shown up on two completely separate pieces of this build, weeks apart. Worth treating a bug found once as a reason to check every other piece that went through the same kind of fix around the same time, not just the one in front of you.</div>
   </div>
 
   <!-- Footer -->
@@ -1528,7 +1566,7 @@ Nothing here changes what's still blocking activation, that part's still entirel
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: August 26, 2026 (Velocity: audited WF-06, the OZ/Tax/Landlord Overlay piece, and found a live, paid AI-service key sitting in plain text, moved immediately to the shared secure vault. Also fixed a real gap in its newer AI deal-scoring piece, a genuine parse failure would have posted a blank, nonsensical result straight onto a real deal with nothing flagging it as a failure, now it gets its own clearly-labeled note instead. Also audited WF-05, the Distressed Property Intake piece, still inactive pending the property-data subscription and skip-trace key, but went through it end to end anyway since a never-fired piece deserves the same real check as a daily one. Moved a plain-text credential to the shared secure vault and added a missing safety-net alert. Also checked a note claiming a downstream handoff still needed updating, and confirmed directly against the real receiving piece that it was already correctly wired, only the note itself was stale.)';
+    if (el) el.textContent = 'Last updated: August 27, 2026 (Velocity: audited WF-14, the Compliance Guard piece every other piece calls before sending anything to a real person, and found another live, paid AI-service key sitting in plain text, moved immediately to the shared secure vault, plus a second plain-text credential elsewhere in the same piece. Also found two of its own block-alert messages were built in a way that would have caused them to silently fail every time they tried to fire, a serious gap for a compliance gate specifically, both fixed now, plus the same missing safety net every other piece already has. Also went back into WF-06 after noticing several steps flagged as not wired correctly, traced it to the wrong connection type being used for a credential moved into the vault weeks ago, including the step that writes tax and landlord scores back onto the real deal, fixed every affected step and confirmed directly. Also corrected an old internal note on that same piece claiming its newer AI scoring addition wasn\'t finished, it has actually been fully built and connected for weeks.)';
   </script>
 </body>
 </html>
