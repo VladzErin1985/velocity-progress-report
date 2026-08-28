@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; August 27</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; August 28</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,16 +223,28 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">August 27, 2026</div>
-      <div class="week-badge">Week 17 &middot; Day 91 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">August 28, 2026</div>
+      <div class="week-badge">Week 17 &middot; Day 92 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 17 &middot; August 27</div>
+      <div class="label">Build Velocity &mdash; Week 17 &middot; August 28</div>
       <div class="message">
+        <strong>VELOCITY &mdash; DISTRESSED PROPERTY INTAKE, TWO REAL IMPROVEMENTS ADDED (WF-05):</strong> Went back into the very first piece in the Anza property-acquisition chain, the one that takes in a raw list of distressed properties and decides which ones are worth pursuing further.
+        <br><br>
+        Found a real gap worth closing before this ever goes live: the piece could catch duplicate properties within a single night's batch, but had no memory from one night to the next, so a property that stays on the distressed list for several weeks, which is common, would have gotten a brand new duplicate record in your pipeline every single night it reappeared. Built in a real check against what's already in your pipeline first, so a property already seen gets its existing record updated instead of duplicated, and only genuinely new properties move forward to the next step.
+        <br><br>
+        Also built the piece's own already-planned next step: a lightweight AI pre-screen that runs before the paid lookup service gets used to find a property owner's contact info, so that cost only gets spent on properties actually worth pursuing instead of every single one that clears a basic threshold. Built it to fail safe on purpose, if the AI check itself ever has a hiccup, the property still moves forward rather than getting silently dropped, since a broken check should never be the reason a real opportunity gets missed.
+        <br><br>
+        <strong>VELOCITY &mdash; CHECKED EVERY OTHER PIECE FOR THE SAME MISTAKE, FOUND IT A THIRD TIME ON A LIVE PIECE:</strong> After finding the same wrong-connection-type mistake twice in a row on two different pieces this week, checked every other piece in the build sharing the same vault entry to see if it was hiding anywhere else.
+        <br><br>
+        Found it a third time, on the piece that checks every morning for new GovCon opportunities, the one already flagged with the most serious finding to date. This time the wrong connection meant its own duplicate check against your pipeline had no real authentication behind it at all, silently.
+        <br><br>
+        Checked today's actual run before assuming the worst rather than guessing at the damage. The real impact turned out to be zero: this piece's separate SAM.gov lookup, still an open item on your end, hasn't returned a single real result yet either, so nothing has ever reached the broken duplicate check to actually get duplicated. Fixed the connection so it's correct and ready the moment SAM.gov starts returning real opportunities, closing this before it could ever become a second silent problem stacked on the first one.
+        <br><br>
         <strong>VELOCITY &mdash; COMPLIANCE GUARD AUDITED, ANOTHER LIVE PAID AI KEY FOUND EXPOSED (WF-14):</strong> This is the piece every other piece across this build calls before sending anything to a real person, it checks in real time for suppression-list conflicts, licensing conflicts, and outright compliance-language violations, like an unlicensed activity claim or a guaranteed-returns promise, and blocks anything risky before it ever goes out.
         <br><br>
         Same discipline as always, checked its real logic closely and found the exact same class of issue found earlier this week on the piece that scores incoming deals: a live AI-service key was sitting in plain text, an active, metered credential, moved immediately to the same shared, secure vault everything else in this build uses. Also found and fixed the routine version of the same issue, a separate credential elsewhere in the piece sitting in plain text instead of the shared vault.
@@ -555,6 +567,10 @@
       <div class="tl-item done">
         <div class="tl-date">August 27</div>
         <div class="tl-label">WF-14 audited &#10003; &middot; WF-06 re-audited &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">August 28</div>
+        <div class="tl-label">WF-05 enhanced &#10003; &middot; WF-01 fixed &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1476,6 +1492,24 @@ Also updated an old internal note on this same piece that still said its newer A
           </td>
           <td style="color:#475569; font-size:12px;">Week 17<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>August 28<br><small style="color:#475569">Friday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>VELOCITY &mdash; DISTRESSED PROPERTY INTAKE, TWO REAL IMPROVEMENTS ADDED (WF-05):</strong> Went back into the very first piece in the Anza property-acquisition chain, the one that takes in a raw list of distressed properties and decides which ones are worth pursuing further.
+
+Found a real gap worth closing before this ever goes live: the piece could catch duplicate properties within a single night's batch, but had no memory from one night to the next, so a property that stays on the distressed list for several weeks, which is common, would have gotten a brand new duplicate record in your pipeline every single night it reappeared. Built in a real check against what's already in your pipeline first, so a property already seen gets its existing record updated instead of duplicated, and only genuinely new properties move forward to the next step.
+
+Also built the piece's own already-planned next step: a lightweight AI pre-screen that runs before the paid lookup service gets used to find a property owner's contact info, so that cost only gets spent on properties actually worth pursuing instead of every single one that clears a basic threshold. Built it to fail safe on purpose, if the AI check itself ever has a hiccup, the property still moves forward rather than getting silently dropped, since a broken check should never be the reason a real opportunity gets missed.
+            <br><br>
+            <strong>VELOCITY &mdash; CHECKED EVERY OTHER PIECE FOR THE SAME MISTAKE, FOUND IT A THIRD TIME ON A LIVE PIECE:</strong> After finding the same wrong-connection-type mistake twice in a row on two different pieces this week, checked every other piece in the build sharing the same vault entry to see if it was hiding anywhere else.
+
+Found it a third time, on the piece that checks every morning for new GovCon opportunities, the one already flagged with the most serious finding to date. This time the wrong connection meant its own duplicate check against your pipeline had no real authentication behind it at all, silently.
+
+Checked today's actual run before assuming the worst rather than guessing at the damage. The real impact turned out to be zero: this piece's separate SAM.gov lookup, still an open item on your end, hasn't returned a single real result yet either, so nothing has ever reached the broken duplicate check to actually get duplicated. Fixed the connection so it's correct and ready the moment SAM.gov starts returning real opportunities, closing this before it could ever become a second silent problem stacked on the first one.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 17<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1545,6 +1579,7 @@ Also updated an old internal note on this same piece that still said its newer A
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 26]</strong> An AI-scoring step can have a real failure flag already built into its own fallback data, and still let a failure through completely unnoticed if nothing downstream actually checks that flag before writing the result somewhere real &mdash; the failure-detection logic existed, it just was never wired to anything, so a genuine parse failure would have posted a blank, nonsensical result to a real record with nothing marking it as a failure at all. Worth tracing whether a failure flag a piece already sets for itself is actually read by anything downstream, not just confirming the flag gets set correctly.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 27]</strong> A piece can pass every automated check completely clean and still be broken in a way that's only visible by actually looking at it directly &mdash; several steps had a credential correctly moved into the shared vault weeks ago, but pointed at the wrong type of connection for it, something no automated check caught, only visible by opening the piece itself and looking. Worth periodically eyeballing a piece directly even after it's already validated clean, some real problems only show up that way.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 27]</strong> The exact same credential-migration mistake, wiring the right vault entry to the wrong connection type, has now shown up on two completely separate pieces of this build, weeks apart. Worth treating a bug found once as a reason to check every other piece that went through the same kind of fix around the same time, not just the one in front of you.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 28]</strong> Checking every other piece for a mistake just found isn't only about cleaning up old damage, it's how the identical mistake on a live, actively-running piece gets caught and fixed before it ever gets the chance to cause any real harm, not after. This time, checking a live piece the same day turned up the exact same wrong-connection-type bug already found twice this week, but real run data confirmed nothing had reached it yet, so it closed clean rather than needing any cleanup. Worth running that systemic check the moment a mistake shows up twice, not waiting for a third instance to surface on its own.</div>
   </div>
 
   <!-- Footer -->
@@ -1566,7 +1601,7 @@ Also updated an old internal note on this same piece that still said its newer A
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: August 27, 2026 (Velocity: audited WF-14, the Compliance Guard piece every other piece calls before sending anything to a real person, and found another live, paid AI-service key sitting in plain text, moved immediately to the shared secure vault, plus a second plain-text credential elsewhere in the same piece. Also found two of its own block-alert messages were built in a way that would have caused them to silently fail every time they tried to fire, a serious gap for a compliance gate specifically, both fixed now, plus the same missing safety net every other piece already has. Also went back into WF-06 after noticing several steps flagged as not wired correctly, traced it to the wrong connection type being used for a credential moved into the vault weeks ago, including the step that writes tax and landlord scores back onto the real deal, fixed every affected step and confirmed directly. Also corrected an old internal note on that same piece claiming its newer AI scoring addition wasn\'t finished, it has actually been fully built and connected for weeks.)';
+    if (el) el.textContent = 'Last updated: August 28, 2026 (Velocity: enhanced WF-05, the very first piece in the Anza property-acquisition chain, adding a real check against the existing pipeline so a distressed property that reappears over multiple nights updates its existing record instead of getting duplicated, plus the piece\'s own already-planned AI pre-screen so the paid contact-lookup service only gets used on properties actually worth pursuing. Also checked every other piece sharing the same vault entry for the wrong-connection-type mistake found twice this week, and found it a third time on WF-01, the SAM.gov piece already flagged with the most serious finding to date, this time affecting its own duplicate-pipeline check. Checked today\'s real run before assuming the worst: the damage was zero, since WF-01\'s separate SAM.gov lookup still hasn\'t returned a real result, so nothing had reached the broken check yet. Fixed and confirmed correct, ready the moment SAM.gov starts returning real opportunities.)';
   </script>
 </body>
 </html>
