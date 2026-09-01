@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; August 31</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 1</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,29 +223,21 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">August 31, 2026</div>
-      <div class="week-badge">Week 18 &middot; Day 93 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 1, 2026</div>
+      <div class="week-badge">Week 18 &middot; Day 94 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 18 &middot; August 31</div>
+      <div class="label">Build Velocity &mdash; Week 18 &middot; September 1</div>
       <div class="message">
-        <strong>VELOCITY &mdash; SOURCES-SOUGHT RESPONSE GENERATOR AUDITED (V-02) &mdash; THE LAST PIECE IN THE V3 BATCH:</strong> This is the piece that, once a GovCon opportunity clears its bid score, drafts a full capability-statement letter for it, pins that draft onto the deal, moves the deal to &ldquo;response drafted,&rdquo; and posts to the team. Switched on since June, never once triggered by real traffic.
+        <strong>KONSIER &mdash; VOICE RECEPTIONIST SCRIPTS AUDITED, FOUNDER NAME REMOVED (ALEX + GRACE):</strong> Went through both AI receptionist scripts end to end &mdash; Alex, the one already live and taking real calls, and the second one still being finalized for the professional-services side. Found the founder&apos;s name still showing up in both, in the fallback line each one uses when a caller asks something it can&apos;t answer &mdash; that runs against the deliberately anonymous, brand-first setup this business is built on.
         <br><br>
-        The real find: if the AI draft ever came back empty or errored, nothing was checking for that &mdash; the piece would still pin a blank letter onto the real deal, still advance the deal to the next stage, and still post &ldquo;draft ready&rdquo; to the team, with no sign anything went wrong. Built in a real check so a failed draft now posts its own clearly-marked alert and leaves the deal exactly where it was for someone to look at.
+        Replaced it with a generic team reference on both, and added a real handoff step for anything either agent can&apos;t answer on its own: it now asks for the caller&apos;s name and email so a person can follow up, instead of leaving the caller hanging. These are staged and ready &mdash; live callers aren&apos;t affected until they&apos;re switched on.
         <br><br>
-        Also the routine closeout every piece in this batch has now had: a plain-text credential moved to the shared secure vault, a live AI-service key moved off a raw header into the same vault, the standard failure-alert safety net added, retries added on every outside call, a validation step added at the front so a malformed trigger can&apos;t slip through, and repeat-protection so a duplicated trigger can&apos;t generate a second draft or re-advance the deal. Checked all of the opportunity&apos;s data fields against the reference list &mdash; all correct. Nothing here changes activation.
-        <br><br>
-        With this, every workflow in the Velocity build has now had a full line-by-line audit.
-        <br><br>
-        <strong>VELOCITY &mdash; CROSS-ENTITY HANDOFFS AUDITED, A REAL ROUTING BUG FOUND AND FIXED (WF-13):</strong> This is the piece that makes your pipelines feed each other automatically &mdash; when a property gets marked &ldquo;keep,&rdquo; it opens the construction-project deal; when it&apos;s marked &ldquo;syndicate,&rdquo; it opens the investor deal plus a deal-room task; and when an investor gets funded, it tags them on their person record. It&apos;s been switched on since June but has never once been triggered by real traffic yet.
-        <br><br>
-        Went through it end to end anyway, same as every never-fired piece. Found a real routing bug: the piece only ever checked for &ldquo;keep,&rdquo; and treated literally everything else &mdash; including &ldquo;flip,&rdquo; and including a property whose disposition hadn&apos;t been set yet &mdash; as &ldquo;syndicate,&rdquo; which means it would have opened a real investor deal for a property that was never meant to have one. Fixed it to check each choice explicitly: keep, syndicate, or neither, and a &ldquo;flip or not set yet&rdquo; case now just posts a heads-up instead of creating anything.
-        <br><br>
-        Also found the investor-tag step was writing to the person record in a format the current CRM connection doesn&apos;t accept, so that tag most likely wasn&apos;t landing at all &mdash; corrected it to the format the connection actually expects. Moved a credential sitting in plain text into the same shared, secure vault everything else uses, added the same failure-alert safety net every other piece already has so a real problem here can&apos;t vanish silently, and built in a repeat-protection check so a duplicated trigger for the same property can&apos;t open a second duplicate deal. Added a plain-language description directly on the piece, since it never had one. Nothing here changes activation &mdash; still waiting on the same items on your end.
+        <strong>VELOCITY &mdash; PAUSED THIS WEEK:</strong> No new Velocity build work today, by direction &mdash; full attention this week is going to getting the Konsier receptionist and onboarding flow ready to launch. Velocity picks back up once that&apos;s proven out on real traffic.
         <br><br>
         <span class="warn"> Blocked: <strong>SAM.gov API key (WF-01, currently a placeholder &mdash; blocking the entire GovCon lead pipeline)</strong> &middot; Calendly Zoom location + Fathom/Fireflies decision (Drew decision, message sent Aug 12) &middot; KS-A2 tier-routing pipeline destination confirmation (Drew decision) &middot; Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Vimeo &middot; QBO OAuth (Drew must complete) &middot; new receptionist agent voice + name confirmation &middot; reactivation text-message sending tool decision &middot; education platform decision + running-total-vs-delta confirmation (PD-WF-08) &middot; ScoreApp&sol;Skool account connection (WF-09) &middot; HIPAA compliance gate confirmation for the payment workflow &middot; construction-management milestone connection (WF-08) &middot; confirm onboarding stage for completed properties (WF-08) &middot; Zoom&sol;eWebinar + Parallel Markets connections + deck-delivery email tool decision (WF-10) &middot; investor-type document-tool routing rule + attorney-clearance process setup (WF-11) &middot; reactivation campaign gate activation + signed-attestation record-keeping (KS-WF21, Drew decision).</span>
       </div>
@@ -551,9 +543,13 @@
         <div class="tl-date">August 31</div>
         <div class="tl-label">WF-13 + V-02 audited &#10003; &middot; V3 batch fully audited &#10003;</div>
       </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 1</div>
+        <div class="tl-label">Konsier scripts fixed &#10003;</div>
+      </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
-        <div class="tl-label">Credential-type sweep &sol; Konsier audit queue</div>
+        <div class="tl-label">Konsier launch: VA hire &sol; publish agents</div>
       </div>
     </div>
   </div>
@@ -1360,6 +1356,16 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 18<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 1<br><small style="color:#475569">Tuesday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; VOICE RECEPTIONIST SCRIPTS AUDITED, FOUNDER NAME REMOVED (ALEX + GRACE):</strong> Went through both AI receptionist scripts end to end &mdash; Alex, the one already live and taking real calls, and the second one still being finalized for the professional-services side. Found the founder&apos;s name still showing up in both, in the fallback line each one uses when a caller asks something it can&apos;t answer, which runs against the deliberately anonymous, brand-first setup this business is built on. Replaced it with a generic team reference on both, and added a real handoff step for anything either agent can&apos;t answer on its own: it now asks for the caller&apos;s name and email so a person can follow up, instead of leaving the caller hanging. These are staged and ready &mdash; live callers aren&apos;t affected until they&apos;re switched on.
+            <br><br>
+            <strong>VELOCITY &mdash; PAUSED THIS WEEK:</strong> No new Velocity build work today, by direction &mdash; full attention this week is going to getting the Konsier receptionist and onboarding flow ready to launch. Velocity picks back up once that&apos;s proven out on real traffic.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 18<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1433,6 +1439,7 @@ Also found the investor-tag step was writing to the person record in a format th
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 31]</strong> A piece that routes on a multiple-choice field can quietly mishandle every option except the one it explicitly checks for &mdash; this one tested only for &ldquo;keep&rdquo; and funnelled everything else, including a third real option and the case where the field simply hadn&apos;t been filled in yet, straight down the &ldquo;syndicate&rdquo; path, meaning it would have opened a real investor deal off a blank field. Worth confirming a router handles each real value of its input on its own branch, plus an explicit &ldquo;none of these&rdquo; path, rather than splitting the world into one named case and a catch-all.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 31]</strong> The newer version of the CRM&apos;s connection expects custom values wrapped a specific way when writing them back, and a step written against the older style gets silently accepted while the value never actually lands &mdash; the same version difference already caught weeks ago on the reading side, just on the writing side this time. Worth confirming any step that writes a custom value back to a record uses the exact format the connection version in front of it expects, not assuming read-side and write-side behave the same.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 31]</strong> On a piece whose job is to generate a document, a failed AI draft with no failure check doesn&apos;t fail loudly or skip &mdash; it pins a blank document onto the real record, advances that record to the next stage, and posts a &ldquo;draft ready&rdquo; notice, so from the outside the step looks completed. Worth adding an explicit &ldquo;did the draft actually come back&rdquo; check on any step that turns an AI response into something written to a real record.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 1]</strong> A brand built to stay deliberately anonymous can still leak the one name it&apos;s built around through a script&apos;s fallback line, not its main flow &mdash; the founder&apos;s name only showed up in the sentence an AI receptionist falls back to when it can&apos;t answer something, easy to miss if only the primary script gets reviewed. Worth checking every fallback or edge-case line in a customer-facing script for the same leaks the main flow was already checked for, not just the happy path.</div>
   </div>
 
   <!-- Footer -->
@@ -1454,7 +1461,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: August 31, 2026 (Velocity: audited WF-13, the piece that links your pipelines together automatically — a property marked keep opens the construction-project deal, syndicate opens the investor deal plus a deal-room task, and a newly funded investor gets tagged on their person record. Switched on since June but never triggered by real traffic, so it got the same full end-to-end read as every never-fired piece. Found a real routing bug: it only checked for keep and treated everything else, including flip and including a not-yet-set disposition, as syndicate, so it would have opened a real investor deal off a blank field. Fixed it to check each choice explicitly with a proper none-of-these path. Also fixed the investor-tag step writing to the person record in a format the current CRM connection rejects, moved a plain-text credential into the shared vault, added the standard failure-alert safety net, and built in repeat-protection against duplicate triggers. Also audited V-02, the Sources-Sought response generator and the last untouched piece in the Velocity V3 batch: found that a failed AI draft would still pin a blank letter to the real deal and advance it, added a failure check, moved a plain-text credential and a live AI key to the shared vault, and added the standard safety net, retries, input validation, and duplicate-trigger protection. Every workflow in the Velocity build has now had a full audit. Still waiting on the same activation items on your end.)';
+    if (el) el.textContent = 'Last updated: September 1, 2026 (Konsier: audited both AI receptionist scripts — Alex, already live and taking real calls, and the second one still being finalized for the professional-services side. Found the founder\'s name still showing up in both, in the fallback line each one uses when it can\'t answer a caller\'s question, which runs against the deliberately anonymous, brand-first setup this business is built on. Replaced it with a generic team reference on both, and added a real handoff step: it now asks for the caller\'s name and email so a person can follow up, instead of leaving the caller hanging. Staged and ready, not yet switched on. No new Velocity build work this week by direction — full attention is on getting Konsier\'s receptionist and onboarding flow ready to launch.)';
   </script>
 </body>
 </html>
