@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 1</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 2</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,16 +223,28 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 1, 2026</div>
-      <div class="week-badge">Week 18 &middot; Day 94 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 2, 2026</div>
+      <div class="week-badge">Week 18 &middot; Day 95 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 18 &middot; September 1</div>
+      <div class="label">Build Velocity &mdash; Week 18 &middot; September 2</div>
       <div class="message">
+        <strong>KONSIER &mdash; REPLY-TRIAGE PIECE AUDITED, THREE EXPOSED KEYS AND A SILENT DUPLICATE BUG FOUND AND FIXED (KS-WF1):</strong> This is the piece that catches every reply to a Konsier cold outbound email, reads it, sorts it into interested / objection / question / unsubscribe / auto-reply, and routes each one &mdash; the interested ones get a CRM record and a callback, unsubscribes get suppressed. Switched on since May, never once triggered by a real reply.
+        <br><br>
+        Went through it end to end. Found three live service keys sitting in plain text inside the piece &mdash; the AI service, the email platform, and the calling platform &mdash; moved all three into the shared secure vault. Found a real silent bug in the duplicate-check: it was looking up the wrong record, so it could never actually match, which means a repeated or re-sent reply would have created a second duplicate contact, a second deal, and a second outbound call every time, with nothing flagging it. Fixed the lookup so the check works.
+        <br><br>
+        Closed two real gaps in what the piece does with a warm reply. Before, an objection or a question only posted a quick team notification and then stopped &mdash; nothing was written to the CRM, so a missed notification meant a lost lead. Now every objection and question creates a real contact record with the reply saved as a note. And before, if someone who already replied once replied again &mdash; usually a stronger buying signal &mdash; the piece treated it as a duplicate and dropped it silently. Now a repeat reply adds a dated note to their existing record and raises a proper &ldquo;they replied again, follow up&rdquo; alert.
+        <br><br>
+        Rounded out with the standard closeout: the failure-alert safety net wired in, retries added on every outside call, and the piece&apos;s own description brought up to date. Nothing here changes activation &mdash; it still waits on the outbound campaign going live for whichever sector gets picked.
+        <br><br>
+        <strong>KONSIER &mdash; CLIENT ONBOARDING RUNBOOK + THE DEDICATED CUSTOMER BACKEND MAPPED OUT:</strong> Put together the working model for how a new Konsier customer gets set up, checked against how already-scaled AI-receptionist and automation companies actually run this. The onboarding is a 9-step gated sequence &mdash; intake, scope and guardrails, knowledge build, phone and system connections, internal testing, customer sign-off, launch with a tested rollback, support handoff, first-week review &mdash; each step with a clear owner and no promise of a same-day launch. The intake list covers everything needed from the customer up front: business details and hours, services and prices, the call types and the intended outcome for each, escalation triggers, their existing phone number and carrier, their calendar and CRM, and the recording-consent rules for their state.
+        <br><br>
+        Also worked out the dedicated customer backend Drew asked for: one isolated automation instance per customer, all running on a single server Konsier owns and controls, each customer walled off from the others, with the customer only ever seeing their own results dashboard, never the build itself. That is the mechanism that stops a customer from taking the system in-house and dropping the subscription. Wrote all of this up as a reference document &mdash; a plan on paper, not built yet.
+        <br><br>
         <strong>KONSIER &mdash; VOICE RECEPTIONIST SCRIPTS AUDITED, FOUNDER NAME REMOVED (ALEX + GRACE):</strong> Went through both AI receptionist scripts end to end &mdash; Alex, the one already live and taking real calls, and the second one still being finalized for the professional-services side. Found the founder&apos;s name still showing up in both, in the fallback line each one uses when a caller asks something it can&apos;t answer &mdash; that runs against the deliberately anonymous, brand-first setup this business is built on.
         <br><br>
         Replaced it with a generic team reference on both, and added a real handoff step for anything either agent can&apos;t answer on its own: it now asks for the caller&apos;s name and email so a person can follow up, instead of leaving the caller hanging. These are staged and ready &mdash; live callers aren&apos;t affected until they&apos;re switched on.
@@ -546,6 +558,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 1</div>
         <div class="tl-label">Konsier scripts fixed &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 2</div>
+        <div class="tl-label">KS-WF1 fixed &middot; onboarding runbook mapped &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1379,6 +1395,16 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 18<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 2<br><small style="color:#475569">Wednesday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; REPLY-TRIAGE PIECE AUDITED, THREE EXPOSED KEYS AND A SILENT DUPLICATE BUG FOUND AND FIXED (KS-WF1):</strong> This is the piece that catches every reply to a Konsier cold outbound email, reads it, sorts it into interested / objection / question / unsubscribe / auto-reply, and routes each one. Switched on since May, never once triggered by a real reply. Went through it end to end. Found three live service keys in plain text inside it &mdash; the AI service, the email platform, the calling platform &mdash; moved all three to the shared secure vault. Found a real silent bug in the duplicate-check: it was looking up the wrong record so it could never match, meaning a repeated or re-sent reply would have created a second duplicate contact, a second deal, and a second outbound call every time, with nothing flagging it. Fixed the lookup. Then closed two real gaps: an objection or question reply used to only post a team notification and stop, with nothing written to the CRM &mdash; now each one creates a real contact record with the reply saved as a note; and a repeat reply from someone who already replied (usually a stronger signal) used to be dropped silently as a duplicate &mdash; now it adds a dated note to their existing record and raises a proper &ldquo;replied again, follow up&rdquo; alert. Standard closeout added (failure-alert safety net, retries on every outside call). Nothing here changes activation.
+            <br><br>
+            <strong>KONSIER &mdash; CLIENT ONBOARDING RUNBOOK + DEDICATED CUSTOMER BACKEND MAPPED OUT:</strong> Built the working model for how a new Konsier customer gets set up, checked against how already-scaled AI-receptionist and automation companies run this. Onboarding is a 9-step gated sequence &mdash; intake, scope and guardrails, knowledge build, phone and system connections, internal testing, customer sign-off, launch with a tested rollback, support handoff, first-week review &mdash; each step with a clear owner. Defined the full intake list (business details and hours, services and prices, call types and intended outcomes, escalation triggers, existing phone number and carrier, calendar and CRM, state recording-consent rules). Also worked out the dedicated backend Drew asked for: one isolated automation instance per customer on a single server Konsier owns and controls, each customer walled off, customer sees only their own results dashboard and never the build &mdash; the mechanism that stops a customer taking the system in-house. Written up as a reference document, not built yet.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 18<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1453,6 +1479,7 @@ Also found the investor-tag step was writing to the person record in a format th
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 31]</strong> The newer version of the CRM&apos;s connection expects custom values wrapped a specific way when writing them back, and a step written against the older style gets silently accepted while the value never actually lands &mdash; the same version difference already caught weeks ago on the reading side, just on the writing side this time. Worth confirming any step that writes a custom value back to a record uses the exact format the connection version in front of it expects, not assuming read-side and write-side behave the same.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 31]</strong> On a piece whose job is to generate a document, a failed AI draft with no failure check doesn&apos;t fail loudly or skip &mdash; it pins a blank document onto the real record, advances that record to the next stage, and posts a &ldquo;draft ready&rdquo; notice, so from the outside the step looks completed. Worth adding an explicit &ldquo;did the draft actually come back&rdquo; check on any step that turns an AI response into something written to a real record.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 1]</strong> A brand built to stay deliberately anonymous can still leak the one name it&apos;s built around through a script&apos;s fallback line, not its main flow &mdash; the founder&apos;s name only showed up in the sentence an AI receptionist falls back to when it can&apos;t answer something, easy to miss if only the primary script gets reviewed. Worth checking every fallback or edge-case line in a customer-facing script for the same leaks the main flow was already checked for, not just the happy path.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 2]</strong> A duplicate-check can look correct while being completely blind, if it reads the value it searches on from the wrong upstream step &mdash; this one pulled the email address to look up out of a notification step, whose output is the notification&apos;s own send-receipt, not the lead, so it always searched for an empty value and always came back &ldquo;no duplicate.&rdquo; A repeated or re-sent event would have quietly created a second contact, a second deal, and a second outbound call every single time. Worth confirming a dedup check is actually reading the real key it needs from a step that carries it, not just that the check&apos;s own comparison logic is sound.</div>
   </div>
 
   <!-- Footer -->
@@ -1474,7 +1501,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: September 1, 2026 (Konsier: audited both AI receptionist scripts — Alex, already live and taking real calls, and the second one still being finalized for the professional-services side. Found the founder\'s name still showing up in both, in the fallback line each one uses when it can\'t answer a caller\'s question, which runs against the deliberately anonymous, brand-first setup this business is built on. Replaced it with a generic team reference on both, and added a real handoff step: it now asks for the caller\'s name and email so a person can follow up, instead of leaving the caller hanging. Staged and ready, not yet switched on. No new Velocity build work this week by direction — full attention is on getting Konsier\'s receptionist and onboarding flow ready to launch.)';
+    if (el) el.textContent = 'Last updated: September 2, 2026 (Konsier: audited the reply-triage piece, the one that catches and sorts every reply to a cold outbound email. Found three live service keys in plain text and moved them to the shared vault. Found a silent duplicate-check bug: it looked up the wrong record so it could never match, meaning a repeated reply would have created a second contact, deal, and call every time. Fixed the lookup. Also closed two gaps: objection and question replies now create a real CRM record instead of just a notification, and a repeat reply from someone who already replied now adds a note and a proper follow-up alert instead of being dropped as a duplicate. Standard failure-alert net and retries added. Separately, mapped out the full client onboarding runbook (a 9-step gated sequence plus the customer intake list) and the dedicated per-customer backend Drew asked for — one isolated instance per customer on a server Konsier owns and controls — written up as a reference document, not built yet.)';
   </script>
 </body>
 </html>
