@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 2</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 3</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,16 +223,24 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 2, 2026</div>
-      <div class="week-badge">Week 18 &middot; Day 95 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 3, 2026</div>
+      <div class="week-badge">Week 18 &middot; Day 96 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 18 &middot; September 2</div>
+      <div class="label">Build Velocity &mdash; Week 18 &middot; September 3</div>
       <div class="message">
+        <strong>KONSIER &mdash; TIER-ROUTING PIECE AUDITED, SIX FAULTS FOUND AND FIXED (KS-A2):</strong> This is the piece every qualified inbound lead runs through &mdash; it sorts the lead into a plan tier (Starter, Professional, or Enterprise) by expected call volume, moves the deal to the right stage, sets the monthly value on it, and posts a tiered alert to the team. Switched on since May, never once run against a real lead.
+        <br><br>
+        Went through it end to end. All five team-alert steps were missing a required setting and would have failed outright. There was no failure-alert safety net wired in at all. A blank or malformed trigger would have been read as a valid mid-tier lead &mdash; pushing a real deal into the &ldquo;qualified&rdquo; stage, attaching a made-up monthly value, and posting a confident alert, with nothing flagging it. A strict number check could crash the piece before its own safeguards ran. The duplicate-check could crash on a failed lookup. And the trigger left the calling piece hanging with no reply if any step failed.
+        <br><br>
+        Fixed all six. Added a valid-input gate that blocks any CRM change and raises a review alert when the trigger data is bad, a visible note when a manual override skips routing, and a &ldquo;no call-volume data, verify the tier&rdquo; flag on the alert for leads that get defaulted. Fifteen steps to eighteen, clean. Still waiting on real inbound traffic to prove it, same as the rest of the launch pieces. The pipeline-destination question for this piece is still a Drew decision.
+        <br><br>
+        <strong>KONSIER &mdash; ONBOARDING RUNBOOK WRITTEN UP AS A WORKING DOCUMENT:</strong> Took the onboarding model from the day before and turned it into the actual step-by-step runbook the team will follow &mdash; the 9 gated stages each with a named owner, a fill-in tracking sheet to complete per customer (which instance, which phone number, which CRM, the rollback step, the human-transfer contact), and the vertical-specific additions: the medical-privacy note for dental and medical, the no-legal-advice note for legal, estimate-only language for the trades. Also worked out the full tool split &mdash; which accounts and connections the customer provides on their side (their phone number, their CRM, their calendar) versus which ones Konsier owns and runs on its own server and never hands over (the automation backend, the voice-platform account, the CRM that tracks the sales and onboarding pipeline). Still a document, not a build.
+        <br><br>
         <strong>KONSIER &mdash; REPLY-TRIAGE PIECE AUDITED, THREE EXPOSED KEYS AND A SILENT DUPLICATE BUG FOUND AND FIXED (KS-WF1):</strong> This is the piece that catches every reply to a Konsier cold outbound email, reads it, sorts it into interested / objection / question / unsubscribe / auto-reply, and routes each one &mdash; the interested ones get a CRM record and a callback, unsubscribes get suppressed. Switched on since May, never once triggered by a real reply.
         <br><br>
         Went through it end to end. Found three live service keys sitting in plain text inside the piece &mdash; the AI service, the email platform, and the calling platform &mdash; moved all three into the shared secure vault. Found a real silent bug in the duplicate-check: it was looking up the wrong record, so it could never actually match, which means a repeated or re-sent reply would have created a second duplicate contact, a second deal, and a second outbound call every time, with nothing flagging it. Fixed the lookup so the check works.
@@ -562,6 +570,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 2</div>
         <div class="tl-label">KS-WF1 fixed &middot; onboarding runbook mapped &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 3</div>
+        <div class="tl-label">KS-A2 tier routing fixed &middot; onboarding runbook written &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1405,6 +1417,16 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 18<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 3<br><small style="color:#475569">Thursday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; TIER-ROUTING PIECE AUDITED, SIX FAULTS FOUND AND FIXED (KS-A2):</strong> This is the piece every qualified inbound lead runs through &mdash; it sorts the lead into a plan tier (Starter, Professional, Enterprise) by expected call volume, moves the deal to the right stage, sets the monthly value, and posts a tiered team alert. On since May, never run against a real lead. All five alert steps were missing a required setting and would have failed outright. No failure-alert safety net was wired in. A blank or malformed trigger would have been read as a valid mid-tier lead &mdash; pushing a real deal into the &ldquo;qualified&rdquo; stage with a made-up monthly value and a confident alert, nothing flagging it. A strict number check could crash the piece before its own safeguards ran; the duplicate-check could crash on a failed lookup; and the trigger left the calling piece hanging if any step failed. Fixed all six. Added a valid-input gate that blocks any CRM change and raises a review alert on bad trigger data, a visible note when a manual override skips routing, and a &ldquo;no call-volume data, verify the tier&rdquo; flag on defaulted leads. Fifteen steps to eighteen, clean. Still waiting on real inbound traffic. The pipeline-destination question for this piece stays a Drew decision.
+            <br><br>
+            <strong>KONSIER &mdash; ONBOARDING RUNBOOK WRITTEN UP AS A WORKING DOCUMENT:</strong> Turned the onboarding model into the actual step-by-step runbook the team will follow &mdash; the 9 gated stages each with a named owner, a fill-in tracking sheet per customer (which instance, phone number, CRM, the rollback step, the human-transfer contact), and the vertical-specific additions (medical-privacy note for dental and medical, no-legal-advice note for legal, estimate-only language for trades). Also worked out the full tool split: what the customer connects on their side (their phone number, CRM, calendar) versus what Konsier owns and runs on its own server and never hands over (the automation backend, the voice-platform account, the pipeline CRM). Still a document, not a build.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 18<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1420,7 +1442,8 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <!-- Tech Discoveries -->
   <div class="discoveries">
-    <h3>Technical Discoveries (July&ndash;August 2026)</h3>
+    <h3>Technical Discoveries (July&ndash;September 2026)</h3>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 3]</strong> A step that classifies an incoming lead and then writes to the CRM will act on a blank or malformed trigger unless something checks the input first &mdash; here an empty payload would have been read as a valid mid-tier lead, pushed a real deal into the &ldquo;qualified&rdquo; stage, attached a made-up monthly value, and posted a confident alert, all with zero errors anywhere. Worth putting an explicit valid-input gate before anything that both classifies and writes, so a bad trigger stops at a review alert instead of quietly creating real records.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 20]</strong> A cheap duplicate check placed after an expensive AI call instead of before it doesn't just waste money on every repeat, it can also mean whatever that AI call produced gets silently thrown away the moment the duplicate check catches it, since nothing downstream ever runs to use it. Worth checking the actual order of operations on anything that both calls an AI model and has a duplicate-prevention step, cheap checks belong first, not just for cost, but so nothing generated ever goes to waste.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 20]</strong> A duplicate-prevention check that reads before it writes isn't automatically safe against two near-identical copies of the same event arriving close together &mdash; both can pass the check before either one finishes writing, letting the exact thing the safeguard exists to stop through anyway. Worth treating a check-then-act guard as a real but partial protection, not a guarantee, on anything that can realistically arrive twice close together.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[July 28]</strong> Finishing every planned piece of a multi-part build is its own useful checkpoint, separate from whether any of it has actually been proven against real traffic yet &mdash; worth stating both facts side by side rather than letting "fully built" imply "fully tested" when a piece is still waiting on a third-party connection outside my control.</div>
@@ -1501,7 +1524,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: September 2, 2026 (Konsier: audited the reply-triage piece, the one that catches and sorts every reply to a cold outbound email. Found three live service keys in plain text and moved them to the shared vault. Found a silent duplicate-check bug: it looked up the wrong record so it could never match, meaning a repeated reply would have created a second contact, deal, and call every time. Fixed the lookup. Also closed two gaps: objection and question replies now create a real CRM record instead of just a notification, and a repeat reply from someone who already replied now adds a note and a proper follow-up alert instead of being dropped as a duplicate. Standard failure-alert net and retries added. Separately, mapped out the full client onboarding runbook (a 9-step gated sequence plus the customer intake list) and the dedicated per-customer backend Drew asked for — one isolated instance per customer on a server Konsier owns and controls — written up as a reference document, not built yet.)';
+    if (el) el.textContent = 'Last updated: September 3, 2026 (Konsier: audited the tier-routing piece, the one every qualified inbound lead runs through — it sorts the lead into a plan tier by expected call volume, moves the deal to the right stage, sets the monthly value, and posts a tiered alert. On since May, never run against a real lead. Six faults: all five alert steps missing a required setting and would have failed outright; no failure-alert safety net; a blank or malformed trigger would have been read as a valid mid-tier lead and pushed a real deal into the qualified stage with a made-up monthly value; a strict number check could crash it before its own safeguards ran; the duplicate-check could crash on a failed lookup; the trigger left the calling piece hanging on any failure. Fixed all six, added a valid-input gate that stops a bad trigger at a review alert, plus visibility notes for manual overrides and defaulted tiers. Fifteen steps to eighteen, clean, still waiting on real traffic. Separately, wrote the client onboarding model up as the actual working runbook — 9 gated stages each with an owner, a per-customer tracking sheet, the vertical-specific additions, and the full tool split between what the customer connects and what Konsier owns and runs.)';
   </script>
 </body>
 </html>
