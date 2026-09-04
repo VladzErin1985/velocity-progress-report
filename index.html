@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 3</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 4</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,16 +223,22 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 3, 2026</div>
-      <div class="week-badge">Week 18 &middot; Day 96 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 4, 2026</div>
+      <div class="week-badge">Week 18 &middot; Day 97 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 18 &middot; September 3</div>
+      <div class="label">Build Velocity &mdash; Week 18 &middot; September 4</div>
       <div class="message">
+        <strong>KONSIER &mdash; OUTBOUND LEAD PIPELINE AUDITED, A SILENT DATA-LOSS BUG FOUND AND FIXED (KS-WF6):</strong> This is the piece that pulls fresh prospects every morning across the target industries, scores each one against the ideal customer profile, checks the running contact log so nobody gets contacted twice, has the AI write a short personalized opening line per contact, and hands the qualified ones to the outbound sending platform. Never switched on &mdash; outbound sending itself is still on hold.
+        <br><br>
+        Went through it end to end. The AI writes opening lines in batches of fifty contacts at a time, but the step reading its output back was only ever looking at the very first batch &mdash; on any day busy enough to produce more than one batch, every batch after the first would have been silently thrown away, with nothing anywhere flagging it. The daily summary alert was also missing a required setting and would have failed outright, the same class of issue already fixed on several other pieces this week. Fixed both.
+        <br><br>
+        Went back through it a second time against outside research specific to this exact build, not just the general checklist. The prospect-sourcing step was set to pull and pay to enrich contacts across all five target industries every single day, but only one of those five currently has a live sending campaign to hand off to &mdash; the other four have nowhere to go yet. As built, that meant real per-contact cost every day for contacts that couldn&apos;t be sent regardless. Gated the sourcing step so it only pulls and enriches the one industry that&apos;s actually ready, and added retry protection across all six outside calls this piece makes, so one bad response from the sourcing service doesn&apos;t take the whole day&apos;s run down with it. Re-validated clean after each change. Still fully unproven against real traffic, and nothing here changes when outbound sending itself switches on &mdash; that stays a Drew call.
+        <br><br>
         <strong>KONSIER &mdash; TIER-ROUTING PIECE AUDITED, SIX FAULTS FOUND AND FIXED (KS-A2):</strong> This is the piece every qualified inbound lead runs through &mdash; it sorts the lead into a plan tier (Starter, Professional, or Enterprise) by expected call volume, moves the deal to the right stage, sets the monthly value on it, and posts a tiered alert to the team. Switched on since May, never once run against a real lead.
         <br><br>
         Went through it end to end. All five team-alert steps were missing a required setting and would have failed outright. There was no failure-alert safety net wired in at all. A blank or malformed trigger would have been read as a valid mid-tier lead &mdash; pushing a real deal into the &ldquo;qualified&rdquo; stage, attaching a made-up monthly value, and posting a confident alert, with nothing flagging it. A strict number check could crash the piece before its own safeguards ran. The duplicate-check could crash on a failed lookup. And the trigger left the calling piece hanging with no reply if any step failed.
@@ -574,6 +580,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 3</div>
         <div class="tl-label">KS-A2 tier routing fixed &middot; onboarding runbook written &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 4</div>
+        <div class="tl-label">KS-WF6 outbound pipeline audited + gated &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1427,6 +1437,20 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 18<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 4<br><small style="color:#475569">Friday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; OUTBOUND LEAD PIPELINE AUDITED, A SILENT DATA-LOSS BUG FOUND AND FIXED (KS-WF6):</strong> This is the piece that runs every morning across the target industries &mdash; pulls a fresh batch of prospects, scores each one against the ideal customer profile, checks the running contact log so nobody gets contacted twice, has the AI write a short personalized opening line for each qualified contact, logs everything, and hands the finished batch to the outbound sending platform. Built, but never switched on &mdash; outbound sending itself is still on hold, so this has never once run against real prospects.
+            <br><br>
+            Went through it end to end. The AI writes opening lines in batches of fifty contacts at a time &mdash; on a normal day that can mean several separate batches. The step immediately after it, the one that turns the AI&apos;s replies back into sendable leads, was built to run once across everything but was actually only ever reading the very first batch it received, every time. On any day busy enough to produce more than one batch, every batch after the first would have been silently thrown away before ever reaching the sending platform or the contact log &mdash; no error, no alert, nothing anywhere to show it happened. Separately, the daily summary alert that&apos;s supposed to report how many leads went out each day was missing a required setting and would have failed outright every single time it tried to fire. Fixed both: the batch-reading step now works through every batch it receives instead of just the first, and the summary alert now has the setting it needs.
+            <br><br>
+            <strong>KONSIER &mdash; OUTBOUND PIPELINE GATED TO THE ONE READY INDUSTRY, RETRY PROTECTION ADDED:</strong> Went back through the same piece a second time, this time checked against outside research written specifically for this exact build rather than just the general audit checklist. That surfaced something the first pass didn&apos;t catch: the prospect-sourcing step pulls and pays to enrich contacts across all five target industries every single day, but only one of those five currently has a live sending campaign to hand off to &mdash; the other four have nowhere to go yet. As built, that meant real per-contact enrichment cost, roughly a hundred contacts&apos; worth a day, spent every morning on industries that couldn&apos;t be sent to regardless.
+            <br><br>
+            Gated the sourcing step so it only pulls and enriches the one industry that&apos;s actually ready, and added retry protection to all six outside calls this piece makes &mdash; the five per-industry searches plus the contact-detail lookup that follows them &mdash; so one bad response from the sourcing service doesn&apos;t take the whole day&apos;s run down with it. Re-validated clean after each change, zero errors both times. Nothing here changes when outbound sending itself switches on &mdash; that stays a Drew call, and the gate comes off once the remaining campaigns are live, not just off standby.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 18<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1443,6 +1467,7 @@ Also found the investor-tag step was writing to the person record in a format th
   <!-- Tech Discoveries -->
   <div class="discoveries">
     <h3>Technical Discoveries (July&ndash;September 2026)</h3>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 4]</strong> A step built to run once per batch can still end up only ever looking at its very first result if the step reading its output back treats everything as one single pass &mdash; on a piece that splits its AI calls into batches of fifty, that meant every batch after the first would have been silently thrown away on any day busy enough to need more than one, with nothing anywhere flagging it. Worth checking that a step reading another step's batched output is actually built to loop through every batch, not just grab the first one, whenever the step upstream can realistically produce more than a single result.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 3]</strong> A step that classifies an incoming lead and then writes to the CRM will act on a blank or malformed trigger unless something checks the input first &mdash; here an empty payload would have been read as a valid mid-tier lead, pushed a real deal into the &ldquo;qualified&rdquo; stage, attached a made-up monthly value, and posted a confident alert, all with zero errors anywhere. Worth putting an explicit valid-input gate before anything that both classifies and writes, so a bad trigger stops at a review alert instead of quietly creating real records.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 20]</strong> A cheap duplicate check placed after an expensive AI call instead of before it doesn't just waste money on every repeat, it can also mean whatever that AI call produced gets silently thrown away the moment the duplicate check catches it, since nothing downstream ever runs to use it. Worth checking the actual order of operations on anything that both calls an AI model and has a duplicate-prevention step, cheap checks belong first, not just for cost, but so nothing generated ever goes to waste.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 20]</strong> A duplicate-prevention check that reads before it writes isn't automatically safe against two near-identical copies of the same event arriving close together &mdash; both can pass the check before either one finishes writing, letting the exact thing the safeguard exists to stop through anyway. Worth treating a check-then-act guard as a real but partial protection, not a guarantee, on anything that can realistically arrive twice close together.</div>
@@ -1524,7 +1549,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: September 3, 2026 (Konsier: audited the tier-routing piece, the one every qualified inbound lead runs through — it sorts the lead into a plan tier by expected call volume, moves the deal to the right stage, sets the monthly value, and posts a tiered alert. On since May, never run against a real lead. Six faults: all five alert steps missing a required setting and would have failed outright; no failure-alert safety net; a blank or malformed trigger would have been read as a valid mid-tier lead and pushed a real deal into the qualified stage with a made-up monthly value; a strict number check could crash it before its own safeguards ran; the duplicate-check could crash on a failed lookup; the trigger left the calling piece hanging on any failure. Fixed all six, added a valid-input gate that stops a bad trigger at a review alert, plus visibility notes for manual overrides and defaulted tiers. Fifteen steps to eighteen, clean, still waiting on real traffic. Separately, wrote the client onboarding model up as the actual working runbook — 9 gated stages each with an owner, a per-customer tracking sheet, the vertical-specific additions, and the full tool split between what the customer connects and what Konsier owns and runs.)';
+    if (el) el.textContent = 'Last updated: September 4, 2026 (Konsier: audited the outbound lead pipeline, the piece that pulls fresh prospects every morning, scores them, dedupes against the contact log, has the AI write a personalized opening line per contact, and hands qualified leads to the outbound sending platform. Never switched on — outbound sending itself is still on hold. Found the step reading the AI\'s batched output was only ever looking at the first batch, silently dropping every batch after that on any busy day, and the daily summary alert was missing a required setting and would have failed outright. Fixed both. Went back through it a second time against outside research specific to this build and found the sourcing step was paying to enrich contacts across all five target industries every day, even though only one currently has a live sending campaign to hand off to. Gated sourcing to the one ready industry and added retry protection across all six outside calls this piece makes. Re-validated clean after each change, still fully unproven against real traffic.)';
   </script>
 </body>
 </html>
