@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 4</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 7</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,16 +223,22 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 4, 2026</div>
-      <div class="week-badge">Week 18 &middot; Day 97 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 7, 2026</div>
+      <div class="week-badge">Week 19 &middot; Day 98 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 18 &middot; September 4</div>
+      <div class="label">Build Velocity &mdash; Week 19 &middot; September 7</div>
       <div class="message">
+        <strong>KONSIER &mdash; CALENDAR-TO-CRM PIECE AUDITED FOR THE FIRST TIME, TWELVE BROKEN ALERTS AND FOUR SILENT-FAILURE PATHS FOUND AND FIXED (KS-WF-CAL):</strong> This is the piece that ties the booking calendar to the CRM &mdash; a booked demo moves the deal to the &ldquo;demo booked&rdquo; stage, and an existing customer booking a kickoff, check-in, or 30-day review call gets a dated note on their record plus a team alert. Built in May, never switched on, never run against a real booking.
+        <br><br>
+        Went through all forty-plus steps one at a time. All twelve team-alert steps were missing a required setting and would have failed outright the moment they fired &mdash; the same class of issue already fixed across roughly fifteen other pieces. No failure-alert safety net was wired in at all. The customer-call side pulled only &ldquo;open&rdquo; deals, but a signed customer&apos;s deal is normally marked won, so every kickoff, check-in, and review booking would have found nothing and logged nothing &mdash; the whole customer-lifecycle-note feature was silently dead. The demo side would crash on any existing contact who booked without an open deal. And the router that sorts bookings by type silently dropped anything whose calendar event name didn&apos;t exactly match one of four expected labels.
+        <br><br>
+        Fixed all of it &mdash; the twelve alerts, the safety net, the won-deal lookup, a review alert instead of a crash on the demo side, an &ldquo;unrecognized booking&rdquo; alert instead of a silent drop, and a stop-and-alert instead of a blank CRM contact when a booking arrives with no email address. Forty-four steps to fifty, re-validated clean after every change. Still unproven against real traffic. Four items need a Drew decision before this can go live: the exact calendar event-type names, whether customer deals stay open or get marked won, whether a demo booking with no existing deal should create one, and where the &ldquo;demo completed&rdquo; step lives.
+        <br><br>
         <strong>KONSIER &mdash; OUTBOUND LEAD PIPELINE AUDITED, A SILENT DATA-LOSS BUG FOUND AND FIXED (KS-WF6):</strong> This is the piece that pulls fresh prospects every morning across the target industries, scores each one against the ideal customer profile, checks the running contact log so nobody gets contacted twice, has the AI write a short personalized opening line per contact, and hands the qualified ones to the outbound sending platform. Never switched on &mdash; outbound sending itself is still on hold.
         <br><br>
         Went through it end to end. The AI writes opening lines in batches of fifty contacts at a time, but the step reading its output back was only ever looking at the very first batch &mdash; on any day busy enough to produce more than one batch, every batch after the first would have been silently thrown away, with nothing anywhere flagging it. The daily summary alert was also missing a required setting and would have failed outright, the same class of issue already fixed on several other pieces this week. Fixed both.
@@ -265,7 +271,7 @@
         <br><br>
         <strong>VELOCITY &mdash; PAUSED THIS WEEK:</strong> No new Velocity build work today, by direction &mdash; full attention this week is going to getting the Konsier receptionist and onboarding flow ready to launch. Velocity picks back up once that&apos;s proven out on real traffic.
         <br><br>
-        <span class="warn"> Blocked: <strong>SAM.gov API key (WF-01, currently a placeholder &mdash; blocking the entire GovCon lead pipeline)</strong> &middot; Calendly Zoom location + Fathom/Fireflies decision (Drew decision, message sent Aug 12) &middot; KS-A2 tier-routing pipeline destination confirmation (Drew decision) &middot; Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Vimeo &middot; QBO OAuth (Drew must complete) &middot; new receptionist agent voice + name confirmation &middot; reactivation text-message sending tool decision &middot; education platform decision + running-total-vs-delta confirmation (PD-WF-08) &middot; ScoreApp&sol;Skool account connection (WF-09) &middot; HIPAA compliance gate confirmation for the payment workflow &middot; construction-management milestone connection (WF-08) &middot; confirm onboarding stage for completed properties (WF-08) &middot; Zoom&sol;eWebinar + Parallel Markets connections + deck-delivery email tool decision (WF-10) &middot; investor-type document-tool routing rule + attorney-clearance process setup (WF-11) &middot; reactivation campaign gate activation + signed-attestation record-keeping (KS-WF21, Drew decision).</span>
+        <span class="warn"> Blocked: <strong>SAM.gov API key (WF-01, currently a placeholder &mdash; blocking the entire GovCon lead pipeline)</strong> &middot; Calendly Zoom location + Fathom/Fireflies decision (Drew decision, message sent Aug 12) &middot; KS-WF-CAL: calendar event-type names + customer-deal open-vs-won + demo-booking deal-creation rule + demo-completed step location (Drew decisions) &middot; KS-A2 tier-routing pipeline destination confirmation (Drew decision) &middot; Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Vimeo &middot; QBO OAuth (Drew must complete) &middot; new receptionist agent voice + name confirmation &middot; reactivation text-message sending tool decision &middot; education platform decision + running-total-vs-delta confirmation (PD-WF-08) &middot; ScoreApp&sol;Skool account connection (WF-09) &middot; HIPAA compliance gate confirmation for the payment workflow &middot; construction-management milestone connection (WF-08) &middot; confirm onboarding stage for completed properties (WF-08) &middot; Zoom&sol;eWebinar + Parallel Markets connections + deck-delivery email tool decision (WF-10) &middot; investor-type document-tool routing rule + attorney-clearance process setup (WF-11) &middot; reactivation campaign gate activation + signed-attestation record-keeping (KS-WF21, Drew decision).</span>
       </div>
     </div>
     <div class="timeline">
@@ -584,6 +590,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 4</div>
         <div class="tl-label">KS-WF6 outbound pipeline audited + gated &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 7</div>
+        <div class="tl-label">KS-WF-CAL calendar&rarr;CRM audited + hardened &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1451,6 +1461,18 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 18<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 7<br><small style="color:#475569">Monday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; CALENDAR-TO-CRM PIECE AUDITED FOR THE FIRST TIME, TWELVE BROKEN NOTIFICATIONS AND FOUR SILENT-FAILURE PATHS FOUND AND FIXED (KS-WF-CAL):</strong> This is the piece that connects the booking calendar to the CRM. When a prospect books a demo it moves their deal to the &ldquo;demo booked&rdquo; stage; when an existing customer books a kickoff, a check-in, or a 30-day review call it logs a dated note on that customer&apos;s record and posts a team alert. Built back in May, never switched on, so it has never once run against a real booking.
+            <br><br>
+            Went through all forty-plus steps one at a time. Every one of the twelve team-notification steps was missing a required setting and would have failed outright the moment it fired &mdash; the same class of issue already fixed across roughly fifteen other pieces. There was no failure-alert safety net wired in at all. The customer-call side pulled only &ldquo;open&rdquo; deals, but a signed customer&apos;s deal is normally marked won, so every kickoff, check-in, and review booking would have reported &ldquo;deal not found&rdquo; and logged nothing &mdash; the whole customer-lifecycle-note feature was silently dead. The demo side would crash outright on any existing contact who booked without an open deal. And the router that sorts bookings by type would silently drop any booking whose calendar event name didn&apos;t exactly match one of four expected labels.
+            <br><br>
+            Fixed all of it. The twelve notifications now have the setting they need; the failure-alert safety net is wired in; the customer-call lookup now sees won deals; the demo side now routes a no-deal booking to a review alert instead of crashing; the type router now sends anything unrecognized to a &ldquo;check this booking&rdquo; alert instead of dropping it; and a booking that arrives with no email address now stops at an alert instead of creating a blank CRM contact. Forty-four steps to fifty, re-validated clean after every change. Still unproven against real traffic. Four items need a Drew decision before this can go live &mdash; the exact calendar event-type names, whether customer deals stay open or get marked won, whether a demo booking with no existing deal should create one, and whether the &ldquo;demo completed&rdquo; step lives here or elsewhere.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 19<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1467,6 +1489,7 @@ Also found the investor-tag step was writing to the person record in a format th
   <!-- Tech Discoveries -->
   <div class="discoveries">
     <h3>Technical Discoveries (July&ndash;September 2026)</h3>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 7]</strong> A lookup that filters for only &ldquo;open&rdquo; records will quietly return nothing once the record it&apos;s looking for has been marked won or closed &mdash; here a piece meant to log notes on active customers was filtering for open deals only, but a signed customer&apos;s deal is normally marked won, so every run found nothing and logged nothing, with a &ldquo;not found&rdquo; alert as the only trace. Worth checking that a status filter on a lookup actually matches the real state of the records it needs to find, especially when the thing being looked up has moved past the stage where it was still open.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 4]</strong> A step built to run once per batch can still end up only ever looking at its very first result if the step reading its output back treats everything as one single pass &mdash; on a piece that splits its AI calls into batches of fifty, that meant every batch after the first would have been silently thrown away on any day busy enough to need more than one, with nothing anywhere flagging it. Worth checking that a step reading another step's batched output is actually built to loop through every batch, not just grab the first one, whenever the step upstream can realistically produce more than a single result.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 3]</strong> A step that classifies an incoming lead and then writes to the CRM will act on a blank or malformed trigger unless something checks the input first &mdash; here an empty payload would have been read as a valid mid-tier lead, pushed a real deal into the &ldquo;qualified&rdquo; stage, attached a made-up monthly value, and posted a confident alert, all with zero errors anywhere. Worth putting an explicit valid-input gate before anything that both classifies and writes, so a bad trigger stops at a review alert instead of quietly creating real records.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[August 20]</strong> A cheap duplicate check placed after an expensive AI call instead of before it doesn't just waste money on every repeat, it can also mean whatever that AI call produced gets silently thrown away the moment the duplicate check catches it, since nothing downstream ever runs to use it. Worth checking the actual order of operations on anything that both calls an AI model and has a duplicate-prevention step, cheap checks belong first, not just for cost, but so nothing generated ever goes to waste.</div>
@@ -1549,7 +1572,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: September 4, 2026 (Konsier: audited the outbound lead pipeline, the piece that pulls fresh prospects every morning, scores them, dedupes against the contact log, has the AI write a personalized opening line per contact, and hands qualified leads to the outbound sending platform. Never switched on — outbound sending itself is still on hold. Found the step reading the AI\'s batched output was only ever looking at the first batch, silently dropping every batch after that on any busy day, and the daily summary alert was missing a required setting and would have failed outright. Fixed both. Went back through it a second time against outside research specific to this build and found the sourcing step was paying to enrich contacts across all five target industries every day, even though only one currently has a live sending campaign to hand off to. Gated sourcing to the one ready industry and added retry protection across all six outside calls this piece makes. Re-validated clean after each change, still fully unproven against real traffic.)';
+    if (el) el.textContent = 'Last updated: September 7, 2026 (Konsier: first full audit of the calendar-to-CRM piece, which moves a deal to the demo-booked stage when a prospect books a demo and logs a dated note plus a team alert when an existing customer books a kickoff, check-in, or 30-day review call. Built in May, never switched on, never run against a real booking. All twelve team-alert steps were missing a required setting and would have failed outright; no failure-alert safety net was wired in; the customer-call lookup pulled only open deals, but a signed customer\'s deal is normally marked won, so every kickoff, check-in, and review booking would have found nothing and logged nothing; the demo side would crash on an existing contact with no open deal; and the type router silently dropped any booking whose event name didn\'t exactly match one of four labels. Fixed all of it and added an unrecognized-booking alert and a no-email stop. Forty-four steps to fifty, re-validated clean after every change, still unproven against real traffic. Four items await a Drew decision before go-live.)';
   </script>
 </body>
 </html>
