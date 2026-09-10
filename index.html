@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 9</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 10</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,27 +223,21 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 9, 2026</div>
-      <div class="week-badge">Week 19 &middot; Day 100 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 10, 2026</div>
+      <div class="week-badge">Week 19 &middot; Day 101 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 19 &middot; September 9</div>
+      <div class="label">Build Velocity &mdash; Week 19 &middot; September 10</div>
       <div class="message">
-        <strong>KONSIER &mdash; ONBOARDING-DRAFT PIECE AUDITED FOR THE FIRST TIME, ITS ENTIRE ALERT LAYER FOUND BROKEN AND TWO KEYS IN PLAIN TEXT, ALL FIXED (KS-A6):</strong> This is the piece that turns a new customer&apos;s intake form into a first draft of their AI receptionist setup &mdash; the agent script, the FAQ answers, the booking rules &mdash; and files it in the onboarding workspace for the fulfilment lead to review before anything goes live. Switched on since May, never once run against a real intake.
+        <strong>KONSIER &mdash; BUILT A SECURITY GATEWAY IN FRONT OF THE PAYMENT-TO-ONBOARDING PIECE (KS-WF4):</strong> The piece that runs when a customer pays moves the deal to won, sets the billing cadence, creates the onboarding checklist, and posts the team alert. It is triggered by a message the payment provider sends to a web address, and until today that address was open: anything delivered to it was trusted and acted on, so a fake &ldquo;payment completed&rdquo; message from anyone who knew the address would have moved a real deal, created an onboarding record, and posted the alert. The work today was to put a gateway in front of that piece that every payment message has to clear before any of the downstream work runs.
         <br><br>
-        Went through all thirteen steps one at a time. All three team-alert steps were missing a required setting and would have failed the moment they fired, which meant a draft could get filed with nobody told to review it, and a failed draft would have alerted no one at all. The AI-service key and the notes-workspace key were both sitting in plain text inside the piece; moved both into the shared secure vault. No failure-alert safety net was wired in. And the step that reads the AI&apos;s response back would crash outright on a connection error instead of routing it to the &ldquo;draft failed&rdquo; alert the piece already has. Fixed all of it, added retry protection, re-validated clean.
+        The gateway does four things. It confirms the message genuinely came from the payment provider and was not altered on the way in, using a shared secret only the two sides hold. It refuses anything that is not the exact event expected or is in the wrong mode, and refuses a genuine message that was captured and replayed later. It checks the message carries the customer details the rest of the chain needs. And it keeps a memory of every payment already handled, so a repeated delivery, which the provider does send from time to time, stops at the gateway instead of creating a second onboarding record, a second alert, and a second deal move. The internal alerting is rate limited too, so a burst of junk to that address cannot become a burst of internal alerts.
         <br><br>
-        A few items still want a look: the draft&apos;s most important part, the agent script itself, gets cut off at the notes-workspace&apos;s length limit so the reviewer sees a truncated version; the AI model named in the step may be an old version worth confirming; and a malformed intake with missing fields currently produces a nonsense draft rather than being turned away. Good bones otherwise &mdash; it already had a duplicate-check and a dedicated draft-failure alert.
-        <br><br>
-        <strong>KONSIER &mdash; PAYMENT-TO-ONBOARDING PIECE AUDITED FOR THE FIRST TIME, A BROKEN ALERT AND A CRM CALL THAT WOULD HAVE FAILED ON THE FIRST REAL PAYMENT FOUND AND FIXED (KS-WF4):</strong> This is the piece that runs when a customer pays &mdash; a completed Stripe checkout moves the deal to the &ldquo;won, onboarding&rdquo; stage, sets the billing cadence, creates the onboarding checklist page, and posts a team alert. Switched on since May, but never once run against a real payment (Konsier has no paying customers yet).
-        <br><br>
-        Went through all fourteen steps one at a time. The team-alert step was missing a required setting and would have failed outright the moment it fired, and because it sits in the middle of the chain, that failure would have stopped the onboarding checklist page from ever being created. The step that moves the deal was still calling an older version of the CRM&apos;s interface that this account rejects with a server error &mdash; the same fault already caught and fixed on the dunning piece back in July &mdash; so the first real payment would have moved nothing. Fixed both: brought the deal-move onto the current interface the way every other piece already uses it, and gave the alert step the setting it needs. No failure-alert safety net was wired in either; added it, plus retry protection on all three outside calls.
-        <br><br>
-        Still unproven against a real payment. The end-to-end test is a card checkout I run myself in test mode, and switching on the payment webhook&apos;s signature check is part of that same test since the sandbox signing key is already on hand. Two smaller items are left on my side: a guard against the same payment being processed twice, and an alert for a payment that arrives with no deal reference and can&apos;t be matched by email, which right now drops silently instead of raising a &ldquo;handle this one by hand&rdquo; notice.
+        Also fixed a quieter gap behind the gateway: a payment that cannot be matched to a deal used to stop with no trace, and now raises a clear &ldquo;handle this one by hand&rdquo; notice. Separately, verified the webhook against the payment provider&apos;s own account rather than the stale internal notes (correctly wired, nothing to change; no live-payment webhook yet, expected in test mode), and re-checked yesterday&apos;s deal-move change against the one payment-side piece already proven end to end, which it matches. The one open item is the end-to-end test I run myself with a test card, which confirms the gateway lets a genuine payment through and settles which signing key belongs to the webhook. Until that runs the gateway refuses messages by design, which is the safe state while there is no real payment traffic.
         <br><br>
         <strong>VELOCITY &mdash; PAUSED THIS WEEK:</strong> No new Velocity build work today, by direction &mdash; full attention this week is going to getting the Konsier receptionist and onboarding flow ready to launch. Velocity picks back up once that&apos;s proven out on real traffic.
         <br><br>
@@ -578,6 +572,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 9</div>
         <div class="tl-label">KS-WF4 + KS-A6 payment &sol; onboarding pieces hardened &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 10</div>
+        <div class="tl-label">KS-WF4 security gateway built in front of the payment piece &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1493,6 +1491,26 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 19<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 10<br><small style="color:#475569">Thursday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; BUILT A SECURITY GATEWAY IN FRONT OF THE PAYMENT-TO-ONBOARDING PIECE (KS-WF4):</strong> This is the piece that runs when a customer pays. On a completed checkout it moves the deal to won, sets the billing cadence, creates the onboarding checklist, and posts the team alert. It is triggered by a message the payment provider sends to a web address, and that address was open: anything delivered to it was trusted and acted on, so a fake &ldquo;payment completed&rdquo; message from anyone who knew the address would have moved a real deal, created an onboarding record, and posted the alert. Yesterday&apos;s audit flagged this. The work today was to build a gateway in front of the piece that every payment message has to clear before any of the downstream work runs.
+            <br><br>
+            First check in the gateway: it confirms every incoming message genuinely came from the payment provider and was not altered on the way in. It works off a shared secret only the provider and this piece hold, so a message not signed with that secret is refused. A short time window sits on top of it, so a real message captured and replayed later is refused as well.
+            <br><br>
+            Second: it confirms the message is exactly the event this piece is meant to handle and is in the right mode, and confirms it carries the customer email and amount the rest of the chain needs. Anything malformed or off-target is turned away here rather than part-way down the chain.
+            <br><br>
+            Third: it keeps a short memory of every payment already processed. A repeated delivery of the same payment, which the provider does send from time to time, now stops at the gateway instead of creating a second onboarding record, a second alert, and a second deal move. The internal alerting is rate limited as well, so a burst of junk sent to that address cannot turn into a burst of internal alerts.
+            <br><br>
+            Also fixed a quieter gap behind the gateway: a payment that arrives with no reference to a deal and no email match used to stop with no trace. It now raises a clear &ldquo;this one needs to be handled by hand&rdquo; notice so nobody who paid is left un-onboarded without anyone knowing.
+            <br><br>
+            Alongside the build work, verified the webhook against the payment provider&apos;s own account rather than the stale internal notes: correctly wired, right address, switched on, listening for the right event, nothing to remove or repoint; live payments have no webhook yet, expected in test mode. And re-checked yesterday&apos;s deal-move change against the one payment-side piece already proven end to end against a real event; they match on every part that mattered, so that change stays.
+            <br><br>
+            One open item stays on my side: the end-to-end test I run myself with a test card. It confirms the gateway lets a genuine payment through and settles which signing key belongs to the webhook. Until it runs, the gateway refuses messages by design, which is the safe state while there is no real payment traffic.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 19<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1509,6 +1527,8 @@ Also found the investor-tag step was writing to the person record in a format th
   <!-- Tech Discoveries -->
   <div class="discoveries">
     <h3>Technical Discoveries (July&ndash;September 2026)</h3>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 10]</strong> A web address that an outside service posts to is a door into the system, and if nothing checks who is knocking, anyone who learns the address can act as that service. Here the address that receives payment notifications trusted whatever it was sent, so a fake &ldquo;payment completed&rdquo; message would have moved a real deal, created an onboarding record, and posted a team alert. The answer is a gateway every message clears before the real work runs: confirm the message is signed with a secret only the real service holds, refuse anything that is not the exact expected event or is stale, and keep a memory of what has already been handled so a repeat delivery cannot be processed twice. Worth putting the same gateway in front of every address another service posts to, not only the payment one.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 10]</strong> A third-party integration your own notes describe as pointed at one address, with one key, can already be correctly wired at the provider under different values entirely &mdash; here the internal record listed an old webhook address and an old signing key, and checking the payment provider&apos;s account directly showed a single live endpoint at exactly the right address, switched on, listening for the right event. The note was just stale. Worth verifying a third-party connection against the provider&apos;s own account before assuming it needs setting up, especially when the internal note about it is more than a couple of months old.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 9]</strong> A workflow can have a dedicated &ldquo;the AI call failed&rdquo; alert branch built right into it and still never reach that branch, if the step feeding it crashes on the exact failure it was meant to catch &mdash; here the parser read a nested field of the AI response directly, so a connection error threw at that step before the failure-check one node downstream ever ran, and the alert built for this case never fired. Worth making any step that classifies a result tolerant of the result being missing entirely, not just malformed, so the handling built for a failure can actually be reached.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 9]</strong> A piece that has never run once can&apos;t have surfaced its own faults &mdash; here the deal-move step was calling a version of the CRM&apos;s interface that this specific account rejects with a server error, and it sat unnoticed for four months only because no real payment ever triggered it. Worth treating &ldquo;never executed&rdquo; as &ldquo;every failure mode still latent,&rdquo; and cross-checking a never-run piece against faults already found and fixed on its siblings, rather than trusting that a clean structural check means it will work first time.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 8]</strong> When one automation hands a record to another, any fact it passes along as a fixed value &mdash; here a label naming which CRM pipeline a lead sits in &mdash; is a place the two can quietly fall out of sync: each piece was internally correct, but the handoff value named the wrong pipeline, and only a not-qualified lead exposed it by landing in the wrong pipeline&apos;s &ldquo;lost&rdquo; stage. Worth checking that any hardcoded identifier passed between two workflows still matches what the receiving side will do with it, not just that each side looks right on its own.</div>
@@ -1548,7 +1568,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: September 9, 2026 (Konsier: first full audits of two never-run pieces. Payment-to-onboarding (KS-WF4, 14 steps): the team-alert step was missing a required setting and would have failed mid-chain, stopping the onboarding checklist page from being created; the deal-move step was calling an older version of the CRM interface this account rejects with a server error, the same fault fixed on the dunning piece in July, so the first real payment would have moved nothing. Fixed both, wired in the missing failure-alert net, added retry, re-validated clean. End-to-end test is a test-mode card checkout I run myself. Onboarding-draft (KS-A6, 13 steps): all three team-alert steps were missing the same required setting, the AI-service and notes-workspace keys were in plain text, there was no failure-alert net, and the step that reads the AI response back would crash on a connection error instead of routing to the draft-failed alert it already has. Fixed all of it, keys into the shared vault, retry added, re-validated clean. Left on my side for KS-WF4: switching on the payment webhook signature check as part of the test-mode checkout (sandbox key in hand), a duplicate-payment guard, and an unmatched-payment alert. Open for Drew: KS-A6 truncates the agent-script draft at the notes-workspace length limit and needs the AI model version confirmed.)';
+    if (el) el.textContent = 'Last updated: September 10, 2026 (Konsier: built a security gateway in front of the payment-to-onboarding piece (KS-WF4) that every payment message has to clear before any downstream work runs. The gateway confirms the message is signed by the payment provider and unaltered (plus a time window against replays), refuses anything that is not the expected event in the right mode, checks it carries the fields the chain needs, and remembers payments already handled so a repeat delivery cannot double-process; the internal alerting is rate limited, and the silent no-match path now raises a clear handle-by-hand notice. Also verified the webhook against the payment provider account directly (correctly wired, nothing to change) and re-checked yesterday\'s deal-move change against the one payment-side piece proven end to end, which it matches. One open item: the test-card checkout I run myself, which confirms the gateway lets a genuine payment through and settles which signing key belongs to the webhook; until then the gateway refuses messages by design, the safe state with no real payment traffic. Prior day (KS-WF4 + KS-A6): first full audits, broken team-alert steps and plain-text keys fixed, failure-alert net wired, deal-move migrated to the current CRM interface, retry added, all re-validated clean.)';
   </script>
 </body>
 </html>
