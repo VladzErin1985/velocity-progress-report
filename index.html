@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 10</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 11</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,21 +223,23 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 10, 2026</div>
-      <div class="week-badge">Week 19 &middot; Day 101 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 11, 2026</div>
+      <div class="week-badge">Week 19 &middot; Day 102 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 19 &middot; September 10</div>
+      <div class="label">Build Velocity &mdash; Week 19 &middot; September 11</div>
       <div class="message">
-        <strong>KONSIER &mdash; BUILT A SECURITY GATEWAY IN FRONT OF THE PAYMENT-TO-ONBOARDING PIECE (KS-WF4):</strong> The piece that runs when a customer pays moves the deal to won, sets the billing cadence, creates the onboarding checklist, and posts the team alert. It is triggered by a message the payment provider sends to a web address, and until today that address was open: anything delivered to it was trusted and acted on, so a fake &ldquo;payment completed&rdquo; message from anyone who knew the address would have moved a real deal, created an onboarding record, and posted the alert. The work today was to put a gateway in front of that piece that every payment message has to clear before any of the downstream work runs.
+        <strong>KONSIER &mdash; AUDITED THE CENTRAL EVENT DISPATCHER, FOUND A DEAL-MOVE STEP THAT WOULD HAVE FAILED ON ITS FIRST REAL RUN (KS-PD-EVENTS):</strong> This is the piece every other piece leans on. The CRM sends a message every time a deal changes, a stage moves, a call transcript comes in, and this piece is the one thing that receives all of it and hands each event to whichever piece is supposed to act on it. Every downstream piece in the whole system depends on this one working. It had not been looked at since early July, longer than anything else in the build.
         <br><br>
-        The gateway does four things. It confirms the message genuinely came from the payment provider and was not altered on the way in, using a shared secret only the two sides hold. It refuses anything that is not the exact event expected or is in the wrong mode, and refuses a genuine message that was captured and replayed later. It checks the message carries the customer details the rest of the chain needs. And it keeps a memory of every payment already handled, so a repeated delivery, which the provider does send from time to time, stops at the gateway instead of creating a second onboarding record, a second alert, and a second deal move. The internal alerting is rate limited too, so a burst of junk to that address cannot become a burst of internal alerts.
+        Found the same interface-version fault already caught and fixed elsewhere in July: one of its deal-move steps was still calling the older version of the CRM&apos;s interface that this account rejects outright. It had simply never run for real yet, so nothing had exposed it. Fixed, on the current interface the rest of the system already uses, plus retry protection on every outside call this piece makes, since a piece this central failing quietly would ripple everywhere downstream.
         <br><br>
-        Also fixed a quieter gap behind the gateway: a payment that cannot be matched to a deal used to stop with no trace, and now raises a clear &ldquo;handle this one by hand&rdquo; notice. Separately, verified the webhook against the payment provider&apos;s own account rather than the stale internal notes (correctly wired, nothing to change; no live-payment webhook yet, expected in test mode), and re-checked yesterday&apos;s deal-move change against the one payment-side piece already proven end to end, which it matches. The one open item is the end-to-end test I run myself with a test card, which confirms the gateway lets a genuine payment through and settles which signing key belongs to the webhook. Until that runs the gateway refuses messages by design, which is the safe state while there is no real payment traffic.
+        Also closed a real blind spot: one path in this piece, the one that fires when a call transcript comes back qualified, only ever acted on leads from one of the two intake lanes. The other lane&apos;s qualified leads were quietly going nowhere, no record, no alert, nothing. Rather than guess where they should go without knowing the intended stage, added a plain alert instead so someone sees it and can decide, the same &ldquo;flag it rather than guess it&rdquo; approach used on the payment piece earlier this week.
+        <br><br>
+        Separately, came back to yesterday&apos;s payment security work (KS-WF4) to confirm it held. Structurally unchanged and still clean, and checked the payment provider&apos;s own event log directly on top of the piece&apos;s own history, both show nothing has run through it and nothing has been sent to it either, a stronger confirmation than either check alone. Same one open item as before: the end-to-end test I run myself with a test card.
         <br><br>
         <strong>VELOCITY &mdash; PAUSED THIS WEEK:</strong> No new Velocity build work today, by direction &mdash; full attention this week is going to getting the Konsier receptionist and onboarding flow ready to launch. Velocity picks back up once that&apos;s proven out on real traffic.
         <br><br>
@@ -576,6 +578,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 10</div>
         <div class="tl-label">KS-WF4 security gateway built in front of the payment piece &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 11</div>
+        <div class="tl-label">KS-PD-EVENTS dispatcher audited, failing step found &amp; fixed &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1511,6 +1517,22 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 19<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 11<br><small style="color:#475569">Friday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; AUDITED THE CENTRAL EVENT DISPATCHER, A DEAL-MOVE STEP THAT WOULD HAVE FAILED ITS FIRST REAL RUN FOUND AND FIXED (KS-PD-EVENTS):</strong> This is the piece every other piece leans on. The CRM sends a message every time something changes on a deal, a stage moves, a call transcript lands, and this piece is the single thing that receives every one of those messages and hands each to whichever piece is meant to act on it. Every downstream piece in the system depends on this one. It had gone longer without a look than anything else in the build, since early July.
+            <br><br>
+            Went through it step by step. Found the same interface-version fault already caught and fixed elsewhere back in July: one of its deal-move steps was still calling the older version of the CRM&apos;s interface that this account rejects outright. It had never actually run for real, so nothing had exposed it yet. Fixed, moved onto the current interface the rest of the system already uses, and added retry protection on every outside call this piece makes, since a fault in a piece this central would ripple through everything downstream of it.
+            <br><br>
+            Also found a genuine blind spot. One path in this piece, the one that fires when a call transcript comes back qualified, only ever acted on leads from one of the two intake lanes. The other lane&apos;s qualified leads were quietly going nowhere: no record, no alert, no trace. Rather than guess which stage they should move to without knowing the intended destination, added a plain alert instead so a person sees it and can decide, the same &ldquo;flag it rather than guess it&rdquo; approach used on the payment piece earlier this week.
+            <br><br>
+            One thing stays open, the same as it was in July: two of this piece&apos;s branches, for a couple of specific event types, go nowhere, because no one has said yet what should happen when they fire. Left them as they are rather than invent behavior no one asked for. Noted directly on the piece itself so it stays visible.
+            <br><br>
+            Separately, came back to yesterday&apos;s payment security work to confirm it held (KS-WF4). Structurally unchanged and still clean. Checked the payment provider&apos;s own event log directly on top of the piece&apos;s own run history this time, both show nothing has run through it and nothing has even been sent to it, a stronger confirmation than either check gives alone. Same one open item as before: the end-to-end test I run myself with a test card, which is what finally proves the gateway passes a genuine payment and settles which signing key belongs to it.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 19<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1527,6 +1549,8 @@ Also found the investor-tag step was writing to the person record in a format th
   <!-- Tech Discoveries -->
   <div class="discoveries">
     <h3>Technical Discoveries (July&ndash;September 2026)</h3>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 11]</strong> Finding and fixing a fault in one piece does not mean every other piece built on the same pattern got fixed too. The exact same interface-version fault caught in one piece back in July was still sitting untouched in the system&apos;s own central dispatcher two months later, quietly, because that particular piece had never actually run for real and so never got the chance to expose it. Worth treating a fault found once as a signal to check every other piece built the same way, not just the one piece that happened to surface it.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 11]</strong> A piece&apos;s own run history only proves nothing has come through it. It does not prove nothing was ever sent to it, that is a different question with a different answer, and the only way to answer it is to check the other side directly. Here, checking the outside service&apos;s own record confirmed independently that nothing has been sent at all, not just that nothing reached the piece, which rules out a quieter failure mode the internal history alone could never have caught: a message arriving and being silently dropped before it was ever logged. Worth treating &ldquo;zero executions&rdquo; and &ldquo;zero events on the other side&rdquo; as two different checks, not one restated twice.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 10]</strong> A web address that an outside service posts to is a door into the system, and if nothing checks who is knocking, anyone who learns the address can act as that service. Here the address that receives payment notifications trusted whatever it was sent, so a fake &ldquo;payment completed&rdquo; message would have moved a real deal, created an onboarding record, and posted a team alert. The answer is a gateway every message clears before the real work runs: confirm the message is signed with a secret only the real service holds, refuse anything that is not the exact expected event or is stale, and keep a memory of what has already been handled so a repeat delivery cannot be processed twice. Worth putting the same gateway in front of every address another service posts to, not only the payment one.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 10]</strong> A third-party integration your own notes describe as pointed at one address, with one key, can already be correctly wired at the provider under different values entirely &mdash; here the internal record listed an old webhook address and an old signing key, and checking the payment provider&apos;s account directly showed a single live endpoint at exactly the right address, switched on, listening for the right event. The note was just stale. Worth verifying a third-party connection against the provider&apos;s own account before assuming it needs setting up, especially when the internal note about it is more than a couple of months old.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 9]</strong> A workflow can have a dedicated &ldquo;the AI call failed&rdquo; alert branch built right into it and still never reach that branch, if the step feeding it crashes on the exact failure it was meant to catch &mdash; here the parser read a nested field of the AI response directly, so a connection error threw at that step before the failure-check one node downstream ever ran, and the alert built for this case never fired. Worth making any step that classifies a result tolerant of the result being missing entirely, not just malformed, so the handling built for a failure can actually be reached.</div>
@@ -1568,7 +1592,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: September 10, 2026 (Konsier: built a security gateway in front of the payment-to-onboarding piece (KS-WF4) that every payment message has to clear before any downstream work runs. The gateway confirms the message is signed by the payment provider and unaltered (plus a time window against replays), refuses anything that is not the expected event in the right mode, checks it carries the fields the chain needs, and remembers payments already handled so a repeat delivery cannot double-process; the internal alerting is rate limited, and the silent no-match path now raises a clear handle-by-hand notice. Also verified the webhook against the payment provider account directly (correctly wired, nothing to change) and re-checked yesterday\'s deal-move change against the one payment-side piece proven end to end, which it matches. One open item: the test-card checkout I run myself, which confirms the gateway lets a genuine payment through and settles which signing key belongs to the webhook; until then the gateway refuses messages by design, the safe state with no real payment traffic. Prior day (KS-WF4 + KS-A6): first full audits, broken team-alert steps and plain-text keys fixed, failure-alert net wired, deal-move migrated to the current CRM interface, retry added, all re-validated clean.)';
+    if (el) el.textContent = 'Last updated: September 11, 2026 (Konsier: audited the central event dispatcher that every other piece leans on (KS-PD-EVENTS), untouched since early July. Found and fixed a deal-move step still calling an old CRM interface version that this account rejects outright, the exact fault already caught elsewhere in July, just never exposed here because this step had never actually run for real; migrated it and added retry protection across the piece\'s outside calls. Also closed a blind spot where qualified leads from one of two intake lanes were going nowhere with no record, added a plain alert instead of guessing where they should go. Two branches for unspecified event types stay open, noted on the piece itself, nothing invented without direction. Also rechecked yesterday\'s payment security work (KS-WF4): structurally unchanged and clean, checked the payment provider\'s own event log directly this time as well as the piece\'s own history, both show nothing has run or been sent, same one open item as before, the test-card checkout I run myself. Prior day (KS-WF4): built the gateway itself, signature check plus validate-and-dedupe, rate-limited alerting, silent no-match path turned into a handle-by-hand notice, all re-validated clean.)';
   </script>
 </body>
 </html>
