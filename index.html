@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 11</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 14</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,25 +223,25 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 11, 2026</div>
-      <div class="week-badge">Week 19 &middot; Day 102 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 14, 2026</div>
+      <div class="week-badge">Week 20 &middot; Day 105 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 19 &middot; September 11</div>
+      <div class="label">Build Velocity &mdash; Week 20 &middot; September 14</div>
       <div class="message">
-        <strong>KONSIER &mdash; AUDITED THE CENTRAL EVENT DISPATCHER, FOUND A DEAL-MOVE STEP THAT WOULD HAVE FAILED ON ITS FIRST REAL RUN (KS-PD-EVENTS):</strong> This is the piece every other piece leans on. The CRM sends a message every time a deal changes, a stage moves, a call transcript comes in, and this piece is the one thing that receives all of it and hands each event to whichever piece is supposed to act on it. Every downstream piece in the whole system depends on this one working. It had not been looked at since early July, longer than anything else in the build.
+        <strong>KONSIER &mdash; RE-CHECKED THE STALLED-DEAL ALERT AGAINST ITS OWN REAL HISTORY, NOT JUST THE OLD NOTES (KS-A4):</strong> This piece runs every morning and checks the outbound pipeline for any deal that has gone quiet for a week, alerting the team if it finds one. It had not had a real second look since early July, the other piece at the top of that same stale list alongside yesterday&apos;s dispatcher.
         <br><br>
-        Found the same interface-version fault already caught and fixed elsewhere in July: one of its deal-move steps was still calling the older version of the CRM&apos;s interface that this account rejects outright. It had simply never run for real yet, so nothing had exposed it. Fixed, on the current interface the rest of the system already uses, plus retry protection on every outside call this piece makes, since a piece this central failing quietly would ripple everywhere downstream.
+        The automated check flagged four warnings against it, the same four it flagged back in July, each one previously written off as a false alarm. Rather than take that on faith a second time, pulled its actual run history and opened up today&apos;s own real run directly: it had genuinely found one stalled deal, the alert genuinely posted, and the message came back exactly as intended, with every piece of the alert filled in correctly. That settles it with real, same-day evidence instead of a two-month-old assumption. All four warnings confirmed false, again, but confirmed properly this time.
         <br><br>
-        Also closed a real blind spot: one path in this piece, the one that fires when a call transcript comes back qualified, only ever acted on leads from one of the two intake lanes. The other lane&apos;s qualified leads were quietly going nowhere, no record, no alert, nothing. Rather than guess where they should go without knowing the intended stage, added a plain alert instead so someone sees it and can decide, the same &ldquo;flag it rather than guess it&rdquo; approach used on the payment piece earlier this week.
+        The one real gap: neither of its two outside calls, checking the CRM and posting the alert, had any retry protection. Nothing had failed because of it, but it is the same standard protection every other piece in this build already carries, so it went in here too, purely additive, nothing about how the piece behaves changed.
         <br><br>
-        Separately, came back to yesterday&apos;s payment security work (KS-WF4) to confirm it held. Structurally unchanged and still clean, and checked the payment provider&apos;s own event log directly on top of the piece&apos;s own history, both show nothing has run through it and nothing has been sent to it either, a stronger confirmation than either check alone. Same one open item as before: the end-to-end test I run myself with a test card.
+        Also reviewed the social media manager hiring post today: cleaned up a stray formatting issue, made sure the application email was clearly visible instead of buried at the bottom, and started routing the first candidate applications that came in.
         <br><br>
-        <strong>VELOCITY &mdash; PAUSED THIS WEEK:</strong> No new Velocity build work today, by direction &mdash; full attention this week is going to getting the Konsier receptionist and onboarding flow ready to launch. Velocity picks back up once that&apos;s proven out on real traffic.
+        <strong>VELOCITY &mdash; PAUSED THIS WEEK:</strong> No new Velocity build work today, by direction &mdash; full attention continues to go to getting the Konsier receptionist and onboarding flow ready to launch. Velocity picks back up once that&apos;s proven out on real traffic.
         <br><br>
         <span class="warn"> Blocked: <strong>SAM.gov API key (WF-01, currently a placeholder &mdash; blocking the entire GovCon lead pipeline)</strong> &middot; Calendly Zoom location + Fathom/Fireflies decision (Drew decision, message sent Aug 12) &middot; KS-WF-CAL: calendar event-type names + customer-deal open-vs-won + demo-booking deal-creation rule + demo-completed step location (Drew decisions) &middot; KS-WF3 web-form lane: CRM pipeline + stage for website leads + duplicate-submission guard decision + website-level spam protection not yet in place (Drew decisions) &middot; KS-WF2 voice-qualify lane: confirm the AI model version used in the transcript step + the 15-minute no-booking reminder fires regardless of whether the prospect booked (Drew review) &middot; KS-A6 onboarding drafter: the agent-script draft is truncated at the notes-workspace length limit (reviewer sees a cut-off version) + confirm the AI model version + a malformed intake produces a nonsense draft instead of being turned away (Drew review) &middot; KS-A2 tier-routing pipeline destination confirmation (Drew decision) &middot; Segment A enrichment direction (Drew decision) &middot; DocuSign OAuth (Drew 2FA) &middot; Instantly 4 campaign IDs remaining &middot; HeyReach API key &middot; Vimeo &middot; QBO OAuth (Drew must complete) &middot; new receptionist agent voice + name confirmation &middot; reactivation text-message sending tool decision &middot; education platform decision + running-total-vs-delta confirmation (PD-WF-08) &middot; ScoreApp&sol;Skool account connection (WF-09) &middot; HIPAA compliance gate confirmation for the payment workflow &middot; construction-management milestone connection (WF-08) &middot; confirm onboarding stage for completed properties (WF-08) &middot; Zoom&sol;eWebinar + Parallel Markets connections + deck-delivery email tool decision (WF-10) &middot; investor-type document-tool routing rule + attorney-clearance process setup (WF-11) &middot; reactivation campaign gate activation + signed-attestation record-keeping (KS-WF21, Drew decision).</span>
       </div>
@@ -582,6 +582,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 11</div>
         <div class="tl-label">KS-PD-EVENTS dispatcher audited, failing step found &amp; fixed &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 14</div>
+        <div class="tl-label">KS-A4 stalled-deal alert re-checked against real runs, hardened &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1533,6 +1537,20 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 19<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 14<br><small style="color:#475569">Monday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; RE-CHECKED THE STALLED-DEAL ALERT AGAINST ITS OWN REAL RUN HISTORY, NOT JUST THE OLD NOTES (KS-A4):</strong> This piece runs every morning, checks the outbound pipeline for any deal that has gone seven days without activity, and alerts the team if it finds one. It had gone without a real second look since early July, tied with yesterday&apos;s central dispatcher for the longest-untouched piece in the whole build.
+            <br><br>
+            The automated check flagged the same four warnings it flagged back in July, each previously written off as a false alarm on that pass. Rather than accept that conclusion a second time on faith, pulled its actual run history and opened today&apos;s own real run directly: it had genuinely found one stalled deal that morning, the alert had genuinely posted, and the message came back with every part of it filled in correctly. That confirms the four warnings are false alarms with real, same-day evidence, not a two-month-old assumption carried forward unchecked.
+            <br><br>
+            The one real gap: neither of this piece&apos;s two outside calls, checking the CRM and posting the alert, had any retry protection. Nothing had actually failed because of it, but it is the same standard protection already sitting on every other piece in this build, so it went in here too. Purely additive, nothing about how the piece behaves or what it reports changed.
+            <br><br>
+            Also reviewed the social media manager hiring post: fixed a stray formatting issue left over from an earlier edit, moved the application email up so it is clearly visible instead of buried at the bottom, and started routing the first candidate applications that came in.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 20<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1549,6 +1567,8 @@ Also found the investor-tag step was writing to the person record in a format th
   <!-- Tech Discoveries -->
   <div class="discoveries">
     <h3>Technical Discoveries (July&ndash;September 2026)</h3>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 14]</strong> A warning written off as a false alarm once is worth re-proving with fresh evidence the next time it comes up, not just carried forward as settled &mdash; the same four warnings flagged on this piece back in July got the same conclusion again today, but only after pulling its actual run history and opening today&apos;s real run directly, rather than trusting the old note on its own. The conclusion held, but it held because it was checked again, not because it was assumed.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 14]</strong> A scheduled piece reporting &ldquo;success&rdquo; every day only proves the parts that ran, ran fine &mdash; it does not by itself prove the one conditional path inside it, the part that only fires when something specific is found, has ever actually been exercised. Here, confirming the alert genuinely works meant finding a real run where the condition was actually true and checking what happened inside that specific run, not just seeing a green status on the outside.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 11]</strong> Finding and fixing a fault in one piece does not mean every other piece built on the same pattern got fixed too. The exact same interface-version fault caught in one piece back in July was still sitting untouched in the system&apos;s own central dispatcher two months later, quietly, because that particular piece had never actually run for real and so never got the chance to expose it. Worth treating a fault found once as a signal to check every other piece built the same way, not just the one piece that happened to surface it.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 11]</strong> A piece&apos;s own run history only proves nothing has come through it. It does not prove nothing was ever sent to it, that is a different question with a different answer, and the only way to answer it is to check the other side directly. Here, checking the outside service&apos;s own record confirmed independently that nothing has been sent at all, not just that nothing reached the piece, which rules out a quieter failure mode the internal history alone could never have caught: a message arriving and being silently dropped before it was ever logged. Worth treating &ldquo;zero executions&rdquo; and &ldquo;zero events on the other side&rdquo; as two different checks, not one restated twice.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 10]</strong> A web address that an outside service posts to is a door into the system, and if nothing checks who is knocking, anyone who learns the address can act as that service. Here the address that receives payment notifications trusted whatever it was sent, so a fake &ldquo;payment completed&rdquo; message would have moved a real deal, created an onboarding record, and posted a team alert. The answer is a gateway every message clears before the real work runs: confirm the message is signed with a secret only the real service holds, refuse anything that is not the exact expected event or is stale, and keep a memory of what has already been handled so a repeat delivery cannot be processed twice. Worth putting the same gateway in front of every address another service posts to, not only the payment one.</div>
@@ -1592,7 +1612,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: September 11, 2026 (Konsier: audited the central event dispatcher that every other piece leans on (KS-PD-EVENTS), untouched since early July. Found and fixed a deal-move step still calling an old CRM interface version that this account rejects outright, the exact fault already caught elsewhere in July, just never exposed here because this step had never actually run for real; migrated it and added retry protection across the piece\'s outside calls. Also closed a blind spot where qualified leads from one of two intake lanes were going nowhere with no record, added a plain alert instead of guessing where they should go. Two branches for unspecified event types stay open, noted on the piece itself, nothing invented without direction. Also rechecked yesterday\'s payment security work (KS-WF4): structurally unchanged and clean, checked the payment provider\'s own event log directly this time as well as the piece\'s own history, both show nothing has run or been sent, same one open item as before, the test-card checkout I run myself. Prior day (KS-WF4): built the gateway itself, signature check plus validate-and-dedupe, rate-limited alerting, silent no-match path turned into a handle-by-hand notice, all re-validated clean.)';
+    if (el) el.textContent = 'Last updated: September 14, 2026 (Konsier: re-checked the stalled-deal morning alert (KS-A4), untouched since early July, tied with the dispatcher for the longest-stale piece in the build. The automated check flagged the same four warnings from July, previously written off as false alarms; rather than trust that on faith again, pulled the real run history and opened today\'s own actual run, which had genuinely found a stalled deal and posted the alert correctly, confirming all four with fresh same-day evidence instead of a two-month-old assumption. Added retry protection to its two outside calls, the same standard already on every other piece, nothing behavioral changed. Also reviewed the social media manager hiring post today, fixed a formatting issue and moved the application email up top, and started routing the first candidate applications in. Prior day (KS-PD-EVENTS): audited the central event dispatcher every other piece leans on, found and fixed a deal-move step still calling an old CRM interface version this account rejects outright, added retry protection across its outside calls, and closed a blind spot where qualified leads from one of two intake lanes were going nowhere with no record.)';
   </script>
 </body>
 </html>
