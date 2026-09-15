@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 14</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 15</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,23 +223,31 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 14, 2026</div>
-      <div class="week-badge">Week 20 &middot; Day 105 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 15, 2026</div>
+      <div class="week-badge">Week 20 &middot; Day 106 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 20 &middot; September 14</div>
+      <div class="label">Build Velocity &mdash; Week 20 &middot; September 15</div>
       <div class="message">
-        <strong>KONSIER &mdash; RE-CHECKED THE STALLED-DEAL ALERT AGAINST ITS OWN REAL HISTORY, NOT JUST THE OLD NOTES (KS-A4):</strong> This piece runs every morning and checks the outbound pipeline for any deal that has gone quiet for a week, alerting the team if it finds one. It had not had a real second look since early July, the other piece at the top of that same stale list alongside yesterday&apos;s dispatcher.
+        <strong>KONSIER &mdash; AUDITED THE SHARED FAILURE-ALERT PIECE EVERY OTHER PIECE ROUTES INTO, FOUND IT WOULD HAVE FAILED THE ONE TIME IT WAS ACTUALLY NEEDED (KS-ERR):</strong> Every piece in this build that hits a hard failure is meant to hand off to one shared piece, whose only job is posting a clear alert naming which piece failed, where, and why. It had not had a real look since it was first built in mid-May, and had never once actually fired in four months.
         <br><br>
-        The automated check flagged four warnings against it, the same four it flagged back in July, each one previously written off as a false alarm. Rather than take that on faith a second time, pulled its actual run history and opened up today&apos;s own real run directly: it had genuinely found one stalled deal, the alert genuinely posted, and the message came back exactly as intended, with every piece of the alert filled in correctly. That settles it with real, same-day evidence instead of a two-month-old assumption. All four warnings confirmed false, again, but confirmed properly this time.
+        Checked the obvious explanation first: confirmed on several of the pieces that lean on it that they are correctly pointed at it, so it is not a wiring gap, more likely nothing has hard-failed in four months, helped by the retry protection already added everywhere else recently.
         <br><br>
-        The one real gap: neither of its two outside calls, checking the CRM and posting the alert, had any retry protection. Nothing had failed because of it, but it is the same standard protection every other piece in this build already carries, so it went in here too, purely additive, nothing about how the piece behaves changed.
+        But the piece itself had two real problems that would have kept it from doing its job the one time it mattered. Its alert step was missing a required setting, the same class of fault already caught and fixed in more than a dozen other pieces across this build, this time sitting inside the one piece meant to catch every other piece&apos;s failures. Separately, two of the values the alert pulls in to describe which piece failed and where to look had a typo in how they were named, so even past the first problem, the alert message itself would have shown blank details for exactly the two things someone reading it would need most.
         <br><br>
-        Also reviewed the social media manager hiring post today: cleaned up a stray formatting issue, made sure the application email was clearly visible instead of buried at the bottom, and started routing the first candidate applications that came in.
+        Fixed both, then added the same retry protection standard on every other piece in this build, since this Slack step previously had no fallback of its own. Every fix confirmed by reading the piece back afterward, not by trusting the save confirmation alone.
+        <br><br>
+        <strong>KONSIER &mdash; SAME DAY, AUDITED THE CLOSED-WON ONBOARDING HANDOFF, A REAL COMPLIANCE GATE THAT HAD NEVER RUN ONCE (KS-WF4B):</strong> This is the piece that takes over the moment a deal closes: it pulls the client&apos;s details, checks whether their line of work requires a signed compliance agreement before onboarding can continue, and either hands off to the onboarding drafter or holds the deal with an alert until that agreement is confirmed. It had not had a real look since late May, and had never actually run once in its life.
+        <br><br>
+        Found two real problems by reading the piece itself, not from anything the automated check flagged. One value it extracts, the client&apos;s business name, was saved under a name with a stray character baked in, so two places downstream that needed it, the handoff to the next piece and the compliance-hold alert, were reading a name that would not have matched. Being fair to it: a past check on a similar piece found this exact kind of typo sometimes gets silently corrected on its own when the piece actually runs, so this may never have caused a real problem in practice, there is no run history either way to say for certain. Fixed it anyway since there is no downside to doing so.
+        <br><br>
+        The second was a genuine, confirmed issue: one value used a shortcut syntax this system does not support, the same specific mistake already caught and fixed once before on the payment piece. Rewritten in the supported form.
+        <br><br>
+        The compliance-hold alert itself, the one that fires when a client cannot yet be onboarded, had no fallback of its own either, added the same standard protection as everywhere else. One smaller item stayed open, flagged rather than force-fixed: two of this piece&apos;s decision points could use a proper error-handling branch, which is a bigger structural change than a same-day check like this one calls for.
         <br><br>
         <strong>VELOCITY &mdash; PAUSED THIS WEEK:</strong> No new Velocity build work today, by direction &mdash; full attention continues to go to getting the Konsier receptionist and onboarding flow ready to launch. Velocity picks back up once that&apos;s proven out on real traffic.
         <br><br>
@@ -586,6 +594,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 14</div>
         <div class="tl-label">KS-A4 stalled-deal alert re-checked against real runs, hardened &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 15</div>
+        <div class="tl-label">KS-ERR + KS-WF4B audited, 4 real faults fixed &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1551,6 +1563,26 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 20<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 15<br><small style="color:#475569">Tuesday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; AUDITED THE SHARED FAILURE-ALERT PIECE, FOUND IT WOULD HAVE FAILED THE ONE TIME IT WAS ACTUALLY NEEDED (KS-ERR):</strong> Every piece in this build that hits a hard failure is meant to hand off to one shared piece whose only job is posting a clear alert naming which piece failed, where, and why. First real look since it was built in mid-May, and it had never once actually fired in four months.
+            <br><br>
+            Checked the obvious explanation first: confirmed on several of the pieces that lean on it that they are correctly pointed at it, so the wiring itself is fine, more likely nothing has hard-failed in four months given the retry protection already added everywhere else recently.
+            <br><br>
+            But the piece itself had two real problems that would have kept it from doing its job the one time it mattered. Its alert step was missing a required setting, the same class of fault already caught and fixed in more than a dozen other pieces across this build, this time sitting inside the one piece meant to catch every other piece&apos;s failures. Separately, two of the values the alert pulls in to describe which piece failed and where to look had a typo in how they were named, so even past the first problem, the alert message would have shown blank details for exactly the two things someone reading it would need most.
+            <br><br>
+            Fixed both, then added the same retry protection standard already on every other piece in this build, since this Slack step previously had no fallback of its own. Every fix confirmed by reading the piece back afterward, not by trusting the save confirmation alone.
+            <br><br>
+            <strong>SAME DAY &mdash; AUDITED THE CLOSED-WON ONBOARDING HANDOFF, A REAL COMPLIANCE GATE THAT HAD NEVER RUN ONCE (KS-WF4B):</strong> This piece takes over the moment a deal closes: pulls the client&apos;s details, checks whether their line of work requires a signed compliance agreement before onboarding continues, and either hands off to the onboarding drafter or holds the deal with an alert until that agreement is confirmed. No real look since late May, never actually run once.
+            <br><br>
+            Found two real problems by reading the piece itself, not from anything the automated check flagged. The client&apos;s business name was saved under a field name with a stray character baked in, so two downstream steps needing it, the handoff and the compliance-hold alert, were reading a name that would not have matched. Being fair to it: a past check on a similar piece found this exact kind of typo sometimes gets silently corrected on its own when a piece actually runs, so this may never have caused a real problem in practice, there is no run history either way to say for certain. Fixed it anyway since there is no downside to doing so.
+            <br><br>
+            The second was a genuine, confirmed issue: one value used a shortcut syntax this system does not support, the same specific mistake already caught and fixed once before on the payment piece. Rewritten in the supported form. Also added fallback protection to the compliance-hold alert, which had none. One smaller item left open, flagged rather than force-fixed: two of this piece&apos;s decision points could use a proper error-handling branch, a bigger structural change than a same-day check calls for.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 20<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1591,6 +1623,10 @@ Also found the investor-tag step was writing to the person record in a format th
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[July 31]</strong> A monitoring system that tolerates its own data-source failures without complaint isn't being resilient, it's going blind &mdash; a failed connection got silently converted into a perfectly clean, zero-problem reading instead of a flagged unknown, meaning the exact moment something upstream broke was the moment this safety check would have gone quietest instead of loudest. Worth tracing what a monitoring or alerting workflow actually does with a failed fetch, not just whether it keeps running afterward &mdash; "didn't crash" and "correctly reported the problem" are two different outcomes.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 1]</strong> A brand built to stay deliberately anonymous can still leak the one name it&apos;s built around through a script&apos;s fallback line, not its main flow &mdash; the founder&apos;s name only showed up in the sentence an AI receptionist falls back to when it can&apos;t answer something, easy to miss if only the primary script gets reviewed. Worth checking every fallback or edge-case line in a customer-facing script for the same leaks the main flow was already checked for, not just the happy path.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 2]</strong> A duplicate-check can look correct while being completely blind, if it reads the value it searches on from the wrong upstream step &mdash; this one pulled the email address to look up out of a notification step, whose output is the notification&apos;s own send-receipt, not the lead, so it always searched for an empty value and always came back &ldquo;no duplicate.&rdquo; A repeated or re-sent event would have quietly created a second contact, a second deal, and a second outbound call every single time. Worth confirming a dedup check is actually reading the real key it needs from a step that carries it, not just that the check&apos;s own comparison logic is sound.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 15]</strong> A shared piece that has never once fired in four months could mean nothing has ever needed it, or it could mean nothing is actually wired to reach it &mdash; those are two different explanations for the exact same evidence, and only checking the pieces that are supposed to call it can tell them apart. Here, spot-checking several of those pieces confirmed the wiring is genuinely fine, which is what let the real question underneath &mdash; whether the piece itself would even work &mdash; actually get investigated.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 15]</strong> The one piece built specifically to catch every other piece&apos;s failures is not automatically exempt from the same fault classes those other pieces have &mdash; found the exact same missing-setting fault already caught and fixed more than a dozen times elsewhere in this build sitting inside the shared failure-alert piece itself, plus a second, separate typo that would have shown blank details in the one message that mattered most. Worth auditing a safety-net piece against the same checklist used on everything else, not assuming its special purpose makes it special-cased.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 15]</strong> Catching a specific naming mistake once does not settle whether it is actually broken every time it appears again elsewhere &mdash; the identical stray-character typo turned up a second time today on a completely different piece, but a past check on a similar case found this system can silently correct that exact mistake on its own once a piece actually runs for real. With zero run history on this piece either way, the honest answer is genuinely unsettled, not assumed fixed or assumed broken. Worth fixing a free, harmless correction like this regardless of which way the uncertainty resolves, while still saying plainly that it is uncertain.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 15]</strong> A piece that gates a real compliance requirement, not just a routine handoff, going completely unrun for four months is a higher-stakes version of the same &ldquo;never executed means every failure mode is still latent&rdquo; lesson from earlier this month &mdash; the two real problems found here would have surfaced at the exact moment a client needed a signed agreement confirmed before onboarding, not a moment to discover a typo for the first time. Worth prioritizing a never-run piece for review sooner when what it actually gates is compliance-sensitive, not just functional.</div>
   </div>
 
   <!-- Footer -->
@@ -1612,7 +1648,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: September 14, 2026 (Konsier: re-checked the stalled-deal morning alert (KS-A4), untouched since early July, tied with the dispatcher for the longest-stale piece in the build. The automated check flagged the same four warnings from July, previously written off as false alarms; rather than trust that on faith again, pulled the real run history and opened today\'s own actual run, which had genuinely found a stalled deal and posted the alert correctly, confirming all four with fresh same-day evidence instead of a two-month-old assumption. Added retry protection to its two outside calls, the same standard already on every other piece, nothing behavioral changed. Also reviewed the social media manager hiring post today, fixed a formatting issue and moved the application email up top, and started routing the first candidate applications in. Prior day (KS-PD-EVENTS): audited the central event dispatcher every other piece leans on, found and fixed a deal-move step still calling an old CRM interface version this account rejects outright, added retry protection across its outside calls, and closed a blind spot where qualified leads from one of two intake lanes were going nowhere with no record.)';
+    if (el) el.textContent = 'Last updated: September 15, 2026 (Konsier, two pieces audited today. KS-ERR: the shared failure-alert piece every other piece routes into on a hard failure, first real look since mid-May and never once actually fired in four months; found and fixed two real faults that would have kept it from working the one time it mattered (a missing required setting on its alert step, and a naming typo that would have shown blank failure details), added standard retry protection. KS-WF4B: the Closed-Won onboarding handoff and real compliance gate, never run once since late May; found and fixed a naming typo on the client business-name field (honest caveat: may or may not have caused a real problem in practice, no run history either way, fixed regardless since it is harmless) and a genuinely confirmed unsupported-syntax bug on the owner field, plus added fallback protection to its compliance-hold alert. Every fix on both pieces confirmed by reading the saved piece back afterward, not by trusting the save confirmation. Prior day (KS-A4): re-checked the stalled-deal morning alert against its own real run history, untouched since early July; confirmed all four previously-flagged warnings false again with fresh same-day evidence and added retry protection to its two outside calls.)';
   </script>
 </body>
 </html>
