@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 15</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 16</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,16 +223,30 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 15, 2026</div>
-      <div class="week-badge">Week 20 &middot; Day 106 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 16, 2026</div>
+      <div class="week-badge">Week 20 &middot; Day 107 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 20 &middot; September 15</div>
+      <div class="label">Build Velocity &mdash; Week 20 &middot; September 16</div>
       <div class="message">
+        <strong>KONSIER &mdash; AUDITED THE LINKEDIN REPLY-HANDLING PIECE, FOUND IT WOULD HAVE POSTED BROKEN ALERTS AND CREATED DEALS WITH BLANK NAMES (KS-WF5):</strong> This piece watches for LinkedIn connection acceptances and replies coming in through the outreach tool, creates or updates the matching CRM record, and posts a Slack alert either way. No real look since late July, never actually run once.
+        <br><br>
+        Same fault already caught twice this week on other pieces: both of its Slack alert steps were missing a required setting, meaning neither alert would have actually posted.
+        <br><br>
+        Found two more problems by reading the piece itself, not from anything the automated check flagged. The step that creates a new CRM deal for an accepted connection was pulling the lead&apos;s name from the wrong place in the chain, an earlier response instead of the real lead data, which would have produced every deal titled with blank names. The reply alert had the same class of mistake twice over: wrong source for the lead&apos;s name, and it printed the raw reply data instead of the actual message text, so it would have shown as unreadable filler instead of what the person actually said.
+        <br><br>
+        Fixed all four, then added the same retry protection standard already on every other piece in this build, since neither Slack step had any fallback of its own. Every fix confirmed by reading the piece back afterward, not by trusting the save confirmation alone.
+        <br><br>
+        <strong>SAME DAY &mdash; AUDITED THE PRE-CALL CLOSER BRIEFING PIECE, FOUND ACCESS KEYS SITTING IN PLAIN VIEW PLUS A DATA BUG (KS-A4A):</strong> This piece pulls a lead&apos;s Pipedrive record, has an AI writer put together a briefing for Drew a couple hours before a closing call, and posts it to Slack. No real look since late July, never actually run once.
+        <br><br>
+        Found the two outside connections this piece depends on had their access keys sitting in plain view directly inside the piece itself, instead of the separate, locked-down storage every credential is supposed to live in. Moved both into that proper storage, so they no longer appear anywhere in the piece&apos;s own configuration.
+        <br><br>
+        Also found, by reading the piece itself: four of the details it hands to the AI writer, including call volume and business size, were being pulled from the wrong record, a related but different Pipedrive entry than the one holding the real numbers. Every briefing would have shown blank or missing details for exactly the context meant to make it useful. Fixed to pull from the correct record. Same missing-setting fault as the piece above was also sitting on both of this piece&apos;s Slack alerts, fixed the same way, with the same retry protection added.
+        <br><br>
         <strong>KONSIER &mdash; AUDITED THE SHARED FAILURE-ALERT PIECE EVERY OTHER PIECE ROUTES INTO, FOUND IT WOULD HAVE FAILED THE ONE TIME IT WAS ACTUALLY NEEDED (KS-ERR):</strong> Every piece in this build that hits a hard failure is meant to hand off to one shared piece, whose only job is posting a clear alert naming which piece failed, where, and why. It had not had a real look since it was first built in mid-May, and had never once actually fired in four months.
         <br><br>
         Checked the obvious explanation first: confirmed on several of the pieces that lean on it that they are correctly pointed at it, so it is not a wiring gap, more likely nothing has hard-failed in four months, helped by the retry protection already added everywhere else recently.
@@ -598,6 +612,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 15</div>
         <div class="tl-label">KS-ERR + KS-WF4B audited, 4 real faults fixed &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 16</div>
+        <div class="tl-label">KS-WF5 + KS-A4a audited, keys secured &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1583,6 +1601,26 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 20<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 16<br><small style="color:#475569">Wednesday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; AUDITED THE LINKEDIN REPLY-HANDLING PIECE, FOUND IT WOULD HAVE POSTED BROKEN ALERTS AND CREATED DEALS WITH BLANK NAMES (KS-WF5):</strong> This piece watches for LinkedIn connection acceptances and replies coming in through the outreach tool, creates or updates the matching CRM record, and posts a Slack alert either way. No real look since late July, never actually run once.
+            <br><br>
+            Same fault already caught twice this week on other pieces: both of its Slack alert steps were missing a required setting, meaning neither alert would have actually posted.
+            <br><br>
+            Found two more problems by reading the piece itself, not from anything the automated check flagged. The step that creates a new CRM deal for an accepted connection was pulling the lead&apos;s name from the wrong place in the chain, an earlier response instead of the real lead data, which would have produced every deal titled with blank names. The reply alert had the same class of mistake twice over: wrong source for the lead&apos;s name, and it printed the raw reply data instead of the actual message text, so it would have shown as unreadable filler instead of what the person actually said.
+            <br><br>
+            Fixed all four, then added the same retry protection standard already on every other piece in this build, since neither Slack step had any fallback of its own. Every fix confirmed by reading the piece back afterward, not by trusting the save confirmation alone.
+            <br><br>
+            <strong>SAME DAY &mdash; AUDITED THE PRE-CALL CLOSER BRIEFING PIECE, FOUND ACCESS KEYS SITTING IN PLAIN VIEW PLUS A DATA BUG (KS-A4A):</strong> This piece pulls a lead&apos;s Pipedrive record, has an AI writer put together a briefing for Drew a couple hours before a closing call, and posts it to Slack. No real look since late July, never actually run once.
+            <br><br>
+            Found the two outside connections this piece depends on had their access keys sitting in plain view directly inside the piece itself, instead of the separate, locked-down storage every credential is supposed to live in. Moved both into that proper storage, so they no longer appear anywhere in the piece&apos;s own configuration.
+            <br><br>
+            Also found, by reading the piece itself: four of the details it hands to the AI writer, including call volume and business size, were being pulled from the wrong record, a related but different Pipedrive entry than the one holding the real numbers. Every briefing would have shown blank or missing details for exactly the context meant to make it useful. Fixed to pull from the correct record. Same missing-setting fault as the piece above was also sitting on both of this piece&apos;s Slack alerts, fixed the same way, with the same retry protection added.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 20<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1627,6 +1665,8 @@ Also found the investor-tag step was writing to the person record in a format th
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 15]</strong> The one piece built specifically to catch every other piece&apos;s failures is not automatically exempt from the same fault classes those other pieces have &mdash; found the exact same missing-setting fault already caught and fixed more than a dozen times elsewhere in this build sitting inside the shared failure-alert piece itself, plus a second, separate typo that would have shown blank details in the one message that mattered most. Worth auditing a safety-net piece against the same checklist used on everything else, not assuming its special purpose makes it special-cased.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 15]</strong> Catching a specific naming mistake once does not settle whether it is actually broken every time it appears again elsewhere &mdash; the identical stray-character typo turned up a second time today on a completely different piece, but a past check on a similar case found this system can silently correct that exact mistake on its own once a piece actually runs for real. With zero run history on this piece either way, the honest answer is genuinely unsettled, not assumed fixed or assumed broken. Worth fixing a free, harmless correction like this regardless of which way the uncertainty resolves, while still saying plainly that it is uncertain.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 15]</strong> A piece that gates a real compliance requirement, not just a routine handoff, going completely unrun for four months is a higher-stakes version of the same &ldquo;never executed means every failure mode is still latent&rdquo; lesson from earlier this month &mdash; the two real problems found here would have surfaced at the exact moment a client needed a signed agreement confirmed before onboarding, not a moment to discover a typo for the first time. Worth prioritizing a never-run piece for review sooner when what it actually gates is compliance-sensitive, not just functional.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 16]</strong> A piece can pass every automated check and still hand off the wrong data at runtime, if a later step reads from the response of the step right before it instead of the step that actually holds the real information &mdash; the third time this exact shape of mistake has turned up in this build. Here it would have produced customer records with blank names and a chat alert showing raw unreadable data instead of the actual message someone sent. Worth checking every downstream reference points at the step that genuinely produced that value, not just whichever step happens to sit immediately before it in the chain.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 16]</strong> The same wrong-record mistake above turned up a fourth time the same day, in a completely different piece &mdash; a pattern worth actively checking for on every remaining unaudited piece rather than treating each occurrence as isolated. Separately, found real access keys sitting in plain view inside a piece&apos;s own configuration instead of the locked-down storage meant to hold them &mdash; a gap worth checking across every other still-unaudited piece too, not assumed to be a one-off.</div>
   </div>
 
   <!-- Footer -->
