@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 16</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 17</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,17 +223,27 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 16, 2026</div>
-      <div class="week-badge">Week 20 &middot; Day 107 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 17, 2026</div>
+      <div class="week-badge">Week 20 &middot; Day 108 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 20 &middot; September 16</div>
+      <div class="label">Build Velocity &mdash; Week 20 &middot; September 17</div>
       <div class="message">
-        <strong>KONSIER &mdash; AUDITED THE LINKEDIN REPLY-HANDLING PIECE, FOUND IT WOULD HAVE POSTED BROKEN ALERTS AND CREATED DEALS WITH BLANK NAMES (KS-WF5):</strong> This piece watches for LinkedIn connection acceptances and replies coming in through the outreach tool, creates or updates the matching CRM record, and posts a Slack alert either way. No real look since late July, never actually run once.
+        <strong>KONSIER &mdash; AUDITED THE OBJECTION-MINING PIECE, TRACED A SUSPICIOUS &ldquo;NOTHING FOUND&rdquo; PATTERN BACK TO THE REAL SOURCE (KS-A4C):</strong> This piece runs every night, checks for deals lost in the last 24 hours, and has an AI writer build a report on what went wrong so the sales playbook can improve. It had run cleanly every night for two straight weeks, but always finished in a fifth of a second and always reported nothing, which is exactly the kind of "successful but silently doing nothing" shape found twice before in this build.
+        <br><br>
+        Same access-key issue as yesterday&apos;s piece turned up here too, fixed the same way. Same missing Slack setting as well, fixed and hardened the same way.
+        <br><br>
+        The nightly "nothing found" result itself checked out as genuinely correct, not broken. Went straight to the CRM and confirmed directly: what's in there right now is still test data, not real customer leads, and nothing has ever actually been marked lost, so the piece has had nothing real to report every single night, correctly. Nothing to fix here since the logic is sound, just waiting on real pipeline activity, not a build issue.
+        <br><br>
+        <strong>SAME DAY &mdash; AUDITED THE DUNNING RECOVERY PIECE, THE LARGEST SINGLE PIECE CHECKED SO FAR, AND FOUND IT GENUINELY CLEAN (KS-WF18):</strong> This is the piece that watches for failed subscription payments, escalates through three stages as retries fail, and restores a customer to healthy status the moment a payment finally goes through. It's the biggest single piece reviewed yet, and unlike the last several, a full read start to finish turned up none of the recurring mistakes found elsewhere this week, every reference pulls from the right place, every alert is configured correctly, nothing sits exposed in plain view.
+        <br><br>
+        The one real gap: this piece had no connection at all to the shared failure-alert system every other piece routes into, meaning a hard crash here, in logic that decides whether a paying customer gets flagged as at-risk or churned, would have failed completely silently. Wired it in and confirmed the fix actually saved, not just reported as saved.
+        <br><br>
+        <strong>YESTERDAY &mdash; AUDITED THE LINKEDIN REPLY-HANDLING PIECE, FOUND IT WOULD HAVE POSTED BROKEN ALERTS AND CREATED DEALS WITH BLANK NAMES (KS-WF5):</strong> This piece watches for LinkedIn connection acceptances and replies coming in through the outreach tool, creates or updates the matching CRM record, and posts a Slack alert either way. No real look since late July, never actually run once.
         <br><br>
         Same fault already caught twice this week on other pieces: both of its Slack alert steps were missing a required setting, meaning neither alert would have actually posted.
         <br><br>
@@ -616,6 +626,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 16</div>
         <div class="tl-label">KS-WF5 + KS-A4a audited, keys secured &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 17</div>
+        <div class="tl-label">KS-A4c + KS-WF18 audited &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1621,6 +1635,22 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 20<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 17<br><small style="color:#475569">Thursday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; AUDITED THE OBJECTION-MINING PIECE, TRACED A SUSPICIOUS &ldquo;NOTHING FOUND&rdquo; PATTERN BACK TO THE REAL SOURCE (KS-A4C):</strong> This piece runs every night, checks for deals lost in the last 24 hours, and has an AI writer build a report on what went wrong so the sales playbook can improve. It had run cleanly every night for two straight weeks, but always finished in a fifth of a second and always reported nothing, which is exactly the kind of "successful but silently doing nothing" shape found twice before in this build.
+            <br><br>
+            Same access-key issue as yesterday&apos;s piece turned up here too, fixed the same way. Same missing Slack setting as well, fixed and hardened the same way.
+            <br><br>
+            The nightly "nothing found" result itself checked out as genuinely correct, not broken. Went straight to the CRM and confirmed directly: what's in there right now is still test data, not real customer leads, and nothing has ever actually been marked lost, so the piece has had nothing real to report every single night, correctly. Nothing to fix here since the logic is sound, just waiting on real pipeline activity, not a build issue.
+            <br><br>
+            <strong>SAME DAY &mdash; AUDITED THE DUNNING RECOVERY PIECE, THE LARGEST SINGLE PIECE CHECKED SO FAR, AND FOUND IT GENUINELY CLEAN (KS-WF18):</strong> This is the piece that watches for failed subscription payments, escalates through three stages as retries fail, and restores a customer to healthy status the moment a payment finally goes through. It's the biggest single piece reviewed yet, and unlike the last several, a full read start to finish turned up none of the recurring mistakes found elsewhere this week, every reference pulls from the right place, every alert is configured correctly, nothing sits exposed in plain view.
+            <br><br>
+            The one real gap: this piece had no connection at all to the shared failure-alert system every other piece routes into, meaning a hard crash here, in logic that decides whether a paying customer gets flagged as at-risk or churned, would have failed completely silently. Wired it in and confirmed the fix actually saved, not just reported as saved.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 20<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1667,6 +1697,8 @@ Also found the investor-tag step was writing to the person record in a format th
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 15]</strong> A piece that gates a real compliance requirement, not just a routine handoff, going completely unrun for four months is a higher-stakes version of the same &ldquo;never executed means every failure mode is still latent&rdquo; lesson from earlier this month &mdash; the two real problems found here would have surfaced at the exact moment a client needed a signed agreement confirmed before onboarding, not a moment to discover a typo for the first time. Worth prioritizing a never-run piece for review sooner when what it actually gates is compliance-sensitive, not just functional.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 16]</strong> A piece can pass every automated check and still hand off the wrong data at runtime, if a later step reads from the response of the step right before it instead of the step that actually holds the real information &mdash; the third time this exact shape of mistake has turned up in this build. Here it would have produced customer records with blank names and a chat alert showing raw unreadable data instead of the actual message someone sent. Worth checking every downstream reference points at the step that genuinely produced that value, not just whichever step happens to sit immediately before it in the chain.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 16]</strong> The same wrong-record mistake above turned up a fourth time the same day, in a completely different piece &mdash; a pattern worth actively checking for on every remaining unaudited piece rather than treating each occurrence as isolated. Separately, found real access keys sitting in plain view inside a piece&apos;s own configuration instead of the locked-down storage meant to hold them &mdash; a gap worth checking across every other still-unaudited piece too, not assumed to be a one-off.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 17]</strong> A scheduled piece reporting "nothing found" every single night for two straight weeks looked identical to the exact silent-failure shape caught twice before, but this time checking the real underlying system directly showed the piece was right all along, there was genuinely nothing to find. Worth remembering the lesson cuts both ways: a suspiciously quiet result is worth verifying against the real source every time, but verifying can just as often confirm a piece is working correctly as catch it being broken, and both outcomes are only known for certain once actually checked.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 17]</strong> The biggest single piece reviewed so far turned out to be the cleanest, a useful reminder that size and risk of mistakes aren't the same thing; a smaller, hastily-built piece has been a more common source of real problems this week than this one's 35 nodes. The one gap it did have was the same one found repeatedly across nearly every piece in this build: no connection to the shared failure-alert system, worth checking as the default first thing on every remaining piece rather than assuming a clean read means it's also wired for failure visibility.</div>
   </div>
 
   <!-- Footer -->
