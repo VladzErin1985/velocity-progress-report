@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 17</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 18</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,16 +223,34 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 17, 2026</div>
-      <div class="week-badge">Week 20 &middot; Day 108 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 18, 2026</div>
+      <div class="week-badge">Week 20 &middot; Day 109 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 20 &middot; September 17</div>
+      <div class="label">Build Velocity &mdash; Week 20 &middot; September 18</div>
       <div class="message">
+        <strong>KONSIER &mdash; RE-AUDITED THE DAILY OUTBOUND LEAD PIPELINE, A PAST FIX TURNED OUT TO NEVER HAVE ACTUALLY SAVED (KS-WF6):</strong> This is the piece that pulls fresh leads every morning from the outbound lead database, scores them against the ideal customer profile, checks them against everyone already contacted, has an AI writer put together a personalized opening line for each one, and adds the good ones to the cold email tool. A note from early September said its daily summary alert had already been fixed. Pulling the piece fresh today showed that fix was never actually live, the alert was still missing the same required setting, meaning it would have failed every single day this piece actually ran, on top of it never having run for real even once.
+        <br><br>
+        Two more calls in the same piece, the lead-history check and the step that actually adds a contact to the email tool, had no fallback of their own either, added the same retry protection standard everywhere else in this build. The AI writer step got the same protection, since a stalled or failed call there would have silently killed the entire day&apos;s batch with nothing to show for it.
+        <br><br>
+        Rebuilt the daily summary itself. It used to report one raw number and a leftover line claiming the whole thing was still paused waiting on outreach-tool campaign setup, which stopped being true weeks ago once the one live vertical was wired through. Replaced it with a real count at every stage: how many leads came in, how many got filtered out for not having a live campaign yet, how many passed the quality score, how many were new after the duplicate check, and how many actually made it into the email tool.
+        <br><br>
+        Also split the AI writer&apos;s instructions away from the day&apos;s actual lead data inside the same step, so the standing rules for how it should write don&apos;t get retyped and resent with every single contact, cleaner and cheaper to run going forward.
+        <br><br>
+        One change made along the way, bumping a piece to a newer interface version the checker suggested, turned out to not be supported on this account and broke that piece&apos;s connection in the editor. Caught it from a screenshot within minutes and reverted it, confirmed clean afterward.
+        <br><br>
+        <strong>KONSIER &mdash; SAME DAY, AUDITED THE FOUNDER&apos;S WEEKLY BUSINESS BRIEF, FOUND A REAL BLIND SPOT IN ITS OWN REVENUE NUMBERS (KS-A8):</strong> This is the piece that sends Drew his Monday morning summary, real revenue, active customers, churn, and pipeline health pulled straight from the payment processor and CRM, written up by an AI writer. It already runs for real, two clean sends so far.
+        <br><br>
+        Found it had already noticed one of its own data sources can get cut off past a certain size, the subscription count from the payment processor, but never actually said so anywhere the number gets reported. Its CRM data pull has the exact same exposure and had never even been checked for it. Both are harmless today at current scale, but this is the one number in the whole build that decides whether Drew thinks the business is growing, worth having a real warning rather than a silent gap.
+        <br><br>
+        Wired both checks into a warning that shows up right in the alert itself whenever either one gets cut off, not left for the AI writer to remember to mention, since the revenue figure already comes from hard payment data specifically so it never depends on the AI&apos;s judgment.
+        <br><br>
+        One mistake caught along the way: the fix I wrote the first time referenced a piece of data before the step that actually creates it, which would have broken the whole calculation the next time this piece ran. Caught it rereading the change before calling it done, fixed, and confirmed clean.
+        <br><br>
         <strong>KONSIER &mdash; AUDITED THE OBJECTION-MINING PIECE, TRACED A SUSPICIOUS &ldquo;NOTHING FOUND&rdquo; PATTERN BACK TO THE REAL SOURCE (KS-A4C):</strong> This piece runs every night, checks for deals lost in the last 24 hours, and has an AI writer build a report on what went wrong so the sales playbook can improve. It had run cleanly every night for two straight weeks, but always finished in a fifth of a second and always reported nothing, which is exactly the kind of "successful but silently doing nothing" shape found twice before in this build.
         <br><br>
         Same access-key issue as yesterday&apos;s piece turned up here too, fixed the same way. Same missing Slack setting as well, fixed and hardened the same way.
@@ -630,6 +648,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 17</div>
         <div class="tl-label">KS-A4c + KS-WF18 audited &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 18</div>
+        <div class="tl-label">KS-WF6 + KS-A8 audited, real revenue-reporting risk fixed &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1651,6 +1673,30 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 20<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 18<br><small style="color:#475569">Friday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; RE-AUDITED THE DAILY OUTBOUND LEAD PIPELINE, A PAST FIX TURNED OUT TO NEVER HAVE ACTUALLY SAVED (KS-WF6):</strong> This is the piece that pulls fresh leads every morning from the outbound lead database, scores them against the ideal customer profile, checks them against everyone already contacted, has an AI writer put together a personalized opening line for each one, and adds the good ones to the cold email tool. A note from early September said its daily summary alert had already been fixed. Pulling the piece fresh today showed that fix was never actually live, the alert was still missing the same required setting, meaning it would have failed every single day this piece actually ran, on top of it never having run for real even once.
+            <br><br>
+            Two more calls in the same piece, the lead-history check and the step that actually adds a contact to the email tool, had no fallback of their own either, added the same retry protection standard everywhere else in this build. The AI writer step got the same protection, since a stalled or failed call there would have silently killed the entire day&apos;s batch with nothing to show for it.
+            <br><br>
+            Rebuilt the daily summary itself. It used to report one raw number and a leftover line claiming the whole thing was still paused waiting on outreach-tool campaign setup, which stopped being true weeks ago once the one live vertical was wired through. Replaced it with a real count at every stage: how many leads came in, how many got filtered out for not having a live campaign yet, how many passed the quality score, how many were new after the duplicate check, and how many actually made it into the email tool.
+            <br><br>
+            Also split the AI writer&apos;s instructions away from the day&apos;s actual lead data inside the same step, so the standing rules for how it should write don&apos;t get retyped and resent with every single contact, cleaner and cheaper to run going forward.
+            <br><br>
+            One change made along the way, bumping a piece to a newer interface version the checker suggested, turned out to not be supported on this account and broke that piece&apos;s connection in the editor. Caught it from a screenshot within minutes and reverted it, confirmed clean afterward.
+            <br><br>
+            <strong>KONSIER &mdash; SAME DAY, AUDITED THE FOUNDER&apos;S WEEKLY BUSINESS BRIEF, FOUND A REAL BLIND SPOT IN ITS OWN REVENUE NUMBERS (KS-A8):</strong> This is the piece that sends Drew his Monday morning summary, real revenue, active customers, churn, and pipeline health pulled straight from the payment processor and CRM, written up by an AI writer. It already runs for real, two clean sends so far.
+            <br><br>
+            Found it had already noticed one of its own data sources can get cut off past a certain size, the subscription count from the payment processor, but never actually said so anywhere the number gets reported. Its CRM data pull has the exact same exposure and had never even been checked for it. Both are harmless today at current scale, but this is the one number in the whole build that decides whether Drew thinks the business is growing, worth having a real warning rather than a silent gap.
+            <br><br>
+            Wired both checks into a warning that shows up right in the alert itself whenever either one gets cut off, not left for the AI writer to remember to mention, since the revenue figure already comes from hard payment data specifically so it never depends on the AI&apos;s judgment.
+            <br><br>
+            One mistake caught along the way: the fix I wrote the first time referenced a piece of data before the step that actually creates it, which would have broken the whole calculation the next time this piece ran. Caught it rereading the change before calling it done, fixed, and confirmed clean.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 20<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1699,6 +1745,10 @@ Also found the investor-tag step was writing to the person record in a format th
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 16]</strong> The same wrong-record mistake above turned up a fourth time the same day, in a completely different piece &mdash; a pattern worth actively checking for on every remaining unaudited piece rather than treating each occurrence as isolated. Separately, found real access keys sitting in plain view inside a piece&apos;s own configuration instead of the locked-down storage meant to hold them &mdash; a gap worth checking across every other still-unaudited piece too, not assumed to be a one-off.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 17]</strong> A scheduled piece reporting "nothing found" every single night for two straight weeks looked identical to the exact silent-failure shape caught twice before, but this time checking the real underlying system directly showed the piece was right all along, there was genuinely nothing to find. Worth remembering the lesson cuts both ways: a suspiciously quiet result is worth verifying against the real source every time, but verifying can just as often confirm a piece is working correctly as catch it being broken, and both outcomes are only known for certain once actually checked.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 17]</strong> The biggest single piece reviewed so far turned out to be the cleanest, a useful reminder that size and risk of mistakes aren't the same thing; a smaller, hastily-built piece has been a more common source of real problems this week than this one's 35 nodes. The one gap it did have was the same one found repeatedly across nearly every piece in this build: no connection to the shared failure-alert system, worth checking as the default first thing on every remaining piece rather than assuming a clean read means it's also wired for failure visibility.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 18]</strong> A written note that a fix was applied and saved is not proof the fix is still live weeks later &mdash; an alert-posting fix logged as done earlier this month had not actually saved, or had been undone by something since, and only pulling the piece fresh and checking it directly caught that the same failure was still sitting there. Worth treating any past "already fixed" note as a claim to reverify against the live piece, not a settled fact, especially once real time or unrelated edits have passed since it was written.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 18]</strong> A checker suggesting a newer interface version does not mean the account actually supports running it &mdash; bumping one piece to the version it recommended broke that piece's connection in the editor immediately, on an account that has already hit this exact ceiling on other pieces before. Worth checking whether an account has a known version ceiling for a given piece type before applying an update a checker only suggests, not following every suggestion by default.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 18]</strong> A safety check can be built and computed correctly and still do nothing, if the result never actually reaches the message a person reads &mdash; a size-limit warning had been sitting calculated and unused for weeks, quietly proving nothing since nobody ever saw it. Worth checking that a computed warning flag is actually wired into an alert somewhere, not just present in the data.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 18]</strong> Fixing a real gap and introducing a new one can happen in the same edit &mdash; a value referenced before the line that actually defines it would have broken a piece the moment it next ran, caught only by rereading the change itself before calling it finished, not by any automated check. Worth treating a fix that touches multiple lines of the same calculation with the same rereading discipline as everything else, not assuming a small addition is automatically safe.</div>
   </div>
 
   <!-- Footer -->
@@ -1720,7 +1770,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: September 15, 2026 (Konsier, two pieces audited today. KS-ERR: the shared failure-alert piece every other piece routes into on a hard failure, first real look since mid-May and never once actually fired in four months; found and fixed two real faults that would have kept it from working the one time it mattered (a missing required setting on its alert step, and a naming typo that would have shown blank failure details), added standard retry protection. KS-WF4B: the Closed-Won onboarding handoff and real compliance gate, never run once since late May; found and fixed a naming typo on the client business-name field (honest caveat: may or may not have caused a real problem in practice, no run history either way, fixed regardless since it is harmless) and a genuinely confirmed unsupported-syntax bug on the owner field, plus added fallback protection to its compliance-hold alert. Every fix on both pieces confirmed by reading the saved piece back afterward, not by trusting the save confirmation. Prior day (KS-A4): re-checked the stalled-deal morning alert against its own real run history, untouched since early July; confirmed all four previously-flagged warnings false again with fresh same-day evidence and added retry protection to its two outside calls.)';
+    if (el) el.textContent = 'Last updated: September 18, 2026 (Konsier, two pieces audited today. KS-WF6: a note from early September claimed its daily summary alert was already fixed; pulling the piece fresh showed that fix had never actually saved, the same required setting was still missing. Fixed it, added the same retry protection to two more unprotected calls plus the AI writer step, rebuilt the daily summary into a real stage-by-stage count instead of a stale leftover line, and separated the AI writer\'s standing instructions from the day\'s actual lead data inside the same step. One interface-version bump made along the way broke that piece\'s connection in the editor since this account does not support the newer version; caught it immediately from a screenshot and reverted. KS-A8: the founder\'s weekly business brief already detected that one of its data sources can silently get cut off at scale, but never actually surfaced that anywhere the real number gets reported; the CRM data pull had the identical exposure and was never even checked. Wired both into a real warning inside the alert itself. A mistake in my own first fix, referencing a value before it existed, would have broken the calculation on its next run; caught it rereading the change before calling it done.)';
   </script>
 </body>
 </html>
