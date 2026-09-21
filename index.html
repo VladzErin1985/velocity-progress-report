@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 18</title>
+  <title>Velocity Capital Group &mdash; Build Progress Report &mdash; September 21</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -223,16 +223,28 @@
       <div class="subtitle">Project 1: Velocity Capital Group &nbsp;|&nbsp; Project 2: Konsier AI Receptionist &nbsp;&middot;&nbsp; n8n &middot; Pipedrive &middot; Retell AI &middot; Claude AI &middot; Week 16 &middot; Prepared by Vladimir</div>
     </div>
     <div class="header-right">
-      <div class="date-badge">September 18, 2026</div>
-      <div class="week-badge">Week 20 &middot; Day 109 &middot; <span id="last-updated"></span></div>
+      <div class="date-badge">September 21, 2026</div>
+      <div class="week-badge">Week 21 &middot; Day 112 &middot; <span id="last-updated"></span></div>
     </div>
   </div>
 
   <!-- Velocity Banner -->
   <div class="velocity-banner">
     <div>
-      <div class="label">Build Velocity &mdash; Week 20 &middot; September 18</div>
+      <div class="label">Build Velocity &mdash; Week 21 &middot; September 21</div>
       <div class="message">
+        <strong>KONSIER &mdash; AUDITED THE CALL-MINUTES TRACKING PIECE, FOUND THE ACTUAL RECORDING STEP WAS BUILT ON A CONNECTION METHOD ALREADY KNOWN TO FAIL ON THIS ACCOUNT (KS-WF-USAGE):</strong> This is the piece that watches every finished call, adds its minutes to that customer's monthly usage total in the CRM, and sends an alert the moment someone crosses 80% or 100% of their plan. It had never run for real even once.
+        <br><br>
+        The step that actually saves the updated minutes back to the CRM was using an older connection method already proven, on two other pieces earlier in this build, to fail outright on this specific account. Because this piece had never run, that failure had never been caught, meaning the very first real call would have failed to record any usage at all, at the exact moment it mattered.
+        <br><br>
+        Rebuilt that one step onto the newer connection method already confirmed working everywhere else in this build. Confirmed by reading the piece back afterward, not by trusting the save confirmation.
+        <br><br>
+        Everything else about this piece checked out clean: the lookup step that reads current usage already reads the field correctly, the duplicate-call guard is sound, and the shared failure-alert connection was already wired in.
+        <br><br>
+        <strong>SAME DAY &mdash; AUDITED THE MONTHLY USAGE RESET, FOUND THE EXACT SAME BROKEN CONNECTION METHOD ON ITS SIBLING PIECE (KS-WF-METER-RESET):</strong> This is the piece that runs once a month and zeroes every active customer&apos;s minutes-used total back to 0 so the new billing cycle starts clean. Given how directly tied it is to the piece just fixed above, it was checked next for the same problem, and had it: the step that writes the reset value back to the CRM was on that same already-proven-broken connection method. It had never run for real either.
+        <br><br>
+        Its own failure-alert logic is solid and would have correctly reported every customer failing to reset, every single month, but nothing in that alert pointed at the real cause, so it could easily have gone unnoticed indefinitely as a mystery recurring failure. Rebuilt the same step onto the working connection method, confirmed by reading the piece back afterward.
+        <br><br>
         <strong>KONSIER &mdash; RE-AUDITED THE DAILY OUTBOUND LEAD PIPELINE, A PAST FIX TURNED OUT TO NEVER HAVE ACTUALLY SAVED (KS-WF6):</strong> This is the piece that pulls fresh leads every morning from the outbound lead database, scores them against the ideal customer profile, checks them against everyone already contacted, has an AI writer put together a personalized opening line for each one, and adds the good ones to the cold email tool. A note from early September said its daily summary alert had already been fixed. Pulling the piece fresh today showed that fix was never actually live, the alert was still missing the same required setting, meaning it would have failed every single day this piece actually ran, on top of it never having run for real even once.
         <br><br>
         Two more calls in the same piece, the lead-history check and the step that actually adds a contact to the email tool, had no fallback of their own either, added the same retry protection standard everywhere else in this build. The AI writer step got the same protection, since a stalled or failed call there would have silently killed the entire day&apos;s batch with nothing to show for it.
@@ -652,6 +664,10 @@
       <div class="tl-item done">
         <div class="tl-date">September 18</div>
         <div class="tl-label">KS-WF6 + KS-A8 audited, real revenue-reporting risk fixed &#10003;</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">September 21</div>
+        <div class="tl-label">KS-WF-USAGE + KS-WF-METER-RESET audited, same broken connection fixed twice &#10003;</div>
       </div>
       <div class="tl-item orange">
         <div class="tl-date">Next</div>
@@ -1697,6 +1713,24 @@ Also found the investor-tag step was writing to the person record in a format th
           </td>
           <td style="color:#475569; font-size:12px;">Week 20<br>($500 flat)</td>
         </tr>
+        <tr class="done-row">
+          <td>September 21<br><small style="color:#475569">Monday</small><br><small style="color:#475569">3pm&ndash;11pm PHT</small></td>
+          <td>8 hrs</td>
+          <td>
+            <strong>KONSIER &mdash; AUDITED THE CALL-MINUTES TRACKING PIECE, FOUND THE ACTUAL RECORDING STEP WAS BUILT ON A CONNECTION METHOD ALREADY KNOWN TO FAIL ON THIS ACCOUNT (KS-WF-USAGE):</strong> This is the piece that watches every finished call, adds its minutes to that customer&apos;s monthly usage total in the CRM, and sends an alert the moment someone crosses 80% or 100% of their plan. It had never run for real even once.
+            <br><br>
+            The step that actually saves the updated minutes back to the CRM was using an older connection method already proven, on two other pieces earlier in this build, to fail outright on this specific account. Because this piece had never run, that failure had never been caught, meaning the very first real call would have failed to record any usage at all, at the exact moment it mattered.
+            <br><br>
+            Rebuilt that one step onto the newer connection method already confirmed working everywhere else in this build. Confirmed by reading the piece back afterward, not by trusting the save confirmation.
+            <br><br>
+            Everything else about this piece checked out clean: the lookup step that reads current usage already reads the field correctly, the duplicate-call guard is sound, and the shared failure-alert connection was already wired in.
+            <br><br>
+            <strong>SAME DAY &mdash; AUDITED THE MONTHLY USAGE RESET, FOUND THE EXACT SAME BROKEN CONNECTION METHOD ON ITS SIBLING PIECE (KS-WF-METER-RESET):</strong> This is the piece that runs once a month and zeroes every active customer&apos;s minutes-used total back to 0 so the new billing cycle starts clean. Given how directly tied it is to the piece above, it was checked next for the same problem, and had it: the step that writes the reset value back to the CRM was on that same already-proven-broken connection method. It had never run for real either.
+            <br><br>
+            Its own failure-alert logic is solid and would have correctly reported every customer failing to reset, every single month, but nothing in that alert pointed at the real cause, so it could easily have gone unnoticed indefinitely as a mystery recurring failure. Rebuilt the same step onto the working connection method, confirmed by reading the piece back afterward.
+          </td>
+          <td style="color:#475569; font-size:12px;">Week 21<br>($500 flat)</td>
+        </tr>
 
       </tbody>
       <tfoot>
@@ -1749,6 +1783,7 @@ Also found the investor-tag step was writing to the person record in a format th
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 18]</strong> A checker suggesting a newer interface version does not mean the account actually supports running it &mdash; bumping one piece to the version it recommended broke that piece's connection in the editor immediately, on an account that has already hit this exact ceiling on other pieces before. Worth checking whether an account has a known version ceiling for a given piece type before applying an update a checker only suggests, not following every suggestion by default.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 18]</strong> A safety check can be built and computed correctly and still do nothing, if the result never actually reaches the message a person reads &mdash; a size-limit warning had been sitting calculated and unused for weeks, quietly proving nothing since nobody ever saw it. Worth checking that a computed warning flag is actually wired into an alert somewhere, not just present in the data.</div>
     <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 18]</strong> Fixing a real gap and introducing a new one can happen in the same edit &mdash; a value referenced before the line that actually defines it would have broken a piece the moment it next ran, caught only by rereading the change itself before calling it finished, not by any automated check. Worth treating a fix that touches multiple lines of the same calculation with the same rereading discipline as everything else, not assuming a small addition is automatically safe.</div>
+    <div class="discovery-item new"><div class="disc-dot orange"></div><strong>[September 21]</strong> A connection method already proven to fail on a specific account does not fix itself anywhere else it was built the same way &mdash; checking a piece that had never been touched specifically for a fault already caught and fixed twice before elsewhere in this build found the identical fault sitting there too, never triggered only because the piece had never run for real. Worth treating a proven-broken pattern as a checklist item to actively search for across every remaining piece, not just something to fix wherever it happens to be noticed.</div>
   </div>
 
   <!-- Footer -->
@@ -1770,7 +1805,7 @@ Also found the investor-tag step was writing to the person record in a format th
 
   <script>
     const el = document.getElementById('last-updated');
-    if (el) el.textContent = 'Last updated: September 18, 2026 (Konsier, two pieces audited today. KS-WF6: a note from early September claimed its daily summary alert was already fixed; pulling the piece fresh showed that fix had never actually saved, the same required setting was still missing. Fixed it, added the same retry protection to two more unprotected calls plus the AI writer step, rebuilt the daily summary into a real stage-by-stage count instead of a stale leftover line, and separated the AI writer\'s standing instructions from the day\'s actual lead data inside the same step. One interface-version bump made along the way broke that piece\'s connection in the editor since this account does not support the newer version; caught it immediately from a screenshot and reverted. KS-A8: the founder\'s weekly business brief already detected that one of its data sources can silently get cut off at scale, but never actually surfaced that anywhere the real number gets reported; the CRM data pull had the identical exposure and was never even checked. Wired both into a real warning inside the alert itself. A mistake in my own first fix, referencing a value before it existed, would have broken the calculation on its next run; caught it rereading the change before calling it done.)';
+    if (el) el.textContent = 'Last updated: September 21, 2026 (Konsier, audited the call-minutes tracking piece, KS-WF-USAGE. The step that actually saves usage minutes back to the CRM was using an older connection method already proven, on two other pieces earlier in this build, to fail outright on this account. Since this piece had never run for real, that failure had never been caught; the very first real call would have failed to record any usage at all. Rebuilt that step onto the newer connection method already confirmed working everywhere else in this build, confirmed by reading the piece back afterward. Everything else about this piece, the usage lookup, the duplicate-call guard, the shared failure-alert connection, checked out clean.)';
   </script>
 </body>
 </html>
